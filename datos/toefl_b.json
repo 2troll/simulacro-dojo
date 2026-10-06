@@ -1,0 +1,2968 @@
+[
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Excuse me, do you know where the physics laboratory is located?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Yes, I know the physics laboratory.",
+          "It's on the second floor of the science building, right past the library.",
+          "I have a physics class tomorrow morning at nine.",
+          "The laboratory has many modern scientific instruments."
+        ],
+        "a": 1,
+        "e": "La opción correcta responde directamente a la ubicación solicitada, evitando los distractores que solo repiten palabras clave como physics o laboratory."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Could you tell me when the library closes on Friday evenings?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "The library closes at ten o'clock on Fridays.",
+          "Yes, I can tell you about the library.",
+          "Friday evenings are very quiet inside the library.",
+          "You need a student ID to enter the library."
+        ],
+        "a": 0,
+        "e": "La respuesta correcta indica el horario exacto por el que se preguntó, mientras que las demás desvían el tema repitiendo 'library'."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "I left my biology textbook on the reading table in the main hall.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Biology textbooks are quite expensive this semester.",
+          "Did you check the lost and found office near the entrance?",
+          "The reading table is very comfortable for studying.",
+          "I left my notebook there yesterday afternoon."
+        ],
+        "a": 1,
+        "e": "Ante la pérdida de un objeto, ofrecer la solución del objeto perdido (lost and found) es la respuesta lógica y natural."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Is this seat taken by any chance?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "No, it's completely free. Please go ahead and sit down.",
+          "Yes, I take this seat every single day.",
+          "This chance is very good for studying here.",
+          "The seat is made of comfortable wood."
+        ],
+        "a": 0,
+        "e": "La fórmula 'Is this seat taken?' se responde negando si está libre ('No, please go ahead'). Los distractores juegan con sentidos literales de 'take'."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Do you happen to know if Professor Miller extended the essay deadline?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Professor Miller likes giving long essays.",
+          "Yes, she pushed it back to next Monday at noon.",
+          "The essay deadline was very difficult to meet.",
+          "No, I do not happen to know Professor Miller."
+        ],
+        "a": 1,
+        "e": "La pregunta busca confirmar un cambio de fecha; la respuesta correcta da el nuevo plazo exacto evitando trampas de repetición."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "How do I register for the upcoming photography workshop?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "You can sign up online through the student portal.",
+          "Photography is a wonderful artistic hobby.",
+          "The workshop takes place in room 402.",
+          "I registered for the workshop last semester."
+        ],
+        "a": 0,
+        "e": "Se pregunta por el 'cómo' registrarse, por lo que el método online es la respuesta funcional correcta."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Are we required to print out the reading materials for tomorrow's seminar?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Reading materials are available on the course website.",
+          "No, digital copies on your tablet are completely fine.",
+          "Tomorrow's seminar starts at eight in the morning.",
+          "I always print my seminar papers in advance."
+        ],
+        "a": 1,
+        "e": "La pregunta de 'sí o no' (requerimiento de impresión) se resuelve aclarando si basta con el formato digital."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "I am having a bit of trouble accessing the online library archives from home.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "You should try logging in with your student credentials again.",
+          "The library archives contain many historical documents.",
+          "My home is very far from the university campus.",
+          "Online archives are very useful for research papers."
+        ],
+        "a": 0,
+        "e": "Ante un problema técnico de acceso, la respuesta ofrece una solución lógica (usar credenciales), ignorando los distractores temáticos."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "What time does the cafeteria start serving hot breakfast?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Breakfast is the most important meal of the day.",
+          "They begin serving hot food at seven o'clock.",
+          "The cafeteria is located near the student center.",
+          "I usually eat breakfast in my dorm room."
+        ],
+        "a": 1,
+        "e": "Se pregunta por la hora exacta de inicio del servicio, contestada directamente en la opción 1."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Can I submit my history assignment via email instead of paper?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "History assignments must be handed in physically.",
+          "Yes, as long as you send it before midnight.",
+          "Paper is becoming less common in modern classes.",
+          "I sent an email to my history professor today."
+        ],
+        "a": 1,
+        "e": "Responde directamente a la condición de envío por correo electrónico planteada por el estudiante."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Should we include statistical charts in the appendix of our research paper?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Statistical charts make research papers much clearer.",
+          "Yes, put all raw data and charts in the appendix section.",
+          "Our research paper is due at the end of the month.",
+          "The appendix is located at the back of the book."
+        ],
+        "a": 1,
+        "e": "Confirma la instrucción sobre la inclusión de gráficos en el apéndice."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Pardon me, where can I return these borrowed geology books?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Geology books are heavy to carry around.",
+          "You can drop them off at the automated return desk.",
+          "I borrowed a book from the library yesterday.",
+          "The return desk is closed on weekends."
+        ],
+        "a": 1,
+        "e": "Indica el lugar físico exacto para realizar la devolución de los libros."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Would you mind reviewing my lab report before I hand it in?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Lab reports take a long time to write.",
+          "I'd be happy to take a quick look at it after class.",
+          "Handing in lab reports on time is very important.",
+          "My lab partner helped me with the report."
+        ],
+        "a": 1,
+        "e": "Responde de forma cortés y afirmativa a la petición de revisión del compañero."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Is there any possibility of rescheduling my oral presentation for next week?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Oral presentations are worth twenty percent of your grade.",
+          "You will need to discuss that directly with the course coordinator.",
+          "Next week has many scheduled academic events.",
+          "I already completed my presentation successfully."
+        ],
+        "a": 1,
+        "e": "Deriva la petición excepcional a la persona autorizada (el coordinador), evitando distracciones sobre el valor de la presentación."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Do you know if the campus shuttle stops near the stadium?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Yes, the red line drops passengers right outside gate three.",
+          "The stadium hosts many exciting soccer matches.",
+          "Campus shuttle buses run every fifteen minutes.",
+          "I walk to the stadium whenever the weather is nice."
+        ],
+        "a": 0,
+        "e": "Responde afirmativamente y da el detalle de la parada exacta cerca del estadio."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "How many sources are we supposed to cite in our final bibliography?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Bibliographies are usually placed at the very end.",
+          "The syllabus states a minimum of eight academic sources.",
+          "Finding good sources takes a lot of library research.",
+          "I cited six sources in my draft last night."
+        ],
+        "a": 1,
+        "e": "Da la cantidad exacta requerida según el programa de la asignatura (syllabus)."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "What should I do if my student parking permit hasn't arrived in the mail yet?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Parking permits are required in all campus lots.",
+          "You can pick up a temporary pass at the campus security office.",
+          "The mail delivery is usually very fast on campus.",
+          "I parked my car in the main garage this morning."
+        ],
+        "a": 1,
+        "e": "Ofrece una solución práctica (pase temporal en seguridad) ante la ausencia del permiso por correo."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Excuse me, where is the nearest water fountain?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Water is essential for staying hydrated while studying.",
+          "There is one right around the corner next to the elevators.",
+          "I am feeling quite thirsty after my long walk.",
+          "The elevators are currently undergoing routine maintenance."
+        ],
+        "a": 1,
+        "e": "Indica con precisión la ubicación del bebedero solicitado."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Could you help me carry these boxes of recycled paper to the storage room?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Recycled paper helps protect the environment.",
+          "Sure, let me grab the other box and we can walk together.",
+          "The storage room is locked on weekends.",
+          "These boxes are filled with old office documents."
+        ],
+        "a": 1,
+        "e": "Acepta la ayuda de forma natural y colaborativa."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Is there any chance we could postpone the group meeting until Thursday afternoon?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Group meetings are very productive for our projects.",
+          "Thursday works for me, as long as we finish by four.",
+          "Afternoon classes are usually quite crowded.",
+          "I have a meeting scheduled for Wednesday morning."
+        ],
+        "a": 1,
+        "e": "Acepta la propuesta de cambio de día poniendo una condición de horario razonable."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "What time does the computer lab open on Saturday mornings?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "The lab opens at nine o'clock on Saturdays.",
+          "Computers are very helpful for writing essays.",
+          "Saturday mornings are peaceful on campus.",
+          "I need a computer to finish my programming homework."
+        ],
+        "a": 0,
+        "e": "Responde con la hora exacta de apertura sabatina."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Have you decided which elective course you are taking next semester?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Elective courses must be chosen before registration closes.",
+          "I am leaning towards taking environmental science.",
+          "Next semester starts right after winter break.",
+          "Taking extra courses is good for your resume."
+        ],
+        "a": 1,
+        "e": "Responde directamente a la duda sobre qué optativa se va a cursar."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Do you know if the cafeteria offers gluten-free options for lunch?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Gluten-free diets have become very popular recently.",
+          "Yes, they have a dedicated salad bar and special warm dishes.",
+          "Lunch is served from eleven until two o'clock.",
+          "The cafeteria offers many types of healthy food."
+        ],
+        "a": 1,
+        "e": "Confirma la disponibilidad y detalla dónde se encuentran las opciones solicitadas."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Where can I pick up my student identification card?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Identification cards are necessary for library access.",
+          "You can get it at the administrative services desk on the ground floor.",
+          "I picked up my card on the first day of class.",
+          "The administration office is closed on Sundays."
+        ],
+        "a": 1,
+        "e": "Señala la oficina administrativa correcta donde se emiten las credenciales."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Can I use this scanner to digitize several pages of my textbook?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Textbook pages should be handled with care.",
+          "Certainly, just make sure not to exceed copyright limits.",
+          "Scanners are located on the second floor of the library.",
+          "I digitized my notes using a mobile phone app."
+        ],
+        "a": 1,
+        "e": "Autoriza el uso del escáner añadiendo una advertencia legal pertinente."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Would it be possible to get an extension on the architecture design portfolio?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Architecture portfolios require a tremendous amount of detail.",
+          "You need to submit a formal request to the department chair.",
+          "The design portfolio is due at the end of the term.",
+          "I finished my architectural drawings yesterday."
+        ],
+        "a": 1,
+        "e": "Indica el procedimiento formal adecuado para solicitar la extensión del plazo."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "What room is the study group meeting in tonight?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Study groups are very helpful for preparing for exams.",
+          "We booked conference room 3B on the third floor.",
+          "Tonight's meeting starts at seven o'clock.",
+          "I always bring my study notes to meetings."
+        ],
+        "a": 1,
+        "e": "Proporciona el número de sala exacto reservado para el grupo."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Do we need to bring safety goggles to the chemistry lab tomorrow?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Chemistry labs can be hazardous without proper protection.",
+          "Yes, protective goggles are mandatory for all experiments.",
+          "Tomorrow's chemistry experiment involves plant cells.",
+          "I bought my safety goggles at the campus bookstore."
+        ],
+        "a": 1,
+        "e": "Confirma la obligatoriedad de llevar gafas de protección al laboratorio."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Is there a bicycle parking rack near the main auditorium?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Bicycles are a great eco-friendly way to commute.",
+          "Yes, there is a large covered rack right behind the east entrance.",
+          "The main auditorium hosts lectures and concerts.",
+          "I rode my bicycle to campus this morning."
+        ],
+        "a": 1,
+        "e": "Confirma la existencia del aparcabicletas y da su ubicación exacta."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Pardon me, how do I connect to the campus wireless network?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Wireless networks are very fast across campus.",
+          "Select the student Wi-Fi network and log in with your university ID.",
+          "Campus networks are maintained by the IT department.",
+          "I connected my laptop to the internet yesterday."
+        ],
+        "a": 1,
+        "e": "Explica los pasos sencillos para conectarse a la red inalámbrica."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Can anyone recommend a good place to study quietly between classes?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Studying between classes is a good habit.",
+          "The silent study zone on the top floor of the library is ideal.",
+          "Classes are very engaging this semester.",
+          "Places to study are sometimes hard to find."
+        ],
+        "a": 1,
+        "e": "Sugiere un lugar específico y adecuado para el propósito de silencio."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Do you know if the academic advisor is taking appointments this afternoon?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Academic advisors help students plan their degree tracks.",
+          "She has an open office hour from two until four today.",
+          "Afternoon appointments must be booked in advance.",
+          "My advisor gave me great course recommendations."
+        ],
+        "a": 1,
+        "e": "Informa sobre el horario específico de atención sin cita previa (open office hour)."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Where can I buy a parking pass for the semester?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Parking passes are checked by campus security.",
+          "You can purchase one at the parking services office in building C.",
+          "The semester has many weeks left.",
+          "I bought my parking pass last month."
+        ],
+        "a": 1,
+        "e": "Indica la oficina exacta donde se adquieren los pases de estacionamiento."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Should we include charts and graphs in our sociology presentation?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Sociology presentations are usually very interesting.",
+          "Yes, visual data helps explain statistical trends much better.",
+          "Our presentation is scheduled for next Tuesday.",
+          "I created several charts for my project."
+        ],
+        "a": 1,
+        "e": "Responde afirmativamente explicando la utilidad metodológica de los gráficos."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Is there any way to access past exam papers for practice?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Exam papers are very important for studying.",
+          "Professors often upload previous exams to the course portal.",
+          "Practice helps students improve their scores.",
+          "I took an exam yesterday morning."
+        ],
+        "a": 1,
+        "e": "Indica el lugar habitual donde los profesores alojan los exámenes anteriores."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Pardon me, what time does the bookstore close today?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "The bookstore closes at six o'clock this evening.",
+          "Bookstores sell notebooks and textbooks.",
+          "Today is a very busy day on campus.",
+          "I bought a notebook at the bookstore."
+        ],
+        "a": 0,
+        "e": "Da la hora exacta de cierre de la librería."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 2,
+    "audio": "Can I borrow this reference book for overnight use?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Reference books are very useful for research.",
+          "Reference materials must remain in the library, but you can copy chapters.",
+          "Overnight use is permitted for regular novels.",
+          "I borrowed this book last week."
+        ],
+        "a": 1,
+        "e": "Explica la normativa de que los libros de referencia no salen de la biblioteca."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 3,
+    "audio": "Would it be okay if I joined your study group for the midterm exam?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Midterm exams cover a lot of course material.",
+          "We would love to have you join our review sessions.",
+          "Study groups meet in the library every week.",
+          "I am studying for the exam right now."
+        ],
+        "a": 1,
+        "e": "Acepta de forma cordial la incorporación al grupo de estudio."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen and Choose a Response",
+    "lvl": 1,
+    "audio": "Where is the lost and found office located on campus?",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Choose the best response.",
+        "o": [
+          "Lost and found items are kept for thirty days.",
+          "It is located inside the main student center near the information desk.",
+          "I lost my keys somewhere near the cafeteria.",
+          "The student center has a very large food court."
+        ],
+        "a": 1,
+        "e": "Indica la ubicación exacta de la oficina de objetos perdidos."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 1,
+    "audio": "M: Hi, Professor Davis. Do you have a quick moment to talk about my essay topic?\nW: Sure, come on in, Alex. What did you have in mind for your research paper?\nM: Well, I was thinking about writing on the impact of urbanization on local bird populations.\nW: That is a very interesting topic, but it might be a bit too broad for a five-page paper.\nM: Ah, I see. Should I narrow it down to a specific species?\nW: Exactly. For example, you could examine how urban noise affects songbird communication in city parks.\nM: That sounds much more manageable. I will focus on songbirds in urban parks.\nW: Perfect. Make sure to check the ornithology journals in the library for good sources.\nM: I will do that this afternoon. Thanks for the guidance.\nW: You're welcome, Alex. Good luck with your preliminary research.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the primary purpose of the student's visit?",
+        "o": [
+          "To submit a completed essay draft for grading",
+          "To discuss and refine a research essay topic",
+          "To ask for an extension on the final deadline",
+          "To request permission to change course sections"
+        ],
+        "a": 1,
+        "e": "El estudiante acude al inicio para hablar sobre su tema de ensayo (essay topic)."
+      },
+      {
+        "t": "mcq",
+        "q": "What criticism does the professor initially give about the student's topic?",
+        "o": [
+          "It is too complicated to research.",
+          "It has already been studied too much.",
+          "It is too broad for a short paper.",
+          "It lacks sufficient scientific data."
+        ],
+        "a": 2,
+        "e": "La profesora menciona explícitamente que el tema es demasiado amplio ('too broad') para un trabajo de cinco páginas."
+      },
+      {
+        "t": "mcq",
+        "q": "What does the professor suggest the student do next?",
+        "o": [
+          "Change the subject to marine biology",
+          "Look for sources in ornithology journals",
+          "Interview local city planners",
+          "Write an outline before doing research"
+        ],
+        "a": 1,
+        "e": "La profesora le recomienda revisar las revistas de ornitología en la biblioteca."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 2,
+    "audio": "W: Excuse me, I am looking for some assistance with my interlibrary loan request.\nM: I can certainly help you with that. What seems to be the problem?\nW: Well, I submitted a request for a book from another university two weeks ago, and I haven't received any update.\nM: Let me check our system. What is your student ID number?\nW: It's 458-921-30.\nM: Thank you. Looking at your record... Ah, I see the request was delayed because the lending library is currently undergoing inventory.\nW: Oh, I understand. Do you know when normal processing will resume?\nM: According to the notice, they will resume regular shipments next Monday.\nW: That's a relief. Will I be notified via email when the book arrives?\nM: Yes, our automated system sends an email confirmation the moment it is ready for pickup.\nW: Wonderful. Thank you so much for checking on this for me.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Why did the student visit the library staff member?",
+        "o": [
+          "To return an overdue book from another institution",
+          "To check on the status of a delayed interlibrary loan",
+          "To request a new subscription to an academic journal",
+          "To apply for a student library card"
+        ],
+        "a": 1,
+        "e": "La estudiante acude porque su préstamo interbibliotecario lleva dos semanas sin actualización."
+      },
+      {
+        "t": "mcq",
+        "q": "What reason does the staff member give for the delay?",
+        "o": [
+          "The book was checked out by another researcher.",
+          "The lending library is conducting inventory.",
+          "The shipping service lost the package.",
+          "The student's ID number was entered incorrectly."
+        ],
+        "a": 1,
+        "e": "El empleado explica que la biblioteca prestataria está realizando inventario."
+      },
+      {
+        "t": "mcq",
+        "q": "How will the student know when the book is ready?",
+        "o": [
+          "She will receive an automated email.",
+          "She will get a phone call from the front desk.",
+          "Her online account profile will show a green checkmark.",
+          "A notice will be posted on the campus bulletin board."
+        ],
+        "a": 0,
+        "e": "El empleado confirma que el sistema automatizado envía un correo electrónico al estar listo."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 3,
+    "audio": "M: Hello, Professor Harrison. I wanted to ask you a few questions about the upcoming geological field trip.\nW: Of course, David. Is there something about the itinerary you are concerned about?\nM: Well, I noticed that we are scheduled to visit the coastal cliffs on Friday, but the weather forecast predicts heavy rain.\nW: That is a valid concern. Field safety is our absolute priority.\nM: Does that mean we might postpone the excursion?\nW: Not necessarily postpone, but we have a contingency plan. If the weather is severe, we will conduct a lab session analyzing rock core samples instead.\nM: Oh, I see. Will we still visit the cliffs later in the semester if we miss this trip?\nW: Yes, if weather permits, we will reschedule the outdoor portion for the following week.\nM: That sounds like a solid plan. Should we still bring our field notebooks on Friday just in case?\nW: Bring them regardless; we will use them either in the field or during the indoor lab.\nM: Understood. Thanks for clearing that up, Professor.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What prompted the student to speak with the professor?",
+        "o": [
+          "He wanted to change his geological field trip group.",
+          "He was worried about bad weather affecting the Friday trip.",
+          "He needed help collecting rock core samples.",
+          "He missed the deadline to sign up for the excursion."
+        ],
+        "a": 1,
+        "e": "El estudiante menciona que la previsión meteorológica anuncia fuertes lluvias para la visita."
+      },
+      {
+        "t": "mcq",
+        "q": "What will happen if the weather is too severe on Friday?",
+        "o": [
+          "The entire trip will be canceled without makeup work.",
+          "Students will work from home on individual assignments.",
+          "An indoor lab analyzing rock core samples will take place.",
+          "The class will watch a documentary about coastal geology."
+        ],
+        "a": 2,
+        "e": "El profesor indica que realizarán una sesión de laboratorio analizando muestras de núcleos de roca."
+      },
+      {
+        "t": "mcq",
+        "q": "What does the professor instruct students to bring on Friday?",
+        "o": [
+          "Their field notebooks",
+          "Rain gear and sturdy hiking boots",
+          "A packed lunch and water bottle",
+          "Their laptop computers"
+        ],
+        "a": 0,
+        "e": "El profesor aclara que deben traer sus cuadernos de campo (field notebooks) sin importar si se realiza la salida o la sesión de laboratorio."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 1,
+    "audio": "W: Hi, I'd like to sign up for a student parking pass for the fall semester.\nM: I can certainly help you with that. Are you a resident student or a commuter?\nW: I live in Elm Hall on campus.\nM: Okay, resident students are eligible for Zone B parking lots near the dormitories.\nW: Is that lot very far from the science building?\nM: It's about a five-minute walk across the central quad.\nW: That's not bad at all. What documents do I need to provide?\nM: Just your student ID, your vehicle registration, and a valid driver's license.\nW: I have all of those right here in my bag.\nM: Excellent. Fill out this short form, and I'll issue your permit right away.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What type of parking pass is the student eligible for?",
+        "o": [
+          "Zone A near the stadium",
+          "Zone B near the dormitories",
+          "Zone C near the administrative offices",
+          "Visitor parking near the library"
+        ],
+        "a": 1,
+        "e": "Al ser estudiante residente, le corresponden los lotes de la Zona B cerca de las residencias."
+      },
+      {
+        "t": "mcq",
+        "q": "How long is the walk from the parking lot to the science building?",
+        "o": [
+          "About two minutes",
+          "About five minutes",
+          "About ten minutes",
+          "About fifteen minutes"
+        ],
+        "a": 1,
+        "e": "El empleado menciona explícitamente que son unos cinco minutos a pie."
+      },
+      {
+        "t": "mcq",
+        "q": "What must the student do next to receive her permit?",
+        "o": [
+          "Pay a fee online",
+          "Fill out a short form",
+          "Wait for approval by email",
+          "Inspect her vehicle in the lot"
+        ],
+        "a": 1,
+        "e": "El empleado le pide que rellene un breve formulario para emitir el permiso de inmediato."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 2,
+    "audio": "M: Excuse me, Dr. Evans. Do you have a few minutes to discuss my grade on the recent mid-term exam?\nW: Hello, Lucas. Come on in. I always have time to review exams with students.\nM: I was a bit surprised by my score on the essay portion. I thought I covered all the key points.\nW: Let me pull up your paper on my screen. Ah, yes. Your historical analysis was quite accurate, but you missed the central prompt regarding economic factors.\nM: Oh! I focused almost entirely on political changes instead of the economy.\nW: Exactly. Your writing is strong, but you need to answer every part of the multi-part question.\nM: That makes sense. Is there any way to recover points through extra credit?\nW: I don't offer extra credit, but you can apply this feedback to the final research paper to improve your overall grade.\nM: I appreciate the advice. I'll make sure to analyze the economic data carefully next time.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Why is the student meeting with the professor?",
+        "o": [
+          "To request an extension on his research paper",
+          "To discuss his grade and feedback on the mid-term exam",
+          "To ask for extra credit assignments",
+          "To challenge a multiple-choice question score"
+        ],
+        "a": 1,
+        "e": "El estudiante acude a revisar su nota y comentarios del examen parcial."
+      },
+      {
+        "t": "mcq",
+        "q": "What main error did the student make on the exam essay?",
+        "o": [
+          "He forgot to cite his historical sources.",
+          "He focused on political changes instead of economic factors.",
+          "He wrote fewer than the required number of pages.",
+          "He misunderstood the chronological timeline."
+        ],
+        "a": 1,
+        "e": "La profesora señala que se centró en la política en lugar de los factores económicos requeridos."
+      },
+      {
+        "t": "mcq",
+        "q": "How does the professor suggest the student can improve his overall standing?",
+        "o": [
+          "By completing an extra credit project",
+          "By retaking the mid-term exam next week",
+          "By applying the feedback to the final research paper",
+          "By attending additional tutoring sessions"
+        ],
+        "a": 2,
+        "e": "La profesora le anima a aplicar los comentarios recibidos en el próximo trabajo de investigación."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 3,
+    "audio": "W: Hi, Mark. I'm stopping by because I'm having trouble with the reservation system for the media production studio.\nM: Oh, hello, Sarah. What kind of error message are you encountering when you log in?\nW: It keeps telling me my account lacks the proper security clearance to book the editing suites.\nM: That's strange. As a senior communications major, your clearance should be automatic.\nW: That's what I thought. Could it be because I updated my student ID last week?\nM: Actually, yes! When your ID card is reissued, your digital credentials have to be manually synced in the studio database.\nW: Ah, I see. Can you fix that for me right now?\nM: I can initiate the sync process from my terminal, but it takes about twenty minutes to update across the network.\nW: That's no problem at all. I have a lecture to attend right now anyway.\nM: Perfect. By the time your class ends, you should be able to book the editing suite without any issues.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What problem is the student experiencing?",
+        "o": [
+          "She cannot access the media production studio because of a clearance error.",
+          "She lost her newly updated student identification card.",
+          "She forgot her password to the campus computer network.",
+          "She missed the deadline to reserve an editing suite."
+        ],
+        "a": 0,
+        "e": "La estudiante indica que su cuenta carece de la autorización de seguridad adecuada."
+      },
+      {
+        "t": "mcq",
+        "q": "What caused the technical issue?",
+        "o": [
+          "The studio database was temporarily offline for maintenance.",
+          "Her student status changed from senior to junior.",
+          "Her newly reissued ID card required a manual digital sync.",
+          "She tried to book a room reserved for faculty members."
+        ],
+        "a": 2,
+        "e": "Mark explica que al renovar el carné la semana pasada, las credenciales digitales deben sincronizarse."
+      },
+      {
+        "t": "mcq",
+        "q": "When will the student be able to make her reservation?",
+        "o": [
+          "Immediately while standing at the desk",
+          "After her lecture finishes in about twenty minutes",
+          "Tomorrow morning after system reboot",
+          "Next week after her security clearance is approved"
+        ],
+        "a": 1,
+        "e": "El proceso tarda unos veinte minutos, coincidiendo con el final de su conferencia."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 1,
+    "audio": "M: Good morning. I'm interested in joining the campus photography club.\nW: Welcome! We're always excited to welcome new members. Have you taken any photography classes?\nM: Yes, I took an introductory digital photography course last semester.\nN: That's great. We hold our weekly meetings every Tuesday evening in the student union.\nM: What kinds of activities do the club members usually participate in?\nW: We organize weekend photo walks, guest lectures from professional photographers, and an annual campus gallery exhibition.\nM: An annual exhibition sounds amazing. Is there a membership fee to join?\nW: There's a small twenty-dollar fee that covers printing supplies and guest speaker travel costs.\nM: That sounds very reasonable. How do I sign up?\nW: Just fill out this registration slip and pay the fee at the treasurer's desk.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the student interested in doing?",
+        "o": [
+          "Registering for an introductory photography class",
+          "Joining the campus photography club",
+          "Submitting photos for the annual gallery exhibition",
+          "Applying for a job as a guest speaker coordinator"
+        ],
+        "a": 1,
+        "e": "El estudiante expresa su interés en unirse al club de fotografía del campus."
+      },
+      {
+        "t": "mcq",
+        "q": "What does the membership fee cover?",
+        "o": [
+          "Camera equipment rentals and lens repairs",
+          "Printing supplies and guest speaker travel costs",
+          "Admission tickets to local art museums",
+          "Refreshments at the weekly Tuesday meetings"
+        ],
+        "a": 1,
+        "e": "La cuota cubre suministros de impresión y costes de viaje de los ponentes invitados."
+      },
+      {
+        "t": "mcq",
+        "q": "Where does the club hold its weekly meetings?",
+        "o": [
+          "In the library conference room",
+          "In the student union building",
+          "In the photography laboratory",
+          "In the art gallery auditorium"
+        ],
+        "a": 1,
+        "e": "Las reuniones semanales se celebran en el sindicato de estudiantes (student union)."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 2,
+    "audio": "W: Excuse me, Dr. Miller. I was wondering if I could get some guidance on selecting my internship placement for the summer.\nM: Hello, Claire. Of course. Have you looked through the list of approved corporate partners?\nW: Yes, I have, but I'm torn between working at an environmental consulting firm and a municipal urban planning office.\nM: Both are excellent options, but they offer quite different daily experiences. What are your long-term career goals?\nW: I eventually want to design sustainable public transit systems for growing cities.\nM: In that case, the municipal urban planning office would give you direct exposure to public policy and city infrastructure projects.\nW: That makes a lot of sense. Do urban planning interns also get to work on field data collection?\nM: Yes, they frequently assist urban geographers with traffic and commuter surveys.\nW: That seals it. I will apply for the urban planning position today.\nM: Excellent choice, Claire. Let me know if you need help polishing your resume.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the main topic of conversation?",
+        "o": [
+          "Choosing a summer internship placement",
+          "Selecting elective courses for graduation",
+          "Applying for a graduate school program",
+          "Finding a job after graduation"
+        ],
+        "a": 0,
+        "e": "La estudiante busca orientación sobre la selección de su pasantía de verano."
+      },
+      {
+        "t": "mcq",
+        "q": "What are the student's long-term career goals?",
+        "o": [
+          "To work as an environmental lawyer",
+          "To design sustainable public transit systems",
+          "To conduct academic research on bird populations",
+          "To manage corporate office sustainability programs"
+        ],
+        "a": 1,
+        "e": "Ella menciona su meta a largo plazo de diseñar sistemas de transporte público sostenible."
+      },
+      {
+        "t": "mcq",
+        "q": "Why does the professor recommend the municipal urban planning office?",
+        "o": [
+          "It pays a higher stipend than consulting firms.",
+          "It offers direct exposure to public policy and city infrastructure.",
+          "It requires less paperwork and fewer field surveys.",
+          "It is located closer to the university campus."
+        ],
+        "a": 1,
+        "e": "El profesor destaca que ofrece exposición directa a políticas públicas e infraestructuras de la ciudad."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 3,
+    "audio": "M: Hi, Professor Vance. Do you have a minute to discuss the data analysis section of our group laboratory report?\nW: Hello, Thomas. Come in. Your group turned in some fascinating temperature data from the geothermal project.\nM: Thanks! However, our group is debating how to represent the anomaly we found in sector four.\nW: What kind of anomaly are you seeing in that specific sector?\nM: The subsurface temperatures were significantly higher than expected, but we aren't sure if it's due to instrument calibration error or actual thermal activity.\nW: That is a classic dilemma in field geophysics. Did you cross-reference your sensor readings with the secondary backup probes?\nW: We checked the backup probes, and they recorded the exact same temperature spike.\nW: Then you can safely rule out instrument malfunction. You are likely looking at localized hydrothermal circulation.\nM: Wow, that's incredible! Should we include a hypothesis about hydrothermal activity in our discussion section?\nW: Absolutely. Acknowledge the anomaly, present the backup sensor data as validation, and propose hydrothermal circulation as a subject for future study.\nM: That gives our report a really strong conclusion. Thanks for your expert insight.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Why is the student meeting with Professor Vance?",
+        "o": [
+          "To report a broken sensor in the geothermal laboratory",
+          "To discuss how to interpret an unexpected data anomaly in their report",
+          "To ask for an extension on the group laboratory project",
+          "To request permission to change lab partners"
+        ],
+        "a": 1,
+        "e": "El estudiante acude para debatir cómo representar una anomalía de temperatura encontrada en su proyecto."
+      },
+      {
+        "t": "mcq",
+        "q": "How did the students rule out instrument error?",
+        "o": [
+          "By recalibrating the main sensor equipment",
+          "By checking the secondary backup probes which showed the same data",
+          "By consulting previous research papers from the library",
+          "By repeating the experiment in sector three"
+        ],
+        "a": 1,
+        "e": "Verificaron que las sondas de respaldo registraron exactamente el mismo pico de temperatura."
+      },
+      {
+        "t": "mcq",
+        "q": "What does the professor suggest the students include in their discussion section?",
+        "o": [
+          "A warning about faulty temperature sensors",
+          "A proposal for hydrothermal circulation as a subject for future study",
+          "An apology for inaccurate field measurements",
+          "A request for new geothermal equipment"
+        ],
+        "a": 1,
+        "e": "El profesor sugiere proponer la circulación hidrotermal como tema de futuro estudio."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 1,
+    "audio": "W: Good afternoon. I need to report that my student identification card is missing.\nM: I'm sorry to hear that. Have you checked everywhere you might have left it?\nW: Yes, I searched my dorm room and checked the library, but I can't find it anywhere.\nM: Okay, we'll need to deactivate your old card immediately for security reasons.\nW: Will I lose access to my residence hall and meal plan?\nN: Temporarily, yes, until a replacement is printed.\nW: How much does a replacement card cost?\nM: There is a fifteen-dollar replacement fee charged to your student account.\nW: That's fine. How long does it take to print a new one?\nM: Just a few minutes right here at this window.\nW: Great, let's go ahead and get a new one made.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What problem does the student report?",
+        "o": [
+          "She lost her student identification card.",
+          "She forgot her dormitory room key inside.",
+          "Her meal plan account balance is incorrect.",
+          "Her library book was checked out by someone else."
+        ],
+        "a": 0,
+        "e": "La estudiante informa de que su tarjeta de identificación de estudiante ha desaparecido."
+      },
+      {
+        "t": "mcq",
+        "q": "What action does the staff member take first for security reasons?",
+        "o": [
+          "Refunds her meal plan balance",
+          "Deactivates her old card immediately",
+          "Calls campus security to search the library",
+          "Freezes her bank account linked to tuition"
+        ],
+        "a": 1,
+        "e": "El empleado desactiva la tarjeta antigua inmediatamente por motivos de seguridad."
+      },
+      {
+        "t": "mcq",
+        "q": "How much is the replacement fee?",
+        "o": [
+          "Five dollars",
+          "Ten dollars",
+          "Fifteen dollars",
+          "Twenty dollars"
+        ],
+        "a": 2,
+        "e": "El coste de reposición es de quince dólares."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 2,
+    "audio": "M: Hi, Ms. Lopez. I'm writing a paper for my art history course on Renaissance paintings, and I need help finding primary source letters.\nW: Hello, Liam. You've come to the right place. Our special collections archive has several collections of artist correspondence.\nM: That's wonderful! Are those letters available to view online through the library portal?\nW: Some digitized letters are online, but the most delicate handwritten manuscripts must be viewed in our secure reading room.\nM: Do I need to make an appointment in advance to use the reading room?\nW: Yes, because of preservation guidelines, we require twenty-four hours notice to retrieve fragile documents.\nM: I understand completely. Can I schedule an appointment for Thursday afternoon?\nW: Let me check the calendar... Thursday at two o'clock is completely open. I'll reserve a desk for you.\nM: Thank you so much. Do I need to bring anything special with me?\nW: Just a pencil and your student ID. Pens and bags are not permitted in the archives.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the student looking for in the library archives?",
+        "o": [
+          "Paintings by Renaissance artists",
+          "Primary source letters and artist correspondence",
+          "Secondary textbooks on art history",
+          "Digital photographs of museum exhibits"
+        ],
+        "a": 1,
+        "e": "El estudiante busca cartas de fuentes primarias y correspondencia de artistas."
+      },
+      {
+        "t": "mcq",
+        "q": "Why must the delicate manuscripts be viewed in the secure reading room?",
+        "o": [
+          "Because they are extremely valuable and fragile",
+          "Because they have not been cataloged in the computer yet",
+          "Because copyright laws forbid digital scanning",
+          "Because the online portal is currently undergoing repairs"
+        ],
+        "a": 0,
+        "e": "Debido a las directrices de conservación para documentos delicados y frágiles."
+      },
+      {
+        "t": "mcq",
+        "q": "What rule does the archivist mention about the reading room?",
+        "o": [
+          "Laptops and tablets are strictly prohibited.",
+          "Visitors must wear white cotton gloves.",
+          "Pens and bags are not permitted inside.",
+          "Photography with smartphones is encouraged."
+        ],
+        "a": 2,
+        "e": "La archivera especifica que las plumas/bolígrafos y las bolsas no están permitidos en el archivo."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 3,
+    "audio": "W: Good morning, Dr. Carson. I wanted to consult with you about my proposal for the undergraduate research symposium.\nW: Come in, Chloe. I read your abstract on microplastic accumulation in freshwater ecosystems.\nM: Thank you! I was hoping to get your feedback on whether the methodology is robust enough for a presentation.\nW: Your sampling technique using plankton nets is solid, but your chemical analysis section lacks sufficient replication.\nM: Ah, because we only tested water samples from three locations along the river?\nW: Exactly. Three sampling sites give a preliminary picture, but reviewers at the symposium will look for statistically significant sample sizes across at least six locations.\nM: We can easily add three more sampling sites this weekend before the submission deadline.\nW: If you can manage that quick turnaround and run the spectroscopy tests in time, it will significantly strengthen your presentation.\nM: We will coordinate with the lab assistants today to expand our collection sites. Thanks for catching that flaw.\nW: You're welcome, Chloe. Rigorous data collection is the backbone of any good scientific presentation.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the student's research proposal about?",
+        "o": [
+          "Microplastic accumulation in freshwater ecosystems",
+          "Water pollution levels in municipal reservoirs",
+          "Plankton population decline in coastal bays",
+          "Spectroscopy analysis of industrial chemical waste"
+        ],
+        "a": 0,
+        "e": "La estudiante presenta una propuesta sobre la acumulación de microplásticos en ecosistemas de agua dulce."
+      },
+      {
+        "t": "mcq",
+        "q": "What criticism does Dr. Carson give regarding the methodology?",
+        "o": [
+          "The plankton nets are outdated for microplastic collection.",
+          "The chemical analysis lacks sufficient replication across locations.",
+          "The water samples were collected at the wrong time of day.",
+          "The spectroscopy tests require specialized computer software."
+        ],
+        "a": 1,
+        "e": "El profesor señala que la sección de análisis químico carece de suficiente replicación de ubicaciones."
+      },
+      {
+        "t": "mcq",
+        "q": "How do the students plan to resolve the issue?",
+        "o": [
+          "By postponing their symposium presentation until next year",
+          "By adding three more sampling sites over the weekend",
+          "By reducing the scope of their chemical analysis",
+          "By switching to secondary data from previous studies"
+        ],
+        "a": 1,
+        "e": "Planean añadir tres sitios de muestreo más durante el fin de semana."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 1,
+    "audio": "M: Hi, I'd like to check out some books for my sociology research paper.\nW: Sure, let me see your student ID card.\nM: Here it is. I need these three books on urban communities.\nW: Let's see... These can be checked out for three weeks, and you can renew them online twice if needed.\nM: That's great. Is there a limit on how many books I can borrow at one time?\nW: Undergraduate students can borrow up to twenty books simultaneously.\nM: Twenty books is more than enough for my project!\nW: Just remember that reserve books for classes have much shorter loan periods.\nM: I understand. I only have regular circulating books today.\nW: Perfect. They are all scanned and ready to go in your bag.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "How long can undergraduate students keep the borrowed books?",
+        "o": [
+          "One week",
+          "Two weeks",
+          "Three weeks",
+          "Four weeks"
+        ],
+        "a": 2,
+        "e": "La empleada indica que los libros se pueden retirar por tres semanas (three weeks)."
+      },
+      {
+        "t": "mcq",
+        "q": "What is the maximum number of books an undergraduate can borrow at once?",
+        "o": [
+          "Ten books",
+          "Fifteen books",
+          "Twenty books",
+          "Twenty-five books"
+        ],
+        "a": 2,
+        "e": "El límite para estudiantes de grado es de hasta veinte libros simultáneamente."
+      },
+      {
+        "t": "mcq",
+        "q": "What warning does the library staff member give about reserve books?",
+        "o": [
+          "They cannot leave the library building.",
+          "They have much shorter loan periods.",
+          "They require special faculty approval.",
+          "They incur a high daily overdue fine."
+        ],
+        "a": 1,
+        "e": "Advierte que los libros de reserva tienen periodos de préstamo mucho más cortos."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to a Conversation",
+    "lvl": 2,
+    "audio": "W: Good afternoon. I have a question about my campus housing contract for the spring semester.\nM: Hello! I can help you with housing inquiries. What is your question?\nW: I am planning to study abroad during the spring term, so I need to know how to cancel my dorm contract without penalty.\nM: Ah, study abroad programs are a valid university-approved reason for contract termination.\nW: Oh, wonderful! What paperwork do I need to submit?\nM: You will need to provide the official study abroad acceptance letter from the international programs office along with a housing cancellation form.\nW: I already have my acceptance letter right here in my folder.\nM: Perfect. Fill out the termination form on our housing portal and upload that PDF letter before the December first deadline.\nW: December first, got it. Will my housing deposit be refunded in full?\nM: Yes, because you are participating in an approved academic program, your deposit will be fully returned.\nW: That is such a relief. Thank you for your help.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Why does the student need to cancel her housing contract?",
+        "o": [
+          "She is moving off campus into an apartment.",
+          "She is participating in an approved study abroad program.",
+          "She is taking a semester off for personal reasons.",
+          "She is transferring to another university."
+        ],
+        "a": 1,
+        "e": "La estudiante participará en un programa de estudios en el extranjero durante la primavera."
+      },
+      {
+        "t": "mcq",
+        "q": "What documents must she submit to cancel without penalty?",
+        "o": [
+          "A medical doctor's note and a tuition receipt",
+          "An official study abroad acceptance letter and a cancellation form",
+          "A letter of recommendation from her academic advisor",
+          "Proof of off-campus apartment lease agreement"
+        ],
+        "a": 1,
+        "e": "Debe presentar la carta oficial de aceptación de estudios en el extranjero y el formulario de cancelación."
+      },
+      {
+        "t": "mcq",
+        "q": "What will happen to her housing deposit?",
+        "o": [
+          "It will be kept as a cancellation fee.",
+          "It will be donated to the library fund.",
+          "It will be fully refunded because the program is approved.",
+          "It will be applied toward her tuition balance."
+        ],
+        "a": 2,
+        "e": "Su depósito será reembolsado íntegramente por tratarse de un programa académico aprobado."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 1,
+    "audio": "Attention all students, please note that the main university library will observe modified operating hours this coming weekend due to scheduled electrical maintenance. On Saturday and Sunday, the building will open at ten in the morning and close early at six in the evening. Automated online library services, including digital journal access and e-book downloads, will remain fully functional throughout the weekend without interruption. Regular twenty-four-hour study hall access will resume on Monday morning. We apologize for any inconvenience this may cause to your weekend study schedules.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Why will the library have modified operating hours this weekend?",
+        "o": [
+          "To celebrate a campus holiday festival",
+          "Due to scheduled electrical maintenance work",
+          "Because of a severe weather warning",
+          "To conduct staff training workshops"
+        ],
+        "a": 1,
+        "e": "El anuncio indica explícitamente que se debe a trabajos de mantenimiento eléctrico programado."
+      },
+      {
+        "t": "mcq",
+        "q": "Which library services will remain available without interruption?",
+        "o": [
+          "Printing and binding equipment",
+          "Automated online services and e-books",
+          "In-person reference desk consultations",
+          "Physical book check-out desks"
+        ],
+        "a": 1,
+        "e": "Los servicios en línea automatizados y libros electrónicos seguirán funcionando sin interrupción."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 2,
+    "audio": "Attention students and faculty. The Department of Environmental Sciences is excited to host our annual guest lecture series this Thursday evening in the main auditorium. Our keynote speaker, Dr. Elena Rostova, will present her recent research on marine ecosystem restoration and coral reef preservation in tropical waters. The lecture will begin promptly at seven o'clock, followed by a brief question-and-answer session and an informal reception in the lobby. Admission is entirely free and open to all members of the university community. Seating in the auditorium is available on a first-come, first-served basis, so we encourage everyone to arrive a few minutes early to secure a good seat.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the topic of Dr. Rostova's keynote lecture?",
+        "o": [
+          "Urban air pollution control strategies",
+          "Marine ecosystem restoration and coral reef preservation",
+          "Geothermal energy generation in volcanic regions",
+          "Renewable wind power technology development"
+        ],
+        "a": 1,
+        "e": "La conferencia trata sobre la restauración de ecosistemas marinos y la preservación de arrecifes de coral."
+      },
+      {
+        "t": "mcq",
+        "q": "What recommendation does the announcement give regarding seating?",
+        "o": [
+          "Students must register online in advance.",
+          "Faculty members have reserved front-row seats.",
+          "Attendees should arrive early because seating is first-come, first-served.",
+          "Admission tickets must be purchased at the door."
+        ],
+        "a": 2,
+        "e": "Se aconseja llegar temprano ya que los asientos se asignan por orden de llegada (first-come, first-served)."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 3,
+    "audio": "Attention campus community. Please be advised that the annual campus-wide sustainability audit will take place next Tuesday. Representatives from the environmental committee will inspect energy consumption, recycling compliance, and waste management practices in all academic buildings, residence halls, and administrative offices. All departments are kindly requested to ensure that electronic devices are fully powered down at the end of the workday on Monday, and that recyclable materials are properly sorted into designated green bins. Your active cooperation is essential in helping our university achieve its carbon neutrality goals for the upcoming academic year.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What event is scheduled to take place next Tuesday?",
+        "o": [
+          "A university-wide electrical power outage",
+          "An inspection for the annual campus sustainability audit",
+          "A student-led environmental protest rally",
+          "A workshop on recycling techniques for faculty"
+        ],
+        "a": 1,
+        "e": "El anuncio especifica que tendrá lugar la auditoría anual de sostenibilidad en todo el campus."
+      },
+      {
+        "t": "mcq",
+        "q": "What are departments asked to do by the end of the workday on Monday?",
+        "o": [
+          "Lock all office doors and windows securely",
+          "Power down all electronic devices completely",
+          "Empty all recycling bins into outdoor dumpsters",
+          "Submit energy consumption reports in writing"
+        ],
+        "a": 1,
+        "e": "Se solicita apagar por completo todos los dispositivos electrónicos al final de la jornada del lunes."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 1,
+    "audio": "Attention all students living in campus residence halls. The annual spring room inspection will be conducted by housing staff this coming Wednesday between nine in the morning and four in the afternoon. Students are not required to be present during the inspection of their rooms, provided that common walkways and fire safety exits are clear of obstruction. Housing staff will check basic room conditions and test smoke detectors. Any maintenance issues discovered during these checks will be automatically logged for repair. Thank you for your cooperation in keeping our residential spaces safe and clean.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "When will the annual spring room inspections take place?",
+        "o": [
+          "This coming Monday morning",
+          "This coming Wednesday during the day",
+          "Next weekend starting Friday evening",
+          "At the end of the semester"
+        ],
+        "a": 1,
+        "e": "Las inspecciones se llevarán a cabo este próximo miércoles entre las nueve y las cuatro."
+      },
+      {
+        "t": "mcq",
+        "q": "What is required of students during the inspection?",
+        "o": [
+          "They must be present in their rooms at all times.",
+          "They must clear common walkways and fire safety exits.",
+          "They must clean the windows and vacuum carpets.",
+          "They must submit a written inventory of personal items."
+        ],
+        "a": 1,
+        "e": "Se requiere que los pasillos comunes y las salidas de emergencia estén libres de obstrucciones."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 2,
+    "audio": "Attention undergraduate researchers. The deadline for submitting abstracts for the upcoming annual student research symposium has been officially extended by one week. The new submission deadline is Friday at midnight. This extension applies to all academic categories, including the sciences, humanities, and social sciences. Abstracts must be uploaded directly through the student portal as a PDF document following the formatting guidelines posted on the symposium website. Students whose abstracts are accepted will be notified by email early next month. Do not miss this opportunity to showcase your academic work.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What change has been made regarding the research symposium?",
+        "o": [
+          "The event location has been moved to the main auditorium.",
+          "The abstract submission deadline has been extended by one week.",
+          "Registration fees for student presenters have been waived.",
+          "The symposium dates have been postponed until next semester."
+        ],
+        "a": 1,
+        "e": "El plazo de presentación de resúmenes se ha prorrogado oficialmente una semana."
+      },
+      {
+        "t": "mcq",
+        "q": "How should students submit their abstracts?",
+        "o": [
+          "By mailing printed copies to the department office",
+          "By emailing them directly to the symposium coordinator",
+          "By uploading a PDF document through the student portal",
+          "By handing them in at the library front desk"
+        ],
+        "a": 2,
+        "e": "Los resúmenes deben cargarse directamente a través del portal del estudiante como documento PDF."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 3,
+    "audio": "Attention campus community. Please note that the north campus parking lot will be temporarily closed starting this Friday evening for resurfacing and line painting. All vehicles currently parked in the north lot must be relocated to the main stadium parking structure by six o'clock Friday evening to avoid being towed at the owner's expense. Normal parking access to the north lot will resume on Monday morning at seven o'clock. Campus security will be stationed near the entrance to assist drivers with alternative parking directions. We appreciate your patience as we improve our campus infrastructure.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "Why is the north campus parking lot closing temporarily?",
+        "o": [
+          "To host a large outdoor student festival",
+          "For resurfacing and line painting work",
+          "To serve as a staging area for construction equipment",
+          "Due to safety concerns following a storm"
+        ],
+        "a": 1,
+        "e": "El aparcamiento cierra temporalmente para trabajos de reasfaltado y pintura de líneas."
+      },
+      {
+        "t": "mcq",
+        "q": "Where should vehicles be relocated by Friday evening?",
+        "o": [
+          "To the underground library garage",
+          "To the main stadium parking structure",
+          "To the visitor lot near the administration building",
+          "To the residential dorm parking spaces"
+        ],
+        "a": 1,
+        "e": "Los vehículos deben trasladarse a la estructura de estacionamiento del estadio principal."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 1,
+    "audio": "Attention students using the campus computer laboratories. Routine system maintenance is scheduled for this Saturday between midnight and six in the morning. During this maintenance window, all laboratory desktop computers will be rebooted, and network servers will be temporarily offline. Students working on assignments are strongly advised to save their work frequently and back up all files to cloud storage before the maintenance period begins. All systems are expected to be fully operational by Saturday morning when the laboratories open for regular weekend hours. Thank you for your cooperation.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What will happen during Saturday's maintenance window?",
+        "o": [
+          "Computers will be upgraded with new graphics cards.",
+          "Laboratory desktop computers will be rebooted and servers offline.",
+          "Computer laboratories will be closed for the entire weekend.",
+          "Printing services will be permanently discontinued."
+        ],
+        "a": 1,
+        "e": "Los ordenadores de sobremesa se reiniciarán y los servidores de red estarán desconectados temporalmente."
+      },
+      {
+        "t": "mcq",
+        "q": "What advice is given to students working on assignments?",
+        "o": [
+          "Print out physical copies of all documents.",
+          "Save work frequently and back up files to cloud storage.",
+          "Log out of all academic software accounts.",
+          "Turn off laboratory monitors before leaving."
+        ],
+        "a": 1,
+        "e": "Se aconseja guardar el trabajo con frecuencia y realizar copias de seguridad en la nube."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 2,
+    "audio": "Attention all campus cyclists. As part of our ongoing campus green mobility initiative, several new secure bicycle parking shelters have been installed near the science building and the student union. These covered shelters feature electronic key-card access locks and security cameras to prevent bicycle theft. To use the new shelters, students must register their bicycle registration numbers at the campus security office to activate their student ID cards for gate access. Use of the traditional outdoor racks remains free for all visitors without registration. We encourage all cycling students to take advantage of these enhanced security facilities.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What new facility has been installed on campus?",
+        "o": [
+          "Electric vehicle charging stations",
+          "Secure bicycle parking shelters with electronic locks",
+          "Covered pedestrian walkways between dormitories",
+          "Outdoor storage lockers for athletic gear"
+        ],
+        "a": 1,
+        "e": "Se han instalado nuevos cobertizos seguros para bicicletas con cerraduras electrónicas."
+      },
+      {
+        "t": "mcq",
+        "q": "What must students do to use the new bicycle shelters?",
+        "o": [
+          "Pay a monthly storage fee at the cashier's office",
+          "Register their bicycle numbers at the security office",
+          "Submit a written application to the environmental club",
+          "Park their bicycles only during weekend hours"
+        ],
+        "a": 1,
+        "e": "Deben registrar los números de sus bicicletas en la oficina de seguridad."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 3,
+    "audio": "Attention university community. The university archives department is launching a special historical preservation project and is seeking donations of student photographs, event programs, and campus memorabilia from past decades. If you or your family members have historical artifacts from your time studying at this institution, please consider contributing them to our digital heritage collection. Donated physical items will be professionally scanned and archived, and original materials can either be permanently preserved in our climate-controlled vault or returned to the donor. For more information on how to contribute, please visit the university archives website.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the purpose of the university archives project?",
+        "o": [
+          "To raise funds for building a new historical museum",
+          "To collect student photographs and memorabilia for preservation",
+          "To audit historical academic records and grade transcripts",
+          "To exhibit rare books from foreign libraries"
+        ],
+        "a": 1,
+        "e": "El proyecto busca recopilar fotografías de estudiantes y recuerdos para su conservación digital y física."
+      },
+      {
+        "t": "mcq",
+        "q": "What happens to original physical items donated to the archive?",
+        "o": [
+          "They are auctioned off to support student scholarships.",
+          "They are permanently displayed in the cafeteria lobby.",
+          "They are scanned and can either be preserved or returned to the donor.",
+          "They are stored in outdoor facilities for public viewing."
+        ],
+        "a": 2,
+        "e": "Los elementos físicos se escanean y se pueden conservar en la cámara acorazada o devolverse al donante."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Announcement",
+    "lvl": 1,
+    "audio": "Attention all students, the career services center is hosting a resume-building workshop this Thursday afternoon at four o'clock in room 204 of the student services building. Professional career advisors will provide practical tips on highlighting academic projects, formatting employment history, and tailoring resumes for internship applications. Attendees are encouraged to bring a printed copy of their current resume for personalized feedback during the second half of the session. Space in the workshop room is limited, so please sign up online through the student career portal in advance to guarantee your spot.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What event is the career services center hosting?",
+        "o": [
+          "A large corporate recruitment job fair",
+          "A resume-building workshop with professional advisors",
+          "A seminar on interview negotiation tactics",
+          "A networking lunch for graduating seniors"
+        ],
+        "a": 1,
+        "e": "El centro de servicios de carrera organiza un taller de creación de currículums (resume-building workshop)."
+      },
+      {
+        "t": "mcq",
+        "q": "What are attendees encouraged to bring with them?",
+        "o": [
+          "A printed copy of their current resume",
+          "A laptop computer and charger",
+          "Official academic transcripts",
+          "Business cards for networking"
+        ],
+        "a": 0,
+        "e": "Se anima a los asistentes a llevar una copia impresa de su currículum actual para recibir comentarios."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 1,
+    "audio": "Listen to part of a lecture in an environmental science class.\nToday we are going to discuss the fascinating concept of urban heat islands. An urban heat island refers to a metropolitan area that is significantly warmer than its surrounding rural areas due to human activities. This temperature difference develops because cities are packed with asphalt, concrete, and brick structures. These construction materials absorb and retain solar radiation during the day and then release that heat slowly throughout the night. In contrast, rural areas feature more vegetation and soil, which cool the air through natural plant transpiration and moisture evaporation. Furthermore, human activities such as operating motor vehicles, industrial machinery, and residential air conditioning systems generate substantial waste heat that warms the urban atmosphere even further. City planners are now combating this effect by incorporating green roofs, planting more shade trees, and using reflective cool paving materials to lower urban temperatures.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the primary focus of the lecture?",
+        "o": [
+          "The migration of animal species to rural environments",
+          "The phenomenon known as urban heat islands",
+          "The construction of energy-efficient rural housing",
+          "The history of architectural materials in modern cities"
+        ],
+        "a": 1,
+        "e": "La conferencia se centra en el concepto de las islas de calor urbanas (urban heat islands)."
+      },
+      {
+        "t": "mcq",
+        "q": "Why do metropolitan areas become warmer than rural areas?",
+        "o": [
+          "Because tall skyscrapers block cold winter winds",
+          "Because construction materials absorb solar radiation and release heat",
+          "Because underground volcanic activity warms city soil",
+          "Because rural areas have higher industrial factory density"
+        ],
+        "a": 1,
+        "e": "Los materiales de construcción como el asfalto y el hormigón absorben la radiación solar y liberan calor."
+      },
+      {
+        "t": "mcq",
+        "q": "How do rural areas help cool the surrounding air naturally?",
+        "o": [
+          "Through high-speed wind currents across open fields",
+          "Through plant transpiration and moisture evaporation from soil",
+          "Through the heavy shadow cast by tall agricultural crops",
+          "Through underground water irrigation channels"
+        ],
+        "a": 1,
+        "e": "Las zonas rurales se enfrían de forma natural mediante la transpiración vegetal y la evaporación de la humedad."
+      },
+      {
+        "t": "mcq",
+        "q": "What solution are city planners using to combat the urban heat island effect?",
+        "o": [
+          "Building underground transit systems",
+          "Installing green roofs and planting shade trees",
+          "Painting all residential buildings white",
+          "Restricting industrial machinery operations during summer"
+        ],
+        "a": 1,
+        "e": "Los planificadores urbanos incorporan cubiertas vegetales (green roofs) y árboles de sombra."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 2,
+    "audio": "Listen to part of a lecture in an archaeology class.\nToday we will examine how archaeologists use obsidian hydration dating to determine the age of ancient stone tools and artifacts. Obsidian is a natural volcanic glass that prehistoric humans widely used to manufacture sharp cutting tools, arrowheads, and blades. When an obsidian artifact is freshly chipped or manufactured, its newly exposed surface immediately begins absorbing microscopic moisture from the surrounding environment. Over hundreds or thousands of years, this absorbed water forms a distinct hydration layer beneath the surface of the glass. Because this hydration layer grows at a predictable, measurable rate over time, scientists can measure its thickness using specialized optical microscopes. By calculating the thickness of the hydration rind, archaeologists can estimate the exact time when the artifact was originally shaped by human hands. However, this dating method requires careful calibration because hydration rates vary significantly depending on local soil temperature and regional climate conditions.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is obsidian and how was it used by prehistoric humans?",
+        "o": [
+          "A soft clay used for making pottery vessels",
+          "A natural volcanic glass used to manufacture cutting tools",
+          "A mineral pigment used in cave paintings",
+          "A heavy metal used for constructing shelters"
+        ],
+        "a": 1,
+        "e": "La obsidiana es un vidrio volcánico natural utilizado para fabricar herramientas de corte."
+      },
+      {
+        "t": "mcq",
+        "q": "What happens when an obsidian artifact is manufactured?",
+        "o": [
+          "It begins absorbing moisture to form a hydration layer.",
+          "It reacts with oxygen to form a hard metallic crust.",
+          "It loses its structural color and turns white.",
+          "It attracts magnetic particles from surrounding soil."
+        ],
+        "a": 0,
+        "e": "La superficie expuesta comienza a absorber humedad formando una capa de hidratación."
+      },
+      {
+        "t": "mcq",
+        "q": "How do scientists determine the age of the obsidian artifact?",
+        "o": [
+          "By analyzing carbon isotopes trapped inside the stone",
+          "By measuring the thickness of the microscopic hydration layer",
+          "By testing the magnetic polarity of the volcanic glass",
+          "By comparing the weight of the tool to similar artifacts"
+        ],
+        "a": 1,
+        "e": "Los científicos miden el grosor de la capa de hidratación microscópica con microscopios ópticos."
+      },
+      {
+        "t": "mcq",
+        "q": "Why does obsidian hydration dating require careful calibration?",
+        "o": [
+          "Because volcanic glass changes chemical composition over time",
+          "Because hydration rates vary depending on temperature and climate",
+          "Because prehistoric humans polished the stones differently",
+          "Because modern air pollution damages microscopic layers"
+        ],
+        "a": 1,
+        "e": "Las tasas de hidratación varían significativamente según la temperatura del suelo y el clima."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 3,
+    "audio": "Listen to part of a lecture in a marine biology class.\nToday we explore the remarkable physiological adaptations that allow marine mammals, such as Weddell seals, to perform prolonged deep-diving maneuvers without oxygen. When diving deep underwater, these mammals face two major physiological challenges: extreme hydrostatic pressure and severe oxygen depletion. To survive these conditions, marine mammals exhibit a specialized reflex called the mammalian dive response. Upon submergence, their heart rate drops dramatically, sometimes to just a tenth of its normal resting rate, and peripheral blood vessels constrict sharply. This selective vasoconstriction redirects oxygen-rich blood away from non-essential muscles and organs, reserving the limited oxygen supply exclusively for the brain and heart. Furthermore, their muscles contain extraordinarily high concentrations of myoglobin, an oxygen-binding protein that stores oxygen directly in muscle tissue. Unlike land mammals, seals can also collapse their lungs safely under high pressure, preventing nitrogen gas from dissolving into their bloodstream and avoiding the dangerous condition known as the bends.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What primary challenges do deep-diving marine mammals face?",
+        "o": [
+          "Extreme ocean currents and freezing water temperatures",
+          "Hydrostatic pressure and severe oxygen depletion",
+          "High concentrations of toxic marine algae",
+          "Limited visibility and underwater noise pollution"
+        ],
+        "a": 1,
+        "e": "Enfrentan presión hidrostática extrema y una severa disminución de oxígeno."
+      },
+      {
+        "t": "mcq",
+        "q": "What happens during the mammalian dive response?",
+        "o": [
+          "Heart rate drops dramatically and blood vessels constrict",
+          "Lung capacity expands to store extra air bubbles",
+          "Metabolic rate increases to generate body heat",
+          "Blood circulation stops completely throughout the body"
+        ],
+        "a": 0,
+        "e": "La frecuencia cardíaca disminuye drásticamente y los vasos sanguíneos periféricos se contraen."
+      },
+      {
+        "t": "mcq",
+        "q": "What is the function of myoglobin in marine mammals?",
+        "o": [
+          "It protects blood cells from high water pressure.",
+          "It stores oxygen directly within the muscle tissue.",
+          "It filters nitrogen gas out of the bloodstream.",
+          "It regulates body temperature in cold deep waters."
+        ],
+        "a": 1,
+        "e": "La mioglobina es una proteína fijadora de oxígeno que almacena oxígeno directamente en el tejido muscular."
+      },
+      {
+        "t": "mcq",
+        "q": "Why do seals collapse their lungs during deep dives?",
+        "o": [
+          "To reduce their overall body buoyancy",
+          "To prevent nitrogen gas from dissolving into their bloodstream",
+          "To force trapped air into their brain tissues",
+          "To conserve energy while swimming against currents"
+        ],
+        "a": 1,
+        "e": "Colapsar los pulmones evita que el gas nitrógeno se disuelva en el torrente sanguíneo."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 1,
+    "audio": "Listen to part of a lecture in a botany class.\nToday we will discuss how plants communicate and defend themselves against herbivores using volatile organic compounds. When an insect, such as a caterpillar, begins chewing on a plant's leaves, the plant does not simply remain passive. Instead, it releases specific chemical signals into the air known as volatile organic compounds. These airborne chemicals serve multiple defensive functions. First, they can act as a direct deterrent, making the leaves unpalatable to attacking pests. Second, and perhaps most remarkably, these volatile compounds act as distress signals that travel across the air to neighboring plants, warning them of impending herbivore attacks. Upon receiving these chemical warnings, neighboring plants proactively activate their own internal defense mechanisms, such as producing bitter chemical toxins before the insects even arrive. Furthermore, these scented signals can attract predatory wasps, which hunt the caterpillars, providing indirect biological defense for the plant.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "How do plants respond when insects begin chewing their leaves?",
+        "o": [
+          "They drop all their leaves to starve the insects.",
+          "They release volatile organic compounds into the air.",
+          "They emit high-frequency sound waves to scare pests away.",
+          "They absorb moisture from the surrounding soil rapidly."
+        ],
+        "a": 1,
+        "e": "Liberan compuestos orgánicos volátiles al aire como respuesta al ataque de los insectos."
+      },
+      {
+        "t": "mcq",
+        "q": "What function do airborne volatile compounds serve for neighboring plants?",
+        "o": [
+          "They stimulate faster vertical growth towards sunlight.",
+          "They act as distress signals warning of herbivore attacks.",
+          "They provide extra nutrients absorbed through the bark.",
+          "They block sunlight from reaching attacking insects."
+        ],
+        "a": 1,
+        "e": "Sirven como señales de socorro que advierten a las plantas vecinas sobre ataques de herbívoros."
+      },
+      {
+        "t": "mcq",
+        "q": "How do neighboring plants react upon receiving these chemical warnings?",
+        "o": [
+          "They wilt their leaves to hide from pests.",
+          "They proactively activate internal defenses like bitter toxins.",
+          "They release sticky resin to trap incoming insects.",
+          "They accelerate flowering to complete their reproductive cycle."
+        ],
+        "a": 1,
+        "e": "Activan proactivamente mecanismos de defensa internos como toxinas amargas."
+      },
+      {
+        "t": "mcq",
+        "q": "What is an example of indirect biological defense mentioned in the lecture?",
+        "o": [
+          "Attracting predatory wasps that hunt caterpillars",
+          "Growing sharp thorns along the main stem",
+          "Absorbing parasitic fungi from the soil",
+          "Producing sweet nectar to distract herbivores"
+        ],
+        "a": 0,
+        "e": "Atrayendo avispas depredadoras que cazan a las orugas."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 2,
+    "audio": "Listen to part of a lecture in an astronomy class.\nToday we will examine the life cycle of stars and focus specifically on how white dwarfs evolve. A white dwarf represents the evolutionary endpoint of low-to-medium-mass stars, roughly similar in mass to our Sun. Once such a star exhausts the hydrogen fuel in its core, it expands into a red giant before eventually shedding its outer atmospheric layers into space, forming a glowing planetary nebula. What remains behind is an extremely dense, Earth-sized stellar core composed primarily of degenerate carbon and oxygen. Although a white dwarf contains about as much mass as our Sun packed into the volume of our planet, it possesses no internal nuclear fusion reactions to generate energy. Instead, it simply radiates away its residual thermal energy into space over billions of years, slowly cooling down and dimming until it eventually fades into a cold, dark black dwarf.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is a white dwarf in stellar evolution?",
+        "o": [
+          "The initial stage of massive star formation",
+          "The dense core remnant of a low-to-medium-mass star",
+          "A massive black hole located at the center of a galaxy",
+          "A young star surrounded by planetary dust rings"
+        ],
+        "a": 1,
+        "e": "Un enano blanco representa el remanente del núcleo denso de una estrella de masa baja a media."
+      },
+      {
+        "t": "mcq",
+        "q": "What happens before a star transforms into a white dwarf?",
+        "o": [
+          "It explodes instantly in a massive supernova.",
+          "It expands into a red giant and sheds its outer layers.",
+          "It collides with neighboring interstellar gas clouds.",
+          "It converts all its carbon into heavy iron metals."
+        ],
+        "a": 1,
+        "e": "Se expande convirtiéndose en una gigante roja antes de desprender sus capas atmosféricas externas."
+      },
+      {
+        "t": "mcq",
+        "q": "What is the approximate physical size of a typical white dwarf?",
+        "o": [
+          "The size of the Moon",
+          "The size of planet Earth",
+          "The size of our Sun",
+          "The size of a giant gas planet like Jupiter"
+        ],
+        "a": 1,
+        "e": "Tiene aproximadamente el tamaño físico del planeta Tierra."
+      },
+      {
+        "t": "mcq",
+        "q": "How does a white dwarf generate its light and heat?",
+        "o": [
+          "Through active nuclear fusion of hydrogen in its core",
+          "By radiating away its residual thermal energy into space",
+          "Through gravitational friction with orbiting planets",
+          "By absorbing radiation from nearby massive stars"
+        ],
+        "a": 1,
+        "e": "Irradia hacia el espacio su energía térmica residual acumulada durante miles de millones de años."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 3,
+    "audio": "Listen to part of a lecture in a geology class.\nToday we will discuss the geological mechanics of continental drift and focus on paleomagnetism as primary evidence for plate tectonics. Paleomagnetism is the study of the record of Earth's magnetic field preserved in magnetic minerals within volcanic rocks. When molten basaltic lava cools and solidifies at mid-ocean ridges, iron-bearing minerals, such as magnetite, align themselves parallel to the direction of Earth's magnetic field at that exact moment in geological time. Once the rock cools completely below its Curie point, that magnetic orientation becomes permanently locked in place. As scientists surveyed ocean floor rocks across the globe, they discovered a striking pattern of alternating magnetic stripes running parallel to oceanic ridges. These symmetrical magnetic strips record historical geomagnetic reversals, where Earth's north and south magnetic poles swapped places over millions of years. Because these magnetic anomaly patterns match perfectly on either side of ridge axes, they provided definitive proof for seafloor spreading.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is paleomagnetism?",
+        "o": [
+          "The study of ancient volcanic eruptions and lava flows",
+          "The record of Earth's magnetic field preserved in rock minerals",
+          "The measurement of gravitational pull across continental plates",
+          "The calculation of radioactive decay rates in core metals"
+        ],
+        "a": 1,
+        "e": "Es el estudio del registro del campo magnético terrestre conservado en minerales magnéticos de las rocas."
+      },
+      {
+        "t": "mcq",
+        "q": "How do iron-bearing minerals in lava align themselves when cooling?",
+        "o": [
+          "Perpendicular to the ocean surface",
+          "Parallel to the direction of Earth's magnetic field",
+          "Randomly in all directions without pattern",
+          "Toward the nearest continental landmass"
+        ],
+        "a": 1,
+        "e": "Los minerales se alinean paralelos a la dirección del campo magnético terrestre en ese momento."
+      },
+      {
+        "t": "mcq",
+        "q": "What pattern did scientists discover when surveying ocean floor rocks?",
+        "o": [
+          "Random patches of non-magnetic sediment",
+          "Alternating magnetic stripes running parallel to oceanic ridges",
+          "Spiral magnetic fields surrounding volcanic islands",
+          "Uniform magnetic polarity across all ocean basins"
+        ],
+        "a": 1,
+        "e": "Descubrieron un patrón llamativo de franjas magnéticas alternas paralelas a las cordilleras oceánicas."
+      },
+      {
+        "t": "mcq",
+        "q": "What did these magnetic anomaly patterns help prove?",
+        "o": [
+          "The expansion of the planet's atmospheric layers",
+          "The theory of seafloor spreading and plate tectonics",
+          "The rapid cooling of Earth's molten core",
+          "The formation of deep ocean trenches by meteorite impacts"
+        ],
+        "a": 1,
+        "e": "Proporcionaron una prueba definitiva de la expansión del fondo oceánico (seafloor spreading)."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 1,
+    "audio": "Listen to part of a lecture in an economics class.\nToday we will examine the economic concept of supply and demand, focusing specifically on market equilibrium. In microeconomics, market equilibrium occurs precisely at the price point where the quantity of a good that producers are willing to supply matches the quantity that consumers are willing to buy. When the market price of a product is set above this equilibrium point, a surplus occurs because producers generate more goods than consumers demand, forcing sellers to lower their prices to clear their inventory. Conversely, if the price falls below equilibrium, a shortage develops because consumer demand exceeds available supply, driving prices back upward. This dynamic balancing act between buyers and sellers illustrates the self-correcting nature of competitive free markets without requiring external government intervention.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is the main topic of the lecture?",
+        "o": [
+          "Government price controls in industrial markets",
+          "Market equilibrium in supply and demand economics",
+          "The history of international trade agreements",
+          "Consumer spending habits during economic recessions"
+        ],
+        "a": 1,
+        "e": "La conferencia examina el concepto de oferta y demanda, centrándose en el equilibrio de mercado."
+      },
+      {
+        "t": "mcq",
+        "q": "When does market equilibrium occur in microeconomics?",
+        "o": [
+          "When government sets maximum retail prices",
+          "When quantity supplied matches quantity demanded",
+          "When producers control the entire manufacturing sector",
+          "When consumer savings exceed total household debt"
+        ],
+        "a": 1,
+        "e": "Ocurre cuando la cantidad ofrecida por los productores coincide con la cantidad que los consumidores desean comprar."
+      },
+      {
+        "t": "mcq",
+        "q": "What happens when the market price is set above the equilibrium point?",
+        "o": [
+          "A product shortage occurs immediately.",
+          "A surplus occurs because supply exceeds consumer demand.",
+          "Government subsidies are automatically triggered.",
+          "Consumers stop buying products altogether."
+        ],
+        "a": 1,
+        "e": "Se produce un excedente (surplus) porque los productores generan más bienes de los que los consumidores demandan."
+      },
+      {
+        "t": "mcq",
+        "q": "How do competitive free markets react to price imbalances?",
+        "o": [
+          "They rely on external government intervention to fix prices.",
+          "They demonstrate self-correcting mechanisms through price shifts.",
+          "They permanently halt production of undersupplied goods.",
+          "They fix prices permanently based on historical averages."
+        ],
+        "a": 1,
+        "e": "Muestran una naturaleza autocorrectiva a través de los cambios de precios."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 2,
+    "audio": "Listen to part of a lecture in a psychology class.\nToday we will discuss the psychological phenomenon known as cognitive dissonance, originally proposed by Leon Festinger in nineteen-fifty-seven. Cognitive dissonance refers to the mental discomfort or psychological stress a person experiences when holding two or more contradictory beliefs, ideas, or values simultaneously, or when performing actions that contradict their personal moral convictions. According to Festinger's theory, this internal conflict creates an uncomfortable state of tension that motivates individuals to seek psychological relief. People typically resolve this dissonance in one of three ways: by changing their conflicting behavior, by justifying their actions by acquiring new information, or by minimizing the importance of the conflicting belief. For example, individuals who purchase an expensive luxury car that turns out to have poor fuel efficiency might experience dissonance, which they resolve by convincing themselves that safety and comfort are far more important than fuel economy.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is cognitive dissonance?",
+        "o": [
+          "A memory disorder caused by brain trauma",
+          "Mental stress experienced when holding contradictory beliefs or actions",
+          "An inability to focus during high-stress examinations",
+          "A developmental delay in childhood speech patterns"
+        ],
+        "a": 1,
+        "e": "Es el malestar mental o estrés psicológico al mantener creencias o acciones contradictorias."
+      },
+      {
+        "t": "mcq",
+        "q": "What does internal cognitive conflict motivate individuals to do?",
+        "o": [
+          "Seek psychological relief to reduce tension",
+          "Forget the contradictory information completely",
+          "Seek professional psychiatric counseling",
+          "Adopt aggressive behaviors toward peers"
+        ],
+        "a": 0,
+        "e": "Motiva a las personas a buscar alivio psicológico para reducir la tensión."
+      },
+      {
+        "t": "mcq",
+        "q": "Which of the following is a method people use to resolve cognitive dissonance?",
+        "o": [
+          "Ignoring all future purchasing decisions",
+          "Justifying actions or changing conflicting behavior",
+          "Doubling the amount of contradictory beliefs",
+          "Isolating themselves from social interactions"
+        ],
+        "a": 1,
+        "e": "Se resuelve cambiando el comportamiento conflictivo, justificando acciones o minimizando la importancia."
+      },
+      {
+        "t": "mcq",
+        "q": "In the car purchase example, how do buyers resolve their post-purchase dissonance?",
+        "o": [
+          "By returning the vehicle to the dealership immediately",
+          "By convincing themselves that comfort is more important than fuel economy",
+          "By modifying the car engine to improve gas mileage",
+          "By blaming the salesperson for misleading advertising"
+        ],
+        "a": 1,
+        "e": "Se convencen de que la seguridad y el confort son más importantes que la economía de combustible."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 3,
+    "audio": "Listen to part of a lecture in an anthropology class.\nToday we will examine the transition from nomadic hunter-gatherer societies to settled agricultural communities during the Neolithic Revolution, approximately twelve thousand years ago. This monumental shift in human history began in the Fertile Crescent region of the Near East. Instead of continuously migrating to forage for wild plants and hunt migratory game, early human groups discovered how to domesticate wild cereal grains like wheat and barley, along with livestock such as sheep and goats. This domestication process allowed communities to produce consistent food surpluses, which in turn supported permanent settlements, population growth, and occupational specialization. However, this agricultural transition also introduced new challenges. Settled agrarian societies faced increased risks of epidemic diseases due to high population density and close proximity to domesticated animals, as well as social stratification and property inequality that had not existed in egalitarian hunter-gatherer bands.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What was the Neolithic Revolution?",
+        "o": [
+          "The invention of bronze metal tools and weapons",
+          "The transition from nomadic hunter-gatherers to settled agriculture",
+          "The mass migration of human populations out of Africa",
+          "The development of written alphabets and legal codes"
+        ],
+        "a": 1,
+        "e": "Representó la transición de sociedades nómadas de cazadores-recolectores a comunidades agrícolas asentadas."
+      },
+      {
+        "t": "mcq",
+        "q": "Where did this monumental historical shift primarily begin?",
+        "o": [
+          "The Fertile Crescent region of the Near East",
+          "The river valleys of ancient East Asia",
+          "The tropical rainforests of Central America",
+          "The grassland plains of northern Europe"
+        ],
+        "a": 0,
+        "e": "Comenzó en la región del Creciente Fértil (Fertile Crescent) en el Cercano Oriente."
+      },
+      {
+        "t": "mcq",
+        "q": "What positive development did agricultural food surpluses support?",
+        "o": [
+          "Global trade networks across oceans",
+          "Permanent settlements and occupational specialization",
+          "Democratic political voting systems",
+          "Immediate industrial manufacturing"
+        ],
+        "a": 1,
+        "e": "Los excedentes alimentarios permitieron asentamientos permanentes y especialización laboral."
+      },
+      {
+        "t": "mcq",
+        "q": "What new challenge did settled agrarian societies face?",
+        "o": [
+          "Frequent starvation due to lack of wild game",
+          "Increased risk of epidemic diseases and social inequality",
+          "Constant warfare with nomadic sea traders",
+          "Severe cold ice age climate shifts"
+        ],
+        "a": 1,
+        "e": "Enfrentaron un mayor riesgo de enfermedades epidémicas y estratificación social."
+      }
+    ]
+  },
+  {
+    "sec": "listening",
+    "task": "Listen to an Academic Talk",
+    "lvl": 1,
+    "audio": "Listen to part of a lecture in a music history class.\nToday we will explore the origins of the Baroque musical era, which flourished across Europe from approximately sixteen hundred to seventeen fifty. A defining characteristic of Baroque music is the development of polyphonic texture, where multiple independent melodic voices intertwine simultaneously to create a rich auditory tapestry. This era also witnessed the birth of opera in Italy, combining dramatic theatrical storytelling with expressive vocal solos and orchestral accompaniment. Furthermore, Baroque composers introduced the basso continuo, an instrumental accompaniment bassline that provided harmonic structure and rhythmic drive throughout musical compositions. Prominent masters of this vibrant musical period include Johann Sebastian Bach, George Frideric Handel, and Antonio Vivaldi, whose intricate compositions continue to inspire musicians today.",
+    "qs": [
+      {
+        "t": "mcq",
+        "q": "What is a defining characteristic of Baroque music?",
+        "o": [
+          "Minimalist electronic synthesizer rhythms",
+          "Polyphonic texture with independent melodic voices intertwining",
+          "Simple solo vocal melodies without instrumental backing",
+          "Improvisational jazz chord progressions"
+        ],
+        "a": 1,
+        "e": "La textura polifónica con múltiples voces melódicas independientes define la música barroca."
+      },
+      {
+        "t": "mcq",
+        "q": "Which major musical art form was born during the Baroque era in Italy?",
+        "o": [
+          "Symphonic orchestra concertos",
+          "Opera combining theatrical drama and vocal solos",
+          "Ballet dance storytelling",
+          "Chamber music string quartets"
+        ],
+        "a": 1,
+        "e": "La ópera nació en Italia combinando narración teatral con solos vocales."
+      },
+      {
+        "t": "mcq",
+        "q": "What was the function of the basso continuo in Baroque compositions?",
+        "o": [
+          "To provide harmonic structure and rhythmic drive",
+          "To amplify the volume of woodwind instruments",
+          "To signal singers when to change musical keys",
+          "To replace orchestral string sections entirely"
+        ],
+        "a": 0,
+        "e": "Proporcionaba estructura armónica e impulso rítmico en las composiciones."
+      },
+      {
+        "t": "mcq",
+        "q": "Who is mentioned as a prominent master of the Baroque period?",
+        "o": [
+          "Ludwig van Beethoven",
+          "Johann Sebastian Bach",
+          "Wolfgang Amadeus Mozart",
+          "Frédéric Chopin"
+        ],
+        "a": 1,
+        "e": "Johann Sebastian Bach se menciona junto a Handel y Vivaldi como maestro barroco."
+      }
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Please return all borrowed library books to the front desk.",
+    "model": "Please return all borrowed library books to the front desk.",
+    "tips": [
+      "Imita exactamente la entonación y el ritmo del hablante nativo.",
+      "No dejes vacilaciones al empezar a hablar tras el pitido."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "The science laboratory is located on the second floor.",
+    "model": "The science laboratory is located on the second floor.",
+    "tips": [
+      "Pronuncia cada consonante con claridad.",
+      "Mantén un volumen uniforme de voz."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Students must register for classes before Friday afternoon.",
+    "model": "Students must register for classes before Friday afternoon.",
+    "tips": [
+      "Conecta las palabras de manera natural (linking words).",
+      "Evita pausas innecesarias en medio de la frase."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Remember to bring your student ID card to the exam.",
+    "model": "Remember to bring your student ID card to the exam.",
+    "tips": [
+      "Presta atención a las vocales acentuadas.",
+      "Habla con seguridad y tono firme."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "The university cafeteria serves hot breakfast every morning.",
+    "model": "The university cafeteria serves hot breakfast every morning.",
+    "tips": [
+      "Cuida la pronunciación de las erres y eses.",
+      "Reproduce la velocidad original del locutor."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Professor Harrison announced that the essay deadline is extended.",
+    "model": "Professor Harrison announced that the essay deadline is extended.",
+    "tips": [
+      "Marca bien las pausas naturales de la oración compleja.",
+      "Proyecta la voz hacia el micrófono sin gritar."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "You can access online library archives using your university login.",
+    "model": "You can access online library archives using your university login.",
+    "tips": [
+      "Articula con claridad los términos técnicos como 'archives'.",
+      "Mantén el ritmo fluído de principio a fin."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Attendance at the weekly seminar is required for all majors.",
+    "model": "Attendance at the weekly seminar is required for all majors.",
+    "tips": [
+      "Enfatiza las palabras clave como 'attendance' y 'required'.",
+      "Mantén la misma modulación de voz que el audio modelo."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Please submit your laboratory reports through the student portal.",
+    "model": "Please submit your laboratory reports through the student portal.",
+    "tips": [
+      "Cuida la entonación descendente al final de la oración afirmativa.",
+      "No dejes que decaiga el volumen en las últimas sílabas."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "The campus shuttle bus runs every fifteen minutes on weekdays.",
+    "model": "The campus shuttle bus runs every fifteen minutes on weekdays.",
+    "tips": [
+      "Pronuncia claramente los números compuestos.",
+      "Mantén un flujo constante de aire al hablar."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Researchers discovered that urban heat islands significantly increase nighttime temperatures.",
+    "model": "Researchers discovered that urban heat islands significantly increase nighttime temperatures.",
+    "tips": [
+      "Maneja la respiración adecuadamente para abarcar oraciones largas sin trabarte.",
+      "Imita la entonación académica formal del guía."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Archaeologists use obsidian hydration dating to determine the precise age of artifacts.",
+    "model": "Archaeologists use obsidian hydration dating to determine the precise age of artifacts.",
+    "tips": [
+      "Pronuncia con precisión los vocablos científicos complejos.",
+      "Mantén la naturalidad en la velocidad de emisión."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Marine mammals exhibit a specialized dive response to conserve oxygen underwater.",
+    "model": "Marine mammals exhibit a specialized dive response to conserve oxygen underwater.",
+    "tips": [
+      "Haz las uniones vocálicas correctas entre palabras contiguas.",
+      "Evita titubeos al pronunciar palabras técnicas."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Plants release volatile organic compounds to warn neighboring vegetation of herbivores.",
+    "model": "Plants release volatile organic compounds to warn neighboring vegetation of herbivores.",
+    "tips": [
+      "Articula claramente cada sílaba en términos botánicos.",
+      "Mantén el foco y la concentración en la estructura completa."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Paleomagnetism provides definitive evidence for seafloor spreading along oceanic ridges.",
+    "model": "Paleomagnetism provides definitive evidence for seafloor spreading along oceanic ridges.",
+    "tips": [
+      "No aceleres la dicción al pronunciar frases largas.",
+      "Mantén un tono de voz firme y seguro."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "The bookstore offers a wide selection of academic textbooks.",
+    "model": "The bookstore offers a wide selection of academic textbooks.",
+    "tips": [
+      "Pronuncia las consonantes finales de forma nítida.",
+      "Imita la naturalidad del locutor del museo."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Visitors must purchase a parking pass at the entrance machine.",
+    "model": "Visitors must purchase a parking pass at the entrance machine.",
+    "tips": [
+      "Cuida la entonación clara y pausada.",
+      "Evita alargar vocales artificialmente."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "The student union building closes at ten o'clock tonight.",
+    "model": "The student union building closes at ten o'clock tonight.",
+    "tips": [
+      "Conecta 'ten o'clock' fluidamente.",
+      "Mantén el volumen alto y claro."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Please keep your mobile phones on silent inside the gallery.",
+    "model": "Please keep your mobile phones on silent inside the gallery.",
+    "tips": [
+      "Enfatiza la palabra 'silent' adecuadamente.",
+      "Proyecta tu voz con seguridad."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 1,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Drinking water fountains are located near every restroom.",
+    "model": "Drinking water fountains are located near every restroom.",
+    "tips": [
+      "Pronuncia cada palabra con claridad individual sin perder el ritmo.",
+      "Evita cararraspeos antes de hablar."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Students requesting housing accommodations must submit medical documentation.",
+    "model": "Students requesting housing accommodations must submit medical documentation.",
+    "tips": [
+      "Articula sin tropiezos los términos largos como 'accommodations'.",
+      "Mantén el ritmo constante."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "The career center organizes networking sessions for graduating seniors.",
+    "model": "The career center organizes networking sessions for graduating seniors.",
+    "tips": [
+      "Imita la entonación profesional del guía.",
+      "Pronuncia la terminación de 'graduating' con claridad."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Library archives preserve delicate manuscripts in climate-controlled vaults.",
+    "model": "Library archives preserve delicate manuscripts in climate-controlled vaults.",
+    "tips": [
+      "Mantén el aire suficiente para terminar la frase con fuerza.",
+      "Articula bien las consonantes iniciales."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Faculty members hold weekly office hours for student consultations.",
+    "model": "Faculty members hold weekly office hours for student consultations.",
+    "tips": [
+      "Cuida la modulación en palabras compuestas como 'office hours'.",
+      "Habla con tono natural."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 2,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Campus security provides emergency escort services after dark.",
+    "model": "Campus security provides emergency escort services after dark.",
+    "tips": [
+      "Enfatiza la palabra 'emergency'.",
+      "Mantén el ritmo uniforme."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Cognitive dissonance occurs when individuals hold contradictory beliefs simultaneously.",
+    "model": "Cognitive dissonance occurs when individuals hold contradictory beliefs simultaneously.",
+    "tips": [
+      "Pronuncia con soltura los conceptos psicológicos complejos.",
+      "Evita pausas entre 'simultaneously' y el inicio de la frase."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Agricultural surpluses during the Neolithic Revolution supported permanent human settlements.",
+    "model": "Agricultural surpluses during the Neolithic Revolution supported permanent human settlements.",
+    "tips": [
+      "Maneja la respiración de forma óptima para toda la oración larga.",
+      "Articula con precisión cada término histórico."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Polyphonic texture defines Baroque music through intertwining independent melodic voices.",
+    "model": "Polyphonic texture defines Baroque music through intertwining independent melodic voices.",
+    "tips": [
+      "Imita la precisión de la voz sintética en las palabras musicales.",
+      "Mantén un volumen constante y seguro."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "Microeconomic market equilibrium balances product supply and consumer demand perfectly.",
+    "model": "Microeconomic market equilibrium balances product supply and consumer demand perfectly.",
+    "tips": [
+      "Pronuncia claramente los términos económicos sin tropezar.",
+      "Mantén un ritmo fluído de lectura oral."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Listen and Repeat",
+    "lvl": 3,
+    "passage": "Listen and repeat the sentence exactly.",
+    "audio": "White dwarf stars radiate residual thermal energy into space over billions of years.",
+    "model": "White dwarf stars radiate residual thermal energy into space over billions of years.",
+    "tips": [
+      "Proyecta la voz con claridad al mencionar escalas de tiempo largas.",
+      "Mantén la naturalidad en la modulación."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "What is your favorite subject to study, and why do you find it interesting?",
+    "model": "My favorite subject to study is environmental science because it explores how human actions impact natural ecosystems. I find it especially interesting to learn about renewable energy solutions and wildlife conservation efforts that help protect our planet for future generations.",
+    "tips": [
+      "Responde de forma directa a la pregunta en la primera frase.",
+      "Usa conectores sencillos como 'because' para justificar tu opinión."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "How do you usually prepare for an important upcoming examination?",
+    "model": "When preparing for an important examination, I usually start by reviewing my lecture notes and creating detailed study outlines. Then, I form a study group with classmates to quiz each other and discuss difficult concepts before the test date.",
+    "tips": [
+      "Organiza tu respuesta usando conectores temporales como 'First' o 'Then'.",
+      "Mantén un ritmo constante sin silencios largos."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "What do you like to do in your free time to relax after classes?",
+    "model": "In my free time, I like to relax after classes by reading historical novels and going for long walks in the campus park. Physical exercise and reading help me clear my mind and reduce the stress of my academic workload.",
+    "tips": [
+      "Menciona dos actividades concretas para enriquecer tu respuesta.",
+      "Habla con tono natural y relajado."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "Why is teamwork important when working on academic group projects?",
+    "model": "Teamwork is very important in academic projects because it allows students to share different perspectives and divide complex tasks evenly. Working together also helps us develop strong communication and leadership skills that are valuable for future careers.",
+    "tips": [
+      "Da al menos dos razones claras que sustenten tu argumento.",
+      "Emplea vocabulario académico básico como 'perspective' o 'skills'."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "What role does technology play in modern student education?",
+    "model": "Technology plays a vital role in modern education by providing instant access to online library archives, digital textbooks, and virtual research databases. It enables students to collaborate efficiently on assignments and complete coursework from anywhere.",
+    "tips": [
+      "Usa ejemplos cotidianos como bases de datos o libros digitales.",
+      "Cuida la correcta pronunciación de términos tecnológicos."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "How has your understanding of environmental sustainability changed during your studies?",
+    "model": "During my studies, my understanding of sustainability has evolved from simple recycling habits to recognizing complex systemic relationships between industry and natural ecosystems. I now realize that achieving long-term ecological balance requires coordinated policy changes and renewable energy adoption on a global scale.",
+    "tips": [
+      "Muestra una evolución en tu punto de vista utilizando vocabulario avanzado.",
+      "Estructura la respuesta conectando la teoría con la aplicación global."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "What strategies do you use to manage your time effectively between academics and extracurricular activities?",
+    "model": "To balance my demanding academic schedule with extracurricular activities, I rely heavily on digital planning tools and strict priority management. By allocating specific time blocks for coursework, club meetings, and personal rest, I ensure that I remain productive without experiencing burnout.",
+    "tips": [
+      "Utiliza términos de gestión como 'priority management' o 'time blocks'.",
+      "Mantén una estructura lógica de problema y solución."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "In what ways do university libraries contribute to academic research success?",
+    "model": "University libraries contribute significantly to research success by offering access to peer-reviewed journals, rare manuscript archives, and specialized research assistance. Furthermore, silent study zones provide the quiet, focused environment necessary for deep academic analysis.",
+    "tips": [
+      "Enumera recursos clave como revistas arbitradas y archivos especiales.",
+      "Mantén un tono formal y argumentativo."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "Why is interdisciplinary study becoming increasingly important in higher education?",
+    "model": "Interdisciplinary study is becoming crucial because modern global challenges, such as climate change and public health crises, require knowledge from multiple academic fields simultaneously. Combining insights from science, economics, and sociology allows researchers to develop comprehensive and effective solutions.",
+    "tips": [
+      "Ejemplifica con retos globales como el cambio climático.",
+      "Conecta diferentes disciplinas académicas en tu discurso."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "What are the primary benefits of participating in an academic internship program?",
+    "model": "Participating in an academic internship provides students with invaluable hands-on professional experience and direct exposure to industry standards. It bridges the gap between theoretical classroom learning and practical workplace application, greatly enhancing future employment prospects.",
+    "tips": [
+      "Usa la expresión 'bridges the gap' para ilustrar el valor de las pasantías.",
+      "Habla con fluidez y sin pausas largas."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "How does the phenomenon of urban heat islands impact metropolitan planning and public health?",
+    "model": "Urban heat islands significantly elevate metropolitan temperatures, leading to increased energy consumption for air conditioning and higher risks of heat-related illnesses among vulnerable populations. Consequently, modern urban planning must prioritize green infrastructure, reflective cool pavements, and expanded urban forestry to mitigate these severe thermal effects.",
+    "tips": [
+      "Utiliza vocabulario científico preciso como 'green infrastructure' y 'thermal effects'.",
+      "Estructura tu respuesta conectando el problema de salud pública con la solución de planificación."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "In what ways has paleomagnetism revolutionized our understanding of geological history?",
+    "model": "Paleomagnetism revolutionized geological history by providing empirical evidence for continental drift and seafloor spreading through magnetic mineral alignment in rocks. By analyzing alternating magnetic striping on ocean floors, geologists successfully mapped historical geomagnetic reversals and confirmed the dynamic mechanisms of plate tectonics.",
+    "tips": [
+      "Emplea terminología geológica avanzada como 'geomagnetic reversals' y 'plate tectonics'.",
+      "Mantén un tono de exposición magistral y formal."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "How do physiological adaptations enable marine mammals to execute prolonged deep-diving behaviors?",
+    "model": "Marine mammals survive extreme underwater pressure and oxygen depletion through the mammalian dive response, which drastically reduces heart rate and redirects blood flow exclusively to vital organs. Additionally, high muscle concentrations of myoglobin store abundant oxygen reserves, while collapsible lungs prevent nitrogen absorption and decompression sickness.",
+    "tips": [
+      "Destaca mecanismos biológicos específicos como 'mammalian dive response' y 'myoglobin'.",
+      "Organiza la respuesta de forma clara y estructurada."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "What mechanisms drive plant communication and defense signaling against herbivorous predators?",
+    "model": "Plants defend themselves by releasing volatile organic compounds into the atmosphere when attacked by herbivores, acting as direct chemical deterrents and attracting predatory insects. Furthermore, these airborne chemical cues function as distress signals that prompt neighboring vegetation to proactively synthesize defensive toxins before insect arrival.",
+    "tips": [
+      "Utiliza conceptos botánicos formales como 'volatile organic compounds' y 'defensive toxins'.",
+      "Expón el proceso de defensa escalonado con claridad."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "How did the transition during the Neolithic Revolution shape the trajectory of human civilization?",
+    "model": "The Neolithic Revolution fundamentally transformed human civilization by shifting societies from nomadic foraging to settled agricultural food production in regions like the Fertile Crescent. This agricultural surplus enabled permanent population centers, occupational specialization, and social stratification, laying the structural foundation for complex urban societies.",
+    "tips": [
+      "Menciona hitos históricos clave como 'Fertile Crescent' y 'occupational specialization'.",
+      "Mantén un ritmo solemne y académico."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "What is your favorite academic facility on campus, and why do you spend time there?",
+    "model": "My favorite academic facility on campus is the main library because it provides a quiet and focused environment for studying. I spend a lot of time there to work on research papers and access helpful reference books.",
+    "tips": [
+      "Identifica el lugar con claridad desde el inicio.",
+      "Explica la razón de manera sencilla y directa."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "How do you prefer to collaborate with classmates when working on a group assignment?",
+    "model": "When working on a group assignment, I prefer to collaborate by dividing tasks based on each member's strengths and meeting regularly to review our progress. We also use shared online documents to write and edit the project together.",
+    "tips": [
+      "Usa ejemplos prácticos de cómo os organizáis.",
+      "Mantén un tono colaborativo y claro."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "What steps do you take to stay organized throughout a busy semester?",
+    "model": "To stay organized during a busy semester, I use a digital calendar to track all assignment deadlines and exam dates. I also write a daily checklist to prioritize my most urgent academic tasks.",
+    "tips": [
+      "Menciona herramientas prácticas como calendarios digitales.",
+      "Estructura tu respuesta en dos pasos claros."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "Why do you think learning a second language is beneficial for students?",
+    "model": "Learning a second language is beneficial because it improves cognitive flexibility and opens up international career opportunities. It also allows students to appreciate different cultural perspectives and communicate with people worldwide.",
+    "tips": [
+      "Da al menos dos beneficios claros de aprender idiomas.",
+      "Emplea vocabulario positivo y fluido."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 1,
+    "passage": "What kind of books do you enjoy reading for pleasure outside of coursework?",
+    "model": "Outside of coursework, I thoroughly enjoy reading science fiction novels and biographies of historical scientists. Reading these genres stimulates my imagination and teaches me about inspiring real-life discoveries.",
+    "tips": [
+      "Menciona tus géneros favoritos con precisión.",
+      "Explica brevemente por qué te gustan."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "How does student involvement in campus clubs and extracurricular activities enhance the educational experience?",
+    "model": "Extracurricular involvement enhances the educational experience by fostering essential leadership, teamwork, and organizational skills outside the traditional classroom. Participating in student clubs also helps individuals build a supportive professional network that extends beyond graduation.",
+    "tips": [
+      "Destaca habilidades clave como 'leadership' y 'teamwork'.",
+      "Conecta la actividad extracurricular con el éxito profesional."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "What impact has online learning had on modern higher education flexibility?",
+    "model": "Online learning has revolutionized higher education flexibility by allowing students to access course lectures and submit assignments remotely from any location. This digital accessibility accommodates diverse schedules, making education more attainable for working students and lifelong learners.",
+    "tips": [
+      "Usa términos como 'digital accessibility' y 'remote access'.",
+      "Mantén una argumentación equilibrada."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "Why is critical thinking considered an essential skill for university students?",
+    "model": "Critical thinking is essential for university students because it enables them to evaluate academic sources objectively, question underlying assumptions, and construct well-reasoned arguments. Rather than simply memorizing facts, students must analyze complex information to form independent conclusions.",
+    "tips": [
+      "Contrasta la memorización con el análisis crítico de información.",
+      "Emplea vocabulario formal y articulado."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "What factors should students consider when selecting elective courses for their degree program?",
+    "model": "When selecting elective courses, students should consider their long-term career goals, personal academic interests, and how the coursework complements their major. Choosing balanced electives broadens intellectual horizons without overwhelming their primary graduation requirements.",
+    "tips": [
+      "Organiza los factores de elección de manera lógica.",
+      "Usa conectores como 'Furthermore' o 'When selecting'."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 2,
+    "passage": "How do guest lecture series benefit the academic atmosphere of a university campus?",
+    "model": "Guest lecture series enrich the academic atmosphere by bringing industry experts and renowned researchers to share cutting-edge discoveries with students. These presentations expose learners to real-world applications and inspire innovative thinking beyond standard syllabus requirements.",
+    "tips": [
+      "Resalta la aportación de expertos externos al campus.",
+      "Mantén un flujo de voz seguro y constante."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "How do white dwarf stars evolve within stellar lifecycles, and what characterizes their final state?",
+    "model": "White dwarfs form when low-to-medium-mass stars exhaust their nuclear fuel, expand into red giants, and shed their outer layers to reveal dense, Earth-sized stellar cores. Devoid of internal nuclear fusion, these remnants slowly radiate their residual thermal energy over billions of years until cooling completely into dark black dwarfs.",
+    "tips": [
+      "Describe las fases estelares en orden cronológico (red giant, planetary nebula, white dwarf).",
+      "Emplea terminología astronómica precisa."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "In what ways does cognitive dissonance theory explain human decision-making and attitude change?",
+    "model": "Cognitive dissonance theory explains that holding contradictory beliefs or actions creates psychological discomfort that motivates individuals to restore mental harmony. People alleviate this internal tension by modifying their behavior, justifying choices with new information, or minimizing conflicting values to achieve psychological consistency.",
+    "tips": [
+      "Explica la teoría de Festinger mencionando el malestar psicológico y sus resoluciones.",
+      "Mantén un discurso fluido y riguroso."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "What microeconomic principles govern market equilibrium and price adjustments in competitive free markets?",
+    "model": "Market equilibrium in microeconomics is governed by the intersection of supply and demand, where the quantity supplied by producers exactly matches consumer demand. Price imbalances generate temporary surpluses or shortages that act as self-correcting signals, driving prices back toward equilibrium without requiring government intervention.",
+    "tips": [
+      "Define conceptos económicos clave como 'supply and demand' y 'surpluses or shortages'.",
+      "Estructura tu respuesta como una mini-lección magistral."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "How did obsidian hydration dating advance archaeological research methodologies for prehistoric artifacts?",
+    "model": "Obsidian hydration dating advanced archaeology by enabling scientists to measure the microscopic moisture layer absorbed by volcanic glass tools since their manufacture. By calculating hydration rind thickness against calibrated environmental factors, archaeologists can accurately determine the absolute age of prehistoric stone artifacts.",
+    "tips": [
+      "Menciona los detalles técnicos como 'hydration layer' y 'calibrated environmental factors'.",
+      "Mantén un tono expositivo y profesional."
+    ]
+  },
+  {
+    "sec": "speaking",
+    "task": "Take an Interview",
+    "lvl": 3,
+    "passage": "What structural elements characterize the musical composition and performance practice of the Baroque era?",
+    "model": "The Baroque era is characterized by complex polyphonic textures featuring intertwining melodic voices, innovative operatic theatricality, and the foundational harmonic support of the basso continuo. Prominent composers like Bach and Vivaldi established intricate structural frameworks that prioritized expressive emotional intensity and elaborate ornamentation.",
+    "tips": [
+      "Destaca elementos clave como 'polyphonic textures' y 'basso continuo'.",
+      "Cierra la respuesta mencionando compositores representativos."
+    ]
+  }
+]
