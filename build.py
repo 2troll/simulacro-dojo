@@ -11,7 +11,8 @@ import sys
 from collections import Counter
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
-SECS = {"reading", "listening", "vocab", "grammar", "writing", "speaking"}
+SECS = {"reading", "listening", "vocab", "grammar", "writing", "speaking",
+        "secure", "resilient", "performance", "cost"}
 
 
 def cargar(ruta):
@@ -33,6 +34,12 @@ def problema_q(q):
             return "índice de respuesta"
         if len(set(map(str, o))) != len(o):
             return "opciones repetidas"
+    elif t == "multi":
+        o, a = q.get("o"), q.get("a")
+        if not isinstance(o, list) or not isinstance(a, list) or len(a) < 2:
+            return "respuesta múltiple"
+        if any(not isinstance(i, int) or not 0 <= i < len(o) for i in a):
+            return "índices de respuesta múltiple"
     elif t == "fill":
         a = q.get("a")
         if isinstance(a, str):
@@ -53,7 +60,7 @@ def problema_q(q):
 def main():
     os.makedirs(os.path.join(RAIZ, "www"), exist_ok=True)
     error = False
-    for examen in ("toefl", "ielts", "n5"):
+    for examen in ("aws", "toefl", "ielts", "n5"):
         rutas = sorted(glob.glob(os.path.join(RAIZ, "datos", f"{examen}_*.json")))
         sets, descartes = [], 0
         for ruta in rutas:
