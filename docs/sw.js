@@ -1,5 +1,5 @@
 // Caché para que la web funcione sin conexión (en el metro, en el avión…).
-const CACHE = "dojo-6048449672";
+const CACHE = "dojo-9210875971";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png",
   "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "kana.json"];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));

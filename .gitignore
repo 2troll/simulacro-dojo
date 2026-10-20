@@ -4,3 +4,7 @@ __pycache__/
 .playwright-cli/
 .playwright-cli/
 .wrangler/
+.venv-tts/
+modelos-tts/
+www/voz/
+docs/voz/
