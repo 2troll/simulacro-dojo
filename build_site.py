@@ -94,6 +94,11 @@ def main():
         raise SystemExit(f"Faltan bancos en www/: {bancos}. Ejecuta antes build.py")
     for n in bancos + ["kana.json"]:
         shutil.copy(os.path.join(WWW, n), DOCS)
+    # Audios de AivisSpeech (datos/grabar_voces.py); sin ellos la web usa la voz del sistema
+    if os.path.exists(os.path.join(WWW, "voces.json")):
+        shutil.copy(os.path.join(WWW, "voces.json"), DOCS)
+        shutil.rmtree(os.path.join(DOCS, "voz"), ignore_errors=True)
+        shutil.copytree(os.path.join(WWW, "voz"), os.path.join(DOCS, "voz"))
     version = str(abs(hash(tuple(os.path.getmtime(os.path.join(WWW, n)) for n in bancos + ["index.html", "kana.json"]))))[:10]
     open(os.path.join(DOCS, "sw.js"), "w").write(SW % version)
     json.dump({"name": "Dojo · simulacros y kana", "short_name": "Dojo", "lang": "es", "start_url": "./", "scope": "./",

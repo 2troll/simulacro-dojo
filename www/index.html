@@ -305,7 +305,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .btn.acc,.play{color:#fff}
 .fc{border-radius:24px}
 /* kana y kanji */
-.ksets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 6px}
+.ksets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:18px 0 6px}
 .kset{display:grid;gap:2px;text-align:left;background:var(--sheet);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;transition:border-color .2s,transform .2s}
 .kset span{font:700 26px var(--f-jp)}
 .kset b{font:700 16px var(--f-display)}
@@ -334,7 +334,40 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kopts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .kopts .kqc{font:700 30px var(--f-jp)}
 .ktest-pick{max-width:640px}
+.kgrid.kw{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.kw .kc{padding:12px 8px 10px;gap:4px}
+.kw .kc .kch{font-size:19px;line-height:1.25;text-align:center}
+.kw .kc small{white-space:normal;text-align:center;font-family:var(--f-body);font-size:12.5px}
+.kbig.long{font-size:44px;line-height:1.2;padding:18px 0}
+.kprompt .kqc.long{font-size:44px}
+.kopts .kqc.long{font-size:19px}
+.kfrase{display:grid;gap:6px;background:var(--bubble);border-radius:12px;padding:12px 14px;margin:10px 0 0}
+.kfrase [lang=ja]{font-size:17px;font-weight:700}
+.kfrase .btn{justify-self:start;padding:6px 12px;font-size:13px}
 .kcan{width:100%;max-width:420px;aspect-ratio:1;display:block;margin:0 auto;background:var(--sheet);border:1.5px solid var(--line);border-radius:18px;touch-action:none;cursor:crosshair}
+.mnav,.kclose{display:none}
+@media (max-width:820px){
+  .top .nav{display:none}
+  .mnav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+  .mnav button{display:grid;justify-items:center;gap:1px;background:none;border:0;border-radius:12px;padding:6px 2px;font:700 11.5px var(--f-body);color:var(--ink-2)}
+  .mnav button span{font:400 22px/1.1 var(--f-brush)}
+  .mnav button[aria-current="page"]{color:var(--hanko);background:color-mix(in srgb,var(--hanko) 10%,transparent)}
+  .wrap{padding-bottom:96px}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{white-space:nowrap;flex:none}
+  .prio{position:static;justify-self:start;margin-bottom:-4px}
+  .kwrap .kside{position:fixed;top:auto;left:0;right:0;bottom:calc(62px + env(safe-area-inset-bottom,0px));z-index:24;max-height:62vh;overflow:auto;overscroll-behavior:contain;transform:translateY(115%);transition:transform .35s cubic-bezier(.2,.8,.2,1);padding:0 8px}
+  .kwrap .kside.open{transform:none}
+  .kside .kdet{border-radius:22px 22px 0 0;box-shadow:0 -18px 40px -18px rgba(0,0,0,.45);padding-top:14px;position:relative}
+  .kside .kbig{font-size:84px}.kside .kbig.long{font-size:34px;padding:8px 0}
+  .kclose{display:grid;place-items:center;position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;background:var(--bubble);font-weight:800}
+  .dhero .cta .btn{flex:1 1 auto;text-align:center}
+  .figs{justify-content:space-between}
+  .exam-card{padding:20px}
+  .exam-card .tag{font-size:30px}
+}
 .reveal{opacity:0}
 .no-fx .reveal{opacity:1}
 @media (max-width:980px){.exams{grid-template-columns:repeat(2,minmax(0,1fr))}.exam-card,.exam-card.big-card,.exam-card.kana-card{grid-column:span 1}.exam-card.big-card{grid-column:1/-1}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -627,7 +660,8 @@ function topBar(){
       <span class="stat" title="Racha de días"><svg class="flame" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 0C8 4 13 6 13 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 2 2 3 2 4 1-2 2-5 2-8z" fill="${streakAlive()?"var(--warn)":"var(--line)"}"/></svg>${S.streak||0}</span>
       <span class="stat" title="Experiencia · ${h(L.name)}">${S.xp} XP</span>
     </div>
-  </div></header>`;
+  </div></header>
+  <nav class="mnav" aria-label="Secciones">${[["home","試","Exámenes"],["kana","あ","Kana"],["cards","札","Tarjetas"],["guide","導","Guía"]].map(([v,k,l])=>`<button data-go="${v}" ${cur===v||(v==="home"&&cur==="exam")?'aria-current="page"':""}><span lang="ja">${k}</span>${l}</button>`).join("")}</nav>`;
 }
 
 /* ============ Portada ============ */
@@ -650,7 +684,7 @@ function viewHome(){
   const badges=BADGES.map(b=>`<div class="badge ${S.badges.includes(b[0])?"on":""}" title="${h(b[2])}"><b>${S.badges.includes(b[0])?"●":"○"}</b><span><b>${h(b[1])}</b><br><small>${h(b[2])}</small></span></div>`).join("");
   const kanaCard=`<button class="exam-card kana-card reveal" data-go="kana"><span class="glyph" aria-hidden="true">字</span>
       <span class="eyebrow">Empieza por aquí · N5</span><span class="tag">Kana y kanji</span>
-      <span class="muted" style="font-size:14.5px">Hiragana, katakana y los 104 kanji del N5 con un truco para cada uno, voz, test y lienzo para dibujar.</span>
+      <span class="muted" style="font-size:14.5px">Hiragana, katakana, los 104 kanji y 167 palabras del N5 con frases para reír, más el japonés de Kansai. Con voz, test y lienzo.</span>
       <span class="kana-strip" lang="ja"><span>あ</span><span>カ</span><span>日</span><span>本</span><span>語</span></span></button>`;
   return `<section class="dhero">
     <span class="kanji-bg" aria-hidden="true">道</span>
@@ -674,7 +708,7 @@ function viewHome(){
   <div class="steps">${[["一","Calienta","Dos rondas de Empareja o un test de kana. Cinco minutos."],["二","Simula","Un simulacro con reloj. Los fallos pasan solos a tus tarjetas."],["三","Repasa","Lee el truco de cada fallo. Ahí está el 80 % del aprendizaje."],["四","Repite","Tarjetas cada día: lo que fallas vuelve hasta que lo sabes."]].map(([k,t,d])=>`<div class="step reveal"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
   <div class="sec-title reveal"><h2><span class="num">03 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
   <div class="badges">${badges}</div>
-  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>Tu progreso se guarda solo en este navegador</span></footer>`;
+  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (まお, 阿井田 茂 · ACML 1.0)</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>Tu progreso se guarda solo en este navegador</span></footer>`;
 }
 function lastScore(x){const l=[...S.hist].reverse().find(r=>r.x===x);return l?l.s:null}
 
@@ -1156,43 +1190,56 @@ async function sendChat(text){
 }
 
 /* ============ Kana y kanji: tabla, test y dibujo ============ */
-let KANA=null, kq=null, kSel=null;
-const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."]};
-async function loadKana(){if(KANA)return KANA;const r=await fetch("kana.json");if(!r.ok)throw new Error("No se pudo cargar kana.json");KANA=await r.json();return KANA}
+let KANA=null, kq=null, kSel=null, kSheet=false;
+const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."]};
+// Kanji, vocabulario y Kansai se preguntan por el significado; los kana, por el sonido
+const KMEAN=set=>set==="kanji"||set==="vocab"||set==="kansai";
+function kShow(set,it){return KMEAN(set)?it.m:it.r}
+function kVoice(set,it){return set==="kanji"?it.wr:it.c.replace(/ \/ /g,"、").replace(/〜/g,"")}
+function kWord(set){return set==="vocab"||set==="kansai"}
+async function loadKana(){if(KANA)return KANA;const r=await fetch("kana.json");if(!r.ok)throw new Error("No se pudo cargar kana.json");KANA=await r.json();fetch("voces.json").then(v=>v.ok?v.json():null).then(v=>{VOCES=v}).catch(()=>{});return KANA}
 function kid(set,c){return set+":"+c}
 function kStat(set,c){return S.kana[kid(set,c)]||[0,0]}
 function kKnown(set,c){const s=kStat(set,c);return s[1]>=2&&s[0]/s[1]>=.75}
-function sayJa(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=.8;const v=pickVoice("ja-JP","F");if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene voz japonesa")}}
+// Voces grabadas con AivisSpeech (voces.json); si una falta, la del sistema
+let VOCES=null, kAudio=null;
+function sayJa(t){const f=VOCES&&VOCES[t];try{speechSynthesis.cancel()}catch(e){}if(kAudio)kAudio.pause();
+  if(f){kAudio=new Audio(f);kAudio.play().catch(()=>sayTTS(t));return}sayTTS(t)}
+function sayTTS(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=.8;const v=pickVoice("ja-JP","F");if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene voz japonesa")}}
 // La tabla real deja huecos en las filas de や y わ: así cada columna es una vocal
 function kGojuon(L){const b=L.filter(i=>!i.g),out=[];for(const it of b){out.push(it);if(it.r==="ya"||it.r==="yu")out.push(null);if(it.r==="wa")out.push(null,null,null)}return out}
 function kCell(set,it){if(!it)return '<span class="kc empty" aria-hidden="true"></span>';const st=kStat(set,it.c);const cls=st[1]?(kKnown(set,it.c)?"known":"seen"):"";
-  return `<button class="kc ${cls} ${kSel===it.c?"sel":""}" data-kc="${h(it.c)}" lang="ja"><span class="kch">${h(it.c)}</span><small>${h(set==="kanji"?it.m:it.r)}</small></button>`}
+  return `<button class="kc ${cls} ${kSel===it.c?"sel":""}" data-kc="${h(it.c)}" lang="ja"><span class="kch">${h(it.c)}</span><small>${h(kShow(set,it))}</small></button>`}
 function kDetail(set){
   const L=KANA[set], it=L.find(i=>i.c===kSel)||L[0];
   const st=kStat(set,it.c);
-  const info=set==="kanji"
+  const info=set==="vocab"
+    ?`${it.k?`<div class="kv"><span>Se escribe</span><b lang="ja">${h(it.k)}</b></div>`:""}<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div><div class="kv"><span>Significa</span><b>${h(it.m)}</b></div>${it.ks?`<div class="kv"><span>En Kansai</span><b lang="ja">${h(it.ks)}</b></div>`:""}<p class="kfrase"><span lang="ja">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>`
+    :set==="kansai"
+    ?`${it.k?`<div class="kv"><span>Se escribe</span><b lang="ja">${h(it.k)}</b></div>`:""}<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div><div class="kv"><span>Significa</span><b>${h(it.m)}</b></div><p class="ktrick"><span class="eyebrow">${it.g==="calle"?"Matón de película · solo para reír":"Kansai-ben"}</span>${h(it.t)}</p><span class="pill warn">No entra en el examen</span>`
+    :set==="kanji"
     ?`<div class="kv"><span>Significado</span><b>${h(it.m)}</b></div><div class="kv"><span>On (chino)</span><b lang="ja">${h(it.on)}</b></div><div class="kv"><span>Kun (japonés)</span><b lang="ja">${h(it.kun)}</b></div><div class="kv"><span>Ejemplo</span><b lang="ja">${h(it.w)} · ${h(it.wr)}</b></div><p class="muted" style="margin:6px 0 0">${h(it.wm)}</p>`
     :`<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div>${it.g?`<p class="muted" style="margin:6px 0 0">${it.g==="dakuten"?"Las comillas ゛ hacen la consonante sonora (k→g, s→z, t→d, h→b) y el círculo ゜ la convierte en p.":"Combinación: la ゃゅょ pequeña se pega a la anterior y forman una sola sílaba."}</p>`:""}`;
-  return `<div class="kdet card" id="kdet"><div class="kbig" lang="ja">${h(it.c)}</div>
-    ${it.t?`<p class="ktrick"><span class="eyebrow">Truco</span>${h(it.t)}</p>`:""}${info}
-    <div class="row" style="margin-top:12px"><button class="btn acc" data-say="${h(set==="kanji"?it.wr:it.c)}">▶ Escuchar</button><button class="btn ghost" data-kdraw="${h(it.c)}">Dibújalo</button></div>
+  return `<div class="kdet card" id="kdet"><button class="kclose" data-kclose aria-label="Cerrar ficha">✕</button><div class="kbig ${kWord(set)?"long":""}" lang="ja">${h(it.c)}</div>
+    ${it.t&&set!=="kansai"?`<p class="ktrick"><span class="eyebrow">Truco</span>${h(it.t)}</p>`:""}${info}
+    <div class="row" style="margin-top:12px"><button class="btn acc" data-say="${h(kVoice(set,it))}">▶ Escuchar</button>${kWord(set)?"":`<button class="btn ghost" data-kdraw="${h(it.c)}">Dibújalo</button>`}</div>
     <small class="muted mono">${st[1]?`${st[0]}/${st[1]} aciertos en el test`:"Aún no ha salido en el test"}</small></div>`;
 }
 function viewKana(){
   if(!KANA){loadKana().then(render).catch(e=>toast(e.message));return `<p class="muted" style="padding:40px 0">Cargando…</p>`}
-  const set=route.k||"hira", tab=route.kt||"tabla", L=KANA[set];
+  const set=route.k||"hira", tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
   const known=L.filter(i=>kKnown(set,i.c)).length;
   const sw=Object.entries(KSETS).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="ja">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
   let body="";
   if(tab==="tabla"){
     if(!kSel||!L.some(i=>i.c===kSel))kSel=L[0].c;
-    const groups=set==="kanji"?[["Los 104 kanji",L,"kgrid kj"]]:[["Básicos (gojūon)",kGojuon(L),"kgrid"],["Con ゛ y ゜",L.filter(i=>i.g==="dakuten"),"kgrid"],["Combinaciones",L.filter(i=>i.g==="combo"),"kgrid k3"]];
-    body=`<div class="kwrap"><div>${groups.map(([t,items,cls])=>`<h3 class="kh">${t}</h3><div class="${cls}">${items.map(i=>kCell(set,i)).join("")}</div>`).join("")}</div><div class="kside">${kDetail(set)}</div></div>`;
+    const groups=kWord(set)?[...new Set(L.map(i=>i.g))].map(g=>[({kansai:"Kansai-ben: el japonés de Osaka",calle:"Matón de película (no lo uses con desconocidos)"})[g]||g,L.filter(i=>i.g===g),"kgrid kw"]):set==="kanji"?[["Los 104 kanji",L,"kgrid kj"]]:[["Básicos (gojūon)",kGojuon(L),"kgrid"],["Con ゛ y ゜",L.filter(i=>i.g==="dakuten"),"kgrid"],["Combinaciones",L.filter(i=>i.g==="combo"),"kgrid k3"]];
+    body=`<div class="kwrap"><div>${groups.map(([t,items,cls])=>`<h3 class="kh">${t}</h3><div class="${cls}">${items.map(i=>kCell(set,i)).join("")}</div>`).join("")}</div><div class="kside ${kSheet?"open":""}" data-lenis-prevent>${kDetail(set)}</div></div>`;
   }else if(tab==="test"){
     body=kq&&kq.set===set?kQuizHTML():`<div class="card ktest-pick"><h3>Test de ${KSETS[set][0]}</h3><p class="muted">10 preguntas. Lo que falles volverá antes. Verde en la tabla = lo dominas.</p>
-      <div class="row">${set==="kanji"?`<button class="btn acc" data-kq="all">Todos</button><button class="btn ghost" data-kq="weak">Los que más fallo</button>`
+      <div class="row">${kWord(set)?`<button class="btn acc" data-kq="all">Todo mezclado</button><button class="btn ghost" data-kq="weak">Los que más fallo</button></div><div class="row" style="margin-top:10px">${[...new Set(L.map(i=>i.g))].map(g=>`<button class="btn ghost" data-kq="g:${h(g)}">${h(({kansai:"Kansai",calle:"Matón"})[g]||g)}</button>`).join("")}`:set==="kanji"?`<button class="btn acc" data-kq="all">Todos</button><button class="btn ghost" data-kq="weak">Los que más fallo</button>`
         :`<button class="btn acc" data-kq="basic">Básicos (46)</button><button class="btn ghost" data-kq="all">Todos (104)</button><button class="btn ghost" data-kq="weak">Los que más fallo</button>`}</div>
-      <div class="row" style="margin-top:10px"><span class="eyebrow">Dirección</span><div class="seg"><button data-kdir="0" aria-pressed="${!route.kdir}">${set==="kanji"?"Kanji → significado":"Letra → sonido"}</button><button data-kdir="1" aria-pressed="${!!route.kdir}">${set==="kanji"?"Significado → kanji":"Sonido → letra"}</button></div></div></div>`;
+      <div class="row" style="margin-top:10px"><span class="eyebrow">Dirección</span><div class="seg"><button data-kdir="0" aria-pressed="${!route.kdir}">${set==="kanji"?"Kanji → significado":kWord(set)?"Japonés → español":"Letra → sonido"}</button><button data-kdir="1" aria-pressed="${!!route.kdir}">${set==="kanji"?"Significado → kanji":kWord(set)?"Español → japonés":"Sonido → letra"}</button></div></div></div>`;
   }else{
     const pool=L.filter(i=>!i.g), c=route.kd||pool[0].c;
     body=`<div class="grid2"><div class="card"><h3>Dibuja encima de la guía</h3><canvas id="kcan" class="kcan" width="560" height="560" aria-label="Lienzo para dibujar ${h(c)}"></canvas>
@@ -1200,38 +1247,39 @@ function viewKana(){
       <div class="card"><h3>Cómo practicar</h3><ol class="plan"><li>Dibuja 3 veces <b>con</b> la guía, diciendo el sonido en voz alta.</li><li>Oculta la guía y dibújalo de memoria.</li><li>Orden de trazos: de arriba abajo y de izquierda a derecha; las horizontales antes que las verticales que las cruzan.</li></ol>
       <p class="muted" style="font-size:14px">Ahora: <b lang="ja" style="font-size:22px">${h(c)}</b> ${h(set==="kanji"?(L.find(i=>i.c===c)||{}).m:(L.find(i=>i.c===c)||{}).r)}</p></div></div>`;
   }
-  const tabs=[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
-  return `<div class="ex-head"><div><span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span> y kanji</h1></div><span class="pill ok">${known}/${L.length} dominados</span></div>
+  const tabs=kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
+  return `<div class="ex-head"><div><span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1></div><span class="pill ok">${known}/${L.length} dominados</span></div>
     <div class="ksets">${sw}</div>
     <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+1/2/3: pestañas · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
-  const L=KANA[set];let pool=kind==="basic"?L.filter(i=>!i.g):L.slice();
+  const L=KANA[set];let pool=kind==="basic"?L.filter(i=>!i.g):kind&&kind.startsWith("g:")?L.filter(i=>i.g===kind.slice(2)):L.slice();
   if(kind==="weak"){pool.sort((a,b)=>{const A=kStat(set,a.c),B=kStat(set,b.c);return (A[1]?A[0]/A[1]:.5)-(B[1]?B[0]/B[1]:.5)});pool=pool.slice(0,20)}
   const r=rng(Date.now());const qs=shuffle(pool,r).slice(0,10).map(it=>{
-    const same=L.filter(o=>o.c!==it.c&&(set==="kanji"||!!o.g===!!it.g));
+    const same=L.filter(o=>o.c!==it.c&&(KMEAN(set)||!!o.g===!!it.g));
     return {it,opts:shuffle([it,...shuffle(same,r).slice(0,3)],r)}});
   kq={set,qs,i:0,ok:0,ans:null,rev:!!route.kdir};render();
 }
-function kLabel(set,it,asAnswer){const rev=kq.rev;const showChar=asAnswer?rev:!rev;return showChar?`<span lang="ja" class="kqc">${h(it.c)}</span>`:h(set==="kanji"?it.m:it.r)}
+function kLabel(set,it,asAnswer){const rev=kq.rev;const showChar=asAnswer?rev:!rev;return showChar?`<span lang="ja" class="kqc ${kWord(set)?"long":""}">${h(it.c)}</span>`:h(kShow(set,it))}
 function kQuizHTML(){
   if(kq.i>=kq.qs.length)return `<div class="card" style="text-align:center"><div class="big">${kq.ok}<span style="font-size:.4em">/10</span></div><p class="muted">${kq.ok>=9?"¡Muy bien! Pasa a «Todos» o a la dirección contraria.":kq.ok>=6?"Vas bien. Repite con «Los que más fallo».":"Vuelve a la tabla, lee los trucos y repite."}</p><div class="row" style="justify-content:center"><button class="btn acc" data-kq="again">Otra ronda</button><button class="btn ghost" data-kt="tabla">Ver la tabla</button></div></div>`;
   const {it,opts}=kq.qs[kq.i],set=kq.set,a=kq.ans;
   return `<div class="card kquiz"><div class="row" style="justify-content:space-between"><span class="eyebrow">${kq.i+1} / 10</span><span class="pill ok">${kq.ok} bien</span></div>
     <div class="kprompt">${kLabel(set,it,false)}</div>
     <div class="kopts">${opts.map((o,n)=>`<button class="opt ${a==null?"":o===it?"right":a===n?"wrong":""}" data-ka="${n}" ${a!=null?"disabled":""}><span class="bub">${"ABCD"[n]}</span><span>${kLabel(set,o,true)}</span></button>`).join("")}</div>
-    ${a!=null?`<div class="feedback ${opts[a]===it?"ok":"bad"}"><b>${opts[a]===it?"¡Bien!":"Era "+h(it.c)+" · "+h(set==="kanji"?it.m:it.r)}</b>${it.t?`<span>${h(it.t)}</span>`:""}</div><button class="btn acc" data-knext="1">${kq.i===9?"Ver resultado":"Siguiente →"}</button>`:""}</div>`;
+    ${a!=null?`<div class="feedback ${opts[a]===it?"ok":"bad"}"><b>${opts[a]===it?"¡Bien!":"Era "+h(it.c)+" · "+h(kShow(set,it))}</b>${it.t?`<span>${h(it.t)}</span>`:""}</div><button class="btn acc" data-knext="1">${kq.i===9?"Ver resultado":"Siguiente →"}</button>`:""}</div>`;
 }
-function kSay(){sayJa(route.k==="kanji"?KANA.kanji.find(i=>i.c===kSel).wr:kSel)}
-function kPick(b,byKey){kSel=b.dataset.kc;document.querySelectorAll(".kc.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");$(".kside").innerHTML=kDetail(route.k||"hira");bindKana();
-  if(byKey)b.scrollIntoView({block:"nearest"});else if(innerWidth<820)$("#kdet").scrollIntoView({behavior:"smooth",block:"nearest"});if(window.gsap)gsap.from("#kdet .kbig",{scale:.6,opacity:0,duration:.4,ease:"back.out(2)"})}
+function kSay(){const set=route.k||"hira";sayJa(kVoice(set,KANA[set].find(i=>i.c===kSel)||{c:kSel}))}
+function kPick(b,byKey){kSel=b.dataset.kc;kSheet=true;$(".kside").classList.add("open");document.querySelectorAll(".kc.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");$(".kside").innerHTML=kDetail(route.k||"hira");bindKana();
+  if(byKey)b.scrollIntoView({block:"nearest"});if(window.gsap)gsap.from("#kdet .kbig",{scale:.6,opacity:0,duration:.4,ease:"back.out(2)"})}
 /* Flechas por la tabla: izquierda/derecha siguen el orden; arriba/abajo buscan la celda más cercana en la fila de al lado (sirve con cualquier número de columnas) */
 function kMove(k){const cs=[...document.querySelectorAll(".kc[data-kc]")];if(!cs.length)return;let cur=cs.findIndex(b=>b.classList.contains("sel"));if(cur<0)cur=0;let nx=cur;
   if(k==="ArrowLeft")nx=Math.max(0,cur-1);else if(k==="ArrowRight")nx=Math.min(cs.length-1,cur+1);
   else{const r=cs[cur].getBoundingClientRect(),dn=k==="ArrowDown";let bs=Infinity;cs.forEach((b,i)=>{const q=b.getBoundingClientRect(),dy=dn?q.top-r.top:r.top-q.top;if(dy<4)return;const sc=dy*1000+Math.abs(q.left-r.left);if(sc<bs){bs=sc;nx=i}})}
   if(nx!==cur||!cs[cur].classList.contains("sel"))kPick(cs[nx],true)}
 function bindKana(){
-  document.querySelectorAll("[data-kset]").forEach(b=>b.onclick=()=>{route.k=b.dataset.kset;kSel=null;kq=null;route.kd=null;render()});
+  const kc=$("[data-kclose]");if(kc)kc.onclick=()=>{kSheet=false;$(".kside").classList.remove("open")};
+  document.querySelectorAll("[data-kset]").forEach(b=>b.onclick=()=>{kSheet=false;route.k=b.dataset.kset;kSel=null;kq=null;route.kd=null;render()});
   document.querySelectorAll("[data-kt]").forEach(b=>b.onclick=()=>{route.kt=b.dataset.kt;if(b.dataset.kt!=="test")kq=null;render()});
   document.querySelectorAll("[data-kc]").forEach(b=>b.onclick=()=>{kPick(b);kSay()});
   document.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayJa(b.dataset.say));
