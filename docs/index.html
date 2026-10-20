@@ -366,7 +366,21 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
   .steps{grid-template-columns:1fr}
 }
 .nav button,.dock .btn{white-space:nowrap}
-@media (max-width:520px){.dock .kbd{display:none}.nav button{padding:8px 10px}}
+/* Atajos de teclado: ayuda con ? y pistas pequeñas (en móvil no hay teclado, se ocultan) */
+.kb-help{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:16px;background:color-mix(in srgb,var(--sumi) 45%,transparent);backdrop-filter:blur(3px)}
+.kb-help[hidden]{display:none}
+.kb-box{background:var(--sheet);color:var(--ink);border:1px solid var(--line);border-radius:16px;width:100%;max-width:680px;max-height:86vh;overflow:auto;padding:22px 24px;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.kb-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kb-head h2{margin:0;font-size:24px}
+.kb-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:4px 28px}
+.kb-box h3{font:700 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hanko);margin:16px 0 4px}
+.kb-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.kb-row span:first-child{flex:none}.kb-row span:last-child{color:var(--ink-2);text-align:right}
+kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;white-space:nowrap}
+.kb-line{margin:-6px 0 14px}
+.kb-n{font:600 10px var(--f-mono);color:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:8px;vertical-align:2px}
+@media (max-width:520px){.dock .kbd,.kb-line,.kb-tip,.kb-n{display:none}.nav button{padding:8px 10px}}
+@media (hover:none) and (pointer:coarse){.kb-line,.kb-tip,.kb-n{display:none}}
 @media (max-width:420px){.kgrid{gap:5px}.kopts{grid-template-columns:1fr}.figs{gap:18px}.figs b{font-size:30px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1!important}.marq-in{animation:none}}
@@ -675,7 +689,7 @@ function viewHome(){
   <div class="steps">${[["一","Calienta","Dos rondas de Empareja o un test de kana. Cinco minutos."],["二","Simula","Un simulacro con reloj. Los fallos pasan solos a tus tarjetas."],["三","Repasa","Lee el truco de cada fallo. Ahí está el 80 % del aprendizaje."],["四","Repite","Tarjetas cada día: lo que fallas vuelve hasta que lo sabes."]].map(([k,t,d])=>`<div class="step reveal"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
   <div class="sec-title reveal"><h2><span class="num">03 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
   <div class="badges">${badges}</div>
-  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis</span><span>Tu progreso se guarda solo en este navegador</span></footer>`;
+  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>Tu progreso se guarda solo en este navegador</span></footer>`;
 }
 function lastScore(x){const l=[...S.hist].reverse().find(r=>r.x===x);return l?l.s:null}
 
@@ -756,7 +770,7 @@ function viewRun(){
     </section></div>
     <div class="dock"><div class="dock-in">
       <button class="btn ghost" id="prev" ${run.i?"":"disabled"}>← Anterior</button>
-      <span class="kbd">${q.t==="mcq"||q.t==="multi"?"Teclas 1-"+q.o.length+" · Intro":""}</span>
+      <span class="kbd">${q.t==="mcq"||q.t==="multi"?"1-"+q.o.length+" · ":""}Espacio: ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?"comprobar":"siguiente"} · ←→ · ? ayuda</span>
       ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?`<button class="btn acc" id="check">Comprobar</button>`:`<button class="btn acc" id="next">${run.i===n-1?"Terminar":"Siguiente →"}</button>`}
     </div></div></div>`;
 }
@@ -862,12 +876,75 @@ function bindRun(){
 }
 function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#fill");if(f)run.ans[run.i]=f.value}
 function rerun(keepScroll){const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else scrollTo(0,0)}
+/* ============ Teclado: un solo oyente para toda la app ============ */
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["T","Tarjetas"],["G","Guía y tutor"]]],
+  ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
+  ["Resultado",[["Intro","Volver al examen"]]],
+  ["Tarjetas",[["Espacio","Girar"],["→ · 2","La sé"],["← · 1","Otra vez"]]],
+  ["Rayo y Empareja",[["1-4","Rayo: elegir respuesta"],["1-5 · A-E","Empareja: pista y su pareja"],["Intro","Empezar / otra ronda"]]],
+  ["Kana y kanji",[["Shift+1 / 2 / 3","Tabla / Test / Dibuja"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"]]]];
+let kbBack=null;
+function ayuda(on){let d=$("#kbHelp");if(on==null)on=!d||d.hidden;
+  if(!d){d=document.createElement("div");d.id="kbHelp";d.className="kb-help";d.hidden=true;d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-labelledby","kbT");
+    d.innerHTML=`<div class="kb-box"><div class="kb-head"><h2 id="kbT">Atajos de teclado</h2><button class="x-btn" data-kbclose>Cerrar · Esc</button></div><div class="kb-cols">${ATAJOS.map(([t,rows])=>`<div><h3>${t}</h3>${rows.map(([k,l])=>`<div class="kb-row"><span>${k.split(" · ").map(x=>`<kbd>${h(x)}</kbd>`).join(" ")}</span><span>${h(l)}</span></div>`).join("")}</div>`).join("")}</div><p class="muted" style="font-size:13px;margin:14px 0 0">Mientras escribes en un cuadro de texto los atajos se apagan; Esc sale del cuadro.</p></div>`;
+    d.onclick=e=>{if(e.target===d||e.target.closest("[data-kbclose]"))ayuda(false)};document.body.append(d)}
+  if(on===!d.hidden)return;d.hidden=!on;
+  if(on){kbBack=document.activeElement;if(lenis)lenis.stop();d.querySelector("[data-kbclose]").focus()}else{if(lenis)lenis.start();if(kbBack&&kbBack.isConnected)kbBack.focus();kbBack=null}}
+const kbNum=(k,lk,max)=>{const n=/^[1-9]$/.test(k)?+k-1:/^[a-e]$/.test(lk)?"abcde".indexOf(lk):-1;return n<max?n:-1};
+const kbClick=b=>{if(b&&!b.disabled){b.click();return true}return false};
 document.addEventListener("keydown",e=>{
-  if(route.v!=="run"||!run||/INPUT|TEXTAREA/.test(document.activeElement?.tagName))return;
-  const it=run.items[run.i];
-  if(it.q.t==="mcq"&&/^[1-4]$/.test(e.key)&&!run.checked[run.i]){const ord=optOrder(it);const oi=ord[+e.key-1];if(oi!=null){run.ans[run.i]=oi;rerun(true)}}
-  if(it.q.t==="multi"&&/^[1-5]$/.test(e.key)&&!run.checked[run.i]){const oi=optOrder(it)[+e.key-1];if(oi!=null){const cur=run.ans[run.i]||[];run.ans[run.i]=cur.includes(oi)?cur.filter(i=>i!==oi):[...cur,oi];rerun(true)}}
-  if(e.key==="Enter"){const b=$("#check")||$("#next");if(b)b.click()}
+  if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;
+  const k=e.key,lk=k.length===1?k.toLowerCase():k,ae=document.activeElement,tag=ae?.tagName||"";
+  const help=$("#kbHelp");
+  if(help&&!help.hidden){if(k==="Escape"||k==="?"){e.preventDefault();ayuda(false)}else if(k==="Tab"){e.preventDefault();help.querySelector("[data-kbclose]").focus()}return}
+  if(/INPUT|TEXTAREA|SELECT/.test(tag)||ae?.isContentEditable){if(k==="Escape")ae.blur();return}
+  if(k==="?"){e.preventDefault();ayuda(true);return}
+  // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
+  const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
+  const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
+  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",t:"cards",g:"guide"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  if(v==="run"&&run){
+    const it=run.items[run.i],q=it.q;
+    if(k==="Escape"){e.preventDefault();act($("#quit"));return}
+    if((q.t==="mcq"||q.t==="multi")&&!run.checked[run.i]){const n=kbNum(k,lk,q.o.length);if(n>=0){act(document.querySelectorAll("#answer .opt")[n]);return}}
+    if(lk==="p"){act($("#play"));return}
+    if(onCtl)return;
+    if(k==="Enter"||k===" "){act($("#check")||$("#next"));return}
+    if(k==="ArrowLeft"){act($("#prev"));return}
+    if(k==="ArrowRight"&&run.i<run.items.length-1){e.preventDefault();collect();run.i++;rerun();return}
+    return}
+  if(onCtl)return;
+  if(v==="result"&&k==="Enter"){act($("#app main .btn.acc"));return}
+  if(v==="cards"&&deck?.cards[deck.i]){
+    if(k===" "){act($("#flip"));return}
+    if(k==="ArrowRight"||k==="2"){act($("#know"));return}
+    if(k==="ArrowLeft"||k==="1"){act($("#again"));return}
+    return}
+  if(v==="rayo"){
+    if(k==="Enter"||k===" "){act($("#rgo"));return}
+    const os=document.querySelectorAll("[data-ro]"),n=/^[1-4]$/.test(k)?+k-1:-1;
+    if(n>=0&&os[n]&&!document.querySelector(".opt.right,.opt.wrong"))act(os[n]);return}
+  if(v==="exam"&&route.tab==="learn"&&$("#matchBox")){
+    if(k==="Enter"){act($("#mAgain"));return}
+    if(/^[1-5]$/.test(k)){act(document.querySelectorAll("[data-ml]")[+k-1]);return}
+    if(/^[a-e]$/.test(lk)){act(document.querySelectorAll("[data-mr]")["abcde".indexOf(lk)]);return}
+    return}
+  if(v==="kana"&&KANA){
+    const tab=route.kt||"tabla",d=/^Digit[123]$/.test(e.code)?+e.code.slice(5):0;
+    if(e.shiftKey&&d){act(document.querySelectorAll("[data-kt]")[d-1]);return}
+    if(tab==="tabla"){
+      if(/^Arrow/.test(k)){e.preventDefault();kMove(k);return}
+      if(k===" "&&kSel){e.preventDefault();kSay();return}
+    }else if(tab==="test"){
+      if(kq&&kq.set===(route.k||"hira")&&kq.i<kq.qs.length&&kq.ans==null){const n=kbNum(k,lk,4);if(n>=0){act(document.querySelectorAll("[data-ka]")[n]);return}}
+      if(k===" "||k==="Enter"){act($("[data-knext]")||$("[data-kq]"));return}
+    }else{
+      if(k==="Backspace"){act($("#kclr"));return}
+      if(k==="Enter"){act($("#knext"));return}
+      if(lk==="v"){act($("#kguide"));return}
+      if(k===" "){act($("[data-say]"));return}
+    }
+  }
 });
 
 /* ============ Corrección y notas ============ */
@@ -944,12 +1021,12 @@ function viewCards(){
       ${deck.flipped?`<div class="pill ok" style="justify-self:center">${h(sol)}</div><div class="back" lang="es">${h(q.e||"")}</div>`:`<div class="muted" style="font-size:14px">Piensa la respuesta y toca para girar</div>`}
     </div></div>
     <div class="deck-ctrl"><button class="btn ghost" id="again">← Otra vez</button><button class="btn" id="flip">Girar</button><button class="btn acc" id="know">La sé →</button></div>
-    <p class="muted" style="text-align:center;font-size:14px">Desliza la tarjeta: derecha si la sabías, izquierda si no. Teclado: ← → y espacio.</p>`;
+    <p class="muted" style="text-align:center;font-size:14px">Desliza la tarjeta: derecha si la sabías, izquierda si no. <span class="kb-tip">Teclado: espacio gira · → o 2 la sé · ← o 1 otra vez.</span></p>`;
 }
 function bindCards(){
   if(!deck){prepDeck().then(()=>{if(route.v==="cards")render()});return}
   const fc=$("#fc");if(!fc)return;
-  const answer=(know)=>{const c=deck.cards[deck.i];const cur=S.srs[c.id]||{b:0};const b=know?Math.min(5,cur.b+1):0;
+  const answer=(know)=>{if(fc.dataset.gone)return;fc.dataset.gone=1;const c=deck.cards[deck.i];const cur=S.srs[c.id]||{b:0};const b=know?Math.min(5,cur.b+1):0;
     const d=new Date();d.setDate(d.getDate()+(know?BOX_DAYS[b]:0));
     if(know&&b>=5)delete S.srs[c.id];else S.srs[c.id]={b,due:know?d.toISOString().slice(0,10):today()};
     if(!know)deck.cards.push(c);
@@ -963,9 +1040,7 @@ function bindCards(){
   fc.onpointermove=e=>{if(sx==null)return;dx=e.clientX-sx;fc.style.transform=`translateX(${dx}px) rotate(${dx/20}deg)`};
   fc.onpointerup=e=>{fc.style.transition="";if(Math.abs(dx)>90){answer(dx>0)}else{fc.style.transform="";if(Math.abs(dx)<6){deck.flipped=!deck.flipped;render()}}sx=null};
   fc.onclick=null;
-  cardKeys=e=>{if(route.v!=="cards"||!deck?.cards[deck.i])return;if(e.key==="ArrowRight")answer(true);if(e.key==="ArrowLeft")answer(false);if(e.key===" "){e.preventDefault();deck.flipped=!deck.flipped;render()}};
 }
-let cardKeys=null;document.addEventListener("keydown",e=>cardKeys&&cardKeys(e));
 
 /* ============ Parejas (Empareja y Modo Rayo) ============ */
 function pairsFor(x){
@@ -987,7 +1062,7 @@ function renderMatch(){
     box.innerHTML=`<p style="font:800 28px var(--f-display);margin:8px 0">${m.errors?"¡Hecho!":"¡Perfecto!"}</p><p class="muted">${secs} s · ${m.errors} fallos</p><button class="btn acc" id="mAgain">Otra ronda</button>`;
     $("#mAgain").onclick=()=>{newMatch(m.x);renderMatch()};return}
   const L=m.x==="n5"?' lang="ja"':"";
-  box.innerHTML=`<div class="match"${L}><div style="display:grid;gap:10px">${m.left.map(i=>`<button class="mc ${m.done.has(i)?"ok":""} ${m.sel===i?"sel":""}" data-ml="${i}">${h(m.pairs[i][0])}</button>`).join("")}</div><div style="display:grid;gap:10px">${m.right.map(i=>`<button class="mc ${m.done.has(i)?"ok":""}" data-mr="${i}">${h(m.pairs[i][1])}</button>`).join("")}</div></div>`;
+  box.innerHTML=`<div class="match"${L}><div style="display:grid;gap:10px">${m.left.map((i,k)=>`<button class="mc ${m.done.has(i)?"ok":""} ${m.sel===i?"sel":""}" data-ml="${i}"><span class="kb-n">${k+1}</span>${h(m.pairs[i][0])}</button>`).join("")}</div><div style="display:grid;gap:10px">${m.right.map((i,k)=>`<button class="mc ${m.done.has(i)?"ok":""}" data-mr="${i}"><span class="kb-n">${"ABCDE"[k]}</span>${h(m.pairs[i][1])}</button>`).join("")}</div></div>`;
   box.querySelectorAll("[data-ml]").forEach(b=>b.onclick=()=>{m.sel=+b.dataset.ml;renderMatch()});
   box.querySelectorAll("[data-mr]").forEach(b=>b.onclick=()=>{if(m.sel==null){toast("Primero toca una pista de la izquierda");return}
     const i=+b.dataset.mr;if(i===m.sel){m.done.add(i);m.sel=null;sfx(true);S.xp+=3;
@@ -1143,7 +1218,7 @@ function viewKana(){
   const tabs=[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
   return `<div class="ex-head"><div><span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span> y kanji</h1></div><span class="pill ok">${known}/${L.length} dominados</span></div>
     <div class="ksets">${sw}</div>
-    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div>${body}`;
+    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+1/2/3: pestañas · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
   const L=KANA[set];let pool=kind==="basic"?L.filter(i=>!i.g):L.slice();
@@ -1162,12 +1237,18 @@ function kQuizHTML(){
     <div class="kopts">${opts.map((o,n)=>`<button class="opt ${a==null?"":o===it?"right":a===n?"wrong":""}" data-ka="${n}" ${a!=null?"disabled":""}><span class="bub">${"ABCD"[n]}</span><span>${kLabel(set,o,true)}</span></button>`).join("")}</div>
     ${a!=null?`<div class="feedback ${opts[a]===it?"ok":"bad"}"><b>${opts[a]===it?"¡Bien!":"Era "+h(it.c)+" · "+h(set==="kanji"?it.m:it.r)}</b>${it.t?`<span>${h(it.t)}</span>`:""}</div><button class="btn acc" data-knext="1">${kq.i===9?"Ver resultado":"Siguiente →"}</button>`:""}</div>`;
 }
+function kSay(){sayJa(route.k==="kanji"?KANA.kanji.find(i=>i.c===kSel).wr:kSel)}
+function kPick(b,byKey){kSel=b.dataset.kc;document.querySelectorAll(".kc.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");$(".kside").innerHTML=kDetail(route.k||"hira");bindKana();
+  if(byKey)b.scrollIntoView({block:"nearest"});else if(innerWidth<820)$("#kdet").scrollIntoView({behavior:"smooth",block:"nearest"});if(window.gsap)gsap.from("#kdet .kbig",{scale:.6,opacity:0,duration:.4,ease:"back.out(2)"})}
+/* Flechas por la tabla: izquierda/derecha siguen el orden; arriba/abajo buscan la celda más cercana en la fila de al lado (sirve con cualquier número de columnas) */
+function kMove(k){const cs=[...document.querySelectorAll(".kc[data-kc]")];if(!cs.length)return;let cur=cs.findIndex(b=>b.classList.contains("sel"));if(cur<0)cur=0;let nx=cur;
+  if(k==="ArrowLeft")nx=Math.max(0,cur-1);else if(k==="ArrowRight")nx=Math.min(cs.length-1,cur+1);
+  else{const r=cs[cur].getBoundingClientRect(),dn=k==="ArrowDown";let bs=Infinity;cs.forEach((b,i)=>{const q=b.getBoundingClientRect(),dy=dn?q.top-r.top:r.top-q.top;if(dy<4)return;const sc=dy*1000+Math.abs(q.left-r.left);if(sc<bs){bs=sc;nx=i}})}
+  if(nx!==cur||!cs[cur].classList.contains("sel"))kPick(cs[nx],true)}
 function bindKana(){
   document.querySelectorAll("[data-kset]").forEach(b=>b.onclick=()=>{route.k=b.dataset.kset;kSel=null;kq=null;route.kd=null;render()});
   document.querySelectorAll("[data-kt]").forEach(b=>b.onclick=()=>{route.kt=b.dataset.kt;if(b.dataset.kt!=="test")kq=null;render()});
-  document.querySelectorAll("[data-kc]").forEach(b=>b.onclick=()=>{kSel=b.dataset.kc;sayJa(route.k==="kanji"?KANA.kanji.find(i=>i.c===kSel).wr:kSel);
-    document.querySelectorAll(".kc.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");$(".kside").innerHTML=kDetail(route.k||"hira");bindKana();
-    if(innerWidth<820)$("#kdet").scrollIntoView({behavior:"smooth",block:"nearest"});if(window.gsap)gsap.from("#kdet .kbig",{scale:.6,opacity:0,duration:.4,ease:"back.out(2)"})});
+  document.querySelectorAll("[data-kc]").forEach(b=>b.onclick=()=>{kPick(b);kSay()});
   document.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>sayJa(b.dataset.say));
   document.querySelectorAll("[data-kdraw]").forEach(b=>b.onclick=()=>{route.kt="dibuja";route.kd=b.dataset.kdraw;render()});
   document.querySelectorAll("[data-kdir]").forEach(b=>b.onclick=()=>{route.kdir=b.dataset.kdir==="1";render()});
@@ -1199,7 +1280,7 @@ function bindDraw(can){
 let lenis=null, fxIO=null;
 function dojoFx(v){
   if(!window.gsap||matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("no-fx");return}
-  if(!lenis&&window.Lenis){lenis=new Lenis({stopInertiaOnNavigate:true,prevent:n=>!!(n.closest&&n.closest(".ctx,.chat,.model,.kcan"))});gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+  if(!lenis&&window.Lenis){lenis=new Lenis({stopInertiaOnNavigate:true,prevent:n=>!!(n.closest&&n.closest(".ctx,.chat,.model,.kcan,.kb-box"))});gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
   if(fxIO)fxIO.disconnect();
   fxIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;fxIO.unobserve(e.target);gsap.to(e.target,{opacity:1,y:0,duration:.85,ease:"power3.out",delay:+e.target.dataset.d||0})}),{rootMargin:"0px 0px -6% 0px"});
   gsap.utils.toArray(".reveal").forEach((el,i)=>{gsap.set(el,{y:30});el.dataset.d=Math.min(i,7)*.07;fxIO.observe(el)});
