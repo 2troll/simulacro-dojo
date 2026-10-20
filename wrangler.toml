@@ -1,0 +1,11 @@
+# Web pública del Dojo en Cloudflare (gratis): sirve docs/ tal cual.
+name = "dojo"
+compatibility_date = "2026-10-01"
+
+[assets]
+directory = "./docs"
+not_found_handling = "single-page-application"
+
+[[routes]]
+pattern = "dojo.tonykansaiguide.com"
+custom_domain = true

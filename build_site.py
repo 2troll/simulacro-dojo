@@ -19,9 +19,9 @@ HEAD = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Simulacros gratis de AWS Solutions Architect, TOEFL, IELTS y JLPT N5.">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#11141f" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Dojo: simulacros gratis de AWS Solutions Architect, TOEFL, IELTS y JLPT N5, y hiragana, katakana y kanji explicados fácil.">
+<meta name="theme-color" content="#f2ede3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#13110e" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Dojo">
 <link rel="manifest" href="manifest.webmanifest">
@@ -33,8 +33,8 @@ HEAD = """<!doctype html>
 """
 
 # Solo fuera de claude.ai: el visor de artifacts no admite service workers
-SW_REG = """<script>
-if("serviceWorker" in navigator && location.hostname.endsWith("github.io")){
+SW_REG = r"""<script>
+if("serviceWorker" in navigator && location.protocol==="https:"&&!/(^|\.)claude\.ai$|claudeusercontent/.test(location.hostname)){
   navigator.serviceWorker.register("sw.js").catch(function(e){console.warn("Sin modo offline:",e)});
 }
 </script>
@@ -43,7 +43,7 @@ if("serviceWorker" in navigator && location.hostname.endsWith("github.io")){
 SW = """// Caché para que la web funcione sin conexión (en el metro, en el avión…).
 const CACHE = "dojo-%s";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png",
-  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json"];
+  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "kana.json"];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 // Red primero (contenido nuevo si hay conexión), caché si no la hay
@@ -56,8 +56,8 @@ self.addEventListener("fetch", e => {
 
 
 def png(size, path):
-    """Icono: la burbuja marcada de la hoja de respuestas, en PNG puro (sin Pillow)."""
-    bg, ink, dot = (246, 247, 251), (27, 35, 64), (184, 92, 0)
+    """Icono: sello rojo (hanko) con la burbuja marcada, en PNG puro (sin Pillow)."""
+    bg, ink, dot = (200, 54, 29), (242, 237, 227), (242, 237, 227)
     c = size / 2
     ring_out, ring_in, dot_r = size * 0.36, size * 0.30, size * 0.20
     rows = []
@@ -92,12 +92,12 @@ def main():
     bancos = sorted(n for n in os.listdir(WWW) if n.startswith("bank-"))
     if len(bancos) != 4:
         raise SystemExit(f"Faltan bancos en www/: {bancos}. Ejecuta antes build.py")
-    for n in bancos:
+    for n in bancos + ["kana.json"]:
         shutil.copy(os.path.join(WWW, n), DOCS)
-    version = str(abs(hash(tuple(os.path.getmtime(os.path.join(WWW, n)) for n in bancos + ["index.html"]))))[:10]
+    version = str(abs(hash(tuple(os.path.getmtime(os.path.join(WWW, n)) for n in bancos + ["index.html", "kana.json"]))))[:10]
     open(os.path.join(DOCS, "sw.js"), "w").write(SW % version)
-    json.dump({"name": "Simulacro Dojo", "short_name": "Dojo", "lang": "es", "start_url": "./", "scope": "./",
-               "display": "standalone", "background_color": "#f6f7fb", "theme_color": "#b85c00",
+    json.dump({"name": "Dojo · simulacros y kana", "short_name": "Dojo", "lang": "es", "start_url": "./", "scope": "./",
+               "display": "standalone", "background_color": "#f2ede3", "theme_color": "#c8361d",
                "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
                          {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]},
               open(os.path.join(DOCS, "manifest.webmanifest"), "w"), ensure_ascii=False)
