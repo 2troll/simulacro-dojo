@@ -55,6 +55,7 @@ ESCUCHA = {
 # Español de Manos libres
 ES = ("edge", "es-ES-ElviraNeural", "+0%")
 PT = ("edge", "pt-PT-RaquelNeural", "-6%")
+RU = ("edge", "ru-RU-SvetlanaNeural", "-8%")
 # ElevenLabs: voces que suenan a Portugal (cámbialas en .env con ELEVENLABS_VOZ_PT=id1,id2…)
 ELEVEN = "https://api.elevenlabs.io/v1"
 ELEVEN_MODELO = "eleven_multilingual_v2"
@@ -117,6 +118,16 @@ def textos_pt():
     for s in ("pt", "falsos", "tramites"):
         for it in d[s]:
             out += [it["c"].replace(" / ", ", "), it.get("f", "")]
+    return [t for t in dict.fromkeys(out) if t]
+
+
+def textos_ru():
+    """Igual que kVoice() para el ruso (campo v en el alfabeto), más sus frases."""
+    out = []
+    d = _kana()
+    for s in ("cirilico", "ruvocab", "ruuni"):
+        for it in d[s]:
+            out += [it.get("v") or it["c"].replace(" / ", ", "), it.get("f", "")]
     return [t for t in dict.fromkeys(out) if t]
 
 
@@ -280,6 +291,8 @@ def trabajos(motor):
         tareas += [("es", t, ES[1], ES[2]) for t in textos_es()]
     if PT[0] == motor:
         tareas += [("pt", t, PT[1], PT[2]) for t in textos_pt()]
+    if RU[0] == motor:
+        tareas += [("ru", t, RU[1], RU[2]) for t in textos_ru()]
     return list(dict.fromkeys(tareas))
 
 

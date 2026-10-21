@@ -23,7 +23,7 @@
 /* Identidad «dojo»: papel washi, tinta sumi y el sello rojo (hanko). Cada examen conserva su color para orientarse. */
 :root{
   --paper:#f2ede3; --sheet:#fbf8f2; --ink:#191612; --ink-2:#5a5248; --line:#ddd4c4; --bubble:#e9e2d4; --sumi:#191612; --on-sumi:#f2ede3;
-  --hanko:#c8361d; --pt:#0b7a4b; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --accent:var(--hanko);
+  --hanko:#c8361d; --pt:#0b7a4b; --ru:#2a52be; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --accent:var(--hanko);
   --ok:#1f7a4c; --ok-bg:#dff0e3; --bad:#b8321f; --bad-bg:#f7e1db; --warn:#a96d12; --warn-bg:#f6ead0;
   --shadow:0 1px 0 rgba(25,22,18,.05),0 18px 40px -24px rgba(25,22,18,.45);
   --f-display:"Fraunces","Iowan Old Style",Georgia,serif;
@@ -34,17 +34,17 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#13110e; --sheet:#1c1915; --ink:#efe8db; --ink-2:#b0a594; --line:#342e26; --bubble:#29241e; --sumi:#0b0a08; --on-sumi:#efe8db;
-  --hanko:#ef6a4c; --pt:#3fc58a; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee;
+  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee;
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#13110e; --sheet:#1c1915; --ink:#efe8db; --ink-2:#b0a594; --line:#342e26; --bubble:#29241e; --sumi:#0b0a08; --on-sumi:#efe8db;
-  --hanko:#ef6a4c; --pt:#3fc58a; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee;
+  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee;
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);margin:0}
-body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)}
+body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="ru"]{--accent:var(--ru)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)}
 .jp,[lang="ja"]{font-family:var(--f-jp)}
 h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
 button{font:inherit;color:inherit;cursor:pointer}
@@ -352,6 +352,13 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kc.seen{background:var(--warn-bg)} .kc.known{background:var(--ok-bg);border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
 .kc.sel{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
 .kdet{display:grid;gap:4px}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:26px}
+.cert{display:flex;flex-direction:column;gap:10px}.cert h3{margin:0;font-size:18px}.cert-top{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.cert-abre{display:flex;flex-wrap:wrap;gap:6px}.cert-abre span{font-size:13px;padding:3px 9px;border-radius:99px;background:var(--bubble)}
+.cert-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:14px}.cert-dl dt{color:var(--ink-2)}.cert-dl dd{margin:0}
+.cert-tip{margin:0;font-size:14px;line-height:1.5}.cert .row{margin-top:auto;align-items:center}.cert-conf{font-size:12px}
+.certs-home{display:grid;grid-template-columns:1fr auto;gap:2px 14px;width:100%;text-align:left;padding:18px 22px;margin:18px 0;border:1px solid var(--line);border-radius:18px;background:var(--card,var(--paper));color:inherit;cursor:pointer;font:inherit}
+.certs-home b{font-size:19px}.certs-home>span:last-child{grid-row:1/4;grid-column:2;align-self:center;font-size:24px}.certs-home:hover{border-color:var(--accent)}
 .kpron{margin:8px 0 0;min-height:1.4em;font-weight:600}.kpron.ok{color:var(--ok)}.kpron.casi{color:var(--warn)}.kpron.mal{color:var(--bad,#c0392b)}
 .btn.rec{animation:libLat 1s infinite}
 .kbig{font:400 140px/1.1 var(--f-jp);text-align:center;color:var(--ink)}
@@ -376,7 +383,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .mnav,.kclose{display:none}
 @media (max-width:820px){
   .top .nav{display:none}
-  .mnav{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+  .mnav{display:grid;grid-template-columns:repeat(7,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
   .mnav button{display:grid;justify-items:center;gap:1px;background:none;border:0;border-radius:12px;padding:6px 2px;font:700 10.5px var(--f-body);color:var(--ink-2)}
   .mnav button span{font:400 22px/1.1 var(--f-brush)}
   .mnav button[aria-current="page"]{color:var(--hanko);background:color-mix(in srgb,var(--hanko) 10%,transparent)}
@@ -778,24 +785,64 @@ function speak(script,lang,onEnd){
   next();
 }
 
+/* ============ Certificados: los que abren trabajo o universidad rápido (revisado el 22-10-2026) ============ */
+// ok:true = comprobado en la web oficial; si no, se muestra «a confirmar». ir = dónde practicarlo en el Dojo
+const CERTS=[
+  {c:"ingles",n:"IELTS Academic",abre:["uni","trabajo"],p:"29.700 ¥ en Japón",t:"Resultado en 1-5 días (por ordenador)",d:"Centros en Osaka y en todo el mundo",v:"2 años",u:"https://www.eiken.or.jp/ielts/test/",ok:true,ir:{v:"exam",x:"ielts"},tip:"El más aceptado por universidades y visados. Si no tienes ningún certificado de inglés, empieza por este."},
+  {c:"ingles",n:"Duolingo English Test",abre:["uni"],p:"≈ 70 $",t:"Resultado en ≤ 48 h",d:"Desde casa, 1 hora",v:"2 años",u:"https://englishtest.duolingo.com",ok:false,tip:"El más rápido y barato, pero mira antes si tu universidad lo acepta: muchas piden IELTS."},
+  {c:"ingles",n:"TOEFL iBT",abre:["uni"],p:"≈ 195 $ en Japón",t:"Resultado en unos días",d:"Centro o desde casa (Home Edition)",v:"2 años",u:"https://www.ets.org/toefl",ok:false,ir:{v:"exam",x:"toefl"},tip:"Pesa sobre todo en EE. UU. Para Europa rinde más el IELTS o el C1."},
+  {c:"ingles",n:"Cambridge C1 Advanced",abre:["uni","trabajo","docencia"],p:"≈ 21.000 ¥ en Japón",t:"Resultado en unas semanas",d:"En papel en muchas ciudades",v:"No caduca",u:"https://www.cambridgeenglish.org/exams-and-tests/advanced/",ok:false,tip:"Más difícil, pero sirve para toda la vida en Europa."},
+  {c:"pt",n:"CIPLE (A2)",abre:["trabajo","nacionalidad"],p:"≈ 95 €",t:"Sesiones en mayo, julio y noviembre",d:"Lisboa y centros CAPLE fuera de Portugal",v:"Sin caducidad indicada",u:"https://caple.letras.ulisboa.pt",ok:false,ir:{v:"pt"},tip:"El nivel que piden para la nacionalidad. Con el español de base se prepara en 1-2 meses."},
+  {c:"pt",n:"DIPLE (B2)",abre:["uni","trabajo"],p:"≈ 135 €",t:"Prepararlo lleva unos 4-6 meses",d:"Centros CAPLE (Lisboa, Valencia…)",v:"—",u:"https://caple.letras.ulisboa.pt/centros",ok:false,ir:{v:"pt"},tip:"El nivel habitual para estudiar en portugués. Puedes saltarte el B1."},
+  {c:"ru",n:"ТРКИ / TORFL",abre:["uni"],p:"Según el centro",t:"Desde cero, el ТРКИ-1 (B1) lleva ≈ 1 año",d:"Universidades rusas y algunos centros fuera (Osaka lo ha organizado)",v:"El ТРКИ-1 suele valer para entrar en la carrera",u:"https://education-in-russia.com",ok:false,ir:{v:"ru"},tip:"Con la beca de cuota estatal no hace falta antes: el año preparatorio (подфак) enseña el ruso."},
+  {c:"es",n:"Examinador DELE (Instituto Cervantes)",abre:["trabajo","docencia"],p:"Curso online, ≈ 100-200 $",t:"10-20 h por nivel",d:"Online, en cualquier sede del Cervantes",v:"Te dan un código de examinador",u:"https://cervantes.org",ok:false,tip:"Te pagan por jornada de examen y mejora mucho el CV para enseñar español. Piden un título universitario y formación de ELE."},
+  {c:"es",n:"CCP · Formador en Portugal",abre:["trabajo","docencia"],p:"190-950 € (curso de 90 h)",t:"3-6 semanas",d:"Portugal, presencial o mixto",v:"No caduca",u:"https://www.netforce.iefp.pt",ok:false,tip:"Para dar cursos financiados de idiomas o informática en Portugal."},
+  {c:"tec",n:"AWS Cloud Practitioner",abre:["trabajo"],p:"100 $",t:"Aprobado o no al momento",d:"Online con vigilancia o en un centro",v:"3 años",u:"https://aws.amazon.com/certification/certified-cloud-practitioner/",ok:true,ir:{v:"exam",x:"aws"},tip:"La puerta de entrada al cloud. Aquí tienes simulacros completos."},
+  {c:"tec",n:"Google Skillshop (Ads, Analytics)",abre:["trabajo"],p:"Gratis",t:"Unas horas cada uno",d:"Online",v:"≈ 1 año",u:"https://skillshop.withgoogle.com",ok:false,gratis:true,tip:"Para conseguir clientes de webs y marketing."},
+  {c:"tec",n:"HubSpot Academy",abre:["trabajo"],p:"Gratis",t:"2-6 h",d:"Online",v:"≈ 2 años",u:"https://academy.hubspot.com",ok:false,gratis:true,tip:"Marketing y captación de clientes: queda bien en un perfil de autónomo."},
+  {c:"tec",n:"freeCodeCamp",abre:["trabajo"],p:"Gratis",t:"Cientos de horas, menos si ya programas",d:"Online",v:"No caduca",u:"https://www.freecodecamp.org/learn",ok:false,gratis:true,tip:"Certificados de desarrollo web con proyectos que puedes enseñar."},
+  {c:"tec",n:"CS50 (Harvard)",abre:["uni","trabajo"],p:"Gratis (el de edX es de pago)",t:"10-12 semanas",d:"Online",v:"No caduca",u:"https://cs50.harvard.edu/x/",ok:false,gratis:true,tip:"La mejor base de informática gratis, con un nombre que todo el mundo conoce."},
+  {c:"tec",n:"Cisco Networking Academy",abre:["trabajo"],p:"Muchos cursos gratis",t:"6-70 h",d:"Online",v:"—",u:"https://www.netacad.com",ok:false,gratis:true,tip:"Redes y ciberseguridad básica."},
+  {c:"tec",n:"Microsoft Applied Skills",abre:["trabajo"],p:"Evaluación gratis",t:"Horas o días",d:"Online",v:"No caduca",u:"https://learn.microsoft.com/credentials/applied-skills/",ok:false,gratis:true,tip:"Pruebas prácticas cortas para el CV técnico."},
+  {c:"pt",n:"RNAAT · vender tours propios en Portugal",abre:["trabajo"],p:"Desde 20,28 €",t:"Inscripción online",d:"gov.pt",v:"Permanente",u:"https://www.gov.pt/servicos/animacao-turistica-inscricao-no-registo-nacional-rnaat-",ok:true,tip:"Para guiar no hace falta licencia en Portugal continental; el RNAAT es para vender tours con tu propia marca."},
+];
+const CERT_CAT={ingles:"Inglés",pt:"Portugués y Portugal",ru:"Ruso",es:"Enseñar español",tec:"Técnico y negocio"};
+const CERT_ABRE={uni:"🎓 Universidad",trabajo:"💼 Trabajo",docencia:"🧑‍🏫 Dar clases",nacionalidad:"🇵🇹 Nacionalidad"};
+function viewCerts(){const f=route.f||"todo",L=CERTS.filter(c=>f==="todo"||(f==="gratis"?c.gratis:c.abre.includes(f)));
+  const fil=[["todo","Todo"],["trabajo","Trabajo rápido"],["uni","Universidad"],["gratis","Gratis"]];
+  return `<div class="ex-head"><div><span class="eyebrow">Revisado el 22-10-2026 · precios orientativos</span><h1 style="margin-top:8px">Certificados que abren puertas</h1>
+    <p class="muted" style="max-width:62ch">Los que más rápido te dan trabajo o plaza en la universidad: cuánto cuestan, cuánto tardan y dónde se hacen. Si el Dojo tiene práctica, hay un botón para empezar ya.</p></div></div>
+    <div class="tabs" role="tablist" style="margin:6px 0 18px">${fil.map(([k,n])=>`<button role="tab" data-cf="${k}" aria-selected="${k===f}">${n}</button>`).join("")}</div>
+    ${Object.keys(CERT_CAT).map(cat=>{const l=L.filter(c=>c.c===cat);if(!l.length)return "";
+      return `<h2 class="kh">${CERT_CAT[cat]}</h2><div class="certs">${l.map(c=>`<article class="card cert reveal">
+        <div class="cert-top"><h3>${h(c.n)}</h3>${c.gratis?'<span class="pill ok">Gratis</span>':""}</div>
+        <div class="cert-abre">${c.abre.map(a=>`<span>${CERT_ABRE[a]}</span>`).join("")}</div>
+        <dl class="cert-dl"><dt>Precio</dt><dd>${h(c.p)}</dd><dt>Tiempo</dt><dd>${h(c.t)}</dd><dt>Dónde</dt><dd>${h(c.d)}</dd><dt>Validez</dt><dd>${h(c.v)}</dd></dl>
+        <p class="cert-tip">${h(c.tip)}</p>
+        <div class="row"><a class="btn ghost" href="${h(c.u)}" target="_blank" rel="noopener">Web oficial ↗</a>${c.ir?`<button class="btn acc" data-cir='${h(JSON.stringify(c.ir))}'>Practicar aquí</button>`:""}${c.ok?"":'<span class="muted cert-conf">a confirmar en la web oficial</span>'}</div>
+      </article>`).join("")}</div>`}).join("")}`}
+function bindCerts(){document.querySelectorAll("[data-cf]").forEach(b=>b.onclick=()=>{route.f=b.dataset.cf;render()});
+  document.querySelectorAll("[data-cir]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.cir);if(r.v==="exam"){go({...r,tab:"sims"});loadBank(r.x).catch(e=>toast(e.message))}else go(r)})}
+function certsHome(){return `<button class="certs-home reveal" data-go="certs"><span class="eyebrow">Nuevo</span><b>Certificados que abren puertas</b><span class="muted">Trabajo rápido, universidad y los gratis · IELTS, CIPLE, ТРКИ, AWS…</span><span aria-hidden="true">→</span></button>`}
+
 /* ============ Rutas ============ */
 let route={v:"home"}; let run=null;
 const suaveVT=f=>{if(!document.startViewTransition||matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return f();try{document.startViewTransition(f)}catch(e){f()}};
 function go(r){delete document.documentElement.dataset.vt;suaveVT(()=>go0(r))}
-function go0(r){if(lib.on&&r.v!=="libre")libPara();if(r.v!=="clase")clsParar();clsBorrar=null;route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
+function go0(r){if(lib.on&&r.v!=="libre")libPara();if(r.v!=="clase")clsParar();clsBorrar=null;route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"||r.v==="ru"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
   const nb=(v,l,kk)=>`<button data-go="${v}" data-key="${kk}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
   return `<header class="top"><div class="top-in">
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
-    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana","K")}${nb("pt","Portugués","P")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía","G")}</nav>
+    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana","K")}${nb("pt","Portugués","P")}${nb("ru","Ruso","R")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía","G")}</nav>
     <div class="stats">
       ${socBtn()}
       <button class="cmd-btn" data-cmd aria-label="Buscar o ir a…"><span aria-hidden="true">⌕</span><span class="cmd-t">Ir a…</span><kbd>/</kbd></button>
@@ -803,7 +850,7 @@ function topBar(){
       <span class="stat" title="Experiencia · ${h(L.name)}">${S.xp} XP</span>
     </div>
   </div></header>
-  <nav class="mnav" aria-label="Secciones">${[["home","試","Exámenes"],["kana","あ","Kana"],["pt","ポ","Portugués"],["libre","耳","Libre"],["cards","札","Tarjetas"],["guide","導","Guía"]].map(([v,k,l])=>`<button data-go="${v}" ${cur===v||(v==="home"&&cur==="exam")?'aria-current="page"':""}><span lang="ja">${k}</span>${l}</button>`).join("")}</nav>`;
+  <nav class="mnav" aria-label="Secciones">${[["home","試","Exámenes"],["kana","あ","Kana"],["pt","ポ","Portugués"],["ru","露","Ruso"],["libre","耳","Libre"],["cards","札","Tarjetas"],["guide","導","Guía"]].map(([v,k,l])=>`<button data-go="${v}" ${cur===v||(v==="home"&&cur==="exam")?'aria-current="page"':""}><span lang="ja">${k}</span>${l}</button>`).join("")}</nav>`;
 }
 
 /* ============ Portada ============ */
@@ -844,6 +891,7 @@ function viewHome(){
     </div>
   </section>
   ${retoHome()}
+  ${certsHome()}
   <div class="marq" aria-hidden="true"><div class="marq-in">${[0,1].map(()=>`<span>AWS SAA-C03 <i>雲</i> TOEFL iBT <i>英</i> IELTS Academic <i>語</i> JLPT N5 <i>日</i> Hiragana <i>あ</i> Katakana <i>ア</i> Kanji <i>字</i></span>`).join("")}</div></div>
   ${!practicedToday&&S.last?`<div class="banner"><span><b>Aún no has practicado hoy.</b> Tu racha de ${S.streak} días se pierde a medianoche.</span><button class="btn acc" data-quick="1">Práctica rápida de 5 min</button></div>`:""}
   <div class="sec-title reveal"><h2><span class="num">01 — EXÁMENES</span>Elige tu examen</h2><span class="muted">3 calentamientos + 30 simulacros por examen · AWS con examen real de 65</span></div>
@@ -1048,7 +1096,7 @@ function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#f
 function rerun(keepScroll){const f=()=>{const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)};
   if(keepScroll)f();else{document.documentElement.dataset.vt="paso";suaveVT(f)}}
 /* ============ Manos libres: te lo dice, te deja pensar, te da la respuesta y sigue solo ============ */
-const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"]];
+const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"],["cirilico","Ruso · alfabeto"],["ruvocab","Ruso · palabras y frases"],["ruuni","Ruso · estudiar en Rusia"]];
 const lib={on:false,i:0,cola:[],tok:0,rev:false,mic:null,micOn:false,oido:"",wake:null,dicho:""};
 function libCfg(){if(!S.libre)S.libre={sets:["vocab"],pausa:3,es:true,frase:true,nuevas:true};return S.libre}
 function libCola(){const c=libCfg();let L=[];for(const s of c.sets)for(const it of KANA[s]||[])L.push([s,it]);
@@ -1062,11 +1110,11 @@ function libJa(t){if(S.voz==="sys")return libTTS(t,"ja-JP",.85);
   return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>libTTS(t,"ja-JP",.85).then(fin),fin)})}
 // Audio grabado (español y portugués con las voces de Edge); si falta, la voz del sistema
 function libVoz(pq,t,lang,rate){return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(pq,t),()=>libTTS(t,lang,rate).then(fin),fin)})}
-function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libVoz("pt",t,"pt-PT",.92):libJa(t)}
+function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libVoz(KEXT(set),t,kLang(set),.92):libJa(t)}
 function libEs(t){lib.dicho=sinTilde(t);return libVoz("es",t,"es-ES",1.05)}
 // Calienta la caché con los audios de la siguiente tarjeta para que no haya silencios al pasar
-function libPrecarga(){const n=lib.cola[(lib.i+1)%lib.cola.length];if(!n)return;const [s,it]=n,c=libCfg(),pj=KPT(s)?"pt":KMATON.has(kVoice(s,it))?"maton":(S.voz||"mao"),u=[vozUrl(pj,kVoice(s,it))];
-  if(c.es)u.push(vozUrl("es",libSignif(s,it)));if(c.frase&&it.f){u.push(vozUrl(KPT(s)?"pt":pj,it.f));if(c.es&&it.fe)u.push(vozUrl("es",it.fe))}
+function libPrecarga(){const n=lib.cola[(lib.i+1)%lib.cola.length];if(!n)return;const [s,it]=n,c=libCfg(),pj=KPT(s)?KEXT(s):KMATON.has(kVoice(s,it))?"maton":(S.voz||"mao"),u=[vozUrl(pj,kVoice(s,it))];
+  if(c.es)u.push(vozUrl("es",libSignif(s,it)));if(c.frase&&it.f){u.push(vozUrl(pj,it.f));if(c.es&&it.fe)u.push(vozUrl("es",it.fe))}
   for(const x of u)fetch(x).catch(()=>{})}
 function libSignif(set,it){return set==="hira"||set==="kata"?"Se lee "+it.r:it.m}
 async function libBucle(){const my=++lib.tok,vivo=()=>lib.on&&my===lib.tok;
@@ -1436,7 +1484,7 @@ function bindClase(){if(!cuenta)return;
   const sa=$("#clsSalir");if(sa)sa.onclick=async()=>{try{await apiF(`clases/${c.id}/salir`,{method:"POST",body:{}});if(soc)soc.clases=null;go({v:"social"})}catch(e){toast(e.message)}};
   const inp=$("#clsIn");inp.onkeydown=e=>{if(e.key==="Escape")inp.blur()}}
 /* ============ Teclado: un solo oyente para toda la app ============ */
-const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["R","Ruso"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
   ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
@@ -1460,14 +1508,14 @@ const SIMS=["c1","c2","c3",...Array.from({length:30},(_,i)=>"s"+(i+1))];
 const simName=k=>k[0]==="c"?"Calentamiento "+k.slice(1):"Simulacro "+k.slice(1);
 function cmdItems(){
   const L=[],add=(g,l,f,k="",q="")=>L.push({g,l,f,k,q});
-  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
+  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["ru","Ruso desde cero","R"],["certs","Certificados que abren puertas",""],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
   Object.keys(EX).forEach(x=>add("Reto",`⚡ Reto del día · ${EX[x].short}`,()=>startReto(x),"","reto diario hoy"));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
     add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
     if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
     add("Estudiar",`${E.short} · ${simName(nx||"s1")} en modo estudio`,()=>startRun(x,nx||"s1","study",null,E.short+" · "+simName(nx||"s1")));
     if(E.full)add("Empezar",`${E.short} · examen real completo`,()=>startRun(x,"full","exam",null,E.short+" · Examen real"))});
-  Object.entries(KSETS).forEach(([k,[n,j]])=>{const v=KGRUPO.pt.includes(k)?"pt":"kana",g=v==="pt"?"Portugués":"Kana";
+  Object.entries(KSETS).forEach(([k,[n,j]])=>{const v=KEXT(k)||"kana",g={pt:"Portugués",ru:"Ruso",kana:"Kana"}[v];
     add(g,`${n} ${j} · tabla`,()=>go({v,k}),"",k);add(g,`${n} · test`,()=>go({v,k,kt:"test"}),"",k+" examen practicar");if(v==="kana")add(g,`${n} · dibuja`,()=>go({v,k,kt:"dibuja"}),"",k+" escribir trazar")});
   VOZ_JA.forEach(([k,n,d])=>add("Voz",`Voz japonesa ${n} · ${d}${(S.voz||"mao")===k?" (la que tienes)":""}`,()=>{S.voz=k;save();render();sayJa("こんにちは！いっしょに がんばろうね。")},"",k));
   add("Voz","Voz japonesa del sistema",()=>{S.voz="sys";save();render();sayJa("こんにちは！いっしょに がんばろうね。")});
@@ -1515,7 +1563,7 @@ document.addEventListener("keydown",e=>{
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
-  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",r:"ru",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to&&!(v==="libre"&&lk==="r")){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
   if(v==="run"&&run){
     const it=run.items[run.i],q=it.q;
     if(k==="Escape"){e.preventDefault();act($("#quit"));return}
@@ -1529,7 +1577,7 @@ document.addEventListener("keydown",e=>{
   if(onCtl)return;
   if(k==="Escape"){e.preventDefault();if(kSheet&&$("[data-kclose]")?.offsetParent){act($("[data-kclose]"));return}
     if(v==="result"||v==="rayo")go({v:"exam",x:route.x,tab:"sims"});else if(v==="clase")go({v:"social"});else if(v==="exam"&&route.tab&&route.tab!=="sims"){route.tab="sims";render()}else if(v!=="home")go({v:"home"});return}
-  if(e.shiftKey&&(k==="ArrowUp"||k==="ArrowDown")&&(v==="kana"||v==="pt")){const ss=[...document.querySelectorAll("[data-kset]")];if(ss.length){e.preventDefault();const i=Math.max(0,ss.findIndex(b=>b.classList.contains("on")));ss[(i+(k==="ArrowDown"?1:-1)+ss.length)%ss.length].click()}return}
+  if(e.shiftKey&&(k==="ArrowUp"||k==="ArrowDown")&&(v==="kana"||v==="pt"||v==="ru")){const ss=[...document.querySelectorAll("[data-kset]")];if(ss.length){e.preventDefault();const i=Math.max(0,ss.findIndex(b=>b.classList.contains("on")));ss[(i+(k==="ArrowDown"?1:-1)+ss.length)%ss.length].click()}return}
   if(e.shiftKey&&(k==="ArrowLeft"||k==="ArrowRight")){const ts=[...document.querySelectorAll('#app [role="tab"]')];if(ts.length){e.preventDefault();const i=Math.max(0,ts.findIndex(t=>t.getAttribute("aria-selected")==="true"));ts[(i+(k==="ArrowRight"?1:-1)+ts.length)%ts.length].click()}return}
   if(v==="home"&&/^[1-9]$/.test(k)){act(document.querySelectorAll(".exam-card[data-exam]")[+k-1]);return}
   if(v==="exam"&&(route.tab||"sims")==="sims"){
@@ -1555,7 +1603,7 @@ document.addEventListener("keydown",e=>{
     if(/^[1-5]$/.test(k)){act(document.querySelectorAll("[data-ml]")[+k-1]);return}
     if(/^[a-e]$/.test(lk)){act(document.querySelectorAll("[data-mr]")["abcde".indexOf(lk)]);return}
     return}
-  if((v==="kana"||v==="pt")&&KANA){
+  if((v==="kana"||v==="pt"||v==="ru")&&KANA){
     const tab=route.kt||"tabla",d=/^Digit[123]$/.test(e.code)?+e.code.slice(5):0;
     if(e.shiftKey&&d){act(document.querySelectorAll("[data-kt]")[d-1]);return}
     if(tab==="tabla"){
@@ -1800,11 +1848,15 @@ async function sendChat(text){
 
 /* ============ Kana y kanji: tabla, test y dibujo ============ */
 let KANA=null, kq=null, kSel=null, kSheet=false;
-const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."],pt:["Para vivir allí","Olá!","Lo de cada día en Portugal, con humor."],falsos:["Falsos amigos","≠","Las palabras que traicionan a los hispanohablantes."],tramites:["Trámites","NIF","El papeleo para vivir y estudiar en Portugal."]};
-const KGRUPO={kana:["hira","kata","kanji","vocab","kansai"],pt:["pt","falsos","tramites"]};
-const KPT=set=>KGRUPO.pt.includes(set);
-function kLang(set){return KPT(set)?"pt-PT":"ja"}
-function kSpeak(set,t){KPT(set)?sayPT(t):sayJa(t)}
+const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."],pt:["Para vivir allí","Olá!","Lo de cada día en Portugal, con humor."],falsos:["Falsos amigos","≠","Las palabras que traicionan a los hispanohablantes."],tramites:["Trámites","NIF","El papeleo para vivir y estudiar en Portugal."],cirilico:["Alfabeto cirílico","Аа","Las 33 letras: 5 iguales, 7 engañosas y 21 nuevas."],ruvocab:["Palabras y frases","Привет","Lo básico para sobrevivir, con la pronunciación."],ruuni:["Estudiar en Rusia","ВУЗ","La universidad por dentro: подфак, ТРКИ, residencia…"]};
+const KGRUPO={kana:["hira","kata","kanji","vocab","kansai"],pt:["pt","falsos","tramites"],ru:["cirilico","ruvocab","ruuni"]};
+// Idiomas «de fuera» (portugués y ruso): mismo formato de fichas, cada uno con su voz grabada
+const KEXT=set=>KGRUPO.pt.includes(set)?"pt":KGRUPO.ru.includes(set)?"ru":"";
+const KPT=set=>!!KEXT(set);
+const KLANGS={pt:"pt-PT",ru:"ru-RU"};
+const kGv=()=>KGRUPO[route.v]&&route.v!=="kana"?route.v:"kana";
+function kLang(set){return KPT(set)?KLANGS[KEXT(set)]:"ja"}
+function kSpeak(set,t){KPT(set)?sayPT(t,set):sayJa(t)}
 /* ============ Pronunciación: escucha con el micro y compara (reconocimiento del navegador, gratis) ============ */
 const SRec=window.SpeechRecognition||window.webkitSpeechRecognition;
 const kataHira=t=>t.replace(/[\u30a1-\u30f6]/g,c=>String.fromCharCode(c.charCodeAt(0)-96));
@@ -1813,7 +1865,7 @@ function lev(a,b){const d=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i
 function pronParecido(dicho,objetivos){const x=pronNorm(dicho);let m=0;for(const o of objetivos){const y=pronNorm(o);if(!y)continue;m=Math.max(m,1-lev(x,y)/Math.max(x.length,y.length))}return m}
 let pronRec=null;
 function pronProbar(set,it,btn){const out=$("#kpron");if(!SRec||!out)return;if(pronRec){pronRec.abort();return}
-  stopVoz();const r=new SRec();pronRec=r;r.lang=KPT(set)?"pt-PT":"ja-JP";r.interimResults=false;r.maxAlternatives=5;
+  stopVoz();const r=new SRec();pronRec=r;r.lang=KPT(set)?kLang(set):"ja-JP";r.interimResults=false;r.maxAlternatives=5;
   btn.classList.add("rec");btn.textContent="● Te escucho…";out.className="kpron";out.textContent="Di la palabra ahora";
   const obj=[it.c,it.k,it.wr,it.r,kVoice(set,it),...String(it.c).split(" / ")].filter(Boolean);
   r.onresult=e=>{const alts=[...e.results[0]].map(a=>a.transcript);let best=0,txt=alts[0]||"";for(const a of alts){const p=pronParecido(a,obj);if(p>best){best=p;txt=a}}
@@ -1823,9 +1875,9 @@ function pronProbar(set,it,btn){const out=$("#kpron");if(!SRec||!out)return;if(p
   r.onend=()=>{pronRec=null;btn.classList.remove("rec");btn.textContent="🎙 Dilo tú"};
   try{r.start()}catch(e){pronRec=null}}
 // Kanji, vocabulario y Kansai se preguntan por el significado; los kana, por el sonido
-const KMEAN=set=>set==="kanji"||set==="vocab"||set==="kansai"||KPT(set);
+const KMEAN=set=>set==="kanji"||set==="vocab"||set==="kansai"||(KPT(set)&&set!=="cirilico");
 function kShow(set,it){return KMEAN(set)?it.m:it.r}
-function kVoice(set,it){return set==="kanji"?it.wr:KPT(set)?it.c.replace(/ \/ /g,", "):it.c.replace(/ \/ /g,"、").replace(/〜/g,"")}
+function kVoice(set,it){return set==="kanji"?it.wr:KPT(set)?it.v||it.c.replace(/ \/ /g,", "):it.c.replace(/ \/ /g,"、").replace(/〜/g,"")}
 function kWord(set){return set==="vocab"||set==="kansai"||KPT(set)}
 async function loadKana(){if(KANA)return KANA;const r=await fetch("kana.json");if(!r.ok)throw new Error("No se pudo cargar kana.json");KANA=await r.json();KMATON=new Set(KANA.kansai.filter(i=>i.g==="calle").map(i=>kVoice("kansai",i)));return KANA}
 function kid(set,c){return set+":"+c}
@@ -1840,8 +1892,8 @@ function stopVoz(){try{speechSynthesis.cancel()}catch(e){}if(kAudio){kAudio.onen
 let vozRate=1;
 function playVoz(url,fallback,onEnd){stopVoz();let done=false;const a=new Audio(url);kAudio=a;a.playbackRate=vozRate;a.preservesPitch=true;const fb=()=>{if(done||kAudio!==a)return;done=true;fallback()};a.onerror=fb;a.onended=()=>{if(kAudio===a)onEnd&&onEnd()};a.play().catch(fb);return a}
 function sayJa(t){if(S.voz==="sys")return sayTTS(t);playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>sayTTS(t))}
-function sayPT(t){playVoz(vozUrl("pt",t),()=>ptTTS(t))}
-function ptTTS(t){stopVoz();try{const u=new SpeechSynthesisUtterance(t);u.lang="pt-PT";u.rate=.92;const v=pickVoice("pt-PT","F");if(v&&v.lang.replace("_","-").startsWith("pt-PT"))u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene voz portuguesa")}}
+function sayPT(t,set){const pq=KEXT(set)||"pt";playVoz(vozUrl(pq,t),()=>ptTTS(t,KLANGS[pq]))}
+function ptTTS(t,lang="pt-PT"){stopVoz();try{const u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=.92;const v=pickVoice(lang,"F");if(v&&v.lang.replace("_","-").startsWith(lang))u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene esa voz")}}
 function vozPicker(soloJa){
   return `<div class="vozbar"><label><span class="eyebrow">Voz japonesa</span><select class="inp" id="vozja">${VOZ_JA.map(([k,n,d])=>`<option value="${k}" ${(S.voz||"mao")===k?"selected":""}>${n} · ${d}</option>`).join("")}<option value="sys" ${S.voz==="sys"?"selected":""}>Voz del sistema</option></select></label><button class="btn ghost" data-vprev="ja">▶ Probar</button>
   ${soloJa?"":`<label><span class="eyebrow">Inglés (TOEFL · IELTS)</span><select class="inp" id="vozen">${VOZ_EN.map(([k,n])=>`<option value="${k}" ${(S.vozEn||"auto")===k?"selected":""}>${n}</option>`).join("")}</select></label><button class="btn ghost" data-vprev="en">▶ Probar</button>`}</div>`}
@@ -1859,7 +1911,7 @@ function kDetail(set){
   const L=KANA[set], it=L.find(i=>i.c===kSel)||L[0];
   const st=kStat(set,it.c);
   const info=KPT(set)
-    ?`<div class="kv"><span>${set==="tramites"?"Qué es":"Significa"}</span><b>${h(it.m)}</b></div>${it.f?`<p class="kfrase"><span lang="pt-PT">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>`:""}${it.t?`<p class="ktrick"><span class="eyebrow">${set==="falsos"?"La trampa":set==="tramites"?"Cómo va":"Pronunciación"}</span>${h(it.t)}</p>`:""}`
+    ?`${it.r&&set!=="cirilico"?`<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div>`:""}<div class="kv"><span>${set==="tramites"||set==="ruuni"?"Qué es":set==="cirilico"?"Suena":"Significa"}</span><b>${h(it.m)}</b></div>${it.f?`<p class="kfrase"><span lang="${kLang(set)}">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>`:""}${it.t?`<p class="ktrick"><span class="eyebrow">${set==="falsos"?"La trampa":set==="tramites"||set==="ruuni"?"Cómo va":set==="cirilico"?"Truco":"Pronunciación"}</span>${h(it.t)}</p>`:""}`
     :set==="vocab"
     ?`${it.k?`<div class="kv"><span>Se escribe</span><b lang="ja">${h(it.k)}</b></div>`:""}<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div><div class="kv"><span>Significa</span><b>${h(it.m)}</b></div>${it.ks?`<div class="kv"><span>En Kansai</span><b lang="ja">${h(it.ks)}</b></div>`:""}<p class="kfrase"><span lang="ja">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>`
     :set==="kansai"
@@ -1874,7 +1926,7 @@ function kDetail(set){
 }
 function viewKana(){
   if(!KANA){loadKana().then(render).catch(e=>toast(e.message));return `<p class="muted" style="padding:40px 0">Cargando…</p>`}
-  const grp=KGRUPO[route.v==="pt"?"pt":"kana"], set=grp.includes(route.k)?route.k:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
+  const grp=KGRUPO[kGv()], set=grp.includes(route.k)?route.k:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
   const known=L.filter(i=>kKnown(set,i.c)).length;
   const sw=Object.entries(KSETS).filter(([k])=>grp.includes(k)).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="ja">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
   let body="";
@@ -1895,8 +1947,8 @@ function viewKana(){
       <p class="muted" style="font-size:14px">Ahora: <b lang="ja" style="font-size:22px">${h(c)}</b> ${h(set==="kanji"?(L.find(i=>i.c===c)||{}).m:(L.find(i=>i.c===c)||{}).r)}</p></div></div>`;
   }
   const tabs=kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
-  return `<div class="ex-head"><div>${route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
-    <div class="ksets ${route.v==="pt"?"k3s":""}">${sw}</div>${route.v==="pt"?"":vozPicker(true)}
+  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 style="margin-top:8px"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
+    <div class="ksets ${route.v!=="kana"?"k3s":""}">${sw}</div>${route.v!=="kana"?"":vozPicker(true)}
     <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
@@ -1917,7 +1969,7 @@ function kQuizHTML(){
     ${a!=null?`<div class="feedback ${opts[a]===it?"ok":"bad"}"><b>${opts[a]===it?"¡Bien!":"Era "+h(it.c)+" · "+h(kShow(set,it))}</b>${it.t?`<span>${h(it.t)}</span>`:""}</div><button class="btn acc" data-knext="1">${kq.i===9?"Ver resultado":"Siguiente →"}</button>`:""}</div>`;
 }
 function kSay(){const set=kCur();kSpeak(set,kVoice(set,KANA[set].find(i=>i.c===kSel)||{c:kSel}))}
-function kCur(){const g=KGRUPO[route.v==="pt"?"pt":"kana"];return g.includes(route.k)?route.k:g[0]}
+function kCur(){const g=KGRUPO[kGv()];return g.includes(route.k)?route.k:g[0]}
 function kPick(b,byKey){kSel=b.dataset.kc;kSheet=true;$(".kside").classList.add("open");document.querySelectorAll(".kc.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");$(".kside").innerHTML=kDetail(kCur());bindKana();
   if(byKey)b.scrollIntoView({block:"nearest"});if(window.gsap)gsap.from("#kdet .kbig",{scale:.6,opacity:0,duration:.4,ease:"back.out(2)"})}
 /* Flechas por la tabla: izquierda/derecha siguen el orden; arriba/abajo buscan la celda más cercana en la fila de al lado (sirve con cualquier número de columnas) */
