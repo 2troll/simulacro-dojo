@@ -114,6 +114,30 @@ PT = {
 }
 
 # Falsos amigos: (portugués, lo que significa, la trampa en español)
+# Verbos: (formas, qué significan, frase, traducción, truco)
+VERBOS = {
+    "Los imprescindibles": [
+        ("Eu sou / tu és / ele é", "ser: yo soy, tú eres, él es", "Eu sou espanhol e ele é português.", "Yo soy español y él es portugués.", "Para lo que eres: nacionalidad, profesión, carácter."),
+        ("Eu estou / tu estás / ele está", "estar: yo estoy, tú estás, él está", "Estou cansado, mas estou feliz.", "Estoy cansado, pero estoy contento.", "Como en español: estados y lugares."),
+        ("Eu tenho / tu tens / ele tem", "ter: yo tengo, tú tienes, él tiene", "Tenho uma reunião às três.", "Tengo una reunión a las tres.", ""),
+        ("Eu vou / tu vais / ele vai", "ir: yo voy, tú vas, él va", "Vou a Lisboa amanhã.", "Voy a Lisboa mañana.", "«Vou + infinitivo» = futuro: «vou trabalhar»."),
+        ("Eu faço / tu fazes / ele faz", "fazer: hacer", "O que fazes amanhã?", "¿Qué haces mañana?", ""),
+        ("Eu posso / tu podes / ele pode", "poder", "Posso pagar com cartão?", "¿Puedo pagar con tarjeta?", ""),
+        ("Eu quero / tu queres / ele quer", "querer", "Quero um café, por favor.", "Quiero un café, por favor.", "Más educado: «Queria…» (quería)."),
+        ("Eu sei / tu sabes / ele sabe", "saber", "Não sei onde fica a paragem.", "No sé dónde está la parada.", "«paragem» = parada de autobús en Portugal."),
+    ],
+    "Regulares y trucos": [
+        ("Falar: falo, falas, fala", "verbos en -ar (hablar)", "Falo três línguas.", "Hablo tres idiomas.", "Igual que en español, cambiando -o, -as, -a."),
+        ("Comer: como, comes, come", "verbos en -er (comer)", "Como sempre ao meio-dia.", "Como siempre a mediodía.", ""),
+        ("Partir: parto, partes, parte", "verbos en -ir (salir, partir)", "O comboio parte às nove.", "El tren sale a las nueve.", ""),
+        ("Estou a trabalhar", "estoy trabajando (Portugal)", "Agora estou a trabalhar, ligo-te depois.", "Ahora estoy trabajando, te llamo luego.", "En Portugal: «estar a + infinitivo». En Brasil: «estou trabalhando»."),
+        ("Nós falamos / vocês falam", "nosotros hablamos / ustedes (y vosotros) hablan", "Vocês falam muito depressa!", "¡Habláis muy deprisa!", "En Portugal el «vós» casi no se usa: se dice «vocês»."),
+        ("Ontem falei / comi / parti", "pasado: hablé, comí, salí", "Ontem comi bacalhau pela primeira vez.", "Ayer comí bacalao por primera vez.", "Yo: -ei, -i, -i."),
+        ("Fui / Estive / Tive", "pasado: fui, estuve, tuve", "Fui ao Porto e estive lá dois dias.", "Fui a Oporto y estuve allí dos días.", "«Fui» vale para ser e ir, como en español."),
+        ("Gosto de…", "me gusta…", "Gosto muito de Lisboa.", "Me gusta mucho Lisboa.", "¡Ojo! Lleva «de» y se conjuga como «yo»: «eu gosto de»."),
+    ],
+}
+
 FALSOS = [
     ("Esquisito", "raro", "No es «exquisito». Si la comida está rica, di «delicioso»."),
     ("Polvo", "pulpo", "No es polvo de suciedad: el polvo es «pó»."),
@@ -182,6 +206,7 @@ def main():
     ruta = os.path.join(RAIZ, "www", "kana.json")
     datos = json.load(open(ruta, encoding="utf-8"))
     datos["pt"] = [{"c": c, "m": m, "f": f, "fe": fe, "t": t, "g": tema} for tema, lista in PT.items() for (c, m, f, fe, t) in lista]
+    datos["ptverbos"] = [{"c": c, "m": m, "f": f, "fe": fe, "t": t, "g": g} for g, lista in VERBOS.items() for (c, m, f, fe, t) in lista]
     datos["falsos"] = [{"c": c, "m": m, "t": t, "g": "Falsos amigos"} for (c, m, t) in FALSOS if m != "—"]
     datos["tramites"] = [{"c": c, "m": m, "t": t, "g": "Trámites"} for (c, m, t) in TRAMITES]
     with open(ruta, "w", encoding="utf-8") as f:

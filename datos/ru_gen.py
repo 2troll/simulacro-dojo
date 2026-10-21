@@ -112,6 +112,56 @@ VOCAB = {
         ("Понимать", "paniMAT", "entender", "Теперь я понимаю!", "¡Ahora lo entiendo!", ""),
         ("Знать", "znat", "saber / conocer", "Я не знаю.", "No lo sé.", ""),
     ],
+    "Días y tiempo": [
+        ("Сегодня / Завтра / Вчера", "siVODnia / ZAFtra / FCHIEra", "hoy / mañana / ayer", "Сегодня урок, а завтра экзамен.", "Hoy hay clase y mañana examen.", "«Сегодня» se lee con «v»: siVÓDnia."),
+        ("Утром / Днём / Вечером", "Utram / dniom / VIEchieram", "por la mañana / tarde / noche", "Вечером я читаю.", "Por la noche leo.", ""),
+        ("Понедельник", "paniDIELnik", "lunes", "В понедельник начинается учёба.", "El lunes empiezan las clases.", ""),
+        ("Пятница", "PIATnitsa", "viernes", "В пятницу я иду в мечеть.", "El viernes voy a la mezquita.", ""),
+        ("Выходные", "vyhaDNYe", "fin de semana", "На выходных мы гуляем.", "El fin de semana paseamos.", ""),
+        ("Который час?", "kaTOry chas", "¿qué hora es?", "Который час? — Три часа.", "¿Qué hora es? — Las tres.", ""),
+        ("Холодно / Тепло", "HOladna / tiPLO", "hace frío / hace calor (templado)", "Зимой очень холодно!", "¡En invierno hace mucho frío!", "En Rusia, de verdad: abrígate."),
+    ],
+    "Estudio y casa": [
+        ("Университет", "univiersiTIET", "universidad", "Мой университет в центре.", "Mi universidad está en el centro.", ""),
+        ("Урок / Лекция", "uROK / LIEKtsia", "clase / clase magistral", "Лекция начинается в девять.", "La clase empieza a las nueve.", ""),
+        ("Преподаватель", "priepadaVAtiel", "profesor (de universidad)", "Преподаватель говорит медленно.", "El profesor habla despacio.", "En el cole se dice «учитель»."),
+        ("Книга / Тетрадь", "KNIga / tiTRAT", "libro / cuaderno", "Где моя тетрадь?", "¿Dónde está mi cuaderno?", ""),
+        ("Комната", "KOMnata", "habitación", "Моя комната маленькая, но уютная.", "Mi habitación es pequeña pero acogedora.", ""),
+        ("Повторите, пожалуйста", "paftaRItie, paZHAlsta", "repita, por favor", "Повторите, пожалуйста, медленнее.", "Repita, por favor, más despacio.", "La frase que más usarás en clase."),
+        ("Я не знаю это слово", "ya nie ZNAyu Eta SLOva", "no conozco esta palabra", "Я не знаю это слово. Что это?", "No conozco esta palabra. ¿Qué es?", ""),
+    ],
+    "Adjetivos": [
+        ("Хороший / Плохой", "haROshy / plaHOY", "bueno / malo", "Это хороший вопрос.", "Es una buena pregunta.", ""),
+        ("Большой / Маленький", "balSHOY / MAlienki", "grande / pequeño", "Москва — большой город.", "Moscú es una ciudad grande.", ""),
+        ("Новый / Старый", "NOvy / STAry", "nuevo / viejo", "У меня новый телефон.", "Tengo un móvil nuevo.", ""),
+        ("Дорого / Дёшево", "DOraga / DIOshiva", "caro / barato", "В Москве дорого.", "En Moscú es caro.", ""),
+        ("Интересно", "intieRIESna", "interesante", "Очень интересно! Расскажите ещё.", "¡Muy interesante! Cuénteme más.", ""),
+    ],
+}
+
+# Gramática básica: (forma, qué es, frase, traducción, truco)
+GRAM = {
+    "Las bases": [
+        ("Я, ты, он, она, мы, вы, они", "yo, tú, él, ella, nosotros, vosotros/usted, ellos", "Мы студенты, а они туристы.", "Nosotros somos estudiantes y ellos turistas.", "En presente no hay verbo «ser»: «Я студент» = yo (soy) estudiante."),
+        ("Это…", "esto es… / este es…", "Это мой друг Тони.", "Este es mi amigo Tony.", "Sirve para presentar cualquier cosa."),
+        ("Мой, моя, моё", "mi (masculino, femenino, neutro)", "Это моя сумка, а это мой паспорт.", "Este es mi bolso y este mi pasaporte.", "Concuerda con la cosa: -а suele ser femenino."),
+        ("У меня есть…", "tengo… (literal: junto a mí hay)", "У меня есть вопрос.", "Tengo una pregunta.", "En ruso no se dice «yo tengo»: se dice «junto a mí hay»."),
+        ("Не", "no (delante del verbo)", "Я не знаю и не понимаю.", "No sé y no entiendo.", ""),
+        ("Кто? Что? Где? Когда?", "¿quién? ¿qué? ¿dónde? ¿cuándo?", "Где и когда урок?", "¿Dónde y cuándo es la clase?", "«Что» se pronuncia «shto»."),
+    ],
+    "Verbos en presente": [
+        ("Говорить: говорю, говоришь, говорит", "hablar: hablo, hablas, habla", "Ты говоришь по-русски? — Немного.", "¿Hablas ruso? — Un poco.", "Grupo -ить: -ю, -ишь, -ит."),
+        ("Читать: читаю, читаешь, читает", "leer: leo, lees, lee", "Я читаю медленно.", "Leo despacio.", "Grupo -ать: -ю, -ешь, -ет."),
+        ("Жить: живу, живёшь, живёт", "vivir: vivo, vives, vive", "Я живу в Осаке.", "Vivo en Osaka.", ""),
+        ("Хотеть: хочу, хочешь, хочет", "querer: quiero, quieres, quiere", "Я хочу учиться в Казани.", "Quiero estudiar en Kazán.", "Irregular: apréndelo de memoria."),
+        ("Мы говорим / они говорят", "nosotros hablamos / ellos hablan", "Они говорят очень быстро.", "Ellos hablan muy rápido.", ""),
+    ],
+    "Primeros casos": [
+        ("Я из Испании", "soy de España (de dónde: из + genitivo)", "Я из Испании, а она из Японии.", "Yo soy de España y ella de Japón.", "Muchas palabras en -ия pasan a -ии."),
+        ("В Москве / в России", "en Moscú / en Rusia (dónde: в + prepositivo)", "Я учусь в России.", "Estudio en Rusia.", "Casi siempre se añade -е (-ии en las de -ия)."),
+        ("В Москву / в Россию", "a Moscú / a Rusia (adónde: в + acusativo)", "Завтра я еду в Москву.", "Mañana voy a Moscú.", "La -а final pasa a -у: Москва → Москву."),
+        ("Один рубль, два рубля, пять рублей", "los números cambian la palabra", "Это стоит пять рублей? Не может быть!", "¿Esto cuesta cinco rublos? ¡No puede ser!", "1 → normal; 2-4 → -а/-я; 5 o más → -ов/-ей."),
+    ],
 }
 
 # Estudiar en Rusia: (término, qué es, consejo)
@@ -159,10 +209,11 @@ def main():
                          for g, lista in CIRILICO.items() for (c, r, m, f, fe, t, v) in lista]
     datos["ruvocab"] = [{"c": c, "r": r, "m": m, "f": f, "fe": fe, "t": t, "g": g}
                         for g, lista in VOCAB.items() for (c, r, m, f, fe, t) in lista]
+    datos["rugram"] = [{"c": c, "m": m, "f": f, "fe": fe, "t": t, "g": g} for g, lista in GRAM.items() for (c, m, f, fe, t) in lista]
     datos["ruuni"] = [{"c": c, "m": m, "t": t, "g": "Estudiar en Rusia"} for (c, m, t) in UNI]
     with open(ruta, "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, separators=(",", ":"))
-    print(f"ru: {len(datos['cirilico'])} letras · {len(datos['ruvocab'])} palabras · {len(datos['ruuni'])} de universidad")
+    print(f"ru: {len(datos['cirilico'])} letras · {len(datos['ruvocab'])} palabras · {len(datos['rugram'])} de gramática · {len(datos['ruuni'])} de universidad")
 
 
 if __name__ == "__main__":

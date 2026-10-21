@@ -337,6 +337,20 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kc.seen{background:var(--warn-bg)} .kc.known{background:var(--ok-bg);border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
 .kc.sel{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
 .kdet{display:grid;gap:4px}
+.plan-card{border:1px solid var(--line);border-radius:22px;padding:20px 22px;margin:18px 0;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 9%,var(--paper)),var(--paper));display:grid;gap:12px}
+.plan-card h2{margin:4px 0 0}.plan-h{display:flex;justify-content:space-between;gap:12px;align-items:start;flex-wrap:wrap}
+.misiones{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mision{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:8px;background:var(--paper)}
+.mision.ok{border-color:var(--ok);background:var(--ok-bg)}.mis-t{display:flex;justify-content:space-between;gap:8px}.mis-ok{color:var(--ok);font-weight:700;font-size:14px}
+.mision .bar{height:8px;border-radius:9px;background:var(--bubble);overflow:hidden}.mision .bar i{display:block;height:100%;background:var(--accent);border-radius:9px;transition:width .5s cubic-bezier(.16,1,.3,1)}
+.mision.ok .bar i{background:var(--ok)}.btn.sm{padding:6px 12px;font-size:14px;justify-self:start}.mision.jefe{margin-top:6px;border-style:dashed}
+.pdias{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:6px 0 16px}
+.pdia{border:1px solid var(--line);border-radius:14px;padding:8px 4px;display:grid;justify-items:center;gap:2px;font-size:13px}.pdia b{font-size:20px}
+.pdia.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}.pdia.mal{opacity:.55}.pdia.hoy{border:2px solid var(--accent)}.pdia.fut{opacity:.7}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}@media(max-width:760px){.plan-grid{grid-template-columns:1fr}}
+.medallas{display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px}.medalla{display:grid;justify-items:center;border:1px solid var(--line);border-radius:14px;padding:8px 0}
+.medalla span{font-size:26px}.medalla.vacia span{font-size:18px;opacity:.5}.medalla.ahora{border:2px solid var(--accent)}
+.plan-lista{padding-left:20px;line-height:1.7}.linkbtn{background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
 .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:26px}
 .cert{display:flex;flex-direction:column;gap:10px}.cert h3{margin:0;font-size:18px}.cert-top{display:flex;justify-content:space-between;gap:8px;align-items:start}
 .cert-abre{display:flex;flex-wrap:wrap;gap:6px}.cert-abre span{font-size:13px;padding:3px 9px;border-radius:99px;background:var(--bubble)}
@@ -391,7 +405,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .vozbar{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:end;margin:12px 0 4px}
 .vozbar label{display:grid;gap:4px;min-width:0}
 .vozbar select{max-width:100%}
-.ksets.k3s{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ksets.k3s{grid-template-columns:repeat(4,minmax(0,1fr))}
 .ptv{color:var(--pt);font-style:italic}
 .meta{border-top:1px solid color-mix(in srgb,var(--on-sumi) 18%,transparent);padding-top:12px}
 .meta summary{cursor:pointer;font-weight:700;list-style:none}
@@ -780,7 +794,6 @@ const CERTS=[
   {c:"pt",n:"CIPLE (A2)",abre:["trabajo","nacionalidad"],p:"≈ 95 €",t:"Sesiones en mayo, julio y noviembre",d:"Lisboa y centros CAPLE fuera de Portugal",v:"Sin caducidad indicada",u:"https://caple.letras.ulisboa.pt",ok:false,ir:{v:"pt"},tip:"El nivel que piden para la nacionalidad. Con el español de base se prepara en 1-2 meses."},
   {c:"pt",n:"DIPLE (B2)",abre:["uni","trabajo"],p:"≈ 135 €",t:"Prepararlo lleva unos 4-6 meses",d:"Centros CAPLE (Lisboa, Valencia…)",v:"—",u:"https://caple.letras.ulisboa.pt/centros",ok:false,ir:{v:"pt"},tip:"El nivel habitual para estudiar en portugués. Puedes saltarte el B1."},
   {c:"ru",n:"ТРКИ / TORFL",abre:["uni"],p:"Según el centro",t:"Desde cero, el ТРКИ-1 (B1) lleva ≈ 1 año",d:"Universidades rusas y algunos centros fuera (Osaka lo ha organizado)",v:"El ТРКИ-1 suele valer para entrar en la carrera",u:"https://education-in-russia.com",ok:false,ir:{v:"ru"},tip:"Con la beca de cuota estatal no hace falta antes: el año preparatorio (подфак) enseña el ruso."},
-  {c:"es",n:"Examinador DELE (Instituto Cervantes)",abre:["trabajo","docencia"],p:"Curso online, ≈ 100-200 $",t:"10-20 h por nivel",d:"Online, en cualquier sede del Cervantes",v:"Te dan un código de examinador",u:"https://cervantes.org",ok:false,tip:"Te pagan por jornada de examen y mejora mucho el CV para enseñar español. Piden un título universitario y formación de ELE."},
   {c:"es",n:"CCP · Formador en Portugal",abre:["trabajo","docencia"],p:"190-950 € (curso de 90 h)",t:"3-6 semanas",d:"Portugal, presencial o mixto",v:"No caduca",u:"https://www.netforce.iefp.pt",ok:false,tip:"Para dar cursos financiados de idiomas o informática en Portugal."},
   {c:"tec",n:"AWS Cloud Practitioner",abre:["trabajo"],p:"100 $",t:"Aprobado o no al momento",d:"Online con vigilancia o en un centro",v:"3 años",u:"https://aws.amazon.com/certification/certified-cloud-practitioner/",ok:true,ir:{v:"exam",x:"aws"},tip:"La puerta de entrada al cloud. Aquí tienes simulacros completos."},
   {c:"tec",n:"Google Skillshop (Ads, Analytics)",abre:["trabajo"],p:"Gratis",t:"Unas horas cada uno",d:"Online",v:"≈ 1 año",u:"https://skillshop.withgoogle.com",ok:false,gratis:true,tip:"Para conseguir clientes de webs y marketing."},
@@ -791,7 +804,7 @@ const CERTS=[
   {c:"tec",n:"Microsoft Applied Skills",abre:["trabajo"],p:"Evaluación gratis",t:"Horas o días",d:"Online",v:"No caduca",u:"https://learn.microsoft.com/credentials/applied-skills/",ok:false,gratis:true,tip:"Pruebas prácticas cortas para el CV técnico."},
   {c:"pt",n:"RNAAT · vender tours propios en Portugal",abre:["trabajo"],p:"Desde 20,28 €",t:"Inscripción online",d:"gov.pt",v:"Permanente",u:"https://www.gov.pt/servicos/animacao-turistica-inscricao-no-registo-nacional-rnaat-",ok:true,tip:"Para guiar no hace falta licencia en Portugal continental; el RNAAT es para vender tours con tu propia marca."},
 ];
-const CERT_CAT={ingles:"Inglés",pt:"Portugués y Portugal",ru:"Ruso",es:"Enseñar español",tec:"Técnico y negocio"};
+const CERT_CAT={ingles:"Inglés",pt:"Portugués y Portugal",ru:"Ruso",es:"Dar clases",tec:"Técnico y negocio"};
 const CERT_ABRE={uni:"🎓 Universidad",trabajo:"💼 Trabajo",docencia:"🧑‍🏫 Dar clases",nacionalidad:"🇵🇹 Nacionalidad"};
 function viewCerts(){const f=route.f||"todo",L=CERTS.filter(c=>f==="todo"||(f==="gratis"?c.gratis:c.abre.includes(f)));
   const fil=[["todo","Todo"],["trabajo","Trabajo rápido"],["uni","Universidad"],["gratis","Gratis"]];
@@ -810,6 +823,83 @@ function bindCerts(){document.querySelectorAll("[data-cf]").forEach(b=>b.onclick
   document.querySelectorAll("[data-cir]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.cir);if(r.v==="exam"){go({...r,tab:"sims"});loadBank(r.x).catch(e=>toast(e.message))}else go(r)})}
 function certsHome(){return `<button class="certs-home reveal" data-go="certs"><span class="eyebrow">Nuevo</span><b>Certificados que abren puertas</b><span class="muted">Trabajo rápido, universidad y los gratis · IELTS, CIPLE, ТРКИ, AWS…</span><span aria-hidden="true">→</span></button>`}
 
+/* ============ Plan de 12 semanas: objetivo semanal, misiones de cada día, jefe y medallas ============ */
+// Cada semana: foco de ruso y de portugués (a dónde llevan las misiones), objetivo medible y jefe (9/10 en un test)
+const RUTA=[
+  {t:"Despegue",ru:"cirilico",pt:"pt",obj:[{s:"cirilico",n:12},{s:"pt",n:15}],jefe:"cirilico"},
+  {t:"El alfabeto entero",ru:"cirilico",pt:"pt",obj:[{s:"cirilico",n:33},{s:"pt",n:30}],jefe:"cirilico"},
+  {t:"Primeras palabras",ru:"ruvocab",pt:"ptverbos",obj:[{s:"ruvocab",n:15},{s:"ptverbos",n:6}],jefe:"ruvocab"},
+  {t:"Verbos portugueses",ru:"ruvocab",pt:"ptverbos",obj:[{s:"ruvocab",n:25},{s:"ptverbos",n:12},{ex:"ielts",n:1}],jefe:"ptverbos"},
+  {t:"Gramática rusa",ru:"rugram",pt:"pt",obj:[{s:"rugram",n:6},{s:"pt",n:45}],jefe:"rugram"},
+  {t:"Sin trampas",ru:"ruvocab",pt:"falsos",obj:[{s:"ruvocab",n:40},{s:"falsos",n:15}],jefe:"falsos"},
+  {t:"Hablar en presente",ru:"rugram",pt:"ptverbos",obj:[{s:"rugram",n:12},{s:"ptverbos",n:16}],jefe:"rugram"},
+  {t:"Inglés en serio",ru:"ruvocab",pt:"pt",obj:[{s:"ruvocab",n:55},{ex:"ielts",n:3}],jefe:"ruvocab"},
+  {t:"Guía en Lisboa",ru:"ruuni",pt:"pt",obj:[{s:"pt",n:70},{s:"ruuni",n:8}],jefe:"pt"},
+  {t:"Papeles",ru:"rugram",pt:"tramites",obj:[{s:"tramites",n:12},{s:"rugram",n:15}],jefe:"tramites"},
+  {t:"La universidad",ru:"ruuni",pt:"pt",obj:[{s:"ruuni",n:17},{ex:"ielts",n:5}],jefe:"ruuni"},
+  {t:"Examen final",ru:"ruvocab",pt:"pt",obj:[{s:"cirilico",n:33},{s:"ruvocab",n:64},{s:"pt",n:85}],jefe:"ruvocab"},
+];
+const AREA_DE_EX={ielts:"en",toefl:"en",n5:"ja",aws:"aws"};
+const addD=(d,n)=>{const x=new Date(d+"T12:00:00");x.setDate(x.getDate()+n);return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0")};
+const fechaCorta=(d,o={weekday:"short",day:"numeric",month:"short"})=>new Date(d+"T12:00:00").toLocaleDateString("es-ES",o);
+// Actividad del día por área: ru, pt, en, ja, aws, libre (la registran los tests, simulacros, Rayo y Manos libres)
+function apunta(a,n=1){if(!a||!n)return;const d=today();S.act??={};const x=S.act[d]??={};x[a]=(x[a]||0)+n;
+  const ks=Object.keys(S.act);if(ks.length>120)for(const k of ks.sort().slice(0,ks.length-120))delete S.act[k];
+  planRevisa()}
+const actDe=(d,a)=>{const x=(S.act||{})[d]||{};return a==="total"?Object.entries(x).reduce((t,[k,v])=>k==="libre"?t:t+v,0):x[a]||0};
+function planSemana(d=today()){if(!S.plan?.ini)return -1;const w=Math.floor(dayDiff(S.plan.ini,d)/7);return w}
+function planMisiones(d){const w=Math.max(0,Math.min(RUTA.length-1,planSemana(d))),dow=new Date(d+"T12:00:00").getDay(),fuerte=w>=4;
+  const ru={a:"ru",n:fuerte?15:12,l:"🇷🇺 Ruso",ir:{v:"ru",k:RUTA[w].ru,kt:"test"}},pt={a:"pt",n:10,l:"🇵🇹 Portugués",ir:{v:"pt",k:RUTA[w].pt,kt:"test"}},
+    en={a:"en",n:fuerte?15:10,l:"🇬🇧 Inglés (IELTS)",ir:{v:"exam",x:"ielts"}},lib={a:"libre",n:15,l:"🎧 Manos libres (palabras)",ir:{v:"libre"}};
+  if(dow===6)return [lib,{...ru,n:10},{...pt,n:8}];
+  if(dow===0)return [{a:"total",n:25,l:"🔁 Repaso: lo que quieras",ir:{v:"ru",k:RUTA[w].jefe,kt:"test"}},{...lib,n:10}];
+  return [ru,pt,en]}
+const misionOk=(d,m)=>actDe(d,m.a)>=m.n;
+const diaOk=d=>planMisiones(d).every(m=>misionOk(d,m));
+function condVal(c){if(c.ex)return Math.min(c.n,examDone(c.ex));if(!KANA||!KANA[c.s])return 0;return Math.min(c.n,KANA[c.s].filter(i=>kKnown(c.s,i.c)).length)}
+const condTxt=c=>c.ex?`Haz ${c.n} simulacro${c.n>1?"s":""} de ${EX[c.ex].short}`:`Domina ${c.n} de «${KSETS[c.s][0]}»`;
+function semanaInfo(w){const ini=addD(S.plan.ini,w*7),dias=Array.from({length:7},(_,i)=>addD(ini,i)),hechos=dias.filter(d=>S.plan.hechos?.[d]).length,
+    obj=RUTA[w].obj.every(c=>condVal(c)>=c.n),jefe=!!S.plan.jefes?.[w];
+  const medalla=obj&&jefe&&hechos>=6?"🥇":obj&&hechos>=4?"🥈":obj?"🥉":"";return {ini,dias,hechos,obj,jefe,medalla}}
+// Se llama tras cada respuesta: avisa de cada misión cumplida y premia el día completo una sola vez
+function planRevisa(){if(!S.plan?.ini)return;const d=today();S.plan.avis??={};
+  for(const m of planMisiones(d)){const k=d+":"+m.a;if(misionOk(d,m)&&!S.plan.avis[k]){S.plan.avis[k]=1;if(!diaOk(d))toast(`✓ Misión cumplida: ${m.l}`)}}
+  if(diaOk(d)&&!S.plan.hechos?.[d]){(S.plan.hechos??={})[d]=1;S.xp+=30;toast("🏆 ¡Día completado! +30 XP");confetti()}
+  for(const k of Object.keys(S.plan.avis))if(k.slice(0,10)<addD(d,-3))delete S.plan.avis[k]}
+function planJefe(set,ok){if(!S.plan?.ini||ok<9)return;const w=planSemana();if(w<0||w>=RUTA.length||RUTA[w].jefe!==set||S.plan.jefes?.[w])return;
+  (S.plan.jefes??={})[w]=1;S.xp+=50;toast("⚔ ¡Jefe de la semana vencido! +50 XP");confetti();save()}
+function planRacha(){let n=0,d=today();if(!S.plan?.hechos?.[d])d=addD(d,-1);while(S.plan?.hechos?.[d]){n++;d=addD(d,-1)}return n}
+function planEmpezar(){S.plan={ini:today(),hechos:{},jefes:{},avis:{}};save();toast("¡Plan en marcha! Mira tus misiones de hoy");planRevisa();render()}
+function misionHTML(d,m,activa){const v=Math.min(m.n,actDe(d,m.a)),ok=v>=m.n;
+  return `<div class="mision ${ok?"ok":""}"><div class="mis-t"><b>${m.l}</b><span class="mono">${v}/${m.n}</span></div><div class="bar"><i style="width:${v/m.n*100}%"></i></div>
+    ${activa&&!ok?`<button class="btn ghost sm" data-mir='${h(JSON.stringify(m.ir))}'>Hacer →</button>`:ok?'<span class="mis-ok">✓ Hecho</span>':""}</div>`}
+function planHome(){if(!S.plan?.ini)return `<section class="plan-card reveal"><div><span class="eyebrow">Nuevo · 12 semanas con fechas</span><h2>Ruta: ruso, portugués e inglés</h2>
+    <p class="muted">Cada día, 2-3 misiones cortas. Cada semana, un objetivo y un jefe que vencer. Medallas de oro, plata y bronce.</p></div><button class="btn acc" data-go="plan">Ver el plan →</button></section>`;
+  const w=planSemana(),d=today();if(w>=RUTA.length)return `<section class="plan-card reveal"><div><h2>🎓 ¡Plan terminado!</h2><p class="muted">Mira tus medallas o empieza otra vuelta.</p></div><button class="btn acc" data-go="plan">Ver medallas</button></section>`;
+  const ms=planMisiones(d),hechas=ms.filter(m=>misionOk(d,m)).length;
+  return `<section class="plan-card reveal"><div class="plan-h"><div><span class="eyebrow">Semana ${w+1} de ${RUTA.length} · ${h(RUTA[w].t)} · ${fechaCorta(d,{weekday:"long",day:"numeric",month:"long"})}</span>
+    <h2>${diaOk(d)?"🏆 Día completado":`Misiones de hoy · ${hechas}/${ms.length}`}</h2></div><button class="btn ghost" data-go="plan">Plan y medallas</button></div>
+    <div class="misiones">${ms.map(m=>misionHTML(d,m,true)).join("")}</div>${planRacha()>1?`<p class="muted" style="margin:10px 0 0">🔥 ${planRacha()} días seguidos cumpliendo el plan</p>`:""}</section>`}
+function viewPlan(){
+  if(!S.plan?.ini)return `<div class="ex-head"><div><span class="eyebrow">12 semanas · empieza hoy</span><h1 style="margin-top:8px">Tu ruta de estudio</h1>
+    <p class="muted" style="max-width:62ch">De lunes a viernes: ruso, portugués e inglés (unos 20 minutos). Sábado: Manos libres. Domingo: repaso. Cada semana tiene un objetivo y un jefe: saca 9/10 en su test para vencerlo.</p></div></div>
+    <div class="card"><h3 style="margin-top:0">Las 12 semanas</h3><ol class="plan-lista">${RUTA.map((s,i)=>`<li><b>${h(s.t)}</b> <span class="muted">· ${s.obj.map(condTxt).join(" · ")}</span></li>`).join("")}</ol>
+    <p class="muted">Empieza hoy, ${fechaCorta(today(),{weekday:"long",day:"numeric",month:"long"})}, y termina el ${fechaCorta(addD(today(),RUTA.length*7-1),{day:"numeric",month:"long",year:"numeric"})}.</p>
+    <button class="btn acc" id="planGo" style="width:100%">Empezar el plan hoy</button></div>`;
+  const w=planSemana(),d=today(),wa=Math.min(w,RUTA.length-1),si=semanaInfo(wa),s=RUTA[wa];
+  const dia=x=>{const ok=S.plan.hechos?.[x],fut=x>d,hoy=x===d;return `<div class="pdia ${ok?"ok":fut?"fut":hoy?"hoy":"mal"}"><small>${fechaCorta(x,{weekday:"short"})}</small><b>${new Date(x+"T12:00:00").getDate()}</b><span>${ok?"✓":fut?"·":hoy?"hoy":"✗"}</span></div>`};
+  return `<div class="ex-head"><div><span class="eyebrow">Semana ${wa+1} de ${RUTA.length} · del ${fechaCorta(si.ini,{day:"numeric",month:"short"})} al ${fechaCorta(si.dias[6],{day:"numeric",month:"short"})}</span><h1 style="margin-top:8px">${h(s.t)}</h1></div></div>
+    <div class="pdias">${si.dias.map(dia).join("")}</div>
+    <div class="plan-grid"><div class="card"><h3 style="margin-top:0">Hoy · ${fechaCorta(d,{weekday:"long",day:"numeric",month:"long"})}</h3>${w<RUTA.length?`<div class="misiones">${planMisiones(d).map(m=>misionHTML(d,m,true)).join("")}</div>`:"<p>¡Plan terminado! 🎓</p>"}</div>
+    <div class="card"><h3 style="margin-top:0">🎯 Objetivo de la semana</h3>${s.obj.map(c=>{const v=condVal(c);return `<div class="mision ${v>=c.n?"ok":""}"><div class="mis-t"><b>${condTxt(c)}</b><span class="mono">${v}/${c.n}</span></div><div class="bar"><i style="width:${v/c.n*100}%"></i></div></div>`}).join("")}
+      <div class="mision jefe ${si.jefe?"ok":""}"><div class="mis-t"><b>⚔ Jefe: 9/10 en el test de «${KSETS[s.jefe][0]}»</b><span>${si.jefe?"✓ Vencido":""}</span></div>${si.jefe?"":`<button class="btn acc sm" data-mir='${h(JSON.stringify({v:KEXT(s.jefe)||"kana",k:s.jefe,kt:"test"}))}'>Luchar →</button>`}</div>
+      <p class="muted soc-nota">🥉 objetivo · 🥈 objetivo + 4 días · 🥇 objetivo + jefe + 6 días</p></div></div>
+    <div class="card"><h3 style="margin-top:0">Medallas</h3><div class="medallas">${RUTA.map((p,i)=>{const m=i<=wa?semanaInfo(i).medalla:"";return `<div class="medalla ${i===wa?"ahora":""} ${m?"":"vacia"}" title="${h(p.t)}"><span>${m||(i<wa?"—":"🔒")}</span><small>S${i+1}</small></div>`}).join("")}</div>
+      <p class="muted soc-nota">Termina el ${fechaCorta(addD(S.plan.ini,RUTA.length*7-1),{day:"numeric",month:"long",year:"numeric"})} · <button class="linkbtn" id="planReset">Empezar de nuevo</button></p></div>`}
+function bindPlanBtns(){document.querySelectorAll("[data-mir]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.mir);if(r.v==="exam"){go({...r,tab:"learn"});loadBank(r.x).catch(e=>toast(e.message))}else go(r)})}
+function bindPlan(){bindPlanBtns();const g=$("#planGo");if(g)g.onclick=planEmpezar;const r=$("#planReset");if(r)r.onclick=()=>{if(r.dataset.c){S.plan=null;save();render()}else{r.dataset.c=1;r.textContent="¿Seguro? Pulsa otra vez"}};
+  if(!KANA)loadKana().then(()=>{if(route.v==="plan")render()}).catch(()=>{})}
+
 /* ============ Rutas ============ */
 let route={v:"home"}; let run=null;
 const suaveVT=f=>{if(!document.startViewTransition||matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return f();try{document.startViewTransition(f)}catch(e){f()}};
@@ -818,16 +908,16 @@ function go0(r){if(lib.on&&r.v!=="libre")libPara();if(r.v!=="clase")clsParar();c
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="plan"?viewPlan():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="home")bindPlanBtns(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
   const nb=(v,l,kk)=>`<button data-go="${v}" data-key="${kk}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
   return `<header class="top"><div class="top-in">
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
-    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana","K")}${nb("pt","Portugués","P")}${nb("ru","Ruso","R")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía","G")}</nav>
+    <nav class="nav">${nb("home","Exámenes","H")}${nb("plan","Plan","O")}${nb("kana","Kana","K")}${nb("pt","Portugués","P")}${nb("ru","Ruso","R")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía","G")}</nav>
     <div class="stats">
       ${socBtn()}
       <button class="cmd-btn" data-cmd aria-label="Buscar o ir a…"><span aria-hidden="true">⌕</span><span class="cmd-t">Ir a…</span><kbd>/</kbd></button>
@@ -875,6 +965,7 @@ function viewHome(){
       <div class="sync" id="sync">${store.kind==="db"?"Guardado en tu cuenta":"Guardado en este navegador"}</div>
     </div>
   </section>
+  ${planHome()}
   ${retoHome()}
   ${certsHome()}
   <div class="marq" aria-hidden="true"><div class="marq-in">${[0,1].map(()=>`<span>AWS SAA-C03 <i>雲</i> TOEFL iBT <i>英</i> IELTS Academic <i>語</i> JLPT N5 <i>日</i> Hiragana <i>あ</i> Katakana <i>ア</i> Kanji <i>字</i></span>`).join("")}</div></div>
@@ -1081,7 +1172,7 @@ function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#f
 function rerun(keepScroll){const f=()=>{const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)};
   if(keepScroll)f();else{document.documentElement.dataset.vt="paso";suaveVT(f)}}
 /* ============ Manos libres: te lo dice, te deja pensar, te da la respuesta y sigue solo ============ */
-const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"],["cirilico","Ruso · alfabeto"],["ruvocab","Ruso · palabras y frases"],["ruuni","Ruso · estudiar en Rusia"]];
+const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"],["cirilico","Ruso · alfabeto"],["ruvocab","Ruso · palabras y frases"],["rugram","Ruso · gramática"],["ptverbos","Portugués · verbos"],["ruuni","Ruso · estudiar en Rusia"]];
 const lib={on:false,i:0,cola:[],tok:0,rev:false,mic:null,micOn:false,oido:"",wake:null,dicho:""};
 function libCfg(){if(!S.libre)S.libre={sets:["vocab"],pausa:3,es:true,frase:true,nuevas:true};return S.libre}
 function libCola(){const c=libCfg();let L=[];for(const s of c.sets)for(const it of KANA[s]||[])L.push([s,it]);
@@ -1112,7 +1203,7 @@ async function libBucle(){const my=++lib.tok,vivo=()=>lib.on&&my===lib.tok;
     await libDi(s,kVoice(s,it));if(!vivo())return;             // repetirlo después ayuda a fijarlo
     if(c.frase&&it.f){await libEspera(400);await libDi(s,it.f);if(!vivo())return;if(c.es&&it.fe){await libEs(it.fe);if(!vivo())return}}
     await libEspera(900);if(!vivo())return;
-    lib.i++;if(lib.i>=lib.cola.length)libCola()}}
+    apunta("libre",1);save();lib.i++;if(lib.i>=lib.cola.length)libCola()}}
 function libPlay(){if(!KANA)return;if(!lib.cola.length)libCola();lib.on=true;libWake(true);libBucle();libBotones()}
 function libPara(){lib.on=false;lib.tok++;stopVoz();libWake(false);libBotones();libDraw()}
 function libToggle(){lib.on?libPara():libPlay()}
@@ -1469,7 +1560,7 @@ function bindClase(){if(!cuenta)return;
   const sa=$("#clsSalir");if(sa)sa.onclick=async()=>{try{await apiF(`clases/${c.id}/salir`,{method:"POST",body:{}});if(soc)soc.clases=null;go({v:"social"})}catch(e){toast(e.message)}};
   const inp=$("#clsIn");inp.onkeydown=e=>{if(e.key==="Escape")inp.blur()}}
 /* ============ Teclado: un solo oyente para toda la app ============ */
-const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["R","Ruso"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["O","Plan y misiones de hoy"],["K","Kana y kanji"],["P","Portugués"],["R","Ruso"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
   ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
@@ -1493,7 +1584,7 @@ const SIMS=["c1","c2","c3",...Array.from({length:30},(_,i)=>"s"+(i+1))];
 const simName=k=>k[0]==="c"?"Calentamiento "+k.slice(1):"Simulacro "+k.slice(1);
 function cmdItems(){
   const L=[],add=(g,l,f,k="",q="")=>L.push({g,l,f,k,q});
-  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["ru","Ruso desde cero","R"],["certs","Certificados que abren puertas",""],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
+  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["plan","Plan de 12 semanas · misiones de hoy","O"],["ru","Ruso desde cero","R"],["certs","Certificados que abren puertas",""],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
   Object.keys(EX).forEach(x=>add("Reto",`⚡ Reto del día · ${EX[x].short}`,()=>startReto(x),"","reto diario hoy"));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
     add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
@@ -1548,7 +1639,7 @@ document.addEventListener("keydown",e=>{
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
-  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",r:"ru",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to&&!(v==="libre"&&lk==="r")){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  if(v!=="run"&&!e.shiftKey){const to={h:"home",o:"plan",k:"kana",p:"pt",r:"ru",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to&&!(v==="libre"&&lk==="r")){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
   if(v==="run"&&run){
     const it=run.items[run.i],q=it.q;
     if(k==="Escape"){e.preventDefault();act($("#quit"));return}
@@ -1630,7 +1721,7 @@ function finish(){
   const band=bandFor(x,p,secP);
   const correct=run.items.filter((it,i)=>scoreItem(it,i)>=1).length;
   const gained=correct*10+(run.key?40:0)+(p===1?100:0);
-  S.xp+=gained;touchDay(run.items.length);
+  S.xp+=gained;touchDay(run.items.length);apunta(AREA_DE_EX[x],run.items.length);
   if(run.key){const prev=S.exams[x][run.key];S.exams[x][run.key]={best:Math.max(prev?.best||0,p),s:band.s,pass:band.pass||prev?.pass||false,tries:(prev?.tries||0)+1};
     S.hist.push({x,k:run.key,p:+p.toFixed(3),s:band.s,d:Date.now()});if(S.hist.length>300)S.hist=S.hist.slice(-300)}
   if(run.key)award("first");if(p===1&&run.key)award("perfect");if(band.pass&&run.key)award("pass");
@@ -1726,7 +1817,7 @@ function renderMatch(){
   box.querySelectorAll("[data-ml]").forEach(b=>b.onclick=()=>{m.sel=+b.dataset.ml;renderMatch()});
   box.querySelectorAll("[data-mr]").forEach(b=>b.onclick=()=>{if(m.sel==null){toast("Primero toca una pista de la izquierda");return}
     const i=+b.dataset.mr;if(i===m.sel){m.done.add(i);m.sel=null;sfx(true);S.xp+=3;
-      if(m.done.size===m.pairs.length){if(!m.errors){S.match[m.x]=(S.match[m.x]||0)+1;if(S.match[m.x]%5===0)confetti()}touchDay(m.pairs.length);save()}renderMatch()}
+      if(m.done.size===m.pairs.length){if(!m.errors){S.match[m.x]=(S.match[m.x]||0)+1;if(S.match[m.x]%5===0)confetti()}touchDay(m.pairs.length);apunta(AREA_DE_EX[m.x],m.pairs.length);save()}renderMatch()}
     else{m.errors++;sfx(false);b.classList.add("no");setTimeout(()=>b.classList.remove("no"),350)}});
 }
 async function bindLearn(){if(route.tab!=="learn")return;await loadBank(route.x);if(!match||match.x!==route.x)newMatch(route.x);renderMatch()}
@@ -1756,7 +1847,7 @@ function bindRayo(){
 function nextRayo(){const p=rayo.pool[rayo.n++%rayo.pool.length];const others=shuffle(rayo.pool.filter(o=>o[1]!==p[1]),rng(rayo.n*13)).map(o=>o[1]).filter((v,i,a)=>a.indexOf(v)===i).slice(0,3);
   rayo.q={q:p[0],o:[p[1],...others],a:0}}
 function endRayo(){clearInterval(rayo.int);rayo.done=true;const x=route.x;if(rayo.score>(S.rayo[x]||0)){S.rayo[x]=rayo.score;toast("¡Nuevo récord!");confetti()}
-  S.xp+=rayo.score*4;touchDay(rayo.n);if(rayo.score>=20)award("rayo20");save();render()}
+  S.xp+=rayo.score*4;touchDay(rayo.n);apunta(AREA_DE_EX[route.x],rayo.n);if(rayo.score>=20)award("rayo20");save();render()}
 
 /* ============ Guía, tutor IA y recordatorios ============ */
 let aiOn=false,sample=null,downloads=null,chat=[];
@@ -1833,8 +1924,8 @@ async function sendChat(text){
 
 /* ============ Kana y kanji: tabla, test y dibujo ============ */
 let KANA=null, kq=null, kSel=null, kSheet=false;
-const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."],pt:["Para vivir allí","Olá!","Lo de cada día en Portugal, con humor."],falsos:["Falsos amigos","≠","Las palabras que traicionan a los hispanohablantes."],tramites:["Trámites","NIF","El papeleo para vivir y estudiar en Portugal."],cirilico:["Alfabeto cirílico","Аа","Las 33 letras: 5 iguales, 7 engañosas y 21 nuevas."],ruvocab:["Palabras y frases","Привет","Lo básico para sobrevivir, con la pronunciación."],ruuni:["Estudiar en Rusia","ВУЗ","La universidad por dentro: подфак, ТРКИ, residencia…"]};
-const KGRUPO={kana:["hira","kata","kanji","vocab","kansai"],pt:["pt","falsos","tramites"],ru:["cirilico","ruvocab","ruuni"]};
+const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."],pt:["Para vivir allí","Olá!","Lo de cada día en Portugal, con humor."],falsos:["Falsos amigos","≠","Las palabras que traicionan a los hispanohablantes."],tramites:["Trámites","NIF","El papeleo para vivir y estudiar en Portugal."],ptverbos:["Verbos","Sou/Estou","Ser, estar, ir, tener… y el «estou a fazer» de Portugal."],rugram:["Gramática","Я/Мы","Pronombres, verbos en presente y los primeros casos."],cirilico:["Alfabeto cirílico","Аа","Las 33 letras: 5 iguales, 7 engañosas y 21 nuevas."],ruvocab:["Palabras y frases","Привет","Lo básico para sobrevivir, con la pronunciación."],ruuni:["Estudiar en Rusia","ВУЗ","La universidad por dentro: подфак, ТРКИ, residencia…"]};
+const KGRUPO={kana:["hira","kata","kanji","vocab","kansai"],pt:["pt","ptverbos","falsos","tramites"],ru:["cirilico","ruvocab","rugram","ruuni"]};
 // Idiomas «de fuera» (portugués y ruso): mismo formato de fichas, cada uno con su voz grabada
 const KEXT=set=>KGRUPO.pt.includes(set)?"pt":KGRUPO.ru.includes(set)?"ru":"";
 const KPT=set=>!!KEXT(set);
@@ -1974,8 +2065,8 @@ function bindKana(){
   document.querySelectorAll("[data-kdir]").forEach(b=>b.onclick=()=>{route.kdir=b.dataset.kdir==="1";render()});
   document.querySelectorAll("[data-kq]").forEach(b=>b.onclick=()=>{const k=b.dataset.kq==="again"?kq.kind:b.dataset.kq;kStartQuiz(kCur(),k);kq.kind=k});
   document.querySelectorAll("[data-ka]").forEach(b=>b.onclick=()=>{const n=+b.dataset.ka,{it,opts}=kq.qs[kq.i];kq.ans=n;const ok=opts[n]===it;
-    const id=kid(kq.set,it.c),st=S.kana[id]||[0,0];S.kana[id]=[st[0]+(ok?1:0),st[1]+1];if(ok){kq.ok++;S.xp+=2}sfx(ok);touchDay(1);save();kSpeak(kq.set,kVoice(kq.set,it));render()});
-  const nx=$("[data-knext]");if(nx)nx.onclick=()=>{kq.i++;kq.ans=null;if(kq.i>=10&&kq.ok===10)confetti();render()};
+    const id=kid(kq.set,it.c),st=S.kana[id]||[0,0];S.kana[id]=[st[0]+(ok?1:0),st[1]+1];if(ok){kq.ok++;S.xp+=2}sfx(ok);touchDay(1);apunta(KEXT(kq.set)||"ja",1);save();kSpeak(kq.set,kVoice(kq.set,it));render()});
+  const nx=$("[data-knext]");if(nx)nx.onclick=()=>{kq.i++;kq.ans=null;if(kq.i>=10){if(kq.ok===10)confetti();planJefe(kq.set,kq.ok)}render()};
   const can=$("#kcan");if(can)bindDraw(can);
 }
 function bindDraw(can){
