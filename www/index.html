@@ -409,6 +409,21 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kb-row span:first-child{flex:none}.kb-row span:last-child{color:var(--ink-2);text-align:right}
 kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .kb-line{margin:-6px 0 14px}
+/* Buscador rápido (/ o Ctrl+K) */
+.cmd-btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:13px;font-weight:600;white-space:nowrap;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 12px;cursor:pointer}
+.cmd-btn:hover{color:var(--ink);border-color:var(--ink-2)}
+.cmd{position:fixed;inset:0;z-index:72;display:flex;justify-content:center;align-items:flex-start;padding:12vh 16px 16px;background:color-mix(in srgb,var(--sumi) 45%,transparent);backdrop-filter:blur(3px)}
+.cmd[hidden]{display:none}
+.cmd-box{width:100%;max-width:600px;background:var(--sheet);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.28);overflow:hidden}
+.cmd-in{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font-family:inherit;font-size:18px;font-weight:500;padding:18px 20px;outline:none}
+.cmd-list{max-height:min(56vh,440px);overflow:auto;margin:0;padding:6px;list-style:none}
+.cmd-list li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;cursor:pointer}
+.cmd-list li[aria-selected="true"]{background:var(--paper);box-shadow:inset 3px 0 0 var(--hanko)}
+.cmd-list .cg{flex:none;width:86px;font:700 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--hanko)}
+.cmd-list .cl{flex:1;min-width:0}
+.cmd-foot{display:flex;gap:14px;flex-wrap:wrap;padding:10px 16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-2)}
+.cmd-none{padding:18px;color:var(--ink-2)}
+@media (max-width:520px){.cmd-btn .cmd-t,.cmd-btn kbd,.cmd-foot{display:none}.cmd-btn{padding:6px 9px}.cmd{padding-top:8vh}.cmd-list .cg{width:66px}}
 @media (hover:hover) and (pointer:fine){[data-key]::after{content:attr(data-key);font:600 10px var(--f-mono);border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-left:8px;opacity:.5;vertical-align:1px}
   .exam-card[data-key]::after{position:absolute;top:14px;right:14px;margin:0;font-size:12px;padding:1px 7px}
   .mnav [data-key]::after{display:none}}
@@ -681,6 +696,7 @@ function topBar(){
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
     <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana y kanji","K")}${nb("pt","Portugués","P")}${nb("cards","Tarjetas","T")}${nb("guide","Guía y tutor","G")}</nav>
     <div class="stats">
+      <button class="cmd-btn" data-cmd aria-label="Buscar o ir a…"><span aria-hidden="true">⌕</span><span class="cmd-t">Ir a…</span><kbd>/</kbd></button>
       <span class="stat" title="Racha de días"><svg class="flame" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 0C8 4 13 6 13 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 2 2 3 2 4 1-2 2-5 2-8z" fill="${streakAlive()?"var(--warn)":"var(--line)"}"/></svg>${S.streak||0}</span>
       <span class="stat" title="Experiencia · ${h(L.name)}">${S.xp} XP</span>
     </div>
@@ -928,13 +944,13 @@ function bindRun(){
 function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#fill");if(f)run.ans[run.i]=f.value}
 function rerun(keepScroll){const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else scrollTo(0,0)}
 /* ============ Teclado: un solo oyente para toda la app ============ */
-const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["T","Tarjetas"],["G","Guía y tutor"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
   ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
-  ["Tarjetas",[["Espacio","Girar"],["→ · 2","La sé"],["← · 1","Otra vez"]]],
+  ["Tarjetas",[["Espacio · Intro","Girar"],["→ · 2","La sé"],["← · 1","Otra vez"]]],
   ["Rayo y Empareja",[["1-4","Rayo: elegir respuesta"],["1-5 · A-E","Empareja: pista y su pareja"],["Intro","Empezar / otra ronda"]]],
-  ["Kana, kanji y portugués",[["Shift+← →","Tabla / Test / Dibuja"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"],["Esc","Cerrar la ficha / volver"]]]];
+  ["Kana, kanji y portugués",[["Shift+← →","Tabla / Test / Dibuja"],["Shift+↑ ↓","Hiragana, katakana, kanji…"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"],["Esc","Cerrar la ficha / volver"]]]];
 // Qué grupo de la ayuda va primero según dónde estés
 const kbAqui=()=>({home:"Portada y examen",exam:route.tab==="learn"?"Rayo y Empareja":"Portada y examen",run:"Preguntas",result:"Resultado",cards:"Tarjetas",rayo:"Rayo y Empareja",kana:"Kana, kanji y portugués",pt:"Kana, kanji y portugués"})[route.v]||"General";
 let kbBack=null;
@@ -945,15 +961,59 @@ function ayuda(on){let d=$("#kbHelp");if(on==null)on=!d||d.hidden;
     d.innerHTML=`<div class="kb-box"><div class="kb-head"><h2 id="kbT">Atajos de teclado</h2><button class="x-btn" data-kbclose>Cerrar · Esc</button></div><div class="kb-cols">${gs.map(([t,rows])=>`<div><h3>${t}${t===aq?" · aquí":""}</h3>${rows.map(([k,l])=>`<div class="kb-row"><span>${k.split(" · ").map(x=>`<kbd>${h(x)}</kbd>`).join(" ")}</span><span>${h(l)}</span></div>`).join("")}</div>`).join("")}</div><p class="muted" style="font-size:13px;margin:14px 0 0">Mientras escribes en un cuadro de texto los atajos se apagan; Esc sale del cuadro. Cada botón enseña su tecla a la derecha.</p></div>`}
   if(on===!d.hidden)return;d.hidden=!on;
   if(on){kbBack=document.activeElement;if(lenis)lenis.stop();d.querySelector("[data-kbclose]").focus()}else{if(lenis)lenis.start();if(kbBack&&kbBack.isConnected)kbBack.focus();kbBack=null}}
+/* Buscador rápido: escribes unas letras y vas a cualquier sitio (sin tildes ni mayúsculas) */
+const sinTilde=t=>t.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const SIMS=["c1","c2","c3",...Array.from({length:30},(_,i)=>"s"+(i+1))];
+const simName=k=>k[0]==="c"?"Calentamiento "+k.slice(1):"Simulacro "+k.slice(1);
+function cmdItems(){
+  const L=[],add=(g,l,f,k="",q="")=>L.push({g,l,f,k,q});
+  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
+  Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
+    add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
+    if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
+    add("Estudiar",`${E.short} · ${simName(nx||"s1")} en modo estudio`,()=>startRun(x,nx||"s1","study",null,E.short+" · "+simName(nx||"s1")));
+    if(E.full)add("Empezar",`${E.short} · examen real completo`,()=>startRun(x,"full","exam",null,E.short+" · Examen real"))});
+  Object.entries(KSETS).forEach(([k,[n,j]])=>{const v=KGRUPO.pt.includes(k)?"pt":"kana",g=v==="pt"?"Portugués":"Kana";
+    add(g,`${n} ${j} · tabla`,()=>go({v,k}),"",k);add(g,`${n} · test`,()=>go({v,k,kt:"test"}),"",k+" examen practicar");if(v==="kana")add(g,`${n} · dibuja`,()=>go({v,k,kt:"dibuja"}),"",k+" escribir trazar")});
+  VOZ_JA.forEach(([k,n,d])=>add("Voz",`Voz japonesa ${n} · ${d}${(S.voz||"mao")===k?" (la que tienes)":""}`,()=>{S.voz=k;save();render();sayJa("こんにちは！いっしょに がんばろうね。")},"",k));
+  add("Voz","Voz japonesa del sistema",()=>{S.voz="sys";save();render();sayJa("こんにちは！いっしょに がんばろうね。")});
+  add("Ayuda","Atajos de teclado",()=>ayuda(true),"?");
+  return L}
+let cmdSel=0,cmdShown=[],cmdBack=null;
+function cmdOpen(){let d=$("#cmd");
+  if(!d){d=document.createElement("div");d.id="cmd";d.className="cmd";d.hidden=true;d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Buscar o ir a");
+    d.innerHTML=`<div class="cmd-box"><input class="cmd-in" id="cmdIn" placeholder="Escribe: toefl, katakana, simulacro, voz…" autocomplete="off" spellcheck="false" role="combobox" aria-controls="cmdList" aria-expanded="true"><ul class="cmd-list" id="cmdList" role="listbox"></ul><div class="cmd-foot"><span><kbd>↑</kbd> <kbd>↓</kbd> elegir</span><span><kbd>Intro</kbd> ir</span><span><kbd>Esc</kbd> cerrar</span></div></div>`;
+    d.onclick=e=>{if(e.target===d)cmdClose();const li=e.target.closest("li[data-i]");if(li)cmdRun(+li.dataset.i)};
+    const inp=d.querySelector("#cmdIn");inp.oninput=()=>{cmdSel=0;cmdDraw()};
+    inp.onkeydown=e=>{e.stopPropagation();if(e.isComposing)return;
+      if(e.key==="Escape"){e.preventDefault();cmdClose()}
+      else if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if(cmdShown.length){cmdSel=(cmdSel+(e.key==="ArrowDown"?1:-1)+cmdShown.length)%cmdShown.length;cmdDraw(true)}}
+      else if(e.key==="Enter"){e.preventDefault();cmdRun(cmdSel)}
+      else if(e.key==="Tab")e.preventDefault()};
+    document.body.append(d)}
+  if(!d.hidden)return;cmdBack=document.activeElement;d.hidden=false;if(lenis)lenis.stop();
+  const inp=$("#cmdIn");inp.value="";cmdSel=0;cmdDraw();inp.focus()}
+function cmdClose(){const d=$("#cmd");if(!d||d.hidden)return;d.hidden=true;if(lenis)lenis.start();if(cmdBack&&cmdBack.isConnected)cmdBack.focus();cmdBack=null}
+function cmdDraw(soloSel){const ul=$("#cmdList");
+  if(!soloSel){const ws=sinTilde($("#cmdIn").value).split(/\s+/).filter(Boolean),all=cmdItems();
+    const rec=(S.cmdRec||[]).map(l=>all.find(i=>i.l===l)).filter(Boolean);
+    cmdShown=ws.length?all.filter(i=>{const t=sinTilde(i.g+" "+i.l+" "+i.q);return ws.every(w=>t.includes(w))}):[...rec.map(i=>({...i,g:"Reciente"})),...all.filter(i=>!rec.includes(i))];
+    ul.innerHTML=cmdShown.length?cmdShown.slice(0,60).map((i,n)=>`<li role="option" data-i="${n}" id="cmd${n}"><span class="cg">${h(i.g)}</span><span class="cl">${h(i.l)}</span>${i.k?`<kbd>${h(i.k)}</kbd>`:""}</li>`).join(""):`<li class="cmd-none">Nada con eso. Prueba «n5», «hiragana» o «voz».</li>`}
+  ul.querySelectorAll("li[data-i]").forEach(li=>li.setAttribute("aria-selected",+li.dataset.i===cmdSel));
+  const cur=$("#cmd"+cmdSel);if(cur){cur.scrollIntoView({block:"nearest"});$("#cmdIn").setAttribute("aria-activedescendant",cur.id)}}
+function cmdRun(n){const it=cmdShown[n];if(!it)return;S.cmdRec=[it.l,...(S.cmdRec||[]).filter(l=>l!==it.l)].slice(0,4);save();cmdClose();it.f()}
+document.addEventListener("click",e=>{if(e.target.closest("[data-cmd]"))cmdOpen()});
 const kbNum=(k,lk,max)=>{const n=/^[1-9]$/.test(k)?+k-1:/^[a-e]$/.test(lk)?"abcde".indexOf(lk):-1;return n<max?n:-1};
 const kbClick=b=>{if(b&&!b.disabled){b.click();return true}return false};
 document.addEventListener("keydown",e=>{
+  if((e.ctrlKey||e.metaKey)&&!e.altKey&&e.key.toLowerCase()==="k"){e.preventDefault();cmdOpen();return}
   if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;
   const k=e.key,lk=k.length===1?k.toLowerCase():k,ae=document.activeElement,tag=ae?.tagName||"";
   const help=$("#kbHelp");
   if(help&&!help.hidden){if(k==="Escape"||k==="?"){e.preventDefault();ayuda(false)}else if(k==="Tab"){e.preventDefault();help.querySelector("[data-kbclose]").focus()}return}
   if(/INPUT|TEXTAREA|SELECT/.test(tag)||ae?.isContentEditable){if(k==="Escape")ae.blur();return}
   if(k==="?"){e.preventDefault();ayuda(true);return}
+  if(k==="/"){e.preventDefault();cmdOpen();return}
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
@@ -971,6 +1031,7 @@ document.addEventListener("keydown",e=>{
   if(onCtl)return;
   if(k==="Escape"){e.preventDefault();if(kSheet&&$("[data-kclose]")?.offsetParent){act($("[data-kclose]"));return}
     if(v==="result"||v==="rayo")go({v:"exam",x:route.x,tab:"sims"});else if(v==="exam"&&route.tab&&route.tab!=="sims"){route.tab="sims";render()}else if(v!=="home")go({v:"home"});return}
+  if(e.shiftKey&&(k==="ArrowUp"||k==="ArrowDown")&&(v==="kana"||v==="pt")){const ss=[...document.querySelectorAll("[data-kset]")];if(ss.length){e.preventDefault();const i=Math.max(0,ss.findIndex(b=>b.classList.contains("on")));ss[(i+(k==="ArrowDown"?1:-1)+ss.length)%ss.length].click()}return}
   if(e.shiftKey&&(k==="ArrowLeft"||k==="ArrowRight")){const ts=[...document.querySelectorAll('#app [role="tab"]')];if(ts.length){e.preventDefault();const i=Math.max(0,ts.findIndex(t=>t.getAttribute("aria-selected")==="true"));ts[(i+(k==="ArrowRight"?1:-1)+ts.length)%ts.length].click()}return}
   if(v==="home"&&/^[1-9]$/.test(k)){act(document.querySelectorAll(".exam-card[data-exam]")[+k-1]);return}
   if(v==="exam"&&(route.tab||"sims")==="sims"){
@@ -978,7 +1039,7 @@ document.addEventListener("keydown",e=>{
     if(lk==="m"){act($(`[data-mode="${(route.mode||"exam")==="exam"?"study":"exam"}"]`));return}}
   if(v==="result"&&k==="Enter"){act($("#app main .btn.acc"));return}
   if(v==="cards"&&deck?.cards[deck.i]){
-    if(k===" "){act($("#flip"));return}
+    if(k===" "||k==="Enter"){act($("#flip"));return}
     if(k==="ArrowRight"||k==="2"){act($("#know"));return}
     if(k==="ArrowLeft"||k==="1"){act($("#again"));return}
     return}
@@ -1313,7 +1374,7 @@ function viewKana(){
   const tabs=kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
   return `<div class="ex-head"><div>${route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
     <div class="ksets ${route.v==="pt"?"k3s":""}">${sw}</div>${route.v==="pt"?"":vozPicker(true)}
-    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+← →: pestañas · Esc: volver · ? ayuda</p>${body}`;
+    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
   const L=KANA[set];let pool=kind==="basic"?L.filter(i=>!i.g):kind&&kind.startsWith("g:")?L.filter(i=>i.g===kind.slice(2)):L.slice();
