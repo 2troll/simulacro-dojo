@@ -227,6 +227,17 @@ mark{background:color-mix(in srgb,var(--warn) 28%,transparent);color:inherit;bor
 .mc.sel{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--sheet));transform:scale(1.02)}
 .mc.ok{border-color:var(--ok);background:var(--ok-bg);opacity:.35;pointer-events:none}
 .mc.no{border-color:var(--bad);background:var(--bad-bg);animation:shake .3s}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vtSale .18s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtEntra .32s cubic-bezier(.16,1,.3,1) both}
+html[data-vt="paso"]::view-transition-old(root){animation-name:vtSaleIzq}
+html[data-vt="paso"]::view-transition-new(root){animation-name:vtEntraDer}
+.top{view-transition-name:cabecera}.mnav{view-transition-name:menu-movil}
+::view-transition-group(cabecera),::view-transition-group(menu-movil){animation:none}
+@keyframes vtSale{to{opacity:0;transform:translateY(-6px)}}
+@keyframes vtEntra{from{opacity:0;transform:translateY(10px)}}
+@keyframes vtSaleIzq{to{opacity:0;transform:translateX(-24px)}}
+@keyframes vtEntraDer{from{opacity:0;transform:translateX(28px)}}
 @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 .cheat{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .cheat h3{margin-bottom:6px}
@@ -767,7 +778,9 @@ function speak(script,lang,onEnd){
 
 /* ============ Rutas ============ */
 let route={v:"home"}; let run=null;
-function go(r){if(lib.on&&r.v!=="libre")libPara();if(r.v!=="clase")clsParar();clsBorrar=null;route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
+const suaveVT=f=>{if(!document.startViewTransition||matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return f();try{document.startViewTransition(f)}catch(e){f()}};
+function go(r){delete document.documentElement.dataset.vt;suaveVT(()=>go0(r))}
+function go0(r){if(lib.on&&r.v!=="libre")libPara();if(r.v!=="clase")clsParar();clsBorrar=null;route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
@@ -837,7 +850,7 @@ function viewHome(){
   <div class="steps">${[["一","Calienta","Dos rondas de Empareja o un test de kana. Cinco minutos."],["二","Simula","Un simulacro con reloj. Los fallos pasan solos a tus tarjetas."],["三","Repasa","Lee el truco de cada fallo. Ahí está el 80 % del aprendizaje."],["四","Repite","Tarjetas cada día: lo que fallas vuelve hasta que lo sabes."]].map(([k,t,d])=>`<div class="step reveal"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
   <div class="sec-title reveal"><h2><span class="num">03 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
   <div class="badges">${badges}</div>
-  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (まお, 阿井田 茂 · ACML 1.0)</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>Tu progreso se guarda solo en este navegador</span></footer>`;
+  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (ACML 1.0), Kokoro (Apache 2.0) y, en portugués, <a href="https://elevenlabs.io/text-to-speech" rel="noopener">ElevenLabs</a></span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>${cuenta?"Tu progreso se guarda en tu cuenta":"Tu progreso se guarda solo en este navegador"}</span></footer>`;
 }
 // Cuenta atrás: cuánto queda para tu examen y cuánto practicar al día
 function metaHTML(){
@@ -1030,7 +1043,8 @@ function bindRun(){
   if(run.limit){const tick=()=>{const left=run.limit-(Date.now()-run.start)/1000;const el=$("#timer");if(!el)return;el.textContent=fmtTime(left);el.classList.toggle("low",left<120);if(left<=0){clearInterval(timerInt);toast("¡Tiempo!");collect();finish()}};tick();timerInt=setInterval(tick,1000)}
 }
 function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#fill");if(f)run.ans[run.i]=f.value}
-function rerun(keepScroll){const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else scrollTo(0,0)}
+function rerun(keepScroll){const f=()=>{const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)};
+  if(keepScroll)f();else{document.documentElement.dataset.vt="paso";suaveVT(f)}}
 /* ============ Manos libres: te lo dice, te deja pensar, te da la respuesta y sigue solo ============ */
 const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"]];
 const lib={on:false,i:0,cola:[],tok:0,rev:false,mic:null,micOn:false,oido:"",wake:null,dicho:""};
@@ -1044,12 +1058,18 @@ function libTTS(t,lang,rate){return new Promise(res=>{try{let ok=false;const fin
   const u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=rate||1;const v=pickVoice(lang,"F");if(v)u.voice=v;u.onend=u.onerror=fin;speechSynthesis.speak(u)}catch(e){res()}})}
 function libJa(t){if(S.voz==="sys")return libTTS(t,"ja-JP",.85);
   return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>libTTS(t,"ja-JP",.85).then(fin),fin)})}
-function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libTTS(t,"pt-PT",.92):libJa(t)}
-function libEs(t){lib.dicho=sinTilde(t);return libTTS(t,"es-ES",1.05)}
+// Audio grabado (portugués con ElevenLabs, español con Kokoro); si falta, la voz del sistema
+function libVoz(pq,t,lang,rate){return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(pq,t),()=>libTTS(t,lang,rate).then(fin),fin)})}
+function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libVoz("pt",t,"pt-PT",.92):libJa(t)}
+function libEs(t){lib.dicho=sinTilde(t);return libVoz("es",t,"es-ES",1.05)}
+// Calienta la caché con los audios de la siguiente tarjeta para que no haya silencios al pasar
+function libPrecarga(){const n=lib.cola[(lib.i+1)%lib.cola.length];if(!n)return;const [s,it]=n,c=libCfg(),pj=KPT(s)?"pt":KMATON.has(kVoice(s,it))?"maton":(S.voz||"mao"),u=[vozUrl(pj,kVoice(s,it))];
+  if(c.es)u.push(vozUrl("es",libSignif(s,it)));if(c.frase&&it.f){u.push(vozUrl(KPT(s)?"pt":pj,it.f));if(c.es&&it.fe)u.push(vozUrl("es",it.fe))}
+  for(const x of u)fetch(x).catch(()=>{})}
 function libSignif(set,it){return set==="hira"||set==="kata"?"Se lee "+it.r:it.m}
 async function libBucle(){const my=++lib.tok,vivo=()=>lib.on&&my===lib.tok;
   while(vivo()){if(!lib.cola.length){libPara();toast("No hay nada que repasar en lo elegido");return}
-    const [s,it]=lib.cola[lib.i],c=libCfg();lib.rev=false;libDraw();libMedia(it);
+    const [s,it]=lib.cola[lib.i],c=libCfg();lib.rev=false;libDraw();libMedia(it);libPrecarga();
     await libDi(s,kVoice(s,it));if(!vivo())return;
     await libEspera(c.pausa*1000);if(!vivo())return;          // tu turno: dilo en voz alta
     lib.rev=true;libDraw();
@@ -1800,7 +1820,8 @@ function vozUrl(pq,t){return "voz/"+pq+"/"+hashStr(t).toString(16).padStart(8,"0
 function stopVoz(){try{speechSynthesis.cancel()}catch(e){}if(kAudio){kAudio.onended=kAudio.onerror=null;kAudio.pause();kAudio=null}}
 function playVoz(url,fallback,onEnd){stopVoz();let done=false;const a=new Audio(url);kAudio=a;const fb=()=>{if(done||kAudio!==a)return;done=true;fallback()};a.onerror=fb;a.onended=()=>{if(kAudio===a)onEnd&&onEnd()};a.play().catch(fb);return a}
 function sayJa(t){if(S.voz==="sys")return sayTTS(t);playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>sayTTS(t))}
-function sayPT(t){stopVoz();try{const u=new SpeechSynthesisUtterance(t);u.lang="pt-PT";u.rate=.92;const v=pickVoice("pt-PT","F");if(v&&v.lang.replace("_","-").startsWith("pt-PT"))u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene voz portuguesa")}}
+function sayPT(t){playVoz(vozUrl("pt",t),()=>ptTTS(t))}
+function ptTTS(t){stopVoz();try{const u=new SpeechSynthesisUtterance(t);u.lang="pt-PT";u.rate=.92;const v=pickVoice("pt-PT","F");if(v&&v.lang.replace("_","-").startsWith("pt-PT"))u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene voz portuguesa")}}
 function vozPicker(soloJa){
   return `<div class="vozbar"><label><span class="eyebrow">Voz japonesa</span><select class="inp" id="vozja">${VOZ_JA.map(([k,n,d])=>`<option value="${k}" ${(S.voz||"mao")===k?"selected":""}>${n} · ${d}</option>`).join("")}<option value="sys" ${S.voz==="sys"?"selected":""}>Voz del sistema</option></select></label><button class="btn ghost" data-vprev="ja">▶ Probar</button>
   ${soloJa?"":`<label><span class="eyebrow">Inglés (TOEFL · IELTS)</span><select class="inp" id="vozen">${VOZ_EN.map(([k,n])=>`<option value="${k}" ${(S.vozEn||"auto")===k?"selected":""}>${n}</option>`).join("")}</select></label><button class="btn ghost" data-vprev="en">▶ Probar</button>`}</div>`}
@@ -1947,7 +1968,11 @@ function bindCommon(){
 
 /* ============ Sonido y confeti ============ */
 let actx=null;
-function sfx(ok){try{actx??=new (window.AudioContext||window.webkitAudioContext)();const o=actx.createOscillator(),g=actx.createGain();o.type="sine";o.frequency.value=ok?880:220;g.gain.setValueAtTime(.08,actx.currentTime);g.gain.exponentialRampToValueAtTime(.0001,actx.currentTime+.18);o.connect(g).connect(actx.destination);o.start();o.stop(actx.currentTime+.2)}catch(e){}}
+// Acierto: dos notas que suben (do-mi); fallo: una nota grave y corta. Y un toque de vibración en el móvil
+function sfx(ok){try{navigator.vibrate&&navigator.vibrate(ok?12:[25,40,25])}catch(e){}
+  try{actx??=new (window.AudioContext||window.webkitAudioContext)();const t0=actx.currentTime;
+    (ok?[[1047,0],[1319,.09]]:[[196,0]]).forEach(([f,d])=>{const o=actx.createOscillator(),g=actx.createGain();o.type=ok?"triangle":"sine";o.frequency.value=f;
+      g.gain.setValueAtTime(0,t0+d);g.gain.linearRampToValueAtTime(ok?.07:.09,t0+d+.012);g.gain.exponentialRampToValueAtTime(.0001,t0+d+(ok?.32:.22));o.connect(g).connect(actx.destination);o.start(t0+d);o.stop(t0+d+.35)})}catch(e){}}
 function confetti(){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
   const c=$("#confetti");c.hidden=false;c.width=innerWidth;c.height=innerHeight;const g=c.getContext("2d");
