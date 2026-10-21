@@ -21,6 +21,7 @@ const sha = async t => b64u(await crypto.subtle.digest("SHA-256", new TextEncode
 const limpio = (t, max) => String(t ?? "").replace(/[\u0000-\u0008\u000B-\u001F\u007F‪-‮⁦-⁩]/g, "").trim().slice(0, max);
 
 const EXAMENES = ["aws", "toefl", "ielts", "n5"];
+// El plan gratis permite ~50 llamadas externas por petición: los avisos en grupo se cortan en 40
 const PUSH_HOSTS = /(^|\.)(fcm\.googleapis\.com|push\.services\.mozilla\.com|push\.apple\.com|notify\.windows\.com)$/;
 const entero = (v, a, z) => Math.max(a, Math.min(z, Math.floor(+v || 0)));
 const nombreDe = u => u.mostrar || u.nombre;
@@ -33,6 +34,22 @@ async function nuevoCodigo(env, id) {
   const sal = b64u(crypto.getRandomValues(new Uint8Array(16)));
   await env.DB.prepare("UPDATE usuarios SET rec_sal=?, rec_hash=? WHERE id=?").bind(sal, await sha(sal + ":" + normCod(c)), id).run();
   return c;
+}
+
+// Lo que el profe ve de cada alumno: simulacros hechos, mejor nota y aprobados por examen, y kana dominados
+function resumenDe(e) {
+  const out = { ex: {}, kana: 0 };
+  for (const x of EXAMENES) {
+    const v = Object.values((e.exams || {})[x] || {}).filter(r => r && typeof r === "object");
+    if (v.length) out.ex[x] = { hechos: v.length, mejor: Math.round(100 * Math.max(...v.map(r => +r.best || 0))), aprobados: v.filter(r => r.pass).length };
+  }
+  for (const s of Object.values(e.kana || {})) if (Array.isArray(s) && s[1] >= 2 && s[0] / s[1] >= 0.75) out.kana++;
+  return JSON.stringify(out);
+}
+const CODALF = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const codigoClase = () => [...crypto.getRandomValues(new Uint8Array(6))].map(x => CODALF[x & 31]).join("");
+async function miembro(env, clase, usuario) {
+  return env.DB.prepare("SELECT c.*, m.rol FROM clases c JOIN clase_miembros m ON m.clase=c.id WHERE c.id=? AND m.usuario=?").bind(clase, usuario).first();
 }
 
 // Comparación en tiempo constante para no filtrar el hash por tiempos de respuesta
@@ -223,6 +240,10 @@ async function api(req, env, u, ctx) {
       env.DB.prepare("DELETE FROM amistades WHERE a=? OR b=?").bind(i, i),
       env.DB.prepare("DELETE FROM sesiones WHERE usuario=?").bind(i),
       env.DB.prepare("DELETE FROM retos WHERE usuario=?").bind(i),
+      env.DB.prepare("DELETE FROM clase_mensajes WHERE clase IN (SELECT id FROM clases WHERE profe=?)").bind(i),
+      env.DB.prepare("DELETE FROM clase_miembros WHERE clase IN (SELECT id FROM clases WHERE profe=?) OR usuario=?").bind(i, i),
+      env.DB.prepare("DELETE FROM clases WHERE profe=?").bind(i),
+      env.DB.prepare("DELETE FROM clase_mensajes WHERE de=?").bind(i),
       env.DB.prepare("DELETE FROM avisos_push WHERE usuario=?").bind(i),
       env.DB.prepare("DELETE FROM progreso WHERE usuario=?").bind(i),
       env.DB.prepare("DELETE FROM usuarios WHERE id=?").bind(i),
@@ -245,6 +266,7 @@ async function api(req, env, u, ctx) {
     const at = ahora();
     await env.DB.batch([
       env.DB.prepare("INSERT INTO progreso(usuario,estado,at) VALUES(?,?,?) ON CONFLICT(usuario) DO UPDATE SET estado=excluded.estado, at=excluded.at").bind(yo.id, b.estado, at),
+      env.DB.prepare("UPDATE usuarios SET resumen=? WHERE id=?").bind(resumenDe(e), yo.id),
       env.DB.prepare("UPDATE usuarios SET xp=?, racha=?, ultimo=?, hoy=?, hoy_d=?, semana=?, xp_semana0=? WHERE id=?").bind(
         xp, Math.max(0, Math.min(1e5, Math.floor(+e.streak || 0))), limpio(e.last, 10) || null,
         d ? Math.max(0, Math.min(1e5, Math.floor(+d.n || 0))) : 0, d ? limpio(d.d, 10) : null, sem, Math.min(base, xp), yo.id),
@@ -340,7 +362,7 @@ async function api(req, env, u, ctx) {
     if (r.meta.changes) {   // primer intento del día: se lo cuenta a los amigos que aún no lo han hecho
       const otros = (await env.DB.prepare(`SELECT CASE WHEN a=?1 THEN b ELSE a END AS id FROM amistades WHERE (a=?1 OR b=?1) AND estado='amigos'
         AND CASE WHEN a=?1 THEN b ELSE a END NOT IN (SELECT usuario FROM retos WHERE dia=?2 AND examen=?3)`).bind(yo.id, dia, ex).all()).results;
-      for (const o of otros.slice(0, 50)) luego(avisa(env, o.id, { title: `⚡ ${nombreDe(yo)}: ${ac}/${total} en el reto de hoy`, body: "Mismas preguntas para todos. ¿Le superas?", url: `/?reto=${ex}`, tag: "reto" }));
+      for (const o of otros.slice(0, 40)) luego(avisa(env, o.id, { title: `⚡ ${nombreDe(yo)}: ${ac}/${total} en el reto de hoy`, body: "Mismas preguntas para todos. ¿Le superas?", url: `/?reto=${ex}`, tag: "reto" }));
     }
     return J({ ok: true, nuevo: !!r.meta.changes });
   }
@@ -351,6 +373,89 @@ async function api(req, env, u, ctx) {
       WHERE r.dia=?2 AND r.examen=?3 AND (r.usuario=?1 OR r.usuario IN (SELECT CASE WHEN a=?1 THEN b ELSE a END FROM amistades WHERE (a=?1 OR b=?1) AND estado='amigos'))
       ORDER BY r.aciertos DESC, r.ms ASC LIMIT 100`).bind(yo.id, dia, ex).all();
     return J({ tabla: r.results.map(x => ({ ...publico(x), aciertos: x.aciertos, total: x.total, ms: x.ms, yo: x.id === yo.id })) });
+  }
+
+  // ---------- Clases ----------
+  if (ruta === "clases" && M === "GET") {
+    const r = await env.DB.prepare(`SELECT c.id, c.codigo, c.nombre, m.rol, (SELECT COUNT(*) FROM clase_miembros WHERE clase=c.id) AS n
+      FROM clases c JOIN clase_miembros m ON m.clase=c.id WHERE m.usuario=? ORDER BY c.creado DESC`).bind(yo.id).all();
+    return J({ clases: r.results });
+  }
+  if (ruta === "clases" && M === "POST") {
+    if (await freno(env, "cla:" + yo.id, 10, 86400e3)) return mal("Demasiadas clases creadas hoy", 429);
+    const nombre = limpio(b.nombre, 60);
+    if (nombre.length < 2) return mal("Ponle un nombre a la clase");
+    const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM clases WHERE profe=?").bind(yo.id).first();
+    if (n.n >= 20) return mal("Máximo 20 clases por profe");
+    let c = null;
+    for (let i = 0; i < 5 && !c; i++) c = await env.DB.prepare("INSERT OR IGNORE INTO clases(codigo,nombre,profe,creado) VALUES(?,?,?,?) RETURNING id, codigo").bind(codigoClase(), nombre, yo.id, ahora()).first();
+    if (!c) return mal("Prueba otra vez", 500);
+    await env.DB.prepare("INSERT INTO clase_miembros(clase,usuario,rol,unido) VALUES(?,?,'profe',?)").bind(c.id, yo.id, ahora()).run();
+    return J({ id: c.id, codigo: c.codigo }, 201);
+  }
+  if (ruta === "clases/unirse" && M === "POST") {
+    if (await freno(env, "unir:" + yo.id, 20, 3600e3)) return mal("Demasiados intentos. Prueba dentro de una hora.", 429);
+    const c = await env.DB.prepare("SELECT * FROM clases WHERE codigo=?").bind(normCod(b.codigo).slice(0, 6)).first();
+    if (!c) return mal("No hay ninguna clase con ese código", 404);
+    const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM clase_miembros WHERE clase=?").bind(c.id).first();
+    if (n.n >= 200) return mal("La clase está llena");
+    const r = await env.DB.prepare("INSERT OR IGNORE INTO clase_miembros(clase,usuario,rol,unido) VALUES(?,?,'alumno',?)").bind(c.id, yo.id, ahora()).run();
+    if (r.meta.changes) luego(avisa(env, c.profe, { title: `🎓 ${nombreDe(yo)} se ha unido`, body: `Nuevo alumno en «${c.nombre}»`, url: `/?clase=${c.id}`, tag: "clase-" + c.id }));
+    return J({ id: c.id });
+  }
+  if ((m = ruta.match(/^clases\/(\d+)(?:\/(salir|chat|miembros\/([a-z0-9_.]{3,20})))?$/i))) {
+    const c = await miembro(env, +m[1], yo.id);
+    if (!c) return mal("No estás en esa clase", 403);
+    const profe = c.rol === "profe";
+    if (!m[2] && M === "GET") {
+      const r = await env.DB.prepare("SELECT u.*, m.rol FROM clase_miembros m JOIN usuarios u ON u.id=m.usuario WHERE m.clase=? ORDER BY m.rol DESC, u.xp DESC").bind(c.id).all();
+      // los alumnos ven la liga de la clase; el resumen de cada uno solo lo ve el profe
+      const gente = r.results.map(x => ({ ...publico(x), rol: x.rol, ...(profe || x.id === yo.id ? { resumen: JSON.parse(x.resumen || "{}") } : {}) }));
+      return J({ clase: { id: c.id, nombre: c.nombre, codigo: c.codigo, rol: c.rol }, gente });
+    }
+    if (!m[2] && M === "PATCH" && profe) {
+      const nombre = limpio(b.nombre, 60);
+      if (nombre.length < 2) return mal("Ponle un nombre a la clase");
+      await env.DB.prepare("UPDATE clases SET nombre=? WHERE id=?").bind(nombre, c.id).run();
+      return J({ ok: true });
+    }
+    if (!m[2] && M === "DELETE" && profe) {
+      await env.DB.batch([
+        env.DB.prepare("DELETE FROM clase_mensajes WHERE clase=?").bind(c.id),
+        env.DB.prepare("DELETE FROM clase_miembros WHERE clase=?").bind(c.id),
+        env.DB.prepare("DELETE FROM clases WHERE id=?").bind(c.id),
+      ]);
+      return J({ ok: true });
+    }
+    if (m[2] === "salir" && M === "POST") {
+      if (profe) return mal("Eres el profe: borra la clase si quieres cerrarla");
+      await env.DB.prepare("DELETE FROM clase_miembros WHERE clase=? AND usuario=?").bind(c.id, yo.id).run();
+      return J({ ok: true });
+    }
+    if (m[3] && M === "DELETE" && profe) {
+      const otro = await porNombre(env, m[3]);
+      if (otro && otro.id !== yo.id) await env.DB.prepare("DELETE FROM clase_miembros WHERE clase=? AND usuario=?").bind(c.id, otro.id).run();
+      return J({ ok: true });
+    }
+    if (m[2] === "chat" && M === "GET") {
+      const desde = Math.max(0, Math.floor(+u.searchParams.get("desde") || 0));
+      const r = await env.DB.prepare(`SELECT * FROM (SELECT x.id, x.de, x.texto, x.tipo, x.creado, u.nombre AS usuario, COALESCE(u.mostrar,u.nombre) AS nombre, u.avatar
+        FROM clase_mensajes x LEFT JOIN usuarios u ON u.id=x.de WHERE x.clase=? AND x.id>? ORDER BY x.id DESC LIMIT 100) ORDER BY id`).bind(c.id, desde).all();
+      return J({ mensajes: r.results.map(x => ({ id: x.id, mio: x.de === yo.id, texto: x.texto, tipo: x.tipo, creado: x.creado, nombre: x.nombre || "—", avatar: x.avatar || "🙂", usuario: x.usuario })) });
+    }
+    if (m[2] === "chat" && M === "POST") {
+      if (await freno(env, "msg:" + yo.id, 30, 60e3)) return mal("Vas muy rápido. Espera un momento.", 429);
+      const texto = limpio(b.texto, 500), tipo = profe && ["deberes", "aviso"].includes(b.tipo) ? b.tipo : null;
+      if (!texto) return mal("Mensaje vacío");
+      const r = await env.DB.prepare("INSERT INTO clase_mensajes(clase,de,texto,tipo,creado) VALUES(?,?,?,?,?) RETURNING id, creado").bind(c.id, yo.id, texto, tipo, ahora()).first();
+      // los avisos del profe llegan a todos; los mensajes de alumnos no despiertan móviles
+      if (profe) {
+        const otros = (await env.DB.prepare("SELECT usuario FROM clase_miembros WHERE clase=? AND usuario<>?").bind(c.id, yo.id).all()).results;
+        for (const o of otros.slice(0, 40)) luego(avisa(env, o.usuario, { title: `${tipo === "deberes" ? "📌 Deberes" : "🎓"} · ${c.nombre}`, body: texto.slice(0, 140), url: `/?clase=${c.id}`, tag: "clase-" + c.id }));
+      }
+      return J({ id: r.id, mio: true, texto, tipo, creado: r.creado, nombre: nombreDe(yo), avatar: yo.avatar || "🙂", usuario: yo.nombre }, 201);
+    }
+    return mal("No permitido", 403);
   }
 
   // ---------- Avisos (lo que se consulta de fondo cada minuto) ----------

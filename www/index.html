@@ -418,6 +418,17 @@ kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:
 .reto-b:hover{transform:translateY(-2px)}
 .cod{font:700 clamp(18px,4.4vw,26px) var(--f-mono);letter-spacing:.06em;text-align:center;padding:16px;border:2px dashed var(--hanko);border-radius:14px;background:var(--paper);word-break:break-all;user-select:all}
 @media (max-width:720px){.reto{grid-template-columns:1fr}.reto-bts{grid-template-columns:repeat(2,1fr)}}
+/* Clases */
+.cls-fila{width:100%;background:none;border:0;border-top:1px dashed var(--line);font:inherit;color:inherit;text-align:left;cursor:pointer}
+.cls-fila:hover b{color:var(--hanko)}
+.cls-msgs{max-height:420px;min-height:160px;padding:6px 0;overflow:auto}
+.cls-deb{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.chat-box .chat-m.cls-deberes,.cls-msgs .chat-m.cls-deberes{border:2px solid var(--hanko);background:color-mix(in srgb,var(--hanko) 8%,var(--paper));color:var(--ink)}
+.cls-de{font-weight:700;font-size:12px;opacity:.8}.cls-hacer{justify-self:start;margin-top:4px;padding:6px 12px;font-size:13px}
+.cls-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cls-tabla{width:100%;border-collapse:collapse;font-size:13.5px;white-space:nowrap}
+.cls-tabla th{font:700 11px var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+.cls-tabla td{padding:8px;border-bottom:1px dashed var(--line);vertical-align:middle}
 /* Cuentas, amigos y chat */
 @media (max-width:1440px){.nav [data-key]::after{display:none}}
 .soc-btn{position:relative}.soc-btn>span:first-child{font-size:16px;line-height:1}
@@ -741,13 +752,13 @@ function speak(script,lang,onEnd){
 
 /* ============ Rutas ============ */
 let route={v:"home"}; let run=null;
-function go(r){if(lib.on&&r.v!=="libre")libPara();route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
+function go(r){if(lib.on&&r.v!=="libre")libPara();if(r.v!=="clase")clsParar();clsBorrar=null;route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
@@ -1142,7 +1153,7 @@ function pintaAvisos(){const n=(avisos.mensajes||0)+(avisos.solicitudes||0),d=$(
 async function recoger(){try{const d=await apiF("regalos/recoger",{method:"POST",body:{}});if(!d.regalos.length)return;
   for(const g of d.regalos){if(g.tipo==="congela"){S.congelas=(S.congelas||0)+1;toast(`❄ ${g.de_nombre} te ha regalado un protector de racha`)}else toast(`👏 ${g.de_nombre}: ${g.nota||"¡Ánimo!"}`)}
   S.regalos=[...d.regalos.map(g=>({t:g.tipo,de:g.de_nombre,u:g.de_usuario,nota:g.nota,at:Date.now()})),...(S.regalos||[])].slice(0,20);save();if(route.v!=="run")render()}catch(e){}}
-async function cargarSoc(){try{const rt=soc?.reto;soc=await apiF("amigos");if(rt)soc.reto=rt;if(route.v==="social"&&!$("#socForm:focus-within"))render()}catch(e){if(e.status===401){cuenta=null;render()}}}
+async function cargarSoc(){try{const rt=soc?.reto,cl=soc?.clases;soc=await apiF("amigos");if(rt)soc.reto=rt;if(cl)soc.clases=cl;if(route.v==="social"&&!$("#socForm:focus-within"))render()}catch(e){if(e.status===401){cuenta=null;render()}}}
 const vivaRacha=u=>u.racha&&u.ultimo&&dayDiff(u.ultimo,today())<=1;
 const socBtn=()=>{const n=(avisos.mensajes||0)+(avisos.solicitudes||0);
   return `<button class="cmd-btn soc-btn" data-go="social" data-key="F" id="socBtn" aria-label="${cuenta?"Tu cuenta y amigos":"Entrar o crear cuenta"}"><span aria-hidden="true">${cuenta?h(cuenta.avatar):"友"}</span><span class="cmd-t">${cuenta?"Amigos":"Entrar"}</span><b class="soc-dot" id="socDot" ${n?"":"hidden"}>${n}</b></button>`};
@@ -1184,6 +1195,7 @@ function viewSocial(){
       ${(soc?.enviadas||[]).map(a=>`<div class="soc-am"><span class="soc-av">${h(a.avatar)}</span><div class="soc-who"><b>${h(a.nombre)}</b><small class="muted">@${h(a.usuario)} · esperando respuesta</small></div><div class="soc-acc"><button class="x-btn" data-quitar="${h(a.usuario)}">Cancelar</button></div></div>`).join("")}</div>
     <div class="card"><h3 style="margin-top:0">Amigos${ams.length?` · ${ams.length}`:""}</h3>${soc?ams.length?ams.map(fila).join(""):`<p class="muted">Aún no tienes amigos aquí. Pásales tu usuario <b>@${h(yo.usuario)}</b> o el enlace de invitar.</p>`:`<p class="muted">Cargando…</p>`}
       <p class="muted soc-nota">❄ protector de racha: si un día no estudias, tu racha no se rompe. Puedes regalar uno al día a cada amigo.</p></div>
+    ${clasesCard()}
   </div><aside>
     <div class="card"><h3 style="margin-top:0">Liga de la semana</h3><p class="muted soc-nota" style="margin-top:-6px">XP desde el lunes. Se reinicia cada semana.</p>
       <ol class="soc-liga">${liga.map((a,i)=>`<li class="${a.yoMismo?"yo":""}"><span class="soc-pos">${["🥇","🥈","🥉"][i]||i+1}</span><span class="soc-av sm">${h(a.avatar)}</span><span class="soc-who"><b>${a.yoMismo?"Tú":h(a.nombre)}</b></span><span class="mono">${a.semana} XP</span></li>`).join("")}</ol></div>
@@ -1210,6 +1222,7 @@ function bindSocial(){
     catch(err){toast(err.message);b.disabled=false;b.textContent=txt}};
   if(!cuenta)return;
   if(!soc||soc.viejo)cargarSoc();
+  if(!soc?.clases)cargarClases();bindClasesCard();
   if(!soc?.reto)retoTabla(S.retoUlt||"n5");
   pushEstado().then(s=>{if(!!s!==!!$("#pushOff"))render()});
   const po=$("#pushOn");if(po)po.onclick=pushActivar;const pf=$("#pushOff");if(pf)pf.onclick=pushQuitar;$("#pushHora").onchange=e=>pushHora(+e.target.value);
@@ -1323,6 +1336,68 @@ addEventListener("appinstalled",()=>{instalarEv=null;toast("Dojo instalado: ya l
 const yaInstalada=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone;
 async function instalar(){if(instalarEv){instalarEv.prompt();await instalarEv.userChoice.catch(()=>{});instalarEv=null;const b=$("#instalar");if(b)b.hidden=true}
   else toast(esIOS()?"En Safari: botón Compartir → «Añadir a pantalla de inicio»":"Usa el menú del navegador: «Instalar app» o «Añadir a pantalla de inicio»")}
+/* ============ Clases: el profe crea, los alumnos entran con un código ============ */
+let cls=null,clsBorrar=null;
+const unirsePendiente=new URLSearchParams(location.search).get("unirse");
+const exDeTexto=t=>Object.keys(EX).find(x=>t.includes("reto del día de "+EX[x].short));
+function clasesCard(){const cs=soc?.clases;
+  return `<div class="card"><h3 style="margin-top:0">🎓 Clases</h3>
+    ${cs?cs.length?cs.map(c=>`<button class="soc-am cls-fila" data-clase="${c.id}"><span class="soc-av">${c.rol==="profe"?"🧑‍🏫":"🎒"}</span><span class="soc-who"><b>${h(c.nombre)}</b><small class="muted">${c.rol==="profe"?"Eres el profe":"Alumno"} · ${c.n} ${c.n===1?"persona":"personas"}</small></span><span aria-hidden="true">→</span></button>`).join(""):`<p class="muted">Únete con el código que te dé tu profe, o crea una clase si das clases tú.</p>`:`<p class="muted">Cargando…</p>`}
+    <form class="row" id="clsUnir" style="margin-top:12px"><input class="inp" id="clsCod" placeholder="Código de clase (6 letras)" maxlength="7" autocapitalize="characters" spellcheck="false" value="${h(unirsePendienteVal||"")}" style="flex:1"><button class="btn acc">Unirme</button></form>
+    <details class="soc-det"><summary>Crear una clase (para profes)</summary><form class="soc-form" id="clsNueva"><input class="inp" name="nombre" maxlength="60" placeholder="Ej. Español A2 · martes" required><button class="btn ghost">Crear clase</button>
+      <p class="muted soc-nota">Verás la racha, la XP y los simulacros de cada alumno. Podrás mandar avisos y deberes que les llegan al móvil.</p></form></details></div>`}
+let unirsePendienteVal=unirsePendiente;
+function bindClasesCard(){
+  document.querySelectorAll("[data-clase]").forEach(b=>b.onclick=()=>go({v:"clase",id:+b.dataset.clase}));
+  const f=$("#clsUnir");if(f)f.onsubmit=async e=>{e.preventDefault();const c=$("#clsCod").value.trim();if(!c)return;
+    try{const d=await apiF("clases/unirse",{method:"POST",body:{codigo:c}});unirsePendienteVal=null;toast("¡Dentro! Tu profe verá tu racha y tus resultados");go({v:"clase",id:d.id})}catch(err){toast(err.message)}};
+  const n=$("#clsNueva");if(n)n.onsubmit=async e=>{e.preventDefault();const nombre=new FormData(n).get("nombre");
+    try{const d=await apiF("clases",{method:"POST",body:{nombre}});toast("Clase creada. Código: "+d.codigo);go({v:"clase",id:d.id})}catch(err){toast(err.message)}}}
+async function cargarClases(){try{const d=await apiF("clases");soc??={amigos:[],recibidas:[],enviadas:[],yo:cuenta};soc.clases=d.clases;if(route.v==="social"&&!$("#socForm:focus-within")&&!document.activeElement?.matches?.("input"))render()}catch(e){}}
+function viewClase(){if(!cuenta)return `<div class="card" style="margin-top:28px"><p>Entra en tu cuenta para ver tus clases.</p><button class="btn acc" data-go="social">Entrar</button></div>`;
+  const d=cls?.data;if(!d)return `<div class="card" style="margin-top:28px"><p class="muted">Cargando la clase…</p></div>`;
+  const c=d.clase,profe=c.rol==="profe",alumnos=d.gente.filter(g=>g.rol!=="profe"),liga=[...d.gente].sort((a,b)=>b.semana-a.semana);
+  const celdaEx=r=>Object.keys(EX).map(x=>{const e=r?.ex?.[x];return `<td class="mono">${e?`${e.hechos} · ${e.mejor}%${e.aprobados?" ✓":""}`:"—"}</td>`}).join("");
+  const visto=t=>!t?"—":Date.now()-t<3e5?"ahora":Date.now()-t<864e5?"hoy":Math.round((Date.now()-t)/864e5)+" d";
+  return `<div class="ex-head"><div><button class="x-btn" data-go="social" data-key="Esc">← Amigos y clases</button><h1 style="margin-top:12px">${h(c.nombre)}</h1>
+    <div class="row"><span class="pill">${profe?"🧑‍🏫 Eres el profe":"🎒 Alumno"}</span><span class="pill">${alumnos.length} ${alumnos.length===1?"alumno":"alumnos"}</span><span class="pill mono" title="Código para entrar">Código ${h(c.codigo)}</span><button class="linkish" id="clsInvita">Invitar</button></div></div></div>
+  <div class="soc-grid"><div>
+    <div class="card"><h3 style="margin-top:0">📋 Tablón</h3>
+      ${profe?`<div class="cls-deb"><span class="muted soc-nota">Deberes con un toque:</span>${Object.keys(EX).map(x=>`<button class="x-btn" data-deber="${x}">⚡ Reto ${h(EX[x].short)}</button>`).join("")}</div>`:""}
+      <div class="chat-msgs cls-msgs" id="clsMsgs" aria-live="polite"><p class="muted" style="text-align:center">Cargando…</p></div>
+      <form class="chat-form" id="clsForm" style="padding:10px 0 0;border:0"><input class="inp" id="clsIn" maxlength="500" placeholder="${profe?"Aviso para toda la clase (les llega al móvil)…":"Escribe a la clase…"}" autocomplete="off"><button class="btn acc">Enviar</button></form></div>
+    ${profe?`<div class="card cls-tabla-wrap"><h3 style="margin-top:0">📊 Alumnos</h3>${alumnos.length?`<div class="cls-scroll"><table class="cls-tabla"><thead><tr><th>Alumno</th><th>🔥</th><th>Hoy</th><th>Semana</th>${Object.keys(EX).map(x=>`<th title="simulacros · mejor nota">${h(EX[x].short)}</th>`).join("")}<th>Kana</th><th>Visto</th><th></th></tr></thead><tbody>
+      ${alumnos.map(a=>`<tr><td><span class="soc-av sm">${h(a.avatar)}</span> <b>${h(a.nombre)}</b><br><small class="muted">@${h(a.usuario)}</small></td><td class="mono">${vivaRacha(a)?a.racha:0}</td><td class="mono">${a.hoy&&a.hoy.d===today()?a.hoy.n:0}</td><td class="mono">${a.semana}</td>${celdaEx(a.resumen)}<td class="mono">${a.resumen?.kana||0}</td><td class="mono">${visto(a.visto)}</td><td><button class="x-btn" data-echar="${h(a.usuario)}" title="Sacar de la clase">${clsBorrar===a.usuario?"¿Sacar?":"✕"}</button></td></tr>`).join("")}</tbody></table></div>
+      <p class="muted soc-nota">Simulacros hechos · mejor nota (✓ si ha aprobado alguno). Se actualiza cuando cada alumno practica.</p>`:`<p class="muted">Aún no hay alumnos. Pásales el código <b>${h(c.codigo)}</b> o el enlace de invitar.</p>`}</div>`:""}
+  </div><aside>
+    <div class="card"><h3 style="margin-top:0">🏆 Liga de la clase</h3><p class="muted soc-nota" style="margin-top:-6px">XP desde el lunes.</p>
+      <ol class="soc-liga">${liga.map((a,i)=>`<li class="${a.usuario===cuenta.usuario?"yo":""}"><span class="soc-pos">${["🥇","🥈","🥉"][i]||i+1}</span><span class="soc-av sm">${h(a.avatar)}</span><span class="soc-who"><b>${a.usuario===cuenta.usuario?"Tú":h(a.nombre)}</b>${a.rol==="profe"?`<small class="muted">profe</small>`:""}</span><span class="mono">${a.semana} XP</span></li>`).join("")}</ol></div>
+    <div class="card">${profe?`<button class="btn ghost" id="clsBorra" style="width:100%">${clsBorrar==="__clase"?"¿Seguro? Se borra para todos":"Borrar la clase"}</button>`:`<button class="btn ghost" id="clsSalir" style="width:100%">Salir de la clase</button>`}</div>
+  </aside></div>`}
+function clsPon(ms){const box=$("#clsMsgs");if(!box||!cls)return;ms=ms.filter(m=>m.id>cls.ult);if(!ms.length){if(!cls.ult)box.innerHTML=`<p class="muted" style="text-align:center">Todavía no hay nada. ${cls.data?.clase.rol==="profe"?"Saluda a tu clase o manda unos deberes.":"Cuando el profe escriba, aparecerá aquí."}</p>`;return}
+  if(!cls.ult)box.innerHTML="";cls.ult=ms[ms.length-1].id;
+  box.insertAdjacentHTML("beforeend",ms.map(m=>{const x=m.tipo==="deberes"&&exDeTexto(m.texto);
+    return `<div class="chat-m ${m.mio?"mio":""} ${m.tipo?"cls-"+m.tipo:""}">${m.mio?"":`<small class="cls-de">${h(m.avatar)} ${h(m.nombre)}</small>`}<span>${h(m.texto)}</span>${x?`<button class="btn acc cls-hacer" data-reto="${x}">Hacer ahora</button>`:""}<time>${new Date(m.creado).toLocaleString("es",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</time></div>`}).join(""));
+  box.scrollTop=box.scrollHeight}
+async function clsTraer(){if(!cls)return;const c=cls;try{const d=await apiF(`clases/${c.id}/chat?desde=${c.ult}`);if(cls===c)clsPon(d.mensajes)}catch(e){}}
+async function clsCargar(){const c=cls;try{const d=await apiF("clases/"+c.id);if(cls!==c)return;c.data=d;const y=scrollY;render();scrollTo(0,y)}catch(e){toast(e.message);if(e.status===403)go({v:"social"})}}
+function clsParar(){if(cls){clearInterval(cls.t);cls=null}}
+function bindClase(){if(!cuenta)return;
+  if(!cls||cls.id!==route.id){clsParar();cls={id:route.id,data:null,ult:0,t:null};clsCargar();return}
+  if(!cls.data)return;
+  cls.ult=0;clsTraer();clearInterval(cls.t);cls.t=setInterval(()=>{if(!document.hidden)clsTraer()},6000);
+  const c=cls.data.clase;
+  $("#clsInvita").onclick=async()=>{const url=location.origin+"/?unirse="+c.codigo,t=`Únete a mi clase «${c.nombre}» en el Dojo (código ${c.codigo}):`;
+    try{if(navigator.share)await navigator.share({title:"Dojo",text:t,url});else{await navigator.clipboard.writeText(t+" "+url);toast("Invitación copiada")}}catch(e){}};
+  const enviar=async(texto,tipo)=>{try{const m=await apiF(`clases/${c.id}/chat`,{method:"POST",body:{texto,tipo}});clsPon([m])}catch(err){toast(err.message)}};
+  $("#clsForm").onsubmit=e=>{e.preventDefault();const i=$("#clsIn"),t=i.value.trim();if(!t)return;i.value="";enviar(t,c.rol==="profe"?"aviso":null)};
+  document.querySelectorAll("[data-deber]").forEach(b=>b.onclick=()=>enviar(`📌 Deberes: haced el reto del día de ${EX[b.dataset.deber].short} antes de medianoche`,"deberes"));
+  document.querySelectorAll("[data-echar]").forEach(b=>b.onclick=async()=>{const u=b.dataset.echar;if(clsBorrar!==u){clsBorrar=u;render();return}clsBorrar=null;
+    try{await apiF(`clases/${c.id}/miembros/${encodeURIComponent(u)}`,{method:"DELETE"});clsCargar()}catch(e){toast(e.message)}});
+  const bo=$("#clsBorra");if(bo)bo.onclick=async()=>{if(clsBorrar!=="__clase"){clsBorrar="__clase";render();return}clsBorrar=null;
+    try{await apiF("clases/"+c.id,{method:"DELETE"});toast("Clase borrada");if(soc)soc.clases=null;go({v:"social"})}catch(e){toast(e.message)}};
+  const sa=$("#clsSalir");if(sa)sa.onclick=async()=>{try{await apiF(`clases/${c.id}/salir`,{method:"POST",body:{}});if(soc)soc.clases=null;go({v:"social"})}catch(e){toast(e.message)}};
+  const inp=$("#clsIn");inp.onkeydown=e=>{if(e.key==="Escape")inp.blur()}}
 /* ============ Teclado: un solo oyente para toda la app ============ */
 const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
@@ -1416,7 +1491,7 @@ document.addEventListener("keydown",e=>{
     return}
   if(onCtl)return;
   if(k==="Escape"){e.preventDefault();if(kSheet&&$("[data-kclose]")?.offsetParent){act($("[data-kclose]"));return}
-    if(v==="result"||v==="rayo")go({v:"exam",x:route.x,tab:"sims"});else if(v==="exam"&&route.tab&&route.tab!=="sims"){route.tab="sims";render()}else if(v!=="home")go({v:"home"});return}
+    if(v==="result"||v==="rayo")go({v:"exam",x:route.x,tab:"sims"});else if(v==="clase")go({v:"social"});else if(v==="exam"&&route.tab&&route.tab!=="sims"){route.tab="sims";render()}else if(v!=="home")go({v:"home"});return}
   if(e.shiftKey&&(k==="ArrowUp"||k==="ArrowDown")&&(v==="kana"||v==="pt")){const ss=[...document.querySelectorAll("[data-kset]")];if(ss.length){e.preventDefault();const i=Math.max(0,ss.findIndex(b=>b.classList.contains("on")));ss[(i+(k==="ArrowDown"?1:-1)+ss.length)%ss.length].click()}return}
   if(e.shiftKey&&(k==="ArrowLeft"||k==="ArrowRight")){const ts=[...document.querySelectorAll('#app [role="tab"]')];if(ts.length){e.preventDefault();const i=Math.max(0,ts.findIndex(t=>t.getAttribute("aria-selected")==="true"));ts[(i+(k==="ArrowRight"?1:-1)+ts.length)%ts.length].click()}return}
   if(v==="home"&&/^[1-9]$/.test(k)){act(document.querySelectorAll(".exam-card[data-exam]")[+k-1]);return}
@@ -1869,8 +1944,9 @@ function confetti(){
 /* ============ Arranque ============ */
 function start(){loadLocal();
   const q=new URLSearchParams(location.search),irChat=q.get("chat"),irReto=q.get("reto");
-  if(socPendiente||irChat||q.get("amigos"))route={v:"social"};
-  if([...q.keys()].some(k=>["chat","amigos","reto"].includes(k)))history.replaceState(null,"",location.pathname+(socPendiente?"?amigo="+encodeURIComponent(socPendiente):""));
+  if(socPendiente||irChat||q.get("amigos")||unirsePendiente)route={v:"social"};
+  if(/^\d+$/.test(q.get("clase")||""))route={v:"clase",id:+q.get("clase")};
+  if([...q.keys()].some(k=>["chat","amigos","reto","clase","unirse"].includes(k)))history.replaceState(null,"",location.pathname+(socPendiente?"?amigo="+encodeURIComponent(socPendiente):""));
   if(irChat)connectApi().then(()=>{if(cuenta)chatAbrir(irChat)});
   if(irReto&&EX[irReto])setTimeout(()=>startReto(irReto),300);render();connectStore();connectApi();connectExtras()}
 start();
