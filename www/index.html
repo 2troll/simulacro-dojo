@@ -409,6 +409,9 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kb-row span:first-child{flex:none}.kb-row span:last-child{color:var(--ink-2);text-align:right}
 kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .kb-line{margin:-6px 0 14px}
+@media (hover:hover) and (pointer:fine){[data-key]::after{content:attr(data-key);font:600 10px var(--f-mono);border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-left:8px;opacity:.5;vertical-align:1px}
+  .exam-card[data-key]::after{position:absolute;top:14px;right:14px;margin:0;font-size:12px;padding:1px 7px}
+  .mnav [data-key]::after{display:none}}
 .kb-n{font:600 10px var(--f-mono);color:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:8px;vertical-align:2px}
 @media (max-width:520px){.dock .kbd,.kb-line,.kb-tip,.kb-n{display:none}.nav button{padding:8px 10px}}
 @media (hover:none) and (pointer:coarse){.kb-line,.kb-tip,.kb-n{display:none}}
@@ -673,10 +676,10 @@ function render(){
 }
 function topBar(){
   const L=level(), cur=route.v;
-  const nb=(v,l)=>`<button data-go="${v}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
+  const nb=(v,l,kk)=>`<button data-go="${v}" data-key="${kk}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
   return `<header class="top"><div class="top-in">
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
-    <nav class="nav">${nb("home","Exámenes")}${nb("kana","Kana y kanji")}${nb("pt","Portugués")}${nb("cards","Tarjetas")}${nb("guide","Guía y tutor")}</nav>
+    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana y kanji","K")}${nb("pt","Portugués","P")}${nb("cards","Tarjetas","T")}${nb("guide","Guía y tutor","G")}</nav>
     <div class="stats">
       <span class="stat" title="Racha de días"><svg class="flame" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 0C8 4 13 6 13 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 2 2 3 2 4 1-2 2-5 2-8z" fill="${streakAlive()?"var(--warn)":"var(--line)"}"/></svg>${S.streak||0}</span>
       <span class="stat" title="Experiencia · ${h(L.name)}">${S.xp} XP</span>
@@ -692,11 +695,11 @@ function viewHome(){
   const L=level(), dn=S.daily.d===today()?S.daily.n:0, p=dn/S.goal;
   const due=dueCards().length;
   const practicedToday=S.last===today();
-  const cards=Object.keys(EX).map(x=>{
+  const cards=Object.keys(EX).map((x,ix)=>{
     const e=S.exams[x];const dots=[];
     for(let k=1;k<=33;k++){const key=k<=3?"c"+k:"s"+(k-3);const r=e[key];dots.push(`<i class="${r?(r.pass?"pass":"done"):""}"></i>`)}
     const best=lastScore(x);
-    return `<button class="exam-card reveal ${EX[x].prio?"big-card":""}" style="--c:var(--${x})" data-exam="${x}"><span class="glyph" aria-hidden="true">${({aws:"雲",toefl:"英",ielts:"語",n5:"日"})[x]}</span>${EX[x].prio?'<span class="prio">Prioridad</span>':""}
+    return `<button class="exam-card reveal ${EX[x].prio?"big-card":""}" style="--c:var(--${x})" data-exam="${x}" data-key="${ix+1}"><span class="glyph" aria-hidden="true">${({aws:"雲",toefl:"英",ielts:"語",n5:"日"})[x]}</span>${EX[x].prio?'<span class="prio">Prioridad</span>':""}
       <span class="eyebrow">${h(EX[x].scale)}</span><span class="tag">${h(EX[x].name)}</span>
       <span class="muted" style="font-size:14.5px">${h(EX[x].blurb)}</span>
       <span class="dots" aria-label="${examDone(x)} de 33 hechos">${dots.join("")}</span>
@@ -773,7 +776,7 @@ function viewExam(){
       <div class="card"><h3>Acierto por sección</h3><div class="secbars">${E.secs.map(sec=>{const st=S.sec[x][sec]||[0,0];const pc=st[1]?st[0]/st[1]:0;return `<div class="secbar"><span>${SEC_LABEL[sec]}</span><span class="t"><i style="width:${pc*100}%"></i></span><span class="mono">${st[1]?Math.round(pc*100)+"%":"–"}</span></div>`}).join("")}</div>
       <p class="muted" style="font-size:14px">Tu objetivo: <b>${h(S.target[x])}</b>. ${weakest(x)?`Punto débil ahora: <b>${SEC_LABEL[weakest(x)]}</b>.`:""}</p></div></div>`;
   }
-  return `<div class="ex-head"><div><button class="x-btn" data-go="home">← Exámenes</button><h1 style="margin-top:12px"><span>${h(E.short)}</span> ${E.short==="N5"?"· 日本語能力試験":"· práctica"}</h1></div>
+  return `<div class="ex-head"><div><button class="x-btn" data-go="home" data-key="Esc">← Exámenes</button><h1 style="margin-top:12px"><span>${h(E.short)}</span> ${E.short==="N5"?"· 日本語能力試験":"· práctica"}</h1></div>
     <div class="row"><span class="pill">${examDone(x)}/33 hechos</span><span class="pill">${h(E.scale)}</span></div></div>
     <div class="tabs" role="tablist">${tabs.map(t=>`<button role="tab" data-tab="${t[0]}" aria-selected="${tab===t[0]}">${t[1]}</button>`).join("")}</div>${body}`;
 }
@@ -804,7 +807,7 @@ function viewRun(){
   const showCtx=hasCtx&&!(q.t==="open");
   const ctx=showCtx?`<aside class="ctx" ${x==="n5"?'lang="ja"':""}>${s.audio?audioBox(it):""}${s.passage&&s.sec!=="listening"?`<div class="passage">${h(s.passage)}</div>`:""}</aside>`:"";
   return `<div class="run"><div class="run-top"><div class="run-top-in">
-      <button class="x-btn" id="quit">Salir</button>
+      <button class="x-btn" id="quit" data-key="Esc">Salir</button>
       <div class="progress" aria-label="Pregunta ${run.i+1} de ${n}"><i style="width:${(run.i)/n*100}%"></i></div>
       <span class="mono" style="font-weight:700">${run.i+1}/${n}</span>
       ${run.limit?`<span class="timer" id="timer">${fmtTime(run.limit)}</span>`:`<span class="pill">Estudio</span>`}
@@ -817,16 +820,16 @@ function viewRun(){
       <div id="fb">${feedbackHTML(it)}</div>
     </section></div>
     <div class="dock"><div class="dock-in">
-      <button class="btn ghost" id="prev" ${run.i?"":"disabled"}>← Anterior</button>
+      <button class="btn ghost" id="prev" data-key="←" ${run.i?"":"disabled"}>← Anterior</button>
       <span class="kbd">${q.t==="mcq"||q.t==="multi"?"1-"+q.o.length+" · ":""}Espacio: ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?"comprobar":"siguiente"} · ←→ · ? ayuda</span>
-      ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?`<button class="btn acc" id="check">Comprobar</button>`:`<button class="btn acc" id="next">${run.i===n-1?"Terminar":"Siguiente →"}</button>`}
+      ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?`<button class="btn acc" id="check" data-key="Espacio">Comprobar</button>`:`<button class="btn acc" id="next" data-key="Espacio">${run.i===n-1?"Terminar":"Siguiente →"}</button>`}
     </div></div></div>`;
 }
 function audioBox(it){
   const left=run.mode==="exam"?Math.max(0,2-(run.plays[it.set.id]||0)):null;
   const shown=run.mode==="study"||run.checked[run.i];
   return `<div class="audio-box"><div class="eyebrow">Audio</div>
-    <div class="row"><button class="play" id="play" ${left===0?"disabled":""}>▶ Escuchar</button><span class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="row"><button class="play" id="play" data-key="P" ${left===0?"disabled":""}>▶ Escuchar</button><span class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
     <small class="muted">${left!==null?`Te quedan ${left} reproducciones. `:""}Voz del navegador${voices.length?"":" (si no oyes nada, activa el sonido o usa Chrome/Safari)"}.</small>
     <details ${shown?"":""}><summary class="muted" style="cursor:pointer">${shown?"Ver transcripción":"Transcripción (solo en modo estudio o al corregir)"}</summary>${shown?`<div class="passage" style="margin-top:8px">${h(it.set.audio)}</div>`:""}</details></div>`;
 }
@@ -925,17 +928,21 @@ function bindRun(){
 function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#fill");if(f)run.ans[run.i]=f.value}
 function rerun(keepScroll){const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else scrollTo(0,0)}
 /* ============ Teclado: un solo oyente para toda la app ============ */
-const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["T","Tarjetas"],["G","Guía y tutor"]]],
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["T","Tarjetas"],["G","Guía y tutor"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
+  ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
   ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
   ["Tarjetas",[["Espacio","Girar"],["→ · 2","La sé"],["← · 1","Otra vez"]]],
   ["Rayo y Empareja",[["1-4","Rayo: elegir respuesta"],["1-5 · A-E","Empareja: pista y su pareja"],["Intro","Empezar / otra ronda"]]],
-  ["Kana y kanji",[["Shift+1 / 2 / 3","Tabla / Test / Dibuja"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"]]]];
+  ["Kana, kanji y portugués",[["Shift+← →","Tabla / Test / Dibuja"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"],["Esc","Cerrar la ficha / volver"]]]];
+// Qué grupo de la ayuda va primero según dónde estés
+const kbAqui=()=>({home:"Portada y examen",exam:route.tab==="learn"?"Rayo y Empareja":"Portada y examen",run:"Preguntas",result:"Resultado",cards:"Tarjetas",rayo:"Rayo y Empareja",kana:"Kana, kanji y portugués",pt:"Kana, kanji y portugués"})[route.v]||"General";
 let kbBack=null;
 function ayuda(on){let d=$("#kbHelp");if(on==null)on=!d||d.hidden;
   if(!d){d=document.createElement("div");d.id="kbHelp";d.className="kb-help";d.hidden=true;d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-labelledby","kbT");
-    d.innerHTML=`<div class="kb-box"><div class="kb-head"><h2 id="kbT">Atajos de teclado</h2><button class="x-btn" data-kbclose>Cerrar · Esc</button></div><div class="kb-cols">${ATAJOS.map(([t,rows])=>`<div><h3>${t}</h3>${rows.map(([k,l])=>`<div class="kb-row"><span>${k.split(" · ").map(x=>`<kbd>${h(x)}</kbd>`).join(" ")}</span><span>${h(l)}</span></div>`).join("")}</div>`).join("")}</div><p class="muted" style="font-size:13px;margin:14px 0 0">Mientras escribes en un cuadro de texto los atajos se apagan; Esc sale del cuadro.</p></div>`;
     d.onclick=e=>{if(e.target===d||e.target.closest("[data-kbclose]"))ayuda(false)};document.body.append(d)}
+  if(on&&d.hidden){const aq=kbAqui(),gs=[...ATAJOS].sort((a,b)=>(b[0]===aq)-(a[0]===aq));
+    d.innerHTML=`<div class="kb-box"><div class="kb-head"><h2 id="kbT">Atajos de teclado</h2><button class="x-btn" data-kbclose>Cerrar · Esc</button></div><div class="kb-cols">${gs.map(([t,rows])=>`<div><h3>${t}${t===aq?" · aquí":""}</h3>${rows.map(([k,l])=>`<div class="kb-row"><span>${k.split(" · ").map(x=>`<kbd>${h(x)}</kbd>`).join(" ")}</span><span>${h(l)}</span></div>`).join("")}</div>`).join("")}</div><p class="muted" style="font-size:13px;margin:14px 0 0">Mientras escribes en un cuadro de texto los atajos se apagan; Esc sale del cuadro. Cada botón enseña su tecla a la derecha.</p></div>`}
   if(on===!d.hidden)return;d.hidden=!on;
   if(on){kbBack=document.activeElement;if(lenis)lenis.stop();d.querySelector("[data-kbclose]").focus()}else{if(lenis)lenis.start();if(kbBack&&kbBack.isConnected)kbBack.focus();kbBack=null}}
 const kbNum=(k,lk,max)=>{const n=/^[1-9]$/.test(k)?+k-1:/^[a-e]$/.test(lk)?"abcde".indexOf(lk):-1;return n<max?n:-1};
@@ -950,7 +957,7 @@ document.addEventListener("keydown",e=>{
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
-  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",t:"cards",g:"guide"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",t:"cards",g:"guide"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
   if(v==="run"&&run){
     const it=run.items[run.i],q=it.q;
     if(k==="Escape"){e.preventDefault();act($("#quit"));return}
@@ -962,6 +969,13 @@ document.addEventListener("keydown",e=>{
     if(k==="ArrowRight"&&run.i<run.items.length-1){e.preventDefault();collect();run.i++;rerun();return}
     return}
   if(onCtl)return;
+  if(k==="Escape"){e.preventDefault();if(kSheet&&$("[data-kclose]")?.offsetParent){act($("[data-kclose]"));return}
+    if(v==="result"||v==="rayo")go({v:"exam",x:route.x,tab:"sims"});else if(v==="exam"&&route.tab&&route.tab!=="sims"){route.tab="sims";render()}else if(v!=="home")go({v:"home"});return}
+  if(e.shiftKey&&(k==="ArrowLeft"||k==="ArrowRight")){const ts=[...document.querySelectorAll('#app [role="tab"]')];if(ts.length){e.preventDefault();const i=Math.max(0,ts.findIndex(t=>t.getAttribute("aria-selected")==="true"));ts[(i+(k==="ArrowRight"?1:-1)+ts.length)%ts.length].click()}return}
+  if(v==="home"&&/^[1-9]$/.test(k)){act(document.querySelectorAll(".exam-card[data-exam]")[+k-1]);return}
+  if(v==="exam"&&(route.tab||"sims")==="sims"){
+    if(k==="Enter"){const done=S.exams[route.x]||{},keys=[...document.querySelectorAll("[data-start]")].map(b=>b.dataset.start).filter(x=>x!=="full");act($(`[data-start="${keys.find(x=>!done[x])||keys[0]}"]`));return}
+    if(lk==="m"){act($(`[data-mode="${(route.mode||"exam")==="exam"?"study":"exam"}"]`));return}}
   if(v==="result"&&k==="Enter"){act($("#app main .btn.acc"));return}
   if(v==="cards"&&deck?.cards[deck.i]){
     if(k===" "){act($("#flip"));return}
@@ -1068,7 +1082,7 @@ function viewCards(){
       <div class="front">${h(front)}</div>
       ${deck.flipped?`<div class="pill ok" style="justify-self:center">${h(sol)}</div><div class="back" lang="es">${h(q.e||"")}</div>`:`<div class="muted" style="font-size:14px">Piensa la respuesta y toca para girar</div>`}
     </div></div>
-    <div class="deck-ctrl"><button class="btn ghost" id="again">← Otra vez</button><button class="btn" id="flip">Girar</button><button class="btn acc" id="know">La sé →</button></div>
+    <div class="deck-ctrl"><button class="btn ghost" id="again" data-key="1">← Otra vez</button><button class="btn" id="flip" data-key="Espacio">Girar</button><button class="btn acc" id="know" data-key="2">La sé →</button></div>
     <p class="muted" style="text-align:center;font-size:14px">Desliza la tarjeta: derecha si la sabías, izquierda si no. <span class="kb-tip">Teclado: espacio gira · → o 2 la sé · ← o 1 otra vez.</span></p>`;
 }
 function bindCards(){
@@ -1299,7 +1313,7 @@ function viewKana(){
   const tabs=kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
   return `<div class="ex-head"><div>${route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
     <div class="ksets ${route.v==="pt"?"k3s":""}">${sw}</div>${route.v==="pt"?"":vozPicker(true)}
-    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+1/2/3: pestañas · ? ayuda</p>${body}`;
+    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+← →: pestañas · Esc: volver · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
   const L=KANA[set];let pool=kind==="basic"?L.filter(i=>!i.g):kind&&kind.startsWith("g:")?L.filter(i=>i.g===kind.slice(2)):L.slice();
