@@ -57,6 +57,7 @@ self.addEventListener("fetch", e => {
     if (EXT_HOSTS.test(u.hostname)) e.respondWith(deCache(EXT, e.request, r => r.ok || r.type === "opaque"));
     return;
   }
+  if (u.pathname.startsWith("/api/")) return;   // cuentas y chat: siempre en vivo, nunca de la caché
   // Audio: caché primero; si falta, el servidor devuelve la página (HTML) y eso no se guarda
   if (u.pathname.includes("/voz/")) {
     // el reproductor pide trozos (Range): se pide y guarda el archivo entero

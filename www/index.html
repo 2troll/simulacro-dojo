@@ -409,6 +409,34 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kb-row span:first-child{flex:none}.kb-row span:last-child{color:var(--ink-2);text-align:right}
 kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .kb-line{margin:-6px 0 14px}
+/* Cuentas, amigos y chat */
+@media (max-width:1440px){.nav [data-key]::after{display:none}}
+.soc-btn{position:relative}.soc-btn>span:first-child{font-size:16px;line-height:1}
+.soc-dot{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:9px;background:var(--hanko);color:#fff;font:700 11px/18px var(--f-mono);text-align:center;padding:0 4px}
+.soc-chat{position:relative}
+.soc-auth{max-width:520px;margin-top:8px}.soc-form{display:grid;gap:12px;margin-top:14px}.soc-form label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.soc-nota{font-size:13px;margin:4px 0 0}
+.soc-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start;margin-top:8px}.soc-grid>div,.soc-grid>aside{display:grid;gap:16px}
+.soc-avs{display:flex;flex-wrap:wrap;gap:6px}.soc-avb{font-size:22px;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--paper);cursor:pointer}
+.soc-avb.on{border-color:var(--hanko);box-shadow:0 0 0 2px color-mix(in srgb,var(--hanko) 30%,transparent)}
+.soc-am{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px dashed var(--line)}
+.soc-av{flex:none;width:40px;height:40px;border-radius:12px;background:var(--paper);display:grid;place-items:center;font-size:22px}.soc-av.sm{width:30px;height:30px;font-size:17px;border-radius:9px}
+.soc-who{flex:1;min-width:0;display:grid}.soc-who small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.soc-racha{font:700 14px var(--f-mono);opacity:.45}.soc-racha.on{opacity:1}
+.soc-acc{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.soc-liga{list-style:none;margin:0;padding:0;display:grid;gap:4px}.soc-liga li{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px}.soc-liga li.yo{background:var(--paper)}
+.soc-pos{width:26px;text-align:center;font:700 14px var(--f-mono)}
+.soc-reg{padding:6px 0;font-size:14px;border-top:1px dashed var(--line)}
+.soc-lista{display:flex;gap:8px;flex-wrap:wrap}.soc-det{margin-top:12px}.soc-det summary{cursor:pointer;font-weight:600}
+.linkish{background:none;border:0;padding:0;color:var(--hanko);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline}
+.chat-box{display:flex;flex-direction:column;height:min(70vh,560px)}.chat-head{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.chat-msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px}
+.chat-m{max-width:80%;align-self:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:8px 12px;display:grid;gap:2px;overflow-wrap:anywhere}
+.chat-m.mio{align-self:flex-end;background:var(--hanko);color:#fff;border-color:transparent;border-radius:14px 14px 4px 14px}
+.chat-m time{font:500 10px var(--f-mono);opacity:.65;justify-self:end}
+.chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}.chat-form .inp{flex:1}
+@media (max-width:820px){.soc-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.soc-btn .cmd-t{display:none}.soc-am{flex-wrap:wrap}.soc-acc{width:100%;justify-content:flex-start;padding-left:52px}.chat-box{height:80vh}}
 /* Manos libres */
 .lib-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start;margin-top:8px}
 .lib-card{min-height:330px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px;padding:26px}
@@ -589,6 +617,7 @@ function loadLocal(){try{const r=localStorage.getItem("dojo");if(r)S=Object.assi
 let saveTimer=null;
 function save(){
   try{localStorage.setItem("dojo",JSON.stringify(S))}catch(e){}
+  if(store.kind==="api")subir();
   if(store.db){clearTimeout(saveTimer);saveTimer=setTimeout(async()=>{
     try{await store.db.doc(store.path).set({state:JSON.stringify(S),at:Date.now()});setSync("Guardado en tu cuenta")}
     catch(e){setSync("Guardado solo en este navegador")}
@@ -614,14 +643,17 @@ async function connectStore(){
 }
 function touchDay(nAnswered){
   const t=today();
-  if(S.last!==t){S.streak=(S.last&&dayDiff(S.last,t)===1)?S.streak+1:1;S.last=t}
+  if(S.last!==t){const gap=S.last?dayDiff(S.last,t):0;
+    // los protectores regalados por amigos tapan los días sin estudiar
+    if(gap===1)S.streak++;else if(gap>1&&S.streak&&(S.congelas||0)>=gap-1){S.congelas-=gap-1;S.streak++;toast(`❄ ${gap-1===1?"Un protector ha":gap-1+" protectores han"} salvado tu racha`)}else S.streak=1;
+    S.last=t}
   if(S.daily.d!==t)S.daily={d:t,n:0};
   S.daily.n+=nAnswered;
   if(S.streak>=3)award("streak3");if(S.streak>=7)award("streak7");
 }
 function award(id){if(!S.badges.includes(id)){S.badges.push(id);const b=BADGES.find(x=>x[0]===id);toast("Insignia: "+b[1]);confetti()}}
 function level(){let i=0;for(let k=0;k<LEVELS.length;k++)if(S.xp>=LEVELS[k][0])i=k;const next=LEVELS[i+1];return{name:LEVELS[i][1],i,from:LEVELS[i][0],to:next?next[0]:LEVELS[i][0]}}
-function streakAlive(){return S.last&&dayDiff(S.last,today())<=1}
+function streakAlive(){return S.last&&dayDiff(S.last,today())<=1+(S.congelas||0)}
 
 /* ============ Bancos ============ */
 const BANK={};
@@ -703,17 +735,18 @@ function go(r){if(lib.on&&r.v!=="libre")libPara();route=r;stopVoz();kSheet=false
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():v==="libre"?viewLibre():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); if(v==="libre")bindLibre(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
   const nb=(v,l,kk)=>`<button data-go="${v}" data-key="${kk}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
   return `<header class="top"><div class="top-in">
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
-    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana y kanji","K")}${nb("pt","Portugués","P")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía y tutor","G")}</nav>
+    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana","K")}${nb("pt","Portugués","P")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía","G")}</nav>
     <div class="stats">
+      ${socBtn()}
       <button class="cmd-btn" data-cmd aria-label="Buscar o ir a…"><span aria-hidden="true">⌕</span><span class="cmd-t">Ir a…</span><kbd>/</kbd></button>
       <span class="stat" title="Racha de días"><svg class="flame" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 0C8 4 13 6 13 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 2 2 3 2 4 1-2 2-5 2-8z" fill="${streakAlive()?"var(--warn)":"var(--line)"}"/></svg>${S.streak||0}</span>
       <span class="stat" title="Experiencia · ${h(L.name)}">${S.xp} XP</span>
@@ -1063,8 +1096,136 @@ function bindLibre(){if(!KANA){loadKana().then(()=>{if(route.v==="libre")render(
   $("#libPlay").onclick=libToggle;$("#libPrev").onclick=()=>libSalta(-1);$("#libNext").onclick=()=>libSalta(1);
   $("#libRep").onclick=libRep;$("#libSe").onclick=libSe;$("#libMic").onclick=()=>libMic(!lib.micOn);$("#libSave").onclick=libGuardar;
   if(!lib.cola.length)libCola();libDraw();libBotones()}
+/* ============ Cuentas, amigos, regalos y charla (API propia: Cloudflare Worker + D1, gratis) ============ */
+const API_OK=(location.protocol==="https:"&&/(^|\.)tonykansaiguide\.com$/.test(location.hostname))||/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+let cuenta=null,AVATARES=["🙂"],soc=null,socModo="nueva",charla=null,avisos={mensajes:0,regalos:0,solicitudes:0},avisoInt=null,subirT=null,socBorrar=null;
+const ANIMOS=["¡Vamos, tú puedes! 💪","Hoy toca estudiar 📚","¡Qué racha llevas! 🔥","Un simulacro y a descansar 😉","Paso a paso se llega lejos 🗻"];
+async function apiF(ruta,{method="GET",body}={}){let r;
+  try{r=await fetch("/api/"+ruta,{method,credentials:"same-origin",headers:body?{"content-type":"application/json","x-dojo":"1"}:{"x-dojo":"1"},body:body?JSON.stringify(body):undefined})}
+  catch(e){throw Object.assign(new Error("Sin conexión"),{status:0})}
+  let d=null;try{d=await r.json()}catch(e){}
+  if(!r.ok||!d)throw Object.assign(new Error(d?.error||"El servidor no responde"),{status:r.status,data:d});
+  return d}
+// La contraseña nunca sale del navegador: se manda una clave derivada con PBKDF2 (lenta a propósito, para frenar a quien robe la base de datos)
+async function claveDe(usuario,pass){const te=new TextEncoder(),k=await crypto.subtle.importKey("raw",te.encode(pass),"PBKDF2",false,["deriveBits"]);
+  const b=await crypto.subtle.deriveBits({name:"PBKDF2",salt:te.encode("dojo.tonykansaiguide.com:"+usuario.toLowerCase()),iterations:600000,hash:"SHA-256"},k,256);
+  return btoa(String.fromCharCode(...new Uint8Array(b))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
+function adoptar(estado){S=Object.assign(structuredClone(BLANK),JSON.parse(estado));normalize();try{localStorage.setItem("dojo",JSON.stringify(S))}catch(e){}}
+async function connectApi(){if(!API_OK)return;let marca=null;try{marca=localStorage.getItem("dojoCuenta")}catch(e){}if(!marca&&!cuenta)return;
+  try{const d=await apiF("yo");cuenta=d.yo;AVATARES=d.avatares||AVATARES;store={kind:"api",db:null,path:null};
+    // gana el que tenga más XP: así no se pierde lo hecho sin conexión ni en otro móvil
+    if(d.progreso&&(JSON.parse(d.progreso.estado).xp||0)>=(S.xp||0))adoptar(d.progreso.estado);else subir();
+    if(route.v!=="run")render();setSync("Guardado en tu cuenta");avisosLoop()}
+  catch(e){if(e.status===401)try{localStorage.removeItem("dojoCuenta")}catch(x){}else if(e.status)console.warn("Cuenta:",e.message)}}
+function subir(forzar){clearTimeout(subirT);subirT=setTimeout(async()=>{
+  try{await apiF("progreso",{method:"PUT",body:{estado:JSON.stringify(S),forzar:!!forzar}});setSync("Guardado en tu cuenta")}
+  catch(e){if(e.status===409&&e.data?.progreso){adoptar(e.data.progreso.estado);toast("Traído el progreso más reciente de tu cuenta");if(route.v!=="run")render()}
+    else if(e.status===401){cuenta=null;store={kind:"local",db:null,path:null};setSync("Guardado en este navegador")}
+    else setSync("Sin conexión: se subirá al volver")}},1200)}
+addEventListener("online",()=>{if(store.kind==="api")subir()});
+let avisoVis=false;
+function avisosLoop(){clearInterval(avisoInt);
+  const f=async()=>{if(document.hidden||!cuenta)return;try{avisos=await apiF("avisos");pintaAvisos();if(avisos.regalos)recoger();if(route.v==="social")cargarSoc()}catch(e){}};
+  f();avisoInt=setInterval(f,60000);if(!avisoVis){avisoVis=true;document.addEventListener("visibilitychange",()=>{if(!document.hidden&&cuenta)f()})}}
+function pintaAvisos(){const n=(avisos.mensajes||0)+(avisos.solicitudes||0),d=$("#socDot");if(d){d.textContent=n;d.hidden=!n}}
+async function recoger(){try{const d=await apiF("regalos/recoger",{method:"POST",body:{}});if(!d.regalos.length)return;
+  for(const g of d.regalos){if(g.tipo==="congela"){S.congelas=(S.congelas||0)+1;toast(`❄ ${g.de_nombre} te ha regalado un protector de racha`)}else toast(`👏 ${g.de_nombre}: ${g.nota||"¡Ánimo!"}`)}
+  S.regalos=[...d.regalos.map(g=>({t:g.tipo,de:g.de_nombre,u:g.de_usuario,nota:g.nota,at:Date.now()})),...(S.regalos||[])].slice(0,20);save();if(route.v!=="run")render()}catch(e){}}
+async function cargarSoc(){try{soc=await apiF("amigos");if(route.v==="social"&&!$("#socForm:focus-within"))render()}catch(e){if(e.status===401){cuenta=null;render()}}}
+const vivaRacha=u=>u.racha&&u.ultimo&&dayDiff(u.ultimo,today())<=1;
+const socBtn=()=>{const n=(avisos.mensajes||0)+(avisos.solicitudes||0);
+  return `<button class="cmd-btn soc-btn" data-go="social" data-key="F" id="socBtn" aria-label="${cuenta?"Tu cuenta y amigos":"Entrar o crear cuenta"}"><span aria-hidden="true">${cuenta?h(cuenta.avatar):"友"}</span><span class="cmd-t">${cuenta?"Amigos":"Entrar"}</span><b class="soc-dot" id="socDot" ${n?"":"hidden"}>${n}</b></button>`};
+function viewSocial(){
+  if(!API_OK)return `<div class="card" style="margin-top:28px"><h2>Cuentas y amigos</h2><p class="muted">Las cuentas funcionan en <a href="https://dojo.tonykansaiguide.com">dojo.tonykansaiguide.com</a>. Esta copia guarda tu progreso solo en este navegador.</p></div>`;
+  if(!cuenta){const nueva=socModo==="nueva";
+    return `<div class="ex-head"><div><span class="eyebrow">Gratis · sin correo · sin anuncios</span><h1 style="margin-top:8px">${nueva?"Crea tu cuenta":"Entra en tu cuenta"}</h1>
+      <p class="muted" style="max-width:620px">Tu progreso, tu racha y tus tarjetas te siguen a cualquier móvil u ordenador. Y puedes añadir amigos, competir en la liga semanal, regalaros protectores de racha y chatear.</p></div></div>
+    <div class="soc-auth card"><div class="tabs" role="tablist"><button role="tab" data-smodo="nueva" aria-selected="${nueva}">Crear cuenta</button><button role="tab" data-smodo="entrar" aria-selected="${!nueva}">Ya tengo cuenta</button></div>
+      <form id="socForm" class="soc-form" autocomplete="on">
+        <label>Usuario<input class="inp" name="usuario" autocomplete="username" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9_.]{3,20}" placeholder="ej. tony_hanma" autocapitalize="none" spellcheck="false"></label>
+        ${nueva?`<label>Tu nombre (lo ven tus amigos)<input class="inp" name="nombre" maxlength="30" placeholder="Opcional"></label>`:""}
+        <label>Contraseña<input class="inp" name="pass" type="password" autocomplete="${nueva?"new-password":"current-password"}" required minlength="8" placeholder="${nueva?"Mínimo 8 caracteres":""}"></label>
+        <button class="btn acc" id="socGo">${nueva?"Crear cuenta":"Entrar"}</button>
+        <p class="muted soc-nota">${nueva?"Sin correo no hay forma de recuperar la contraseña: guárdala en tu gestor de contraseñas. El progreso de este navegador se sube a la cuenta.":"Si tienes progreso aquí y en la cuenta, se queda el que tenga más XP."}</p>
+      </form></div>`}
+  const yo=soc?.yo||cuenta,ams=soc?.amigos||[],hoyN=S.daily.d===today()?S.daily.n:0;
+  const liga=[{...yo,semana:yo.semana,yoMismo:true},...ams].sort((a,b)=>b.semana-a.semana);
+  const fila=a=>`<div class="soc-am"><span class="soc-av" aria-hidden="true">${h(a.avatar)}</span><div class="soc-who"><b>${h(a.nombre)}</b><small class="muted">@${h(a.usuario)}${a.hoy&&a.hoy.d===today()?` · hoy ${a.hoy.n} preguntas`:a.visto&&Date.now()-a.visto<3e5?" · conectado":""}</small></div>
+    <span class="soc-racha ${vivaRacha(a)?"on":""}" title="Racha">🔥${vivaRacha(a)?a.racha:0}</span>
+    <div class="soc-acc"><button class="x-btn" data-regalo="congela" data-u="${h(a.usuario)}" title="Regalar un protector de racha">❄</button><button class="x-btn" data-regalo="animo" data-u="${h(a.usuario)}" title="Mandar ánimo">👏</button><button class="x-btn soc-chat" data-chat="${h(a.usuario)}" title="Chatear">💬${a.sin_leer?`<b class="soc-dot">${a.sin_leer}</b>`:""}</button><button class="x-btn" data-quitar="${h(a.usuario)}" title="Quitar de amigos">${socBorrar===a.usuario?"¿Quitar?":"✕"}</button></div></div>`;
+  return `<div class="ex-head"><div><span class="eyebrow">Tu cuenta · amigos · liga</span><h1 style="margin-top:8px">Hola, ${h(yo.nombre)}</h1></div>
+    <div class="row"><span class="pill">🔥 ${S.streak||0} días</span><span class="pill" title="Protectores de racha: salvan un día que no estudies">❄ ${S.congelas||0}</span><span class="pill">${hoyN} hoy</span></div></div>
+  <div class="soc-grid"><div>
+    <div class="card soc-perfil"><div class="soc-avs">${AVATARES.map(a=>`<button class="soc-avb ${a===yo.avatar?"on":""}" data-avatar="${a}" aria-label="Avatar ${a}">${a}</button>`).join("")}</div>
+      <div class="row" style="margin-top:12px"><input class="inp" id="socNombre" value="${h(yo.nombre)}" maxlength="30" aria-label="Tu nombre"><button class="btn ghost" id="socNombreOk">Guardar nombre</button></div>
+      <p class="muted" style="margin:10px 0 0">Tu usuario: <b>@${h(yo.usuario)}</b> · <button class="linkish" id="socShare">Invitar a un amigo</button></p></div>
+    <div class="card"><h3 style="margin-top:0">Añadir amigo</h3><form class="row" id="socAdd"><input class="inp" id="socAddU" placeholder="@usuario" autocapitalize="none" spellcheck="false" value="${h(socPendiente||"")}" style="flex:1"><button class="btn acc">Añadir</button></form>
+      ${(soc?.recibidas||[]).map(a=>`<div class="soc-am"><span class="soc-av">${h(a.avatar)}</span><div class="soc-who"><b>${h(a.nombre)}</b><small class="muted">@${h(a.usuario)} quiere ser tu amigo</small></div><div class="soc-acc"><button class="btn acc" data-aceptar="${h(a.usuario)}">Aceptar</button><button class="x-btn" data-quitar="${h(a.usuario)}">No</button></div></div>`).join("")}
+      ${(soc?.enviadas||[]).map(a=>`<div class="soc-am"><span class="soc-av">${h(a.avatar)}</span><div class="soc-who"><b>${h(a.nombre)}</b><small class="muted">@${h(a.usuario)} · esperando respuesta</small></div><div class="soc-acc"><button class="x-btn" data-quitar="${h(a.usuario)}">Cancelar</button></div></div>`).join("")}</div>
+    <div class="card"><h3 style="margin-top:0">Amigos${ams.length?` · ${ams.length}`:""}</h3>${soc?ams.length?ams.map(fila).join(""):`<p class="muted">Aún no tienes amigos aquí. Pásales tu usuario <b>@${h(yo.usuario)}</b> o el enlace de invitar.</p>`:`<p class="muted">Cargando…</p>`}
+      <p class="muted soc-nota">❄ protector de racha: si un día no estudias, tu racha no se rompe. Puedes regalar uno al día a cada amigo.</p></div>
+  </div><aside>
+    <div class="card"><h3 style="margin-top:0">Liga de la semana</h3><p class="muted soc-nota" style="margin-top:-6px">XP desde el lunes. Se reinicia cada semana.</p>
+      <ol class="soc-liga">${liga.map((a,i)=>`<li class="${a.yoMismo?"yo":""}"><span class="soc-pos">${["🥇","🥈","🥉"][i]||i+1}</span><span class="soc-av sm">${h(a.avatar)}</span><span class="soc-who"><b>${a.yoMismo?"Tú":h(a.nombre)}</b></span><span class="mono">${a.semana} XP</span></li>`).join("")}</ol></div>
+    ${(S.regalos||[]).length?`<div class="card"><h3 style="margin-top:0">Regalos recibidos</h3>${S.regalos.slice(0,6).map(g=>`<div class="soc-reg">${g.t==="congela"?"❄":"👏"} <b>${h(g.de)}</b> <span class="muted">${g.t==="congela"?"te regaló un protector":h(g.nota||"¡Ánimo!")}</span></div>`).join("")}</div>`:""}
+    <div class="card"><h3 style="margin-top:0">Tu cuenta</h3>
+      <div class="soc-lista"><a class="btn ghost" href="/api/cuenta/exportar" download>Descargar mis datos</a><button class="btn ghost" id="socSalir">Cerrar sesión</button></div>
+      <details class="soc-det"><summary>Cambiar contraseña</summary><form id="socClave" class="soc-form"><input class="inp" type="password" name="actual" autocomplete="current-password" placeholder="Contraseña actual" required><input class="inp" type="password" name="nueva" autocomplete="new-password" placeholder="Nueva (mínimo 8)" minlength="8" required><button class="btn ghost">Cambiar</button></form></details>
+      <details class="soc-det"><summary>Borrar mi cuenta</summary><form id="socBorra" class="soc-form"><p class="muted soc-nota">Se borra todo: progreso en la nube, amigos, regalos y mensajes. No se puede deshacer. Lo de este navegador se queda.</p><input class="inp" type="password" name="pass" autocomplete="current-password" placeholder="Tu contraseña" required><button class="btn ghost" style="color:var(--bad,#b3261e)">Borrar para siempre</button></form></details>
+    </div></aside></div>`}
+let socPendiente=new URLSearchParams(location.search).get("amigo");
+function bindSocial(){
+  document.querySelectorAll("[data-smodo]").forEach(b=>b.onclick=()=>{socModo=b.dataset.smodo;render()});
+  const f=$("#socForm");if(f)f.onsubmit=async e=>{e.preventDefault();const fd=new FormData(f),u=String(fd.get("usuario")||"").trim().replace(/^@/,"").toLowerCase(),p=String(fd.get("pass")||"");
+    if(!/^[a-z0-9_.]{3,20}$/.test(u))return toast("Usuario: de 3 a 20 letras sin tildes, números, punto o guion bajo");
+    if(p.length<8)return toast("La contraseña necesita al menos 8 caracteres");
+    const b=$("#socGo"),txt=b.textContent;b.disabled=true;b.textContent="Protegiendo tu contraseña…";
+    try{const clave=await claveDe(u,p);await apiF(socModo==="nueva"?"registro":"entrar",{method:"POST",body:{usuario:u,clave,nombre:String(fd.get("nombre")||"")}});try{localStorage.setItem("dojoCuenta","1")}catch(x){}
+      await connectApi();if(!cuenta)throw new Error("No se pudo abrir la sesión");toast(socModo==="nueva"?"¡Cuenta creada! Tu progreso ya está en la nube":"¡Hola otra vez!");cargarSoc()}
+    catch(err){toast(err.message);b.disabled=false;b.textContent=txt}};
+  if(!cuenta)return;
+  if(!soc)cargarSoc();
+  document.querySelectorAll("[data-avatar]").forEach(b=>b.onclick=async()=>{try{const d=await apiF("yo",{method:"PATCH",body:{avatar:b.dataset.avatar}});cuenta=d.yo;if(soc)soc.yo=d.yo;render()}catch(e){toast(e.message)}});
+  $("#socNombreOk").onclick=async()=>{try{const d=await apiF("yo",{method:"PATCH",body:{nombre:$("#socNombre").value}});cuenta=d.yo;if(soc)soc.yo=d.yo;toast("Nombre guardado");render()}catch(e){toast(e.message)}};
+  $("#socShare").onclick=async()=>{const url=location.origin+"/?amigo="+cuenta.usuario,t="Estudia conmigo en el Dojo: simulacros, kana y portugués gratis. Añádeme:";
+    try{if(navigator.share)await navigator.share({title:"Dojo",text:t,url});else{await navigator.clipboard.writeText(t+" "+url);toast("Enlace copiado: pégalo en WhatsApp o Telegram")}}catch(e){}};
+  $("#socAdd").onsubmit=async e=>{e.preventDefault();const u=$("#socAddU").value.trim();if(!u)return;
+    try{const d=await apiF("amigos",{method:"POST",body:{usuario:u}});socPendiente=null;toast(d.estado==="amigos"?"¡Ya sois amigos!":"Solicitud enviada");cargarSoc()}catch(err){toast(err.message)}};
+  document.querySelectorAll("[data-aceptar]").forEach(b=>b.onclick=async()=>{try{await apiF("amigos",{method:"POST",body:{usuario:b.dataset.aceptar}});toast("¡Ya sois amigos!");cargarSoc()}catch(e){toast(e.message)}});
+  document.querySelectorAll("[data-quitar]").forEach(b=>b.onclick=async()=>{const u=b.dataset.quitar;
+    // los amigos de verdad piden un segundo toque; solicitudes se quitan al momento
+    if(soc?.amigos.some(a=>a.usuario===u)&&socBorrar!==u){socBorrar=u;render();return}
+    socBorrar=null;try{await apiF("amigos/"+encodeURIComponent(u),{method:"DELETE"});cargarSoc()}catch(e){toast(e.message)}});
+  document.querySelectorAll("[data-regalo]").forEach(b=>b.onclick=async()=>{const t=b.dataset.regalo;
+    try{await apiF("regalos",{method:"POST",body:{usuario:b.dataset.u,tipo:t,nota:t==="animo"?ANIMOS[Math.floor(Math.random()*ANIMOS.length)]:""}});toast(t==="congela"?"❄ Protector regalado":"👏 Ánimo enviado")}catch(e){toast(e.message)}});
+  document.querySelectorAll("[data-chat]").forEach(b=>b.onclick=()=>chatAbrir(b.dataset.chat));
+  $("#socSalir").onclick=async()=>{try{await apiF("salir",{method:"POST",body:{}})}catch(e){}cuenta=null;soc=null;store={kind:"local",db:null,path:null};try{localStorage.removeItem("dojoCuenta")}catch(x){};clearInterval(avisoInt);setSync("Guardado en este navegador");render()};
+  $("#socClave").onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);if(String(fd.get("nueva")).length<8)return toast("La nueva necesita 8 caracteres");
+    try{await apiF("cuenta/clave",{method:"POST",body:{clave:await claveDe(cuenta.usuario,String(fd.get("actual"))),nueva:await claveDe(cuenta.usuario,String(fd.get("nueva")))}});toast("Contraseña cambiada. Se han cerrado los demás dispositivos");e.target.reset()}catch(err){toast(err.message)}};
+  $("#socBorra").onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);
+    try{await apiF("cuenta/borrar",{method:"POST",body:{clave:await claveDe(cuenta.usuario,String(fd.get("pass")))}});cuenta=null;soc=null;store={kind:"local",db:null,path:null};try{localStorage.removeItem("dojoCuenta")}catch(x){};toast("Cuenta borrada");render()}catch(err){toast(err.message)}};
+}
+// ---------- Chat: panel encima de todo, se actualiza cada 4 s mientras está abierto ----------
+function chatAbrir(u){let d=$("#chatBox");
+  if(!d){d=document.createElement("div");d.id="chatBox";d.className="cmd";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Chat");document.body.append(d);
+    d.onclick=e=>{if(e.target===d||e.target.closest("[data-chatx]"))chatCerrar()}}
+  charla={u,ult:0,msgs:[],amigo:soc?.amigos.find(a=>a.usuario===u)||{nombre:u,avatar:"🙂"},t:null,back:document.activeElement};
+  d.hidden=false;if(lenis)lenis.stop();
+  d.innerHTML=`<div class="cmd-box chat-box"><div class="chat-head"><span class="soc-av">${h(charla.amigo.avatar)}</span><b>${h(charla.amigo.nombre)}</b><button class="x-btn" data-chatx style="margin-left:auto">Cerrar · Esc</button></div>
+    <div class="chat-msgs" id="chatMsgs" aria-live="polite"><p class="muted" style="text-align:center">Cargando…</p></div>
+    <form class="chat-form" id="chatForm"><input class="inp" id="chatIn" maxlength="500" placeholder="Escribe un mensaje…" autocomplete="off"><button class="btn acc">Enviar</button></form></div>`;
+  const inp=$("#chatIn");inp.focus();inp.onkeydown=e=>{e.stopPropagation();if(e.key==="Escape"){e.preventDefault();chatCerrar()}};
+  $("#chatForm").onsubmit=async e=>{e.preventDefault();const t=inp.value.trim();if(!t)return;inp.value="";
+    try{const m=await apiF("chat/"+encodeURIComponent(u),{method:"POST",body:{texto:t}});chatPon([m])}catch(err){toast(err.message);inp.value=t}};
+  chatTraer();charla.t=setInterval(()=>{if(!document.hidden)chatTraer()},4000)}
+async function chatTraer(){if(!charla)return;const c=charla;try{const d=await apiF(`chat/${encodeURIComponent(c.u)}?desde=${c.ult}`);if(charla!==c)return;if(!c.ult&&!d.mensajes.length)$("#chatMsgs").innerHTML=`<p class="muted" style="text-align:center">Aún no habéis hablado. ¡Salúdale!</p>`;chatPon(d.mensajes)}catch(e){if(e.status===403){toast(e.message);chatCerrar()}}}
+function chatPon(ms){const box=$("#chatMsgs");if(!box||!charla)return;ms=ms.filter(m=>m.id>charla.ult);if(!ms.length)return;
+  if(!charla.ult)box.innerHTML="";charla.ult=ms[ms.length-1].id;
+  box.insertAdjacentHTML("beforeend",ms.map(m=>`<div class="chat-m ${m.mio?"mio":""}"><span>${h(m.texto)}</span><time>${new Date(m.creado).toLocaleTimeString("es",{hour:"2-digit",minute:"2-digit"})}</time></div>`).join(""));
+  box.scrollTop=box.scrollHeight}
+function chatCerrar(){const d=$("#chatBox");if(!d||!charla)return;clearInterval(charla.t);const b=charla.back;charla=null;d.hidden=true;if(lenis)lenis.start();if(b&&b.isConnected)b.focus();if(cuenta)apiF("avisos").then(a=>{avisos=a;pintaAvisos();if(route.v==="social")cargarSoc()}).catch(()=>{})}
 /* ============ Teclado: un solo oyente para toda la app ============ */
-const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["L","Manos libres"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
   ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
@@ -1088,7 +1249,7 @@ const SIMS=["c1","c2","c3",...Array.from({length:30},(_,i)=>"s"+(i+1))];
 const simName=k=>k[0]==="c"?"Calentamiento "+k.slice(1):"Simulacro "+k.slice(1);
 function cmdItems(){
   const L=[],add=(g,l,f,k="",q="")=>L.push({g,l,f,k,q});
-  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["libre","Manos libres · estudiar sin tocar nada","L"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
+  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
     add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
     if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
@@ -1130,6 +1291,7 @@ document.addEventListener("keydown",e=>{
   if((e.ctrlKey||e.metaKey)&&!e.altKey&&e.key.toLowerCase()==="k"){e.preventDefault();cmdOpen();return}
   if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;
   const k=e.key,lk=k.length===1?k.toLowerCase():k,ae=document.activeElement,tag=ae?.tagName||"";
+  const cb=$("#chatBox");if(cb&&!cb.hidden){if(k==="Escape"){e.preventDefault();chatCerrar()}return}
   const help=$("#kbHelp");
   if(help&&!help.hidden){if(k==="Escape"||k==="?"){e.preventDefault();ayuda(false)}else if(k==="Tab"){e.preventDefault();help.querySelector("[data-kbclose]").focus()}return}
   if(/INPUT|TEXTAREA|SELECT/.test(tag)||ae?.isContentEditable){if(k==="Escape")ae.blur();return}
@@ -1138,7 +1300,7 @@ document.addEventListener("keydown",e=>{
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
-  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",l:"libre",t:"cards",g:"guide"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
   if(v==="run"&&run){
     const it=run.items[run.i],q=it.q;
     if(k==="Escape"){e.preventDefault();act($("#quit"));return}
@@ -1601,6 +1763,6 @@ function confetti(){
 }
 
 /* ============ Arranque ============ */
-function start(){loadLocal();render();connectStore();connectExtras()}
+function start(){loadLocal();if(socPendiente)route={v:"social"};render();connectStore();connectApi();connectExtras()}
 start();
 </script>
