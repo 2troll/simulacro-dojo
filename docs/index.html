@@ -17,7 +17,7 @@
 <title>Dojo · simulacros y kana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Atkinson+Hyperlegible:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&family=Yuji+Syuku&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Onest:wght@400..700&family=Lora:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&family=Yuji+Syuku&family=JetBrains+Mono:wght@400..700&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.27/dist/lenis.css">
 <style>
 /* Identidad «dojo»: papel washi, tinta sumi y el sello rojo (hanko). Cada examen conserva su color para orientarse. */
@@ -26,8 +26,8 @@
   --hanko:#c8361d; --pt:#0b7a4b; --ru:#2a52be; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --accent:var(--hanko);
   --ok:#1f7a4c; --ok-bg:#dff0e3; --bad:#b8321f; --bad-bg:#f7e1db; --warn:#a96d12; --warn-bg:#f6ead0;
   --shadow:0 1px 0 rgba(25,22,18,.05),0 18px 40px -24px rgba(25,22,18,.45);
-  --f-display:"Fraunces","Iowan Old Style",Georgia,serif;
-  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-display:"Fraunces","Lora","Iowan Old Style",Georgia,serif;
+  --f-body:"Onest","Segoe UI",system-ui,sans-serif;
   --f-jp:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
   --f-brush:"Yuji Syuku","Zen Kaku Gothic New",serif;
   --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
@@ -43,7 +43,9 @@
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);margin:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 var(--f-body);margin:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-optical-sizing:auto}
+[lang="ru"],[lang="ru-RU"]{font-family:var(--f-body)}h1[lang^="ru"],h2[lang^="ru"],.kbig[lang^="ru"]{font-family:var(--f-body);font-weight:700;letter-spacing:-.01em}
+h1{letter-spacing:-.02em}h2,h3{letter-spacing:-.01em}p{text-wrap:pretty}
 body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="ru"]{--accent:var(--ru)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)}
 .jp,[lang="ja"]{font-family:var(--f-jp)}
 h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
@@ -199,11 +201,29 @@ textarea.write{width:100%;min-height:240px;font:17px/1.6 var(--f-body);padding:1
 .rv .q{font-weight:700;white-space:pre-wrap}
 
 /* tarjetas (desliza) */
-.deck{position:relative;height:340px;max-width:460px;margin:0 auto;touch-action:pan-y}
+.mazos{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.mazo{position:relative;overflow:hidden;display:grid;gap:8px;text-align:left;padding:22px;border-radius:24px;border:1px solid var(--line);background:var(--sheet);color:inherit;font:inherit;cursor:pointer;box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.mazo::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--c)}.mazo:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px color-mix(in srgb,var(--c) 60%,transparent)}
+.mazo-w{font:700 34px var(--f-display);color:var(--c)}.mazo b{font-size:18px}.mazo-n{display:flex;gap:14px;font-size:14px;color:var(--ink-2)}.mazo-n b{font-size:20px;color:var(--ink)}.mazo-go{font-weight:700;color:var(--c)}
+.fc-prog{height:6px;border-radius:9px;background:var(--bubble);overflow:hidden;max-width:520px;margin:0 auto 16px}.fc-prog i{display:block;height:100%;background:var(--accent);transition:width .4s}
+.deck{position:relative;height:380px;max-width:520px;margin:0 auto;touch-action:pan-y;perspective:1400px}
+.fc3{position:absolute;inset:0;transition:transform .25s,opacity .25s;cursor:pointer;outline:none}
+.fc-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,1.3,.5,1)}.fc3.girada .fc-in{transform:rotateY(180deg)}
+.cara{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:28px;border:1px solid var(--line);background:var(--sheet);box-shadow:0 24px 60px -28px rgba(0,0,0,.35),0 2px 0 var(--line);padding:28px;display:grid;align-content:center;justify-items:center;gap:12px;text-align:center;overflow:auto}
+.cara.frente{background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--accent) 10%,var(--sheet)),var(--sheet))}.cara.dorso{transform:rotateY(180deg)}
+.fc3:focus-visible .cara{outline:3px solid var(--accent);outline-offset:3px}
+.fc-set{position:absolute;top:18px;left:22px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}.fc-set b{color:var(--accent)}
+.fc-big{font:700 clamp(44px,9vw,76px)/1.1 var(--f-body);letter-spacing:-.02em}.fc-big[lang="ja"]{font-family:var(--f-jp)}.fc-big.largo{font-size:clamp(28px,5vw,40px)}
+.fc-q{font-size:19px;font-weight:600;white-space:pre-wrap;text-align:left}.fc-oir{position:absolute;top:12px;right:14px;border:0;background:var(--bubble);border-radius:999px;width:40px;height:40px;cursor:pointer;font-size:18px}
+.fc-mini{font:700 22px var(--f-body);color:var(--accent)}.fc-mini[lang="ja"]{font-family:var(--f-jp)}
+.fc-pista{position:absolute;bottom:16px;font-size:13px;color:var(--ink-2)}.fc-m{font:700 clamp(24px,4vw,32px)/1.2 var(--f-display)}.fc-r{font-family:var(--f-mono);color:var(--accent)}
+.fc-f{display:grid;gap:2px;background:var(--bubble);padding:12px 16px;border-radius:16px;font-size:17px}.fc-f small{color:var(--ink-2);font-size:14px}.fc-t{margin:0;font-size:14.5px;color:var(--ink-2);max-width:42ch}
+.deck-ctrl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:520px;margin:18px auto 8px;transition:opacity .25s,transform .25s}.deck-ctrl.oculto{opacity:0;pointer-events:none;transform:translateY(8px)}
+.tar-b{display:grid;gap:2px;padding:10px 6px}.tar-b small{font-size:12px;opacity:.75;font-weight:500}.tar-b.again{background:var(--bad-bg);color:var(--bad)}.tar-b.hard{background:var(--warn-bg);color:var(--warn)}.tar-b.good{background:var(--ok-bg);color:var(--ok)}.tar-b.easy{background:color-mix(in srgb,var(--ru) 16%,var(--paper));color:var(--ru)}
+
 .fc{position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:24px;display:grid;align-content:center;gap:12px;text-align:center;user-select:none;transition:transform .25s,opacity .25s}
 .fc .front{font-size:22px;font-weight:700;white-space:pre-wrap}
 .fc .back{color:var(--ink-2);font-size:15px}
-.deck-ctrl{display:flex;justify-content:center;gap:12px;margin-top:18px}
 .rayo-num{font:800 72px/1 var(--f-display);color:var(--accent)}
 .combo{font:800 18px var(--f-mono);color:var(--warn)}
 
@@ -358,11 +378,11 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .tk-juegos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}@media(max-width:640px){.tk-juegos{grid-template-columns:1fr}}.tk-ico{font-size:34px}
 .tk-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 14px}.tk-stats{display:flex;gap:16px;margin-left:auto;font-size:15px}.tk-stats b{font-size:22px}
 .tk-box{padding:26px 28px;max-height:46vh;overflow:auto}.tk-box.tk-mal{animation:shake .25s}
-.tk-txt{font:500 clamp(22px,3vw,30px)/1.9 var(--mono,ui-monospace,monospace);word-break:normal}
+.tk-txt{font:500 clamp(22px,3vw,30px)/1.9 var(--f-mono);word-break:normal}
 .tk-txt span.ok{color:var(--ok)}.tk-txt .tk-cur{background:var(--accent);color:#fff;border-radius:4px;animation:libLat 1.1s infinite}
 .tk-w{display:inline-flex;flex-direction:column;align-items:flex-start;vertical-align:bottom}.tk-w small{font-size:.55em;line-height:1;color:var(--ink-2)}.tk-sp.tk-cur{padding:0 .3em}
 .tk-kb{margin:16px auto 0;display:grid;gap:5px;max-width:760px;user-select:none}.tk-fila{display:flex;gap:5px;justify-content:center}.tk-fila.f1{padding-left:22px}.tk-fila.f2{padding-left:34px}.tk-fila.f3{padding-left:10px}
-.tk-k{flex:0 0 auto;width:clamp(22px,5.2vw,48px);height:clamp(26px,5.2vw,46px);border-radius:9px;display:grid;place-items:center;font:600 clamp(11px,1.6vw,16px) var(--mono,monospace);border:1px solid var(--line);border-bottom-width:3px;background:var(--paper);transition:transform .08s}
+.tk-k{flex:0 0 auto;width:clamp(22px,5.2vw,48px);height:clamp(26px,5.2vw,46px);border-radius:9px;display:grid;place-items:center;font:600 clamp(11px,1.6vw,16px) var(--f-mono);border:1px solid var(--line);border-bottom-width:3px;background:var(--paper);transition:transform .08s}
 .tk-k.d0,.tk-k.d7{box-shadow:inset 0 -5px 0 #e57373}.tk-k.d1,.tk-k.d6{box-shadow:inset 0 -5px 0 #ffb74d}.tk-k.d2,.tk-k.d5{box-shadow:inset 0 -5px 0 #81c784}.tk-k.d3,.tk-k.d4{box-shadow:inset 0 -5px 0 #64b5f6}
 .tk-txt .tk-pista{color:var(--warn);opacity:.8}.tk-juegos{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important}
 .lee-txt{padding:26px 30px;font-size:clamp(19px,2.4vw,23px);line-height:1.6}.lee-f{margin:0 0 6px;padding:8px 12px;border-radius:12px;cursor:pointer;transition:background .2s}
@@ -373,9 +393,9 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .tk-res{text-align:center;display:grid;gap:12px;justify-items:center;padding:34px}.tk-estrellas{font-size:46px;color:var(--warn);letter-spacing:6px}.tk-estrellas span{color:var(--line)}
 .tk-num{display:flex;gap:28px;justify-content:center}.tk-num div{display:grid}.tk-num b{font-size:34px}
 .tk-hud{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:16px;margin-bottom:8px}.tk-hud b{font-size:20px}.tk-combo{color:var(--warn);font-weight:700}
-.tk-buf{margin-left:auto;font:600 22px var(--mono,monospace);min-width:120px;padding:4px 12px;border-radius:10px;background:var(--bubble)}
+.tk-buf{margin-left:auto;font:600 22px var(--f-mono);min-width:120px;padding:4px 12px;border-radius:10px;background:var(--bubble)}
 .tk-arena{position:relative;height:min(62vh,520px);border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(var(--paper),color-mix(in srgb,var(--accent) 8%,var(--paper)))}
-.tk-cae{position:absolute;transform:translateX(-50%);font:600 clamp(16px,2.2vw,22px) var(--mono,monospace);padding:4px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);display:grid;justify-items:center;white-space:nowrap}
+.tk-cae{position:absolute;transform:translateX(-50%);font:600 clamp(16px,2.2vw,22px) var(--f-mono);padding:4px 10px;border-radius:10px;background:var(--paper);border:1px solid var(--line);display:grid;justify-items:center;white-space:nowrap}
 .tk-cae small{font-size:.7em;color:var(--ink-2)}.tk-cae.apunta{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}.tk-cae b{color:var(--accent)}
 .tk-suelo{position:absolute;left:0;right:0;bottom:0;height:8%;background:color-mix(in srgb,var(--bad) 14%,transparent);border-top:2px dashed var(--bad)}
 .tk-movil{position:fixed;bottom:0;left:0;opacity:.01;width:1px;height:1px}
@@ -576,6 +596,45 @@ kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:
 @media (max-width:420px){.kgrid{gap:5px}.kopts{grid-template-columns:1fr}.figs{gap:18px}.figs b{font-size:30px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1!important}.marq-in{animation:none}}
+
+/* ============ Estilo v3 (22-10-2026): más luz, más profundidad, botones con tacto ============ */
+:root{--r-l:24px;--r-m:16px;--sh-1:0 1px 2px rgba(25,22,18,.06),0 8px 24px -12px rgba(25,22,18,.18);--sh-2:0 2px 4px rgba(25,22,18,.06),0 22px 48px -22px rgba(25,22,18,.32);--ease:cubic-bezier(.16,1,.3,1)}
+body{background:radial-gradient(1200px 600px at 85% -10%,color-mix(in srgb,var(--accent) 6%,transparent),transparent 60%),radial-gradient(900px 500px at -10% 30%,color-mix(in srgb,var(--ru) 7%,transparent),transparent 60%),var(--paper);background-attachment:fixed}
+.top{background:color-mix(in srgb,var(--paper) 72%,transparent);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.top-in{flex-wrap:nowrap;gap:16px}.nav{flex-wrap:nowrap;gap:2px}.nav button{padding:8px 13px;border-radius:12px;transition:background .2s,color .2s}.nav button:hover{background:var(--bubble);color:var(--ink)}
+.nav button[aria-current="page"]{background:var(--sumi);color:var(--on-sumi);box-shadow:0 6px 16px -8px rgba(0,0,0,.5)}.nav-mas{color:var(--ink-2)!important}
+@media(max-width:1180px){.top .stats .cmd-t,.top .stats kbd{display:none}}
+.btn{border-radius:14px;padding:12px 20px;font-weight:700;letter-spacing:.005em;transition:transform .2s var(--ease),box-shadow .2s,background .2s,filter .2s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(1px) scale(.98)}
+.btn.acc{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 88%,#fff),var(--accent));box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 10px 22px -10px color-mix(in srgb,var(--accent) 80%,transparent)}
+.btn.acc:hover{filter:brightness(1.05);box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 14px 28px -10px color-mix(in srgb,var(--accent) 85%,transparent)}
+.btn.ghost{background:color-mix(in srgb,var(--bubble) 85%,var(--sheet));border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}.btn.ghost:hover{background:var(--bubble)}
+.card,.kset,.exam-card,.tk-lec,.tk-juego,.mision,.cert,.today{border-radius:var(--r-l)}
+.card{box-shadow:var(--sh-1);border-color:color-mix(in srgb,var(--line) 75%,transparent)}
+.kset,.tk-lec,.tk-juego,.exam-card,.certs-home{box-shadow:var(--sh-1);transition:transform .3s var(--ease),box-shadow .3s,border-color .2s}
+.kset:hover,.tk-lec:hover,.tk-juego:hover,.exam-card:hover,.certs-home:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.kset.on{border-color:var(--accent);background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 12%,var(--sheet)),var(--sheet));box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent),var(--sh-1)}
+.kset b{font-family:var(--f-body);font-weight:700}
+.kc{border-radius:14px;box-shadow:0 1px 0 var(--line);transition:transform .2s var(--ease),border-color .2s,background .2s,box-shadow .2s}.kc:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--sh-1)}
+.kc .kch{font-size:1.25em}.kc.sel{background:color-mix(in srgb,var(--accent) 10%,var(--sheet));border-color:var(--accent)}
+.kc.known{background:color-mix(in srgb,var(--ok) 10%,var(--sheet));border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
+.tabs{border-bottom-color:color-mix(in srgb,var(--line) 70%,transparent)}.tabs button{border-radius:10px 10px 0 0;transition:color .2s,background .2s}.tabs button:hover{background:color-mix(in srgb,var(--bubble) 60%,transparent)}
+.pill{border-radius:999px}
+.eyebrow{color:color-mix(in srgb,var(--accent) 55%,var(--ink-2))}
+h1{font-weight:900}.sec-title h2{position:relative}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 70%,transparent);outline-offset:2px;border-radius:10px}
+.idiomas{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-bottom:34px}
+.idioma{position:relative;overflow:hidden;border-radius:var(--r-l);background:var(--sheet);border:1px solid color-mix(in srgb,var(--line) 75%,transparent);box-shadow:var(--sh-1);display:grid;transition:transform .3s var(--ease),box-shadow .3s}
+.idioma:hover{transform:translateY(-4px);box-shadow:0 26px 50px -26px color-mix(in srgb,var(--c) 70%,transparent)}
+.idioma::before{content:"";position:absolute;inset:0;background:radial-gradient(140% 80% at 100% 0%,color-mix(in srgb,var(--c) 16%,transparent),transparent 60%);pointer-events:none}
+.idioma-main{all:unset;cursor:pointer;display:grid;gap:6px;padding:22px 22px 14px;position:relative}.idioma-main:focus-visible{outline:3px solid var(--c);outline-offset:-3px}
+.idioma-w{font:800 clamp(30px,3.2vw,40px)/1.1 var(--f-body);color:var(--c);letter-spacing:-.02em}.idioma-w[lang="ja"]{font-family:var(--f-jp)}.idioma b{font-size:19px}
+.idioma .muted{font-size:14.5px;line-height:1.45}.idioma-p{display:grid;gap:4px;margin-top:8px}.idioma-p .bar{height:7px;border-radius:9px;background:var(--bubble);overflow:hidden}.idioma-p .bar i{display:block;height:100%;background:var(--c);border-radius:9px;transition:width .8s var(--ease)}
+.idioma-a{display:flex;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);position:relative}.idioma-a button{flex:1;background:none;border:0;padding:11px 4px;font:600 13.5px var(--f-body);color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s}
+.idioma-a button+button{border-left:1px solid color-mix(in srgb,var(--line) 70%,transparent)}.idioma-a button:hover{background:color-mix(in srgb,var(--c) 10%,transparent);color:var(--c)}
+.mnav{border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);backdrop-filter:blur(18px) saturate(1.4)}.mnav button[aria-current="page"]{color:var(--accent)}
+.plan-card{box-shadow:var(--sh-2);border-radius:28px}
+@media(prefers-reduced-motion:reduce){.btn,.kc,.kset,.idioma,.tk-lec{transition:none}.btn:hover,.kc:hover,.idioma:hover{transform:none}}
 </style>
 
 <div id="app"></div>
@@ -1019,17 +1078,22 @@ function tkFrasesDe(lang){const K=KANA||{};
 const tkLimpia=f=>f.toLowerCase().replace(/[^\p{L}\p{N}' ]+/gu," ").replace(/\s+/g," ").trim();
 function tkDictado(lang){const fr=shuffle(tkFrasesDe(lang),Math.random).slice(0,5);if(!fr.length)return toast("No hay frases");
   tk={lang,modo:"dictado",frases:fr,fi:0,toks:[],txt:"",pos:0,err:0,ini:0,fin:0,errK:{},bien:0};tkDictFrase(0)}
-function tkDictFrase(i){tk.fi=i;tk.orig=tk.frases[i];tk.toks=tkLimpia(tk.orig).split(" ").map(t=>({t}));tk.txt=tk.toks.map(x=>x.t).join(" ");tk.pos=0;tk.rev={};tk.errPos={};render();setTimeout(()=>tkOir(),250)}
+// Números al oído: suena el número con letra y se escribe en cifras (mismo motor que el dictado)
+const TK_NUM={pt:"npt",ru:"nru",ja:"nja"};
+function tkNumeros(lang){const L=KANA?.numeros?.[lang]||[];if(!L.length)return toast("No hay números");
+  const fr=shuffle(L,Math.random).slice(0,10);tk={lang,modo:"dictado",num:true,frases:fr.map(x=>x.t),cifras:fr.map(x=>String(x.n)),fi:0,toks:[],txt:"",pos:0,err:0,ini:0,fin:0,errK:{},bien:0};tkDictFrase(0)}
+function tkDictFrase(i){tk.fi=i;tk.orig=tk.frases[i];tk.toks=(tk.num?[tk.cifras[i]]:tkLimpia(tk.orig).split(" ")).map(t=>({t}));tk.txt=tk.toks.map(x=>x.t).join(" ");tk.pos=0;tk.rev={};tk.errPos={};render();setTimeout(()=>tkOir(),250)}
 function tkOir(lento){if(!tk||tk.modo!=="dictado")return;const t=tk.orig;vozRate=lento?.7:1;
-  if(tk.lang==="es")playVoz(vozUrl("es",t),()=>libTTS(t,"es-ES",lento?.8:1));else playVoz(vozUrl(tk.lang,t),()=>ptTTS(t,KLANGS[tk.lang]));vozRate=1}
+  if(tk.num)playVoz(vozUrl(TK_NUM[tk.lang],t),()=>libTTS(t,{pt:"pt-PT",ru:"ru-RU",ja:"ja-JP"}[tk.lang],lento?.7:.9));
+  else if(tk.lang==="es")playVoz(vozUrl("es",t),()=>libTTS(t,"es-ES",lento?.8:1));else playVoz(vozUrl(tk.lang,t),()=>ptTTS(t,KLANGS[tk.lang]));vozRate=1}
 function tkMas(){const mas=shuffle(TK_PAL[tk.lang]?.split(" ").map(t=>({t}))||tk.toks,Math.random).slice(0,40);tk.toks=tk.toks.concat(mas);tk.txt=tk.toks.map(x=>x.t).join(" ")}
 function tkCarreraTic(){if(!tk||!tk.limite){return}const s=(performance.now()-tk.ini)/1000;const el=$("#tkReloj");if(el)el.textContent=Math.max(0,Math.ceil(tk.limite-s))+" s";if(s>=tk.limite)tkFin()}
 function tkPulso(ok){const k=$("#tkBox");if(!k)return;k.classList.remove("tk-mal");if(!ok){void k.offsetWidth;k.classList.add("tk-mal")}}
 function tkPpm(){const min=((tk.fin||performance.now())-tk.ini)/60000;return min>0?Math.round(tk.bien/5/min):0}
 const tkPrecision=()=>tk.bien+tk.err?Math.round(tk.bien/(tk.bien+tk.err)*100):100;
 function tkFin(){clearInterval(tk.reloj);tk.fin=performance.now();const ppm=tkPpm(),acc=tkPrecision(),meta=Math.round(tkMeta[tk.lang]*(tk.modo==="dictado"?.5:1));tk.meta=meta;
-  const estrellas=acc>=97&&ppm>=meta?3:acc>=94&&ppm>=meta*.6?2:acc>=88?1:0;
-  S.teclas??={};const k=tk.lang+":"+(tk.modo==="carrera"||tk.modo==="dictado"?tk.modo:tk.lec),ant=S.teclas[k]||{};
+  const estrellas=tk.num?(acc>=95?3:acc>=85?2:acc>=70?1:0):acc>=97&&ppm>=meta?3:acc>=94&&ppm>=meta*.6?2:acc>=88?1:0;
+  S.teclas??={};const k=tk.lang+":"+(tk.num?"numeros":tk.modo==="carrera"||tk.modo==="dictado"?tk.modo:tk.lec),ant=S.teclas[k]||{};
   tk.record=!!ant.ppm&&ppm>ant.ppm;S.teclas[k]={ppm:Math.max(ppm,ant.ppm||0),acc:Math.max(acc,ant.acc||0),e:Math.max(estrellas,ant.e||0)};tk.estrellas=estrellas;
   const pal=Math.round(tk.bien/5);S.xp+=Math.round(pal/2)+estrellas*5;touchDay(pal);apunta(TK_AREA[tk.lang],pal);save();sfx(estrellas>0);if(estrellas===3||tk.record)confetti();render()}
 function tkDibuja(){const box=$("#tkTxt");if(!box)return;box.innerHTML=tkTextoHTML();
@@ -1073,10 +1137,10 @@ function tkLluviaFin(){tk.fin=performance.now();S.teclas??={};const k=tk.lang+":
 function viewTeclas(){const lang=route.lang||S.tkLang||"es";
   if(tk&&tk.modo==="lluvia")return tk.fin?tkResLluvia():`<div class="tk-top"><button class="btn ghost" data-tkfuera>← Salir</button><b>Lluvia de palabras · ${TK_IDIOMAS[tk.lang][0]}</b><span class="muted">Escribe la palabra antes de que toque el suelo</span></div>
     <div class="tk-hud" id="tkHud"></div><div class="tk-arena" id="tkArena" tabindex="0"></div>${tkMovilInput()}`;
-  if(tk)return tk.fin?tkResultado():`<div class="tk-top"><button class="btn ghost" data-tkfuera>← Salir <kbd>Esc</kbd></button><b>${TK_IDIOMAS[tk.lang][1]} ${tk.modo==="carrera"?"Carrera de 60 segundos":tk.modo==="dictado"?`Dictado · frase ${tk.fi+1} de ${tk.frases.length}`:h(TK_LEC.find(l=>l[0]===tk.lec)[1])}</b><div class="tk-stats" id="tkStats">${tkStatsHTML()}</div></div>
+  if(tk)return tk.fin?tkResultado():`<div class="tk-top"><button class="btn ghost" data-tkfuera>← Salir <kbd>Esc</kbd></button><b>${TK_IDIOMAS[tk.lang][1]} ${tk.modo==="carrera"?"Carrera de 60 segundos":tk.modo==="dictado"?`${tk.num?"Números al oído":"Dictado"} · ${tk.fi+1} de ${tk.frases.length}`:h(TK_LEC.find(l=>l[0]===tk.lec)[1])}</b><div class="tk-stats" id="tkStats">${tkStatsHTML()}</div></div>
     <div class="tk-box card" id="tkBox"><div class="tk-txt" id="tkTxt" ${tk.lang==="ru"?'lang="ru"':""}>${tkTextoHTML()}</div></div>
     <div class="tk-kb" id="tkKb" aria-hidden="true">${tkTecladoHTML()}</div>
-    ${tk.modo==="dictado"?`<div class="row" style="justify-content:center;margin-top:12px"><button class="btn acc" data-tkoir>▶ Oír otra vez <kbd>Tab</kbd></button><button class="btn ghost" data-tkoir="lento">🐢 Lento <kbd>Shift+Tab</kbd></button></div><p class="muted tk-nota">Escribe lo que oyes, sin signos ni mayúsculas. Si fallas dos veces la misma letra, te la enseño.</p>`:""}
+    ${tk.modo==="dictado"?`<div class="row" style="justify-content:center;margin-top:12px"><button class="btn acc" data-tkoir>▶ Oír otra vez <kbd>Tab</kbd></button><button class="btn ghost" data-tkoir="lento">🐢 Lento <kbd>Shift+Tab</kbd></button></div><p class="muted tk-nota">${tk.num?"Escribe el número en cifras.":"Escribe lo que oyes, sin signos ni mayúsculas."} Si fallas dos veces el mismo carácter, te lo enseño.${tk.fin||tk.pos<tk.txt.length?"":""}</p>`:""}
     <p class="muted tk-nota">${tk.lang==="ru"?"¿No tienes teclado ruso? Escribe con el tuyo: cada tecla se convierte en la letra rusa de ese sitio (como un teclado ЙЦУКЕН real).":tk.lang==="ja"?"Escribe en romaji lo que pone debajo de cada kana.":"Si fallas, el cursor espera a que aciertes. No mires las manos: mira el teclado de la pantalla."}</p>${tkMovilInput()}`;
   const T=S.teclas||{},est=k=>"★".repeat(T[k]?.e||0)+"☆".repeat(3-(T[k]?.e||0));
   return `<div class="ex-head"><div><span class="eyebrow">Escribe sin mirar · 5 idiomas</span><h1 style="margin-top:8px">Mecanografía</h1>
@@ -1085,6 +1149,7 @@ function viewTeclas(){const lang=route.lang||S.tkLang||"es";
     <div class="tk-lecs">${TK_LEC.map(([k,n,d],i)=>`<button class="card tk-lec reveal" data-tklec="${k}" data-key="${i+1}"><span class="mono">${i+1}</span><b>${n}</b><small class="muted">${d}</small><span class="tk-est">${est(lang+":"+k)}</span>${T[lang+":"+k]?.ppm?`<small class="mono">${T[lang+":"+k].ppm} ppm</small>`:""}</button>`).join("")}</div>
     <div class="tk-juegos"><button class="card tk-juego reveal" data-tkjuego="lluvia"><span class="tk-ico">🌧</span><b>Lluvia de palabras</b><small class="muted">Caen palabras: escríbelas antes de que toquen el suelo. 3 vidas, combos y niveles.</small>${T[lang+":lluvia"]?.pts?`<small class="mono">Récord: ${T[lang+":lluvia"].pts} pts</small>`:""}</button>
       ${TK_DICT[lang]?`<button class="card tk-juego reveal" data-tkjuego="dictado"><span class="tk-ico">🎧</span><b>Dictado</b><small class="muted">Oyes una frase con voz real y la escribes: oído y teclado a la vez. 5 frases.</small>${T[lang+":dictado"]?.ppm?`<small class="mono">Récord: ${T[lang+":dictado"].ppm} ppm · ${"★".repeat(T[lang+":dictado"].e||0)}</small>`:""}</button>`:""}
+      ${TK_NUM[lang]?`<button class="card tk-juego reveal" data-tkjuego="numeros"><span class="tk-ico">🔢</span><b>Números al oído</b><small class="muted">Suena un número (precios, horas, pisos…) y lo escribes en cifras. 10 seguidos.</small>${T[lang+":numeros"]?.acc?`<small class="mono">Mejor: ${T[lang+":numeros"].acc} % · ${"★".repeat(T[lang+":numeros"].e||0)}</small>`:""}</button>`:""}
       <button class="card tk-juego reveal" data-tkjuego="carrera"><span class="tk-ico">🏁</span><b>Carrera de 60 segundos</b><small class="muted">¿Cuántas palabras por minuto? Supera tu récord.</small>${T[lang+":carrera"]?.ppm?`<small class="mono">Récord: ${T[lang+":carrera"].ppm} ppm</small>`:""}</button></div>
     <label class="lib-row" style="margin-top:14px"><input type="checkbox" id="tkFlex" ${(S.tkFlex??true)?"checked":""}> Acentos flexibles: vale «a» por «á» y minúscula por mayúscula (para teclados sin ñ ni tildes)</label>`}
 function tkResultado(){const ppm=tkPpm(),acc=tkPrecision(),peor=Object.entries(tk.errK).sort((a,b)=>b[1]-a[1]).slice(0,4);
@@ -1101,14 +1166,14 @@ function bindTeclas(){
   document.querySelectorAll("[data-tklang]").forEach(b=>b.onclick=()=>{S.tkLang=b.dataset.tklang;save();route.lang=b.dataset.tklang;render()});
   const lang=()=>route.lang||S.tkLang||"es",listo=f=>KANA?f():loadKana().then(f).catch(e=>toast(e.message));
   document.querySelectorAll("[data-tklec]").forEach(b=>b.onclick=()=>listo(()=>tkEmpezar(lang(),b.dataset.tklec)));
-  document.querySelectorAll("[data-tkjuego]").forEach(b=>b.onclick=()=>listo(()=>b.dataset.tkjuego==="lluvia"?tkLluvia(lang()):b.dataset.tkjuego==="dictado"?tkDictado(lang()):tkEmpezar(lang(),null,"carrera")));
+  document.querySelectorAll("[data-tkjuego]").forEach(b=>b.onclick=()=>listo(()=>b.dataset.tkjuego==="lluvia"?tkLluvia(lang()):b.dataset.tkjuego==="dictado"?tkDictado(lang()):b.dataset.tkjuego==="numeros"?tkNumeros(lang()):tkEmpezar(lang(),null,"carrera")));
   document.querySelectorAll("[data-tkfuera]").forEach(b=>b.onclick=()=>{if(tk)clearInterval(tk.reloj);tk=null;render()});
   document.querySelectorAll("[data-tkotra]").forEach(b=>b.onclick=tkOtra);
   document.querySelectorAll("[data-tkoir]").forEach(b=>b.onclick=()=>tkOir(b.dataset.tkoir==="lento"));
   const f=$("#tkFlex");if(f)f.onchange=()=>{S.tkFlex=f.checked;save()};
   const m=$("#tkMovil");if(m){m.focus();m.oninput=()=>{for(const c of m.value)tkTecla({key:c,code:"",shiftKey:false});m.value=""}}
   if(tk&&tk.modo==="lluvia"&&!tk.fin)tkLluviaDibuja()}
-function tkOtra(){const t=tk;tk=null;if(t.modo==="lluvia")tkLluvia(t.lang);else if(t.modo==="dictado")tkDictado(t.lang);else tkEmpezar(t.lang,t.lec,t.modo)}
+function tkOtra(){const t=tk;tk=null;if(t.modo==="lluvia")tkLluvia(t.lang);else if(t.modo==="dictado")t.num?tkNumeros(t.lang):tkDictado(t.lang);else tkEmpezar(t.lang,t.lec,t.modo)}
 // Va antes que los atajos generales: mientras escribes, las letras son para el ejercicio
 addEventListener("keydown",e=>{if(route.v!=="teclas")return;
   if(tk&&tk.fin&&e.key==="Enter"){e.preventDefault();e.stopImmediatePropagation();tkOtra();return}
@@ -1158,6 +1223,22 @@ addEventListener("keydown",e=>{if(route.v==="leer"&&!route.id&&/^[1-9]$/.test(e.
   else if(e.key.toLowerCase()==="t"){e.preventDefault();e.stopImmediatePropagation();lee.trad=!lee.trad;render()}
   else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();stopVoz();lee=null;go({v:"leer",lang:route.lang})}},true);
 
+/* ============ Portada: los idiomas, con su progreso y accesos directos ============ */
+const IDIOMAS=[
+  {v:"ru",n:"Ruso",w:"Привет",l:"ru",c:"ru",sub:"Desde cero: cirílico, palabras, gramática y vida universitaria.",sets:["cirilico","ruvocab","rugram","ruuni"],a:[["Aprender",{v:"ru"}],["Tarjetas",{v:"cards"}],["Leer",{v:"leer",lang:"ru"}],["Teclado",{v:"teclas",lang:"ru"}]]},
+  {v:"pt",n:"Portugués",w:"Olá!",l:"pt-PT",c:"pt",sub:"De Portugal: día a día, verbos, trabajo de guía y trámites.",sets:["pt","ptverbos","falsos","tramites"],a:[["Aprender",{v:"pt"}],["Tarjetas",{v:"cards"}],["Leer",{v:"leer",lang:"pt"}],["Teclado",{v:"teclas",lang:"pt"}]]},
+  {v:"kana",n:"Japonés",w:"こんにちは",l:"ja",c:"n5",sub:"Kana, 104 kanji, vocabulario N5 y el japonés de Osaka.",sets:["hira","kata","kanji","vocab","kansai"],a:[["Aprender",{v:"kana"}],["Tarjetas",{v:"cards"}],["Examen N5",{v:"exam",x:"n5",tab:"sims"}],["Teclado",{v:"teclas",lang:"ja"}]]},
+  {v:"ielts",n:"Inglés",w:"Hello",l:"en",c:"ielts",sub:"IELTS y TOEFL con su formato real, Rayo y Empareja.",sets:[],a:[["IELTS",{v:"exam",x:"ielts",tab:"sims"}],["TOEFL",{v:"exam",x:"toefl",tab:"sims"}],["Juegos",{v:"exam",x:"ielts",tab:"learn"}],["Teclado",{v:"teclas",lang:"en"}]]},
+];
+function idiomaProg(I){if(!I.sets.length){const d=examDone(I.v);return [d,33]}if(!KANA)return null;let k=0,t=0;for(const s of I.sets){const L=KANA[s]||[];t+=L.length;k+=L.filter(i=>kKnown(s,i.c)).length}return [k,t]}
+function idiomasHome(){return `<div class="sec-title reveal"><h2><span class="num">01 — IDIOMAS</span>¿Qué aprendes hoy?</h2><span class="muted">Todo con voz real · <button class="linkbtn" data-go="libre">🎧 o escúchalo sin mirar</button></span></div>
+  <div class="idiomas">${IDIOMAS.map(I=>{const p=idiomaProg(I),pc=p?Math.round(p[0]/Math.max(1,p[1])*100):0;
+    return `<article class="idioma reveal" style="--c:var(--${I.c})"><button class="idioma-main" data-ir='${h(JSON.stringify(I.a[0][1]))}'><span class="idioma-w" lang="${I.l}">${h(I.w)}</span><b>${I.n}</b><span class="muted">${h(I.sub)}</span>
+      <span class="idioma-p"><span class="bar"><i style="width:${pc}%"></i></span><small class="mono">${p?`${p[0]}/${p[1]} ${I.sets.length?"dominadas":"simulacros"}`:"…"}</small></span></button>
+      <div class="idioma-a">${I.a.slice(1).map(([n,r])=>`<button data-ir='${h(JSON.stringify(r))}'>${n}</button>`).join("")}</div></article>`}).join("")}</div>`}
+function bindIdiomas(){document.querySelectorAll("[data-ir]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.ir);if(r.v==="cards")deck=null;if(r.v==="teclas"&&r.lang){S.tkLang=r.lang;save()}if(r.v==="exam"){go(r);loadBank(r.x).catch(e=>toast(e.message))}else go(r)});
+  if(!KANA)loadKana().then(()=>{if(route.v==="home")document.querySelectorAll(".idioma").forEach((el,i)=>{const p=idiomaProg(IDIOMAS[i]);if(!p)return;el.querySelector(".bar i").style.width=Math.round(p[0]/Math.max(1,p[1])*100)+"%";el.querySelector(".idioma-p small").textContent=`${p[0]}/${p[1]} ${IDIOMAS[i].sets.length?"dominadas":"simulacros"}`})}).catch(()=>{})}
+
 /* ============ Rutas ============ */
 let route={v:"home"}; let run=null;
 const suaveVT=f=>{if(!document.startViewTransition||matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return f();try{document.startViewTransition(f)}catch(e){f()}};
@@ -1168,14 +1249,14 @@ function render(){
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
   app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="plan"?viewPlan():v==="teclas"?viewTeclas():v==="leer"?viewLeer():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="teclas")bindTeclas(); if(v==="leer")bindLeer(); document.querySelectorAll("[data-golee]").forEach(b=>b.onclick=()=>go({v:"leer",lang:b.dataset.golee})); if(v==="home")bindPlanBtns(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="teclas")bindTeclas(); if(v==="leer")bindLeer(); document.querySelectorAll("[data-golee]").forEach(b=>b.onclick=()=>go({v:"leer",lang:b.dataset.golee})); if(v==="home"){bindPlanBtns();bindIdiomas()} if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
   const nb=(v,l,kk)=>`<button data-go="${v}" data-key="${kk}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
   return `<header class="top"><div class="top-in">
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
-    <nav class="nav">${nb("home","Exámenes","H")}${nb("plan","Plan","O")}${nb("kana","Kana","K")}${nb("pt","Portugués","P")}${nb("ru","Ruso","R")}${nb("libre","Manos libres","L")}${nb("teclas","Teclado","E")}${nb("cards","Tarjetas","T")}${nb("guide","Guía","G")}</nav>
+    <nav class="nav">${nb("home","Inicio","H")}${nb("plan","Plan","O")}${nb("ru","Ruso","R")}${nb("pt","Portugués","P")}${nb("kana","Japonés","K")}${nb("cards","Tarjetas","T")}${nb("teclas","Teclado","E")}<button data-cmd class="nav-mas" aria-label="Más secciones">Más ⋯</button></nav>
     <div class="stats">
       ${socBtn()}
       <button class="cmd-btn" data-cmd aria-label="Buscar o ir a…"><span aria-hidden="true">⌕</span><span class="cmd-t">Ir a…</span><kbd>/</kbd></button>
@@ -1210,29 +1291,30 @@ function viewHome(){
       <span class="kana-strip" lang="ja"><span>あ</span><span>カ</span><span>日</span><span>本</span><span>語</span></span></button>`;
   return `<section class="dhero">
     <span class="kanji-bg" aria-hidden="true">道</span>
-    <div><p class="eyebrow reveal">AWS · TOEFL · IELTS · JLPT N5 · kana · gratis y sin cuenta</p>
-      <h1 class="reveal">Entrena cada día.<br><span class="red">Aprueba</span> a la primera.</h1>
-      <p class="lead reveal">Simulacros con el formato real, el examen completo de AWS, hiragana, katakana y kanji explicados fácil, y tarjetas que te devuelven lo que fallas hasta que lo dominas. Funciona sin conexión.</p>
-      <div class="cta reveal"><button class="btn acc" data-exam="aws">Empezar con AWS</button><button class="btn ghost" data-go="kana">Aprender kana</button><button class="btn ghost" id="instalar" ${instalarEv||(esIOS()&&!yaInstalada())?"":"hidden"}>📲 Instalar app</button>${due?`<button class="btn ghost" data-go="cards">${due} tarjetas</button>`:""}</div>
-      <div class="figs reveal"><div><b data-count="132">132</b><span>simulacros</span></div><div><b data-count="208">208</b><span>kana</span></div><div><b data-count="104">104</b><span>kanji N5</span></div><div><b>0 €</b><span>para siempre</span></div></div></div>
+    <div><p class="eyebrow reveal">Ruso · Portugués · Japonés · Inglés · gratis y sin anuncios</p>
+      <h1 class="reveal">Aprende idiomas<br>sin <span class="red">aburrirte</span>.</h1>
+      <p class="lead reveal">Ruso desde cero, portugués de Portugal y japonés con voz real, tarjetas que vuelven justo antes de olvidarlas, juegos de teclado y un plan de 12 semanas con misiones cada día. Y simulacros de IELTS, TOEFL, AWS y N5.</p>
+      <div class="cta reveal"><button class="btn acc" data-go="plan">${S.plan?.ini?"Misiones de hoy":"Empezar el plan"}</button><button class="btn ghost" data-go="ru">Ruso desde cero</button>${dueCards().length?"":`<button class="btn ghost" data-go="cards">Tarjetas</button>`}<button class="btn ghost" id="instalar" ${instalarEv||(esIOS()&&!yaInstalada())?"":"hidden"}>📲 Instalar app</button>${due?`<button class="btn ghost" data-go="cards">${due} ${due===1?"tarjeta":"tarjetas"}</button>`:""}</div>
+      <div class="figs reveal"><div><b>4</b><span>idiomas</span></div><div><b data-count="9000">9000</b><span>audios con voz real</span></div><div><b data-count="132">132</b><span>simulacros</span></div><div><b>0 €</b><span>para siempre</span></div></div></div>
     <div class="today reveal">
       <div class="ring">${ringSvg(p)}<div><div class="eyebrow">Meta de hoy</div><div style="font:900 32px var(--f-display)">${dn} / ${S.goal}</div><div class="muted" style="font-size:14px">preguntas respondidas</div></div></div>
-      <div class="goal-row"><span class="pill">${h(L.name)} · ${S.xp} XP</span><span class="pill">Racha ${S.streak||0} ${S.streak===1?"día":"días"}</span><span class="pill">${due} tarjetas</span></div>
-      <div class="row">${due?`<button class="btn acc" data-go="cards">Repasar ${due} tarjetas</button>`:""}<button class="btn ghost" data-go="guide">Plan y recordatorio</button></div>
+      <div class="goal-row"><span class="pill">${h(L.name)} · ${S.xp} XP</span><span class="pill">Racha ${S.streak||0} ${S.streak===1?"día":"días"}</span><span class="pill">${due} ${due===1?"tarjeta":"tarjetas"}</span></div>
+      <div class="row">${due?`<button class="btn acc" data-go="cards">Repasar ${due} ${due===1?"tarjeta":"tarjetas"}</button>`:""}<button class="btn ghost" data-go="guide">Plan y recordatorio</button></div>
       ${metaHTML()}
       <div class="sync" id="sync">${store.kind==="db"?"Guardado en tu cuenta":"Guardado en este navegador"}</div>
     </div>
   </section>
   ${planHome()}
+  ${idiomasHome()}
   ${retoHome()}
   ${certsHome()}
-  <div class="marq" aria-hidden="true"><div class="marq-in">${[0,1].map(()=>`<span>AWS SAA-C03 <i>雲</i> TOEFL iBT <i>英</i> IELTS Academic <i>語</i> JLPT N5 <i>日</i> Hiragana <i>あ</i> Katakana <i>ア</i> Kanji <i>字</i></span>`).join("")}</div></div>
+  <div class="marq" aria-hidden="true"><div class="marq-in">${[0,1].map(()=>`<span>Русский <i>露</i> Português <i>ポ</i> 日本語 <i>日</i> English <i>英</i> IELTS <i>語</i> AWS <i>雲</i> Hiragana <i>あ</i> Кириллица <i>字</i></span>`).join("")}</div></div>
   ${!practicedToday&&S.last?`<div class="banner"><span><b>Aún no has practicado hoy.</b> Tu racha de ${S.streak} días se pierde a medianoche.</span><button class="btn acc" data-quick="1">Práctica rápida de 5 min</button></div>`:""}
-  <div class="sec-title reveal"><h2><span class="num">01 — EXÁMENES</span>Elige tu examen</h2><span class="muted">3 calentamientos + 30 simulacros por examen · AWS con examen real de 65</span></div>
+  <div class="sec-title reveal"><h2><span class="num">02 — EXÁMENES</span>Elige tu examen</h2><span class="muted">3 calentamientos + 30 simulacros por examen · AWS con examen real de 65</span></div>
   <div class="exams">${cards}${kanaCard}</div>
-  <div class="sec-title reveal"><h2><span class="num">02 — MÉTODO</span>Veinte minutos al día</h2><span class="muted">Mejor poco y diario que tres horas el domingo</span></div>
+  <div class="sec-title reveal"><h2><span class="num">03 — MÉTODO</span>Veinte minutos al día</h2><span class="muted">Mejor poco y diario que tres horas el domingo</span></div>
   <div class="steps">${[["一","Calienta","Dos rondas de Empareja o un test de kana. Cinco minutos."],["二","Simula","Un simulacro con reloj. Los fallos pasan solos a tus tarjetas."],["三","Repasa","Lee el truco de cada fallo. Ahí está el 80 % del aprendizaje."],["四","Repite","Tarjetas cada día: lo que fallas vuelve hasta que lo sabes."]].map(([k,t,d])=>`<div class="step reveal"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
-  <div class="sec-title reveal"><h2><span class="num">03 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
+  <div class="sec-title reveal"><h2><span class="num">04 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
   <div class="badges">${badges}</div>
   <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (ACML 1.0), Kokoro (Apache 2.0) y, en español y portugués, las voces neuronales de Microsoft Edge</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>${cuenta?"Tu progreso se guarda en tu cuenta":"Tu progreso se guarda solo en este navegador"}</span></footer>`;
 }
@@ -1924,9 +2006,11 @@ document.addEventListener("keydown",e=>{
     if(k==="+"){libPausa(1);return}if(k==="-"){libPausa(-1);return}}
   if(v==="result"&&k==="Enter"){act($("#app main .btn.acc"));return}
   if(v==="cards"&&deck?.cards[deck.i]){
-    if(k===" "||k==="Enter"){act($("#flip"));return}
-    if(k==="ArrowRight"||k==="2"){act($("#know"));return}
-    if(k==="ArrowLeft"||k==="1"){act($("#again"));return}
+    if(k===" "||k==="Enter"){e.preventDefault();tarGirar();return}
+    if(/^[1-4]$/.test(k)){e.preventDefault();tarResponde(+k);return}
+    if(k==="ArrowRight"){tarResponde(3);return}if(k==="ArrowLeft"){tarResponde(1);return}
+    if(lk==="o"||lk==="a"){tarOir();return}
+    if(k==="Escape"){deck=null;render();return}
     return}
   if(v==="rayo"){
     if(k==="Enter"||k===" "){act($("#rgo"));return}
@@ -2011,45 +2095,77 @@ const BOX_DAYS=[0,1,3,7,16,35];
 function addCard(id){const c=S.srs[id];S.srs[id]={b:0,due:today()};if(!c&&Object.keys(S.srs).length>1500){const old=Object.keys(S.srs)[0];delete S.srs[old]}}
 function dueCards(){const t=today();return Object.entries(S.srs).filter(([,c])=>c.due<=t).map(([id])=>id)}
 let deck=null;
-async function prepDeck(){
-  const ids=dueCards().slice(0,40);const cards=[];
-  for(const id of ids){const [x,sid,qi]=id.split(":");try{await loadBank(x)}catch(e){continue}const s=BANK[x].byId[sid];const q=s?.qs[+qi];if(!q){delete S.srs[id];continue}cards.push({id,x,s,q})}
-  deck={cards,i:0,flipped:false};
-}
+// Mazos: fallos de exámenes + uno por idioma con las fichas de kana.json (id «k:set:carácter»)
+const MAZOS={ru:{n:"Ruso",f:"🇷🇺",w:"Привет",sets:["cirilico","ruvocab","rugram","ruuni"]},pt:{n:"Portugués",f:"🇵🇹",w:"Olá",sets:["pt","ptverbos","falsos","tramites"]},
+  ja:{n:"Japonés",f:"🇯🇵",w:"こんにちは",sets:["hira","kata","vocab","kanji","kansai"]},x:{n:"Fallos de exámenes",f:"📝",w:"✗→✓",sets:[]}};
+const mazoDe=id=>{if(!id.startsWith("k:"))return "x";const set=id.split(":")[1];return Object.keys(MAZOS).find(m=>MAZOS[m].sets.includes(set))||"x"};
+const tarNuevasDia=()=>S.tarNuevas??10;
+function tarNuevasHoy(m){const t=S.tarHoy;return t&&t.d===today()?t[m]||0:0}
+function tarPendientes(m){return dueCards().filter(id=>mazoDe(id)===m)}
+function tarNuevas(m,n){if(m==="x"||!KANA)return [];const out=[];
+  for(const set of MAZOS[m].sets)for(const it of KANA[set]||[]){if(out.length>=n)return out;const id="k:"+set+":"+it.c;if(!S.srs[id]&&!kKnown(set,it.c))out.push(id)}
+  return out}
+async function prepDeck(m){
+  const ids=[...(m?tarPendientes(m):dueCards())].slice(0,60),cards=[];
+  if(m&&m!=="x")ids.push(...tarNuevas(m,Math.max(0,tarNuevasDia()-tarNuevasHoy(m))).map(id=>"+"+id));
+  if(ids.some(id=>id.replace("+","").startsWith("k:"))&&!KANA)await loadKana().catch(()=>{});
+  for(const raw of ids){const nueva=raw.startsWith("+"),id=raw.replace("+","");
+    if(id.startsWith("k:")){const [,set,...c]=id.split(":"),it=KANA?.[set]?.find(i=>i.c===c.join(":"));if(!it){delete S.srs[id];continue}cards.push({id,tipo:"k",set,it,nueva});continue}
+    const [x,sid,qi]=id.split(":");try{await loadBank(x)}catch(e){continue}const s=BANK[x].byId[sid];const q=s?.qs[+qi];if(!q){delete S.srs[id];continue}cards.push({id,tipo:"x",x,s,q})}
+  deck={m:m||"todo",cards:shuffle(cards,Math.random),i:0,flipped:false,ok:0,mal:0}}
+function tarFrente(c){if(c.tipo==="k"){const it=c.it;return `<span class="fc-set">${h(KSETS[c.set][0])}${c.nueva?' · <b>nueva</b>':""}</span><div class="fc-big ${it.c.length>8?"largo":""}" lang="${kLang(c.set)}">${h(it.c)}</div>${c.set==="kanji"?`<div class="muted" lang="ja">${h(it.w||"")}</div>`:""}<button class="fc-oir" data-fcoir aria-label="Escuchar">🔊</button>`}
+  const q=c.q,t=(c.s.passage&&c.s.sec!=="reading"&&q.t==="order"?"“"+c.s.passage+"”\n":"")+(q.t==="order"?"Ordena: "+q.w.join(" / "):q.q)+(q.t==="mcq"||q.t==="multi"?"\n\n"+q.o.map(o=>"• "+o).join("\n"):"");
+  return `<span class="fc-set">${EX[c.x].short} · ${h(c.s.task)}</span><div class="fc-q" ${c.x==="n5"?'lang="ja"':""}>${h(t)}</div>`}
+function tarDorso(c){if(c.tipo==="k"){const it=c.it;
+    return `<div class="fc-mini" lang="${kLang(c.set)}">${h(it.c)}</div><div class="fc-m">${h(c.set==="hira"||c.set==="kata"?"Se lee «"+it.r+"»":it.m)}</div>${it.r&&c.set!=="hira"&&c.set!=="kata"?`<div class="fc-r">${h(it.r)}</div>`:""}
+      ${it.f?`<div class="fc-f"><span lang="${kLang(c.set)}">${h(it.f)}</span><small>${h(it.fe||"")}</small></div>`:""}${it.t?`<p class="fc-t">💡 ${h(it.t)}</p>`:""}`}
+  return `<div class="pill ok" style="justify-self:center">${h(solText(c.q))}</div><p class="fc-t">${h(c.q.e||"")}</p>`}
 function viewCards(){
-  if(!deck)return `<div class="sec-title"><h2>Tarjetas</h2></div><p class="muted">Cargando…</p>`;
-  const c=deck.cards[deck.i];
-  const total=Object.keys(S.srs).length;
-  if(!c)return `<div class="sec-title"><h2>Tarjetas</h2><span class="muted">${total} en tu mazo</span></div>
-    <div class="card" style="text-align:center;max-width:520px;margin:0 auto"><h3>Todo repasado por hoy</h3><p class="muted">Cada fallo de los simulacros entra aquí y vuelve a los 1, 3, 7, 16 y 35 días hasta que lo domines.</p><button class="btn acc" data-go="home">Hacer un simulacro</button></div>`;
-  const q=c.q,sol=solText(q);
-  const front=(c.s.passage&&c.s.sec!=="reading"&&q.t==="order"?"“"+c.s.passage+"”\n":"")+(q.t==="order"?"Ordena: "+q.w.join(" / "):q.q)+(q.t==="mcq"||q.t==="multi"?"\n\n"+q.o.map(o=>"• "+o).join("\n"):"");
-  return `<div class="sec-title"><h2>Tarjetas</h2><span class="muted">${deck.i+1} de ${deck.cards.length} · ${EX[c.x].short} · ${h(c.s.task)}</span></div>
-    <div class="deck" id="deck"><div class="fc" id="fc" ${c.x==="n5"?'lang="ja"':""} tabindex="0">
-      <div class="front">${h(front)}</div>
-      ${deck.flipped?`<div class="pill ok" style="justify-self:center">${h(sol)}</div><div class="back" lang="es">${h(q.e||"")}</div>`:`<div class="muted" style="font-size:14px">Piensa la respuesta y toca para girar</div>`}
-    </div></div>
-    <div class="deck-ctrl"><button class="btn ghost" id="again" data-key="1">← Otra vez</button><button class="btn" id="flip" data-key="Espacio">Girar</button><button class="btn acc" id="know" data-key="2">La sé →</button></div>
-    <p class="muted" style="text-align:center;font-size:14px">Desliza la tarjeta: derecha si la sabías, izquierda si no. <span class="kb-tip">Teclado: espacio gira · → o 2 la sé · ← o 1 otra vez.</span></p>`;
-}
+  if(!deck){const tot=dueCards().length;
+    return `<div class="ex-head"><div><span class="eyebrow">Repetición espaciada · vuelve justo antes de olvidarla</span><h1 style="margin-top:8px">Tarjetas</h1>
+      <p class="muted" style="max-width:60ch">Cada día, ${tarNuevasDia()} palabras nuevas por idioma y las que te tocan repasar. Lo que sabes vuelve en 1, 3, 7, 16 y 35 días; lo que fallas, hoy mismo.</p></div></div>
+      <div class="mazos">${Object.entries(MAZOS).map(([m,M])=>{const p=tarPendientes(m).length,nv=m==="x"?0:Math.min(tarNuevas(m,99).length,Math.max(0,tarNuevasDia()-tarNuevasHoy(m)));
+        return `<button class="mazo reveal" data-mazo="${m}" style="--c:var(--${({ru:"ru",pt:"pt",ja:"n5",x:"hanko"})[m]})"><span class="mazo-w" ${m==="ja"?'lang="ja"':m==="ru"?'lang="ru"':""}>${M.w}</span><b>${M.f} ${M.n}</b>
+          <span class="mazo-n"><span><b>${p}</b> para repasar</span>${m==="x"?"":`<span><b>${KANA?nv:"…"}</b> nuevas</span>`}</span>${p+nv?`<span class="mazo-go">Empezar →</span>`:`<span class="muted">${m==="x"?"Los fallos de los simulacros entran aquí":"Al día ✓"}</span>`}</button>`}).join("")}</div>
+      <div class="row" style="margin-top:16px;align-items:center">${tot?`<button class="btn acc" data-mazo="">Repasar todo lo pendiente (${tot})</button>`:""}
+        <label class="lib-row" style="margin:0">Nuevas por día <select class="inp" id="tarN">${[5,10,15,20,30].map(n=>`<option ${n===tarNuevasDia()?"selected":""}>${n}</option>`).join("")}</select></label></div>`}
+  const c=deck.cards[deck.i],M=MAZOS[deck.m]||{n:"Todo",f:"🗂"};
+  if(!c)return `<div class="card tk-res"><div style="font-size:54px">🎉</div><h2>¡Mazo terminado!</h2><div class="tk-num"><div><b>${deck.ok}</b><small>bien</small></div><div><b>${deck.mal}</b><small>otra vez</small></div></div>
+    <p class="muted">Mañana te esperan las que tocan. Lo que has dicho «bien» ya cuenta como dominado en su sección.</p><div class="row" style="justify-content:center"><button class="btn acc" data-tarfuera>Volver a los mazos</button><button class="btn ghost" data-go="plan">Ver el plan</button></div></div>`;
+  return `<div class="tk-top"><button class="btn ghost" data-tarfuera>← Mazos <kbd>Esc</kbd></button><b>${M.f} ${M.n}</b><span class="mono">${deck.i+1} / ${deck.cards.length}</span></div>
+    <div class="fc-prog"><i style="width:${deck.i/deck.cards.length*100}%"></i></div>
+    <div class="deck" id="deck"><div class="fc3 ${deck.flipped?"girada":""}" id="fc" tabindex="0" aria-live="polite">
+<div class="fc-in">
+      <div class="cara frente">${tarFrente(c)}<span class="fc-pista">Toca o pulsa espacio para girar</span></div>
+      <div class="cara dorso">${tarDorso(c)}</div></div></div></div>
+    <div class="deck-ctrl ${deck.flipped?"":"oculto"}" id="tarBts">${[["1","again","Otra vez","hoy"],["2","hard","Difícil","1 día"],["3","good","Bien",tarIntervalo(c,1)],["4","easy","Fácil",tarIntervalo(c,2)]].map(([k,id,n,d])=>`<button class="btn tar-b ${id}" data-tar="${k}" data-key="${k}"><b>${n}</b><small>${d}</small></button>`).join("")}</div>
+    <p class="muted kb-tip" style="text-align:center;font-size:14px">Espacio gira · 1 otra vez · 2 difícil · 3 bien · 4 fácil · también puedes deslizar (→ bien, ← otra vez)</p>`}
+function tarIntervalo(c,salto){const b=Math.min(5,(S.srs[c.id]?.b||0)+salto),d=BOX_DAYS[b];return d>=30?Math.round(d/30)+" mes":d+" día"+(d>1?"s":"")}
+function tarGirar(){if(!deck?.cards[deck.i])return;deck.flipped=!deck.flipped;$("#fc")?.classList.toggle("girada",deck.flipped);$("#tarBts")?.classList.toggle("oculto",!deck.flipped);if(deck.flipped)tarOir()}
+function tarOir(){const c=deck?.cards[deck.i];if(c?.tipo==="k")kSpeak(c.set,kVoice(c.set,c.it))}
+function tarResponde(k){const fc=$("#fc");if(!deck?.cards[deck.i]||!fc||fc.dataset.gone)return;if(!deck.flipped)return tarGirar();fc.dataset.gone=1;
+  const c=deck.cards[deck.i],cur=S.srs[c.id]||{b:0},bien=k>=3;
+  const b=k===1?0:k===2?cur.b:Math.min(5,cur.b+(k===4?2:1)),dias=k===1?0:k===2?1:BOX_DAYS[b],d=new Date();d.setDate(d.getDate()+dias);
+  if(bien&&b>=5)delete S.srs[c.id];else S.srs[c.id]={b,due:dias?d.toISOString().slice(0,10):today()};
+  if(k===1)deck.cards.push({...c,nueva:false});
+  if(c.nueva){S.tarHoy=S.tarHoy?.d===today()?S.tarHoy:{d:today()};S.tarHoy[deck.m]=(S.tarHoy[deck.m]||0)+1;c.nueva=false}
+  if(c.tipo==="k"){const id=kid(c.set,c.it.c),st=S.kana[id]||[0,0];S.kana[id]=[st[0]+(k>=2?1:0)+(k===4?1:0),st[1]+1+(k===4?1:0)];apunta(KEXT(c.set)||"ja",1)}
+  else apunta(AREA_DE_EX[c.x],1);
+  bien?deck.ok++:deck.mal++;S.cards++;S.xp+=bien?5:1;touchDay(1);if(S.cards>=100)award("cards100");save();sfx(k>=2);
+  fc.style.transform=`translateX(${k>=3?130:-130}%) rotate(${k>=3?14:-14}deg)`;fc.style.opacity="0";
+  setTimeout(()=>{deck.i++;deck.flipped=false;render();if(deck.cards[deck.i]?.tipo==="k"&&(S.tarAudio??true))setTimeout(tarOir,250);if(!deck.cards[deck.i])confetti()},230)}
 function bindCards(){
-  if(!deck){prepDeck().then(()=>{if(route.v==="cards")render()});return}
+  document.querySelectorAll("[data-mazo]").forEach(b=>b.onclick=()=>prepDeck(b.dataset.mazo||null).then(()=>{if(route.v==="cards"){render();if(deck.cards[0]?.tipo==="k")setTimeout(tarOir,300)}}));
+  document.querySelectorAll("[data-tarfuera]").forEach(b=>b.onclick=()=>{deck=null;render()});
+  const n=$("#tarN");if(n)n.onchange=()=>{S.tarNuevas=+n.value;save();render()};
+  if(!deck&&!KANA)loadKana().then(()=>{if(route.v==="cards"&&!deck)render()}).catch(()=>{});
   const fc=$("#fc");if(!fc)return;
-  const answer=(know)=>{if(fc.dataset.gone)return;fc.dataset.gone=1;const c=deck.cards[deck.i];const cur=S.srs[c.id]||{b:0};const b=know?Math.min(5,cur.b+1):0;
-    const d=new Date();d.setDate(d.getDate()+(know?BOX_DAYS[b]:0));
-    if(know&&b>=5)delete S.srs[c.id];else S.srs[c.id]={b,due:know?d.toISOString().slice(0,10):today()};
-    if(!know)deck.cards.push(c);
-    S.cards++;S.xp+=know?5:1;touchDay(1);if(S.cards>=100)award("cards100");save();
-    fc.style.transform=`translateX(${know?140:-140}%) rotate(${know?18:-18}deg)`;fc.style.opacity="0";
-    setTimeout(()=>{deck.i++;deck.flipped=false;render()},220)};
-  $("#flip").onclick=fc.onclick=()=>{deck.flipped=!deck.flipped;render()};
-  $("#know").onclick=()=>answer(true);$("#again").onclick=()=>answer(false);
+  document.querySelectorAll("[data-tar]").forEach(b=>b.onclick=()=>tarResponde(+b.dataset.tar));
+  const oir=fc.querySelector("[data-fcoir]");if(oir)oir.onclick=e=>{e.stopPropagation();tarOir()};
   let sx=null,dx=0;
-  fc.onpointerdown=e=>{sx=e.clientX;dx=0;fc.setPointerCapture(e.pointerId);fc.style.transition="none"};
-  fc.onpointermove=e=>{if(sx==null)return;dx=e.clientX-sx;fc.style.transform=`translateX(${dx}px) rotate(${dx/20}deg)`};
-  fc.onpointerup=e=>{fc.style.transition="";if(Math.abs(dx)>90){answer(dx>0)}else{fc.style.transform="";if(Math.abs(dx)<6){deck.flipped=!deck.flipped;render()}}sx=null};
-  fc.onclick=null;
-}
+  fc.onpointerdown=e=>{if(e.target.closest("[data-fcoir]"))return;sx=e.clientX;dx=0;fc.setPointerCapture(e.pointerId);fc.style.transition="none"};
+  fc.onpointermove=e=>{if(sx==null)return;dx=e.clientX-sx;fc.style.transform=`translateX(${dx}px) rotate(${dx/22}deg)`};
+  fc.onpointerup=()=>{if(sx==null)return;fc.style.transition="";fc.style.transform="";if(Math.abs(dx)>90&&deck.flipped)tarResponde(dx>0?3:1);else if(Math.abs(dx)<6)tarGirar();sx=null}}
 
 /* ============ Parejas (Empareja y Modo Rayo) ============ */
 function pairsFor(x){
@@ -2262,7 +2378,7 @@ function viewKana(){
   if(!KANA){loadKana().then(render).catch(e=>toast(e.message));return `<p class="muted" style="padding:40px 0">Cargando…</p>`}
   const grp=KGRUPO[kGv()], set=grp.includes(route.k)?route.k:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
   const known=L.filter(i=>kKnown(set,i.c)).length;
-  const sw=Object.entries(KSETS).filter(([k])=>grp.includes(k)).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="ja">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
+  const sw=grp.map(k=>[k,KSETS[k]]).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="ja">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
   let body="";
   if(tab==="tabla"){
     if(!kSel||!L.some(i=>i.c===kSel))kSel=L[0].c;

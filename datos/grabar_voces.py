@@ -56,6 +56,8 @@ ESCUCHA = {
 ES = ("edge", "es-ES-ElviraNeural", "+0%")
 PT = ("edge", "pt-PT-RaquelNeural", "-6%")
 RU = ("edge", "ru-RU-SvetlanaNeural", "-8%")
+# Números al oído: paquete → (idioma en kana.json, voz)
+NUM = {"npt": ("pt", "pt-PT-RaquelNeural"), "nru": ("ru", "ru-RU-SvetlanaNeural"), "nja": ("ja", "ja-JP-NanamiNeural")}
 # ElevenLabs: voces que suenan a Portugal (cámbialas en .env con ELEVENLABS_VOZ_PT=id1,id2…)
 ELEVEN = "https://api.elevenlabs.io/v1"
 ELEVEN_MODELO = "eleven_multilingual_v2"
@@ -105,7 +107,7 @@ def textos_es():
     """Lo que Manos libres dice en español: libSignif() y la traducción de la frase."""
     out = []
     for s, L in _kana().items():
-        if s == "lecturas":  # no es una lista de fichas
+        if not isinstance(L, list):  # «lecturas» y «numeros» no son listas de fichas
             continue
         for it in L:
             out.append("Se lee " + it["r"] if s in ("hira", "kata") else it.get("m", ""))
@@ -295,6 +297,9 @@ def trabajos(motor):
         tareas += [("es", t, ES[1], ES[2]) for t in textos_es()]
     if PT[0] == motor:
         tareas += [("pt", t, PT[1], PT[2]) for t in textos_pt()]
+    if motor == "edge":
+        for pq, (idi, voz) in NUM.items():
+            tareas += [(pq, x["t"], voz, "+0%") for x in _kana().get("numeros", {}).get(idi, [])]
     if RU[0] == motor:
         tareas += [("ru", t, RU[1], RU[2]) for t in textos_ru()]
     return list(dict.fromkeys(tareas))
