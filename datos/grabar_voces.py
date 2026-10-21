@@ -3,7 +3,8 @@
   para kana, kanji, vocabulario y frases. Las frases de «matón» van siempre con Kokoro jm_kumo:
   la ACML no permite usar sus voces para insultar.
 - Escucha del N5 (mujer + hombre) y del TOEFL/IELTS en acento americano y británico (Kokoro).
-- Español de «Manos libres» (significados y traducciones) con Kokoro ef_dora.
+- Español de «Manos libres» (significados y traducciones) y portugués de Portugal con las voces
+  neuronales de Microsoft Edge (motor «edge», paquete edge-tts: gratis, sin cuenta ni clave).
 - Portugués de Portugal con ElevenLabs (motor «eleven»): plan gratis, sin tarjeta, 10.000 créditos
   al mes; todo el portugués son ~3.200 caracteres. La clave va en .env (ELEVENLABS_API_KEY) y
   nunca llega a la página: se graba aquí y se sirven archivos. El plan gratis pide citar a
@@ -13,6 +14,7 @@ Necesita AivisSpeech encendido (comando `aivis`) para el motor aivis, y .venv-tt
 kokoro-onnx + misaki[ja] y modelos-tts/ para el motor kokoro (ver README de voces abajo).
 
 Uso:  python3 datos/grabar_voces.py aivis                         (con el python normal)
+      .venv-tts/bin/python datos/grabar_voces.py edge              (español y portugués)
       python3 datos/grabar_voces.py eleven [--muestra] [--voces]   (--muestra: 3 pruebas por voz)
       .venv-tts/bin/python datos/grabar_voces.py kokoro            (en paralelo, otra terminal)
 Solo graba lo que falta. Salida: www/voz/<paquete>/<fnv>.m4a — el nombre es el hash FNV-1a del
@@ -51,7 +53,8 @@ ESCUCHA = {
     "gbw": ("kokoro", "bf_emma", "en-gb"), "gbm": ("kokoro", "bm_george", "en-gb"),
 }
 # Español de Manos libres
-ES = ("kokoro", "ef_dora", "es")
+ES = ("edge", "es-ES-ElviraNeural", "+0%")
+PT = ("edge", "pt-PT-RaquelNeural", "-6%")
 # ElevenLabs: voces que suenan a Portugal (cámbialas en .env con ELEVENLABS_VOZ_PT=id1,id2…)
 ELEVEN = "https://api.elevenlabs.io/v1"
 ELEVEN_MODELO = "eleven_multilingual_v2"
@@ -219,6 +222,21 @@ def main_eleven(args):
         sys.exit("Fallaron:\n" + "\n".join(fallos[:20]))
 
 
+def edge(texto, voz, ritmo):
+    import asyncio
+    import edge_tts
+    async def _go():
+        b = b""
+        async for c in edge_tts.Communicate(texto, voz, rate=ritmo).stream():
+            if c["type"] == "audio":
+                b += c["data"]
+        return b
+    b = asyncio.run(_go())
+    if not b:
+        raise RuntimeError("edge-tts no devolvió audio")
+    return b
+
+
 _kk = _g2p = None
 
 
@@ -260,6 +278,8 @@ def trabajos(motor):
                     tareas.append((pq, t, v, idi or "ja"))
     if ES[0] == motor:
         tareas += [("es", t, ES[1], ES[2]) for t in textos_es()]
+    if PT[0] == motor:
+        tareas += [("pt", t, PT[1], PT[2]) for t in textos_pt()]
     return list(dict.fromkeys(tareas))
 
 
@@ -267,8 +287,8 @@ def main():
     motor = sys.argv[1] if len(sys.argv) > 1 else ""
     if motor == "eleven":
         return main_eleven(sys.argv[2:])
-    if motor not in ("aivis", "kokoro"):
-        sys.exit("Uso: grabar_voces.py aivis|kokoro|eleven")
+    if motor not in ("aivis", "kokoro", "edge"):
+        sys.exit("Uso: grabar_voces.py aivis|kokoro|edge|eleven")
     if motor == "aivis":
         try:
             urllib.request.urlopen(AIVIS + "/version", timeout=5)
@@ -283,7 +303,7 @@ def main():
         ruta = os.path.join(WWW, "voz", pq, h + ".m4a")
         if not os.path.exists(ruta):
             try:
-                a_m4a(aivis(texto, voz) if motor == "aivis" else kokoro(texto, voz, idioma), ruta); nuevos += 1
+                a_m4a(aivis(texto, voz) if motor == "aivis" else edge(texto, voz, idioma) if motor == "edge" else kokoro(texto, voz, idioma), ruta); nuevos += 1
             except Exception as e:  # sigue con el resto y avisa al final
                 fallos.append(f"{pq} · {texto[:40]}: {e}")
         if n % 100 == 0:

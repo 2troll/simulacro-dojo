@@ -337,6 +337,8 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kc.seen{background:var(--warn-bg)} .kc.known{background:var(--ok-bg);border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
 .kc.sel{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
 .kdet{display:grid;gap:4px}
+.kpron{margin:8px 0 0;min-height:1.4em;font-weight:600}.kpron.ok{color:var(--ok)}.kpron.casi{color:var(--warn)}.kpron.mal{color:var(--bad,#c0392b)}
+.btn.rec{animation:libLat 1s infinite}
 .kbig{font:400 140px/1.1 var(--f-jp);text-align:center;color:var(--ink)}
 .ktrick{background:var(--bubble);border-radius:12px;padding:12px 14px;margin:6px 0;display:grid;gap:4px;font-size:15.5px}
 .kquiz{max-width:640px;margin:0 auto;display:grid;gap:16px}
@@ -835,7 +837,7 @@ function viewHome(){
   <div class="steps">${[["一","Calienta","Dos rondas de Empareja o un test de kana. Cinco minutos."],["二","Simula","Un simulacro con reloj. Los fallos pasan solos a tus tarjetas."],["三","Repasa","Lee el truco de cada fallo. Ahí está el 80 % del aprendizaje."],["四","Repite","Tarjetas cada día: lo que fallas vuelve hasta que lo sabes."]].map(([k,t,d])=>`<div class="step reveal"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
   <div class="sec-title reveal"><h2><span class="num">03 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
   <div class="badges">${badges}</div>
-  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (ACML 1.0), Kokoro (Apache 2.0) y, en portugués, <a href="https://elevenlabs.io/text-to-speech" rel="noopener">ElevenLabs</a></span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>${cuenta?"Tu progreso se guarda en tu cuenta":"Tu progreso se guarda solo en este navegador"}</span></footer>`;
+  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (ACML 1.0), Kokoro (Apache 2.0) y, en español y portugués, las voces neuronales de Microsoft Edge</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>${cuenta?"Tu progreso se guarda en tu cuenta":"Tu progreso se guarda solo en este navegador"}</span></footer>`;
 }
 // Cuenta atrás: cuánto queda para tu examen y cuánto practicar al día
 function metaHTML(){
@@ -1043,7 +1045,7 @@ function libTTS(t,lang,rate){return new Promise(res=>{try{let ok=false;const fin
   const u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=rate||1;const v=pickVoice(lang,"F");if(v)u.voice=v;u.onend=u.onerror=fin;speechSynthesis.speak(u)}catch(e){res()}})}
 function libJa(t){if(S.voz==="sys")return libTTS(t,"ja-JP",.85);
   return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>libTTS(t,"ja-JP",.85).then(fin),fin)})}
-// Audio grabado (portugués con ElevenLabs, español con Kokoro); si falta, la voz del sistema
+// Audio grabado (español y portugués con las voces de Edge); si falta, la voz del sistema
 function libVoz(pq,t,lang,rate){return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(pq,t),()=>libTTS(t,lang,rate).then(fin),fin)})}
 function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libVoz("pt",t,"pt-PT",.92):libJa(t)}
 function libEs(t){lib.dicho=sinTilde(t);return libVoz("es",t,"es-ES",1.05)}
@@ -1788,6 +1790,23 @@ const KGRUPO={kana:["hira","kata","kanji","vocab","kansai"],pt:["pt","falsos","t
 const KPT=set=>KGRUPO.pt.includes(set);
 function kLang(set){return KPT(set)?"pt-PT":"ja"}
 function kSpeak(set,t){KPT(set)?sayPT(t):sayJa(t)}
+/* ============ Pronunciación: escucha con el micro y compara (reconocimiento del navegador, gratis) ============ */
+const SRec=window.SpeechRecognition||window.webkitSpeechRecognition;
+const kataHira=t=>t.replace(/[\u30a1-\u30f6]/g,c=>String.fromCharCode(c.charCodeAt(0)-96));
+const pronNorm=t=>kataHira(sinTilde(String(t).toLowerCase())).replace(/[\s、。，,.!?¡¿！？「」…~〜・\-]/g,"");
+function lev(a,b){const d=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let p=d[0];d[0]=i;for(let j=1;j<=b.length;j++){const t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return d[b.length]}
+function pronParecido(dicho,objetivos){const x=pronNorm(dicho);let m=0;for(const o of objetivos){const y=pronNorm(o);if(!y)continue;m=Math.max(m,1-lev(x,y)/Math.max(x.length,y.length))}return m}
+let pronRec=null;
+function pronProbar(set,it,btn){const out=$("#kpron");if(!SRec||!out)return;if(pronRec){pronRec.abort();return}
+  stopVoz();const r=new SRec();pronRec=r;r.lang=KPT(set)?"pt-PT":"ja-JP";r.interimResults=false;r.maxAlternatives=5;
+  btn.classList.add("rec");btn.textContent="● Te escucho…";out.className="kpron";out.textContent="Di la palabra ahora";
+  const obj=[it.c,it.k,it.wr,it.r,kVoice(set,it),...String(it.c).split(" / ")].filter(Boolean);
+  r.onresult=e=>{const alts=[...e.results[0]].map(a=>a.transcript);let best=0,txt=alts[0]||"";for(const a of alts){const p=pronParecido(a,obj);if(p>best){best=p;txt=a}}
+    const nivel=best>=.85?["ok","¡Perfecto! 🎯"]:best>=.55?["casi","Casi: escúchala otra vez y repite"]:["mal","No se entendió bien. Prueba más despacio"];
+    out.className="kpron "+nivel[0];out.innerHTML=`${nivel[1]} <span class="muted">· he oído «${h(txt)}»</span>`;sfx(best>=.85);if(best>=.85){S.xp+=2;save()}};
+  r.onerror=e=>{out.className="kpron mal";out.textContent=e.error==="not-allowed"?"Sin permiso para el micrófono":e.error==="no-speech"?"No te he oído. Pulsa y habla":"El reconocimiento necesita internet"};
+  r.onend=()=>{pronRec=null;btn.classList.remove("rec");btn.textContent="🎙 Dilo tú"};
+  try{r.start()}catch(e){pronRec=null}}
 // Kanji, vocabulario y Kansai se preguntan por el significado; los kana, por el sonido
 const KMEAN=set=>set==="kanji"||set==="vocab"||set==="kansai"||KPT(set);
 function kShow(set,it){return KMEAN(set)?it.m:it.r}
@@ -1803,7 +1822,8 @@ const VOZ_EN=[["auto","Según el examen (TOEFL americano · IELTS británico)"],
 let kAudio=null, KMATON=new Set();
 function vozUrl(pq,t){return "voz/"+pq+"/"+hashStr(t).toString(16).padStart(8,"0")+".m4a"}
 function stopVoz(){try{speechSynthesis.cancel()}catch(e){}if(kAudio){kAudio.onended=kAudio.onerror=null;kAudio.pause();kAudio=null}}
-function playVoz(url,fallback,onEnd){stopVoz();let done=false;const a=new Audio(url);kAudio=a;const fb=()=>{if(done||kAudio!==a)return;done=true;fallback()};a.onerror=fb;a.onended=()=>{if(kAudio===a)onEnd&&onEnd()};a.play().catch(fb);return a}
+let vozRate=1;
+function playVoz(url,fallback,onEnd){stopVoz();let done=false;const a=new Audio(url);kAudio=a;a.playbackRate=vozRate;a.preservesPitch=true;const fb=()=>{if(done||kAudio!==a)return;done=true;fallback()};a.onerror=fb;a.onended=()=>{if(kAudio===a)onEnd&&onEnd()};a.play().catch(fb);return a}
 function sayJa(t){if(S.voz==="sys")return sayTTS(t);playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>sayTTS(t))}
 function sayPT(t){playVoz(vozUrl("pt",t),()=>ptTTS(t))}
 function ptTTS(t){stopVoz();try{const u=new SpeechSynthesisUtterance(t);u.lang="pt-PT";u.rate=.92;const v=pickVoice("pt-PT","F");if(v&&v.lang.replace("_","-").startsWith("pt-PT"))u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene voz portuguesa")}}
@@ -1834,7 +1854,7 @@ function kDetail(set){
     :`<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div>${it.g?`<p class="muted" style="margin:6px 0 0">${it.g==="dakuten"?"Las comillas ゛ hacen la consonante sonora (k→g, s→z, t→d, h→b) y el círculo ゜ la convierte en p.":"Combinación: la ゃゅょ pequeña se pega a la anterior y forman una sola sílaba."}</p>`:""}`;
   return `<div class="kdet card" id="kdet"><button class="kclose" data-kclose aria-label="Cerrar ficha">✕</button><div class="kbig ${kWord(set)?"long":""}" lang="${kLang(set)}">${h(it.c)}</div>
     ${it.t&&set!=="kansai"&&!KPT(set)?`<p class="ktrick"><span class="eyebrow">Truco</span>${h(it.t)}</p>`:""}${info}
-    <div class="row" style="margin-top:12px"><button class="btn acc" data-say="${h(kVoice(set,it))}">▶ Escuchar</button>${kWord(set)?"":`<button class="btn ghost" data-kdraw="${h(it.c)}">Dibújalo</button>`}</div>
+    <div class="row" style="margin-top:12px"><button class="btn acc" data-say="${h(kVoice(set,it))}">▶ Escuchar</button><button class="btn ghost" data-lento="${h(kVoice(set,it))}" title="Más despacio">🐢 Lento</button>${kWord(set)?(SRec?`<button class="btn ghost" data-pron="${h(it.c)}">🎙 Dilo tú</button>`:""):`<button class="btn ghost" data-kdraw="${h(it.c)}">Dibújalo</button>`}</div><p class="kpron" id="kpron" aria-live="polite"></p>
     <small class="muted mono">${st[1]?`${st[0]}/${st[1]} aciertos en el test`:"Aún no ha salido en el test"}</small></div>`;
 }
 function viewKana(){
@@ -1896,6 +1916,8 @@ function bindKana(){
   document.querySelectorAll("[data-kt]").forEach(b=>b.onclick=()=>{route.kt=b.dataset.kt;if(b.dataset.kt!=="test")kq=null;render()});
   document.querySelectorAll("[data-kc]").forEach(b=>b.onclick=()=>{kPick(b);kSay()});
   document.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>kSpeak(kCur(),b.dataset.say));
+  document.querySelectorAll("[data-lento]").forEach(b=>b.onclick=()=>{vozRate=.7;kSpeak(kCur(),b.dataset.lento);vozRate=1});
+  document.querySelectorAll("[data-pron]").forEach(b=>b.onclick=()=>{const set=kCur();pronProbar(set,KANA[set].find(i=>i.c===b.dataset.pron)||{c:b.dataset.pron},b)});
   document.querySelectorAll("[data-kdraw]").forEach(b=>b.onclick=()=>{route.kt="dibuja";route.kd=b.dataset.kdraw;render()});
   document.querySelectorAll("[data-kdir]").forEach(b=>b.onclick=()=>{route.kdir=b.dataset.kdir==="1";render()});
   document.querySelectorAll("[data-kq]").forEach(b=>b.onclick=()=>{const k=b.dataset.kq==="again"?kq.kind:b.dataset.kq;kStartQuiz(kCur(),k);kq.kind=k});
