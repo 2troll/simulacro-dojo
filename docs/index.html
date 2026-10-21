@@ -363,8 +363,8 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .mnav,.kclose{display:none}
 @media (max-width:820px){
   .top .nav{display:none}
-  .mnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
-  .mnav button{display:grid;justify-items:center;gap:1px;background:none;border:0;border-radius:12px;padding:6px 2px;font:700 11.5px var(--f-body);color:var(--ink-2)}
+  .mnav{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+  .mnav button{display:grid;justify-items:center;gap:1px;background:none;border:0;border-radius:12px;padding:6px 2px;font:700 10.5px var(--f-body);color:var(--ink-2)}
   .mnav button span{font:400 22px/1.1 var(--f-brush)}
   .mnav button[aria-current="page"]{color:var(--hanko);background:color-mix(in srgb,var(--hanko) 10%,transparent)}
   .wrap{padding-bottom:96px}
@@ -424,6 +424,24 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kb-row span:first-child{flex:none}.kb-row span:last-child{color:var(--ink-2);text-align:right}
 kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .kb-line{margin:-6px 0 14px}
+/* Manos libres */
+.lib-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start;margin-top:8px}
+.lib-card{min-height:330px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px;padding:26px}
+.lib-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-2)}
+.lib-big{font-size:clamp(54px,11vw,104px);line-height:1.1;font-weight:700;word-break:break-word}
+.lib-ans{opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s;display:grid;gap:6px}
+.lib-ans.on{opacity:1;transform:none}
+.lib-rd{font:600 20px var(--f-mono);color:var(--ink-2)}.lib-m{font-size:24px;font-weight:700;color:var(--hanko)}.lib-f{font-size:19px;margin-top:6px}
+.lib-turno{margin:6px auto 0;font:700 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hanko);animation:libLat 1.2s ease-in-out infinite}
+@keyframes libLat{50%{opacity:.35}}
+.lib-ctrl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.lib-play{min-width:180px;font-size:18px;padding:14px 22px}
+.lib-ctrl .ghost[aria-pressed="true"]{border-color:var(--hanko);color:var(--hanko)}
+.lib-oido{text-align:center;font-size:13px;margin-top:12px}
+.lib-sets{display:grid;gap:8px;margin-bottom:14px}.lib-sets label,.lib-row{display:flex;align-items:center;gap:8px;font-size:15px}
+.lib-row{justify-content:space-between;margin-top:10px}.lib-row:has(input[type=checkbox]){justify-content:flex-start}
+.lib-opts .vozbar{margin-top:14px;flex-wrap:wrap}
+@media (max-width:820px){.lib-grid{grid-template-columns:1fr}.lib-card{min-height:280px}}
 /* Buscador rápido (/ o Ctrl+K) */
 .cmd-btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:13px;font-weight:600;white-space:nowrap;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 12px;cursor:pointer}
 .cmd-btn:hover{color:var(--ink);border-color:var(--ink-2)}
@@ -696,27 +714,27 @@ function speak(script,lang,onEnd){
 
 /* ============ Rutas ============ */
 let route={v:"home"}; let run=null;
-function go(r){route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
+function go(r){if(lib.on&&r.v!=="libre")libPara();route=r;stopVoz();kSheet=false;document.body.dataset.x=r.v==="kana"||r.v==="pt"?r.v:(r.x||"");render();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)}
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"?viewKana():v==="libre"?viewLibre():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt")bindKana(); if(v==="libre")bindLibre(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
   const nb=(v,l,kk)=>`<button data-go="${v}" data-key="${kk}" ${cur===v?'aria-current="page"':""}>${l}</button>`;
   return `<header class="top"><div class="top-in">
     <button class="brand" data-go="home" aria-label="Inicio"><span class="brand-mark"></span>Dojo</button>
-    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana y kanji","K")}${nb("pt","Portugués","P")}${nb("cards","Tarjetas","T")}${nb("guide","Guía y tutor","G")}</nav>
+    <nav class="nav">${nb("home","Exámenes","H")}${nb("kana","Kana y kanji","K")}${nb("pt","Portugués","P")}${nb("libre","Manos libres","L")}${nb("cards","Tarjetas","T")}${nb("guide","Guía y tutor","G")}</nav>
     <div class="stats">
       <button class="cmd-btn" data-cmd aria-label="Buscar o ir a…"><span aria-hidden="true">⌕</span><span class="cmd-t">Ir a…</span><kbd>/</kbd></button>
       <span class="stat" title="Racha de días"><svg class="flame" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 0C8 4 13 6 13 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 2 2 3 2 4 1-2 2-5 2-8z" fill="${streakAlive()?"var(--warn)":"var(--line)"}"/></svg>${S.streak||0}</span>
       <span class="stat" title="Experiencia · ${h(L.name)}">${S.xp} XP</span>
     </div>
   </div></header>
-  <nav class="mnav" aria-label="Secciones">${[["home","試","Exámenes"],["kana","あ","Kana"],["pt","ポ","Portugués"],["cards","札","Tarjetas"],["guide","導","Guía"]].map(([v,k,l])=>`<button data-go="${v}" ${cur===v||(v==="home"&&cur==="exam")?'aria-current="page"':""}><span lang="ja">${k}</span>${l}</button>`).join("")}</nav>`;
+  <nav class="mnav" aria-label="Secciones">${[["home","試","Exámenes"],["kana","あ","Kana"],["pt","ポ","Portugués"],["libre","耳","Libre"],["cards","札","Tarjetas"],["guide","導","Guía"]].map(([v,k,l])=>`<button data-go="${v}" ${cur===v||(v==="home"&&cur==="exam")?'aria-current="page"':""}><span lang="ja">${k}</span>${l}</button>`).join("")}</nav>`;
 }
 
 /* ============ Portada ============ */
@@ -958,16 +976,119 @@ function bindRun(){
 }
 function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#fill");if(f)run.ans[run.i]=f.value}
 function rerun(keepScroll){const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else scrollTo(0,0)}
+/* ============ Manos libres: te lo dice, te deja pensar, te da la respuesta y sigue solo ============ */
+const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"]];
+const lib={on:false,i:0,cola:[],tok:0,rev:false,mic:null,micOn:false,oido:"",wake:null,dicho:""};
+function libCfg(){if(!S.libre)S.libre={sets:["vocab"],pausa:3,es:true,frase:true,nuevas:true};return S.libre}
+function libCola(){const c=libCfg();let L=[];for(const s of c.sets)for(const it of KANA[s]||[])L.push([s,it]);
+  if(c.nuevas){const f=L.filter(([s,it])=>!kKnown(s,it.c));if(f.length)L=f}
+  lib.cola=shuffle(L,Math.random);lib.i=0}
+const libEspera=ms=>new Promise(r=>setTimeout(r,ms));
+// Promesas que acaban siempre (fin del audio, error o tiempo máximo), para que la cadena nunca se quede colgada
+function libTTS(t,lang,rate){return new Promise(res=>{try{let ok=false;const fin=()=>{if(!ok){ok=true;clearTimeout(to);res()}};const to=setTimeout(fin,2000+t.length*200);
+  const u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=rate||1;const v=pickVoice(lang,"F");if(v)u.voice=v;u.onend=u.onerror=fin;speechSynthesis.speak(u)}catch(e){res()}})}
+function libJa(t){if(S.voz==="sys")return libTTS(t,"ja-JP",.85);
+  return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>libTTS(t,"ja-JP",.85).then(fin),fin)})}
+function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libTTS(t,"pt-PT",.92):libJa(t)}
+function libEs(t){lib.dicho=sinTilde(t);return libTTS(t,"es-ES",1.05)}
+function libSignif(set,it){return set==="hira"||set==="kata"?"Se lee "+it.r:it.m}
+async function libBucle(){const my=++lib.tok,vivo=()=>lib.on&&my===lib.tok;
+  while(vivo()){if(!lib.cola.length){libPara();toast("No hay nada que repasar en lo elegido");return}
+    const [s,it]=lib.cola[lib.i],c=libCfg();lib.rev=false;libDraw();libMedia(it);
+    await libDi(s,kVoice(s,it));if(!vivo())return;
+    await libEspera(c.pausa*1000);if(!vivo())return;          // tu turno: dilo en voz alta
+    lib.rev=true;libDraw();
+    if(c.es){await libEs(libSignif(s,it));if(!vivo())return}
+    await libDi(s,kVoice(s,it));if(!vivo())return;             // repetirlo después ayuda a fijarlo
+    if(c.frase&&it.f){await libEspera(400);await libDi(s,it.f);if(!vivo())return;if(c.es&&it.fe){await libEs(it.fe);if(!vivo())return}}
+    await libEspera(900);if(!vivo())return;
+    lib.i++;if(lib.i>=lib.cola.length)libCola()}}
+function libPlay(){if(!KANA)return;if(!lib.cola.length)libCola();lib.on=true;libWake(true);libBucle();libBotones()}
+function libPara(){lib.on=false;lib.tok++;stopVoz();libWake(false);libBotones();libDraw()}
+function libToggle(){lib.on?libPara():libPlay()}
+function libSalta(d){if(!lib.cola.length)return;lib.i=(lib.i+d+lib.cola.length)%lib.cola.length;stopVoz();lib.on?libBucle():libDraw()}
+function libRep(){stopVoz();lib.on?libBucle():libPlay()}
+function libSe(){const x=lib.cola[lib.i];if(!x)return;const [s,it]=x,st=kStat(s,it.c);S.kana[kid(s,it.c)]=[st[0]+2,st[1]+2];save();
+  lib.cola.splice(lib.i,1);if(lib.i>=lib.cola.length)lib.i=0;toast("Hecho: «"+it.c+"» ya no te sale");stopVoz();if(!lib.cola.length)libCola();lib.on?libBucle():libDraw()}
+async function libWake(on){try{if(on&&!lib.wake&&navigator.wakeLock)lib.wake=await navigator.wakeLock.request("screen");else if(!on&&lib.wake){await lib.wake.release();lib.wake=null}}catch(e){}}
+// Botones de los auriculares y de la pantalla bloqueada
+function libMedia(it){const ms=navigator.mediaSession;if(!ms)return;try{
+  if(window.MediaMetadata)ms.metadata=new MediaMetadata({title:it.c,artist:"Dojo · manos libres",artwork:[{src:"icon-512.png",sizes:"512x512",type:"image/png"}]});
+  ms.setActionHandler("play",libPlay);ms.setActionHandler("pause",libPara);ms.setActionHandler("nexttrack",()=>libSalta(1));ms.setActionHandler("previoustrack",()=>libSalta(-1))}catch(e){}}
+// Mandos por voz: Chrome reconoce el español gratis y sin clave
+const LIB_ORDENES=[[/\b(siguiente|pasa|next|otra)$/,()=>libSalta(1)],[/\b(atras|anterior)$/,()=>libSalta(-1)],[/\b(repite|repitelo|otra vez|repetir)$/,libRep],
+  [/\b(para|pausa|stop|espera|callate)$/,libPara],[/\b(sigue|empieza|continua|dale|play|vamos)$/,libPlay],[/\b(la se|ya la se|me la se|facil)$/,libSe],
+  [/\bmas lento$/,()=>libPausa(2)],[/\bmas rapido$/,()=>libPausa(-1)]];
+function libPausa(d){const c=libCfg();c.pausa=Math.max(1,Math.min(10,c.pausa+d));save();toast("Tiempo para pensar: "+c.pausa+" s");const p=$("#libPausa");if(p)p.value=String(c.pausa)}
+function libOrden(raw){const t=sinTilde(raw).replace(/[.,;:!¡?¿]/g,"").trim();
+  if(!t||t.split(/\s+/).length>3||(lib.dicho&&lib.dicho.includes(t)))return;   // frases largas o lo que acaba de decir la propia app: no es una orden
+  lib.oido=t;const o=LIB_ORDENES.find(([re])=>re.test(t));if(o)o[1]();const m=$("#libOido");if(m)m.textContent=o?"Entendido: «"+t+"»":"Oído: «"+t+"»"}
+function libMic(on){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){toast("Tu navegador no entiende la voz: ábrelo en Chrome");return}
+  if(!on){lib.micOn=false;if(lib.mic)try{lib.mic.stop()}catch(e){}lib.mic=null;libBotones();return}
+  const r=new SR();r.lang="es-ES";r.continuous=true;r.interimResults=false;
+  r.onresult=e=>{const x=e.results[e.results.length-1];if(x.isFinal)libOrden(x[0].transcript)};
+  r.onerror=e=>{if(e.error==="not-allowed"||e.error==="service-not-allowed"){toast("Sin permiso para el micrófono");libMic(false)}};
+  r.onend=()=>{if(lib.micOn&&lib.mic===r)try{r.start()}catch(e){}};   // Chrome lo corta cada cierto tiempo: se vuelve a encender
+  lib.mic=r;lib.micOn=true;try{r.start()}catch(e){}libBotones()}
+// Descarga las voces de lo elegido para estudiar sin internet
+async function libGuardar(){const b=$("#libSave"),c=libCfg(),urls=new Set(["kana.json"]);
+  if(!navigator.serviceWorker?.controller){toast("Abre la web una vez con internet y vuelve a probar");return}
+  for(const s of c.sets){if(KPT(s))continue;for(const it of KANA[s]){const t=kVoice(s,it);urls.add(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t));if(s==="vocab"&&it.f)urls.add(vozUrl(S.voz||"mao",it.f))}}
+  if(S.voz==="sys"){toast("Con la voz del sistema no hace falta descargar nada");return}
+  const L=[...urls];let n=0,mal=0;b.disabled=true;
+  for(let k=0;k<L.length;k+=6){await Promise.all(L.slice(k,k+6).map(u=>fetch(u).then(r=>{if(!r.ok)mal++}).catch(()=>mal++)));n=Math.min(L.length,k+6);b.textContent=`Guardando… ${n}/${L.length}`}
+  b.disabled=false;b.textContent="Guardar para sin conexión";toast(mal?`Guardado, pero fallaron ${mal}: vuelve a darle con internet`:`Listo: ${L.length} audios guardados. Ya funciona sin internet`)}
+function libBotones(){const p=$("#libPlay");if(p){p.textContent=lib.on?"⏸ Pausa":"▶ Empezar";p.setAttribute("aria-pressed",lib.on)}
+  const m=$("#libMic");if(m){m.setAttribute("aria-pressed",lib.micOn);m.textContent=lib.micOn?"🎙 Escuchando órdenes":"🎙 Mandos por voz"}}
+function libDraw(){const el=$("#libCard");if(!el)return;const x=lib.cola[lib.i];
+  if(!x){el.innerHTML=`<p class="muted">Elige qué repasar y dale a <b>Empezar</b>. No hace falta mirar la pantalla.</p>`;return}
+  const [s,it]=x,lang=kLang(s),rd=s==="kanji"?it.wr:(it.r||"");
+  el.innerHTML=`<div class="lib-top"><span class="eyebrow">${h((KSETS[s]||[s])[0])}</span><span class="mono">${lib.i+1} / ${lib.cola.length}</span></div>
+    <div class="lib-big" lang="${lang}">${h(it.c)}</div>
+    <div class="lib-ans ${lib.rev?"on":""}">${rd?`<div class="lib-rd" lang="${lang}">${h(rd)}</div>`:""}<div class="lib-m">${h(libSignif(s,it))}</div>
+    ${it.f?`<div class="lib-f" lang="${lang}">${h(it.f)}</div>${it.fe?`<div class="muted">${h(it.fe)}</div>`:""}`:it.t&&lib.rev?`<div class="muted" style="font-size:14px">${h(it.t)}</div>`:""}</div>
+    ${lib.on&&!lib.rev?`<div class="lib-turno">Tu turno: dilo en voz alta</div>`:""}`}
+function viewLibre(){if(!KANA)return `<div class="card" style="margin-top:28px"><p class="muted">Cargando…</p></div>`;
+  const c=libCfg();
+  return `<div class="ex-head"><div><span class="eyebrow">Sin manos · sin mirar · sin internet</span><h1 style="margin-top:8px">Manos libres</h1>
+    <p class="muted" style="max-width:640px">Dale a empezar y guarda el móvil: te dice la palabra, te deja unos segundos para contestar en voz alta, te da el significado y una frase, y pasa a la siguiente. Para andar, cocinar o ir en el tren.</p></div></div>
+  <div class="lib-grid"><div>
+    <div class="card lib-card" id="libCard" aria-live="polite"></div>
+    <div class="lib-ctrl"><button class="btn ghost" id="libPrev" data-key="←">← Anterior</button><button class="btn acc lib-play" id="libPlay" data-key="Espacio">▶ Empezar</button><button class="btn ghost" id="libNext" data-key="→">Siguiente →</button></div>
+    <div class="lib-ctrl"><button class="btn ghost" id="libRep" data-key="R">↺ Repetir</button><button class="btn ghost" id="libSe" data-key="S">✓ Ya la sé</button><button class="btn ghost" id="libMic" data-key="M" aria-pressed="false">🎙 Mandos por voz</button></div>
+    <p class="muted lib-oido" id="libOido">Con el micro encendido di: «siguiente», «repite», «para», «sigue», «ya la sé», «más lento» o «más rápido». En Chrome.</p>
+  </div><aside class="card lib-opts">
+    <h3 style="margin-top:0">Qué repasar</h3>
+    <div class="lib-sets">${LIBRE_SETS.map(([k,n])=>`<label><input type="checkbox" data-lset="${k}" ${c.sets.includes(k)?"checked":""}> ${h(n)}</label>`).join("")}</div>
+    <label class="lib-row">Tiempo para pensar <select class="inp" id="libPausa">${[1,2,3,5,8,10].map(n=>`<option value="${n}" ${c.pausa===n?"selected":""}>${n} s</option>`).join("")}</select></label>
+    <label class="lib-row"><input type="checkbox" id="libEs" ${c.es?"checked":""}> Traducción en voz alta</label>
+    <label class="lib-row"><input type="checkbox" id="libFrase" ${c.frase?"checked":""}> Con frase de ejemplo</label>
+    <label class="lib-row"><input type="checkbox" id="libNuevas" ${c.nuevas?"checked":""}> Solo lo que aún no sé</label>
+    ${vozPicker(true)}
+    <button class="btn ghost" id="libSave" style="width:100%;margin-top:14px">Guardar para sin conexión</button>
+    <p class="muted" style="font-size:13px;margin:8px 0 0">Baja las voces de lo que has marcado. Después funciona en modo avión. Las frases en español y en portugués usan la voz del móvil, que ya viene dentro.</p>
+  </aside></div>`}
+function bindLibre(){if(!KANA){loadKana().then(()=>{if(route.v==="libre")render()}).catch(e=>toast(e.message));return}
+  const c=libCfg(),cambia=()=>{save();const era=lib.on;libPara();libCola();libDraw();if(era)libPlay()};
+  document.querySelectorAll("[data-lset]").forEach(b=>b.onchange=()=>{c.sets=[...document.querySelectorAll("[data-lset]:checked")].map(x=>x.dataset.lset);if(!c.sets.length){b.checked=true;c.sets=[b.dataset.lset];toast("Deja al menos uno")}cambia()});
+  $("#libPausa").onchange=e=>{c.pausa=+e.target.value;save()};
+  $("#libEs").onchange=e=>{c.es=e.target.checked;save()};$("#libFrase").onchange=e=>{c.frase=e.target.checked;save()};
+  $("#libNuevas").onchange=e=>{c.nuevas=e.target.checked;cambia()};
+  $("#libPlay").onclick=libToggle;$("#libPrev").onclick=()=>libSalta(-1);$("#libNext").onclick=()=>libSalta(1);
+  $("#libRep").onclick=libRep;$("#libSe").onclick=libSe;$("#libMic").onclick=()=>libMic(!lib.micOn);$("#libSave").onclick=libGuardar;
+  if(!lib.cola.length)libCola();libDraw();libBotones()}
 /* ============ Teclado: un solo oyente para toda la app ============ */
-const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
+const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["L","Manos libres"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
   ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
+  ["Manos libres",[["Espacio · Intro","Empezar / pausa"],["← →","Anterior / siguiente"],["R","Repetir"],["S","Ya la sé (sale de la cola)"],["M","Mandos por voz"],["+ · -","Más o menos tiempo para pensar"]]],
   ["Tarjetas",[["Espacio · Intro","Girar"],["→ · 2","La sé"],["← · 1","Otra vez"]]],
   ["Rayo y Empareja",[["1-4","Rayo: elegir respuesta"],["1-5 · A-E","Empareja: pista y su pareja"],["Intro","Empezar / otra ronda"]]],
   ["Kana, kanji y portugués",[["Shift+← →","Tabla / Test / Dibuja"],["Shift+↑ ↓","Hiragana, katakana, kanji…"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"],["Esc","Cerrar la ficha / volver"]]]];
 // Qué grupo de la ayuda va primero según dónde estés
-const kbAqui=()=>({home:"Portada y examen",exam:route.tab==="learn"?"Rayo y Empareja":"Portada y examen",run:"Preguntas",result:"Resultado",cards:"Tarjetas",rayo:"Rayo y Empareja",kana:"Kana, kanji y portugués",pt:"Kana, kanji y portugués"})[route.v]||"General";
+const kbAqui=()=>({home:"Portada y examen",exam:route.tab==="learn"?"Rayo y Empareja":"Portada y examen",run:"Preguntas",result:"Resultado",cards:"Tarjetas",libre:"Manos libres",rayo:"Rayo y Empareja",kana:"Kana, kanji y portugués",pt:"Kana, kanji y portugués"})[route.v]||"General";
 let kbBack=null;
 function ayuda(on){let d=$("#kbHelp");if(on==null)on=!d||d.hidden;
   if(!d){d=document.createElement("div");d.id="kbHelp";d.className="kb-help";d.hidden=true;d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-labelledby","kbT");
@@ -982,7 +1103,7 @@ const SIMS=["c1","c2","c3",...Array.from({length:30},(_,i)=>"s"+(i+1))];
 const simName=k=>k[0]==="c"?"Calentamiento "+k.slice(1):"Simulacro "+k.slice(1);
 function cmdItems(){
   const L=[],add=(g,l,f,k="",q="")=>L.push({g,l,f,k,q});
-  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
+  [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["libre","Manos libres · estudiar sin tocar nada","L"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
     add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
     if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
@@ -1032,7 +1153,7 @@ document.addEventListener("keydown",e=>{
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
-  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",t:"cards",g:"guide"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  if(v!=="run"&&!e.shiftKey){const to={h:"home",k:"kana",p:"pt",l:"libre",t:"cards",g:"guide"}[lk];if(to){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
   if(v==="run"&&run){
     const it=run.items[run.i],q=it.q;
     if(k==="Escape"){e.preventDefault();act($("#quit"));return}
@@ -1052,6 +1173,11 @@ document.addEventListener("keydown",e=>{
   if(v==="exam"&&(route.tab||"sims")==="sims"){
     if(k==="Enter"){const done=S.exams[route.x]||{},keys=[...document.querySelectorAll("[data-start]")].map(b=>b.dataset.start).filter(x=>x!=="full");act($(`[data-start="${keys.find(x=>!done[x])||keys[0]}"]`));return}
     if(lk==="m"){act($(`[data-mode="${(route.mode||"exam")==="exam"?"study":"exam"}"]`));return}}
+  if(v==="libre"){
+    if(k===" "||k==="Enter"){e.preventDefault();libToggle();return}
+    if(k==="ArrowRight"){e.preventDefault();libSalta(1);return}if(k==="ArrowLeft"){e.preventDefault();libSalta(-1);return}
+    if(lk==="r"){libRep();return}if(lk==="s"){libSe();return}if(lk==="m"){libMic(!lib.micOn);return}
+    if(k==="+"){libPausa(1);return}if(k==="-"){libPausa(-1);return}}
   if(v==="result"&&k==="Enter"){act($("#app main .btn.acc"));return}
   if(v==="cards"&&deck?.cards[deck.i]){
     if(k===" "||k==="Enter"){act($("#flip"));return}
