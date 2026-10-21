@@ -105,6 +105,8 @@ def textos_es():
     """Lo que Manos libres dice en español: libSignif() y la traducción de la frase."""
     out = []
     for s, L in _kana().items():
+        if s == "lecturas":  # no es una lista de fichas
+            continue
         for it in L:
             out.append("Se lee " + it["r"] if s in ("hira", "kata") else it.get("m", ""))
             out.append(it.get("fe", ""))
@@ -115,9 +117,10 @@ def textos_pt():
     """Igual que kVoice() para los conjuntos de portugués, más sus frases."""
     out = []
     d = _kana()
-    for s in ("pt", "falsos", "tramites"):
+    for s in ("pt", "ptverbos", "falsos", "tramites"):
         for it in d[s]:
             out += [it["c"].replace(" / ", ", "), it.get("f", "")]
+    out += [f["o"] for lec in d.get("lecturas", {}).get("pt", []) for f in lec["f"]]
     return [t for t in dict.fromkeys(out) if t]
 
 
@@ -125,9 +128,10 @@ def textos_ru():
     """Igual que kVoice() para el ruso (campo v en el alfabeto), más sus frases."""
     out = []
     d = _kana()
-    for s in ("cirilico", "ruvocab", "ruuni"):
+    for s in ("cirilico", "ruvocab", "rugram", "ruuni"):
         for it in d[s]:
             out += [it.get("v") or it["c"].replace(" / ", ", "), it.get("f", "")]
+    out += [f["o"] for lec in d.get("lecturas", {}).get("ru", []) for f in lec["f"]]
     return [t for t in dict.fromkeys(out) if t]
 
 
