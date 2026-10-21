@@ -3,11 +3,17 @@
   para kana, kanji, vocabulario y frases. Las frases de «matón» van siempre con Kokoro jm_kumo:
   la ACML no permite usar sus voces para insultar.
 - Escucha del N5 (mujer + hombre) y del TOEFL/IELTS en acento americano y británico (Kokoro).
+- Español de «Manos libres» (significados y traducciones) con Kokoro ef_dora.
+- Portugués de Portugal con ElevenLabs (motor «eleven»): plan gratis, sin tarjeta, 10.000 créditos
+  al mes; todo el portugués son ~3.200 caracteres. La clave va en .env (ELEVENLABS_API_KEY) y
+  nunca llega a la página: se graba aquí y se sirven archivos. El plan gratis pide citar a
+  ElevenLabs (está en el pie de la página) y no permite uso comercial.
 
 Necesita AivisSpeech encendido (comando `aivis`) para el motor aivis, y .venv-tts con
 kokoro-onnx + misaki[ja] y modelos-tts/ para el motor kokoro (ver README de voces abajo).
 
 Uso:  python3 datos/grabar_voces.py aivis                         (con el python normal)
+      python3 datos/grabar_voces.py eleven [--muestra] [--voces]   (--muestra: 3 pruebas por voz)
       .venv-tts/bin/python datos/grabar_voces.py kokoro            (en paralelo, otra terminal)
 Solo graba lo que falta. Salida: www/voz/<paquete>/<fnv>.m4a — el nombre es el hash FNV-1a del
 texto, el mismo que calcula hashStr() en la página, así no hace falta índice.
@@ -44,6 +50,11 @@ ESCUCHA = {
     "usw": ("kokoro", "af_heart", "en-us"), "usm": ("kokoro", "am_michael", "en-us"),
     "gbw": ("kokoro", "bf_emma", "en-gb"), "gbm": ("kokoro", "bm_george", "en-gb"),
 }
+# Español de Manos libres
+ES = ("kokoro", "ef_dora", "es")
+# ElevenLabs: voces que suenan a Portugal (cámbialas en .env con ELEVENLABS_VOZ_PT=id1,id2…)
+ELEVEN = "https://api.elevenlabs.io/v1"
+ELEVEN_MODELO = "eleven_multilingual_v2"
 
 
 def fnv(texto):
@@ -82,6 +93,30 @@ def textos_ja():
     return out, maton
 
 
+def _kana():
+    return json.load(open(os.path.join(WWW, "kana.json"), encoding="utf-8"))
+
+
+def textos_es():
+    """Lo que Manos libres dice en español: libSignif() y la traducción de la frase."""
+    out = []
+    for s, L in _kana().items():
+        for it in L:
+            out.append("Se lee " + it["r"] if s in ("hira", "kata") else it.get("m", ""))
+            out.append(it.get("fe", ""))
+    return [t for t in dict.fromkeys(out) if t]
+
+
+def textos_pt():
+    """Igual que kVoice() para los conjuntos de portugués, más sus frases."""
+    out = []
+    d = _kana()
+    for s in ("pt", "falsos", "tramites"):
+        for it in d[s]:
+            out += [it["c"].replace(" / ", ", "), it.get("f", "")]
+    return [t for t in dict.fromkeys(out) if t]
+
+
 def lineas(examen):
     """Las líneas de escucha tal como las corta speak() en la página: (texto, 'W'|'M')."""
     out = {}
@@ -100,7 +135,7 @@ def lineas(examen):
 
 def a_m4a(wav_bytes, destino):
     os.makedirs(os.path.dirname(destino), exist_ok=True)
-    with tempfile.NamedTemporaryFile(suffix=".wav") as t:
+    with tempfile.NamedTemporaryFile() as t:  # ffmpeg reconoce WAV o MP3 por el contenido
         t.write(wav_bytes); t.flush()
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", t.name, "-ac", "1", "-c:a", "aac", "-b:a", "48k", destino], check=True)
 
@@ -110,6 +145,78 @@ def aivis(texto, voz):
         f"{AIVIS}/audio_query?speaker={voz}&text={urllib.parse.quote(texto)}", method="POST"), timeout=60).read()
     return urllib.request.urlopen(urllib.request.Request(
         f"{AIVIS}/synthesis?speaker={voz}", data=q, headers={"Content-Type": "application/json"}, method="POST"), timeout=120).read()
+
+
+def _env(clave):
+    v = os.environ.get(clave)
+    if v:
+        return v
+    ruta = os.path.join(RAIZ, ".env")
+    if os.path.exists(ruta):
+        for l in open(ruta, encoding="utf-8"):
+            if l.startswith(clave + "="):
+                return l.split("=", 1)[1].strip().strip('"')
+    return ""
+
+
+def _eleven_get(ruta):
+    r = urllib.request.Request(ELEVEN + ruta, headers={"xi-api-key": _env("ELEVENLABS_API_KEY")})
+    return json.load(urllib.request.urlopen(r, timeout=30))
+
+
+def eleven_restante():
+    s = _eleven_get("/user/subscription")
+    return s["character_limit"] - s["character_count"]
+
+
+def eleven(texto, voz):
+    cuerpo = json.dumps({"text": texto, "model_id": _env("ELEVENLABS_MODELO") or ELEVEN_MODELO,
+                         "voice_settings": {"stability": 0.5, "similarity_boost": 0.8, "style": 0.15}}).encode()
+    r = urllib.request.Request(f"{ELEVEN}/text-to-speech/{voz}?output_format=mp3_44100_128", data=cuerpo,
+                               headers={"xi-api-key": _env("ELEVENLABS_API_KEY"), "Content-Type": "application/json"})
+    return urllib.request.urlopen(r, timeout=120).read()
+
+
+def voces_pt():
+    v = [x.strip() for x in _env("ELEVENLABS_VOZ_PT").split(",") if x.strip()]
+    if not v:
+        sys.exit("Falta ELEVENLABS_VOZ_PT en .env. Elige con `grabar_voces.py eleven --voces` y `--muestra`.")
+    return v
+
+
+def main_eleven(args):
+    if not _env("ELEVENLABS_API_KEY"):
+        sys.exit("Falta ELEVENLABS_API_KEY en .env (cuenta gratis en elevenlabs.io → Developers → API Keys).")
+    if "--voces" in args:
+        for v in _eleven_get("/voices")["voices"]:
+            l = v.get("labels") or {}
+            print(v["voice_id"], v["name"], "·", l.get("gender", ""), l.get("accent", ""), l.get("description", ""))
+        return
+    if "--muestra" in args:
+        dest = os.path.join(RAIZ, ".muestras-eleven"); os.makedirs(dest, exist_ok=True)
+        for v in voces_pt():
+            for i, t in enumerate(["Olá! Tudo bem?", "Desculpe, onde fica a estação de comboios?", "Obrigado, até amanhã!"]):
+                open(os.path.join(dest, f"{v}-{i}.mp3"), "wb").write(eleven(t, v))
+        print("Muestras en", dest, "· quedan", eleven_restante(), "caracteres este mes"); return
+    vz = voces_pt()
+    pend = [t for t in textos_pt() if not os.path.exists(os.path.join(WWW, "voz", "pt", fnv(t) + ".m4a"))]
+    gasto = sum(map(len, pend)); queda = eleven_restante()
+    print(f"eleven: faltan {len(pend)} audios, {gasto} caracteres; quedan {queda} este mes")
+    if gasto > queda:
+        print("No cabe todo: grabo lo que quepa y el resto el mes que viene (la página usa la voz del sistema)")
+    fallos = []
+    for n, t in enumerate(pend):
+        if len(t) > queda:
+            break
+        try:
+            a_m4a(eleven(t, vz[n % len(vz)]), os.path.join(WWW, "voz", "pt", fnv(t) + ".m4a")); queda -= len(t)
+        except Exception as e:
+            fallos.append(f"{t[:40]}: {e}")
+            if "401" in str(e) or "quota" in str(e).lower():
+                break
+    print(f"eleven: hecho · quedan {queda} caracteres")
+    if fallos:
+        sys.exit("Fallaron:\n" + "\n".join(fallos[:20]))
 
 
 _kk = _g2p = None
@@ -151,13 +258,17 @@ def trabajos(motor):
                 m, v, idi = ESCUCHA[pq]
                 if m == motor:
                     tareas.append((pq, t, v, idi or "ja"))
+    if ES[0] == motor:
+        tareas += [("es", t, ES[1], ES[2]) for t in textos_es()]
     return list(dict.fromkeys(tareas))
 
 
 def main():
     motor = sys.argv[1] if len(sys.argv) > 1 else ""
+    if motor == "eleven":
+        return main_eleven(sys.argv[2:])
     if motor not in ("aivis", "kokoro"):
-        sys.exit("Uso: grabar_voces.py aivis|kokoro")
+        sys.exit("Uso: grabar_voces.py aivis|kokoro|eleven")
     if motor == "aivis":
         try:
             urllib.request.urlopen(AIVIS + "/version", timeout=5)
