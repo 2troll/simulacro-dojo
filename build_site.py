@@ -68,6 +68,24 @@ self.addEventListener("fetch", e => {
   e.respondWith(fetch(e.request).then(r => { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; })
     .catch(() => caches.match(e.request).then(r => r || caches.match("index.html"))));
 });
+// Avisos al móvil: mensajes, regalos, solicitudes, reto de amigos y recordatorio de racha
+self.addEventListener("push", e => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch (x) { d = { title: "Dojo", body: e.data ? e.data.text() : "" }; }
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(cs => {
+    // si está mirando la web en ese momento, el chat ya lo ve en pantalla
+    if (d.chat && cs.some(c => c.visibilityState === "visible" && c.focused)) return;
+    return self.registration.showNotification(d.title || "Dojo", { body: d.body || "", icon: "icon-192.png", badge: "icon-192.png", tag: d.tag || "dojo", renotify: true, data: { url: d.url || "/" } });
+  }));
+});
+self.addEventListener("notificationclick", e => {
+  e.notification.close();
+  const url = new URL((e.notification.data && e.notification.data.url) || "/", self.location.origin).href;
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(cs => {
+    const c = cs.find(x => x.url.startsWith(self.location.origin));
+    return c ? c.focus().then(w => (w || c).navigate(url)) : self.clients.openWindow(url);
+  }));
+});
 """
 
 

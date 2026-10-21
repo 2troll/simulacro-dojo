@@ -18,3 +18,7 @@ migrations_dir = "worker/migraciones"
 [[routes]]
 pattern = "dojo.tonykansaiguide.com"
 custom_domain = true
+
+# Cada hora: recordatorio de racha a la hora local que eligió cada alumno
+[triggers]
+crons = ["0 * * * *"]

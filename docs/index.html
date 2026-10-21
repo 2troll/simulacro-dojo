@@ -424,6 +424,15 @@ h1,h2,h3{font-weight:700;letter-spacing:-.015em}
 .kb-row span:first-child{flex:none}.kb-row span:last-child{color:var(--ink-2);text-align:right}
 kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .kb-line{margin:-6px 0 14px}
+/* Reto del día y código */
+.reto{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;margin:26px 0;padding:22px 24px;border:1px solid var(--line);border-radius:20px;background:var(--sheet);box-shadow:var(--shadow)}
+.reto h2{margin:6px 0 4px;font-size:clamp(22px,3vw,30px)}.reto p{margin:0}
+.reto-bts{display:grid;grid-template-columns:repeat(4,minmax(76px,1fr));gap:8px}
+.reto-b{display:grid;gap:2px;justify-items:center;padding:12px 10px;border-radius:14px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font:inherit;color:var(--ink);border-top:4px solid var(--c,var(--hanko))}
+.reto-b span{font:600 12px var(--f-mono);color:var(--ink-2)}.reto-b.hecho span{color:var(--ok,#2e7d32)}
+.reto-b:hover{transform:translateY(-2px)}
+.cod{font:700 clamp(18px,4.4vw,26px) var(--f-mono);letter-spacing:.06em;text-align:center;padding:16px;border:2px dashed var(--hanko);border-radius:14px;background:var(--paper);word-break:break-all;user-select:all}
+@media (max-width:720px){.reto{grid-template-columns:1fr}.reto-bts{grid-template-columns:repeat(2,1fr)}}
 /* Cuentas, amigos y chat */
 @media (max-width:1440px){.nav [data-key]::after{display:none}}
 .soc-btn{position:relative}.soc-btn>span:first-child{font-size:16px;line-height:1}
@@ -487,6 +496,7 @@ kbd{font:600 12px var(--f-mono);color:var(--ink);background:var(--paper);border:
 @media (max-width:520px){.cmd-btn .cmd-t,.cmd-btn kbd,.cmd-foot{display:none}.cmd-btn{padding:6px 9px}.cmd{padding-top:8vh}.cmd-list .cg{width:66px}}
 @media (hover:hover) and (pointer:fine){[data-key]::after{content:attr(data-key);font:600 10px var(--f-mono);border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-left:8px;opacity:.5;vertical-align:1px}
   .exam-card[data-key]::after{position:absolute;top:14px;right:14px;margin:0;font-size:12px;padding:1px 7px}
+  .exam-card.big-card[data-key]::after{right:128px}
   .mnav [data-key]::after{display:none}}
 .kb-n{font:600 10px var(--f-mono);color:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:8px;vertical-align:2px}
 @media (max-width:520px){.dock .kbd,.kb-line,.kb-tip,.kb-n{display:none}.nav button{padding:8px 10px}}
@@ -797,7 +807,7 @@ function viewHome(){
     <div><p class="eyebrow reveal">AWS · TOEFL · IELTS · JLPT N5 · kana · gratis y sin cuenta</p>
       <h1 class="reveal">Entrena cada día.<br><span class="red">Aprueba</span> a la primera.</h1>
       <p class="lead reveal">Simulacros con el formato real, el examen completo de AWS, hiragana, katakana y kanji explicados fácil, y tarjetas que te devuelven lo que fallas hasta que lo dominas. Funciona sin conexión.</p>
-      <div class="cta reveal"><button class="btn acc" data-exam="aws">Empezar con AWS</button><button class="btn ghost" data-go="kana">Aprender kana</button>${due?`<button class="btn ghost" data-go="cards">${due} tarjetas</button>`:""}</div>
+      <div class="cta reveal"><button class="btn acc" data-exam="aws">Empezar con AWS</button><button class="btn ghost" data-go="kana">Aprender kana</button><button class="btn ghost" id="instalar" ${instalarEv||(esIOS()&&!yaInstalada())?"":"hidden"}>📲 Instalar app</button>${due?`<button class="btn ghost" data-go="cards">${due} tarjetas</button>`:""}</div>
       <div class="figs reveal"><div><b data-count="132">132</b><span>simulacros</span></div><div><b data-count="208">208</b><span>kana</span></div><div><b data-count="104">104</b><span>kanji N5</span></div><div><b>0 €</b><span>para siempre</span></div></div></div>
     <div class="today reveal">
       <div class="ring">${ringSvg(p)}<div><div class="eyebrow">Meta de hoy</div><div style="font:900 32px var(--f-display)">${dn} / ${S.goal}</div><div class="muted" style="font-size:14px">preguntas respondidas</div></div></div>
@@ -807,6 +817,7 @@ function viewHome(){
       <div class="sync" id="sync">${store.kind==="db"?"Guardado en tu cuenta":"Guardado en este navegador"}</div>
     </div>
   </section>
+  ${retoHome()}
   <div class="marq" aria-hidden="true"><div class="marq-in">${[0,1].map(()=>`<span>AWS SAA-C03 <i>雲</i> TOEFL iBT <i>英</i> IELTS Academic <i>語</i> JLPT N5 <i>日</i> Hiragana <i>あ</i> Katakana <i>ア</i> Kanji <i>字</i></span>`).join("")}</div></div>
   ${!practicedToday&&S.last?`<div class="banner"><span><b>Aún no has practicado hoy.</b> Tu racha de ${S.streak} días se pierde a medianoche.</span><button class="btn acc" data-quick="1">Práctica rápida de 5 min</button></div>`:""}
   <div class="sec-title reveal"><h2><span class="num">01 — EXÁMENES</span>Elige tu examen</h2><span class="muted">3 calentamientos + 30 simulacros por examen · AWS con examen real de 65</span></div>
@@ -1133,7 +1144,7 @@ async function connectApi(){if(!API_OK)return;let marca=null;try{marca=localStor
     if(route.v!=="run")render();setSync("Guardado en tu cuenta");avisosLoop()}
   catch(e){if(e.status===401)try{localStorage.removeItem("dojoCuenta")}catch(x){}else if(e.status)console.warn("Cuenta:",e.message)}}
 function subir(forzar){clearTimeout(subirT);subirT=setTimeout(async()=>{
-  try{await apiF("progreso",{method:"PUT",body:{estado:JSON.stringify(S),forzar:!!forzar}});setSync("Guardado en tu cuenta")}
+  try{await apiF("progreso",{method:"PUT",body:{estado:JSON.stringify(S),forzar:!!forzar}});setSync("Guardado en tu cuenta");if(soc)soc.viejo=true;if(route.v==="social")cargarSoc()}
   catch(e){if(e.status===409&&e.data?.progreso){adoptar(e.data.progreso.estado);toast("Traído el progreso más reciente de tu cuenta");if(route.v!=="run")render()}
     else if(e.status===401){cuenta=null;store={kind:"local",db:null,path:null};setSync("Guardado en este navegador")}
     else setSync("Sin conexión: se subirá al volver")}},1200)}
@@ -1146,12 +1157,20 @@ function pintaAvisos(){const n=(avisos.mensajes||0)+(avisos.solicitudes||0),d=$(
 async function recoger(){try{const d=await apiF("regalos/recoger",{method:"POST",body:{}});if(!d.regalos.length)return;
   for(const g of d.regalos){if(g.tipo==="congela"){S.congelas=(S.congelas||0)+1;toast(`❄ ${g.de_nombre} te ha regalado un protector de racha`)}else toast(`👏 ${g.de_nombre}: ${g.nota||"¡Ánimo!"}`)}
   S.regalos=[...d.regalos.map(g=>({t:g.tipo,de:g.de_nombre,u:g.de_usuario,nota:g.nota,at:Date.now()})),...(S.regalos||[])].slice(0,20);save();if(route.v!=="run")render()}catch(e){}}
-async function cargarSoc(){try{soc=await apiF("amigos");if(route.v==="social"&&!$("#socForm:focus-within"))render()}catch(e){if(e.status===401){cuenta=null;render()}}}
+async function cargarSoc(){try{const rt=soc?.reto;soc=await apiF("amigos");if(rt)soc.reto=rt;if(route.v==="social"&&!$("#socForm:focus-within"))render()}catch(e){if(e.status===401){cuenta=null;render()}}}
 const vivaRacha=u=>u.racha&&u.ultimo&&dayDiff(u.ultimo,today())<=1;
 const socBtn=()=>{const n=(avisos.mensajes||0)+(avisos.solicitudes||0);
   return `<button class="cmd-btn soc-btn" data-go="social" data-key="F" id="socBtn" aria-label="${cuenta?"Tu cuenta y amigos":"Entrar o crear cuenta"}"><span aria-hidden="true">${cuenta?h(cuenta.avatar):"友"}</span><span class="cmd-t">${cuenta?"Amigos":"Entrar"}</span><b class="soc-dot" id="socDot" ${n?"":"hidden"}>${n}</b></button>`};
 function viewSocial(){
   if(!API_OK)return `<div class="card" style="margin-top:28px"><h2>Cuentas y amigos</h2><p class="muted">Las cuentas funcionan en <a href="https://dojo.tonykansaiguide.com">dojo.tonykansaiguide.com</a>. Esta copia guarda tu progreso solo en este navegador.</p></div>`;
+  if(!cuenta&&socModo==="recuperar")return `<div class="ex-head"><div><span class="eyebrow">Sin correo: con tu código</span><h1 style="margin-top:8px">Recupera tu cuenta</h1>
+      <p class="muted" style="max-width:620px">Pon tu usuario, el código de recuperación que guardaste al crear la cuenta y una contraseña nueva.</p></div></div>
+    <div class="soc-auth card"><form id="socForm" class="soc-form">
+      <label>Usuario<input class="inp" name="usuario" autocomplete="username" required autocapitalize="none" spellcheck="false"></label>
+      <label>Código de recuperación<input class="inp" name="codigo" required autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX-XXXXX-XXXXX"></label>
+      <label>Contraseña nueva<input class="inp" name="pass" type="password" autocomplete="new-password" required minlength="8"></label>
+      <button class="btn acc" id="socGo">Poner contraseña nueva</button>
+      <button type="button" class="linkish" data-smodo="entrar">← Volver a entrar</button></form></div>`;
   if(!cuenta){const nueva=socModo==="nueva";
     return `<div class="ex-head"><div><span class="eyebrow">Gratis · sin correo · sin anuncios</span><h1 style="margin-top:8px">${nueva?"Crea tu cuenta":"Entra en tu cuenta"}</h1>
       <p class="muted" style="max-width:620px">Tu progreso, tu racha y tus tarjetas te siguen a cualquier móvil u ordenador. Y puedes añadir amigos, competir en la liga semanal, regalaros protectores de racha y chatear.</p></div></div>
@@ -1161,7 +1180,8 @@ function viewSocial(){
         ${nueva?`<label>Tu nombre (lo ven tus amigos)<input class="inp" name="nombre" maxlength="30" placeholder="Opcional"></label>`:""}
         <label>Contraseña<input class="inp" name="pass" type="password" autocomplete="${nueva?"new-password":"current-password"}" required minlength="8" placeholder="${nueva?"Mínimo 8 caracteres":""}"></label>
         <button class="btn acc" id="socGo">${nueva?"Crear cuenta":"Entrar"}</button>
-        <p class="muted soc-nota">${nueva?"Sin correo no hay forma de recuperar la contraseña: guárdala en tu gestor de contraseñas. El progreso de este navegador se sube a la cuenta.":"Si tienes progreso aquí y en la cuenta, se queda el que tenga más XP."}</p>
+        <p class="muted soc-nota">${nueva?"Sin correo ni teléfono. Al crearla te damos un código de recuperación por si olvidas la contraseña. El progreso de este navegador se sube a la cuenta.":"Si tienes progreso aquí y en la cuenta, se queda el que tenga más XP."}</p>
+        ${nueva?"":`<button type="button" class="linkish" data-smodo="recuperar">¿Olvidaste la contraseña?</button>`}
       </form></div>`}
   const yo=soc?.yo||cuenta,ams=soc?.amigos||[],hoyN=S.daily.d===today()?S.daily.n:0;
   const liga=[{...yo,semana:yo.semana,yoMismo:true},...ams].sort((a,b)=>b.semana-a.semana);
@@ -1183,9 +1203,11 @@ function viewSocial(){
     <div class="card"><h3 style="margin-top:0">Liga de la semana</h3><p class="muted soc-nota" style="margin-top:-6px">XP desde el lunes. Se reinicia cada semana.</p>
       <ol class="soc-liga">${liga.map((a,i)=>`<li class="${a.yoMismo?"yo":""}"><span class="soc-pos">${["🥇","🥈","🥉"][i]||i+1}</span><span class="soc-av sm">${h(a.avatar)}</span><span class="soc-who"><b>${a.yoMismo?"Tú":h(a.nombre)}</b></span><span class="mono">${a.semana} XP</span></li>`).join("")}</ol></div>
     ${(S.regalos||[]).length?`<div class="card"><h3 style="margin-top:0">Regalos recibidos</h3>${S.regalos.slice(0,6).map(g=>`<div class="soc-reg">${g.t==="congela"?"❄":"👏"} <b>${h(g.de)}</b> <span class="muted">${g.t==="congela"?"te regaló un protector":h(g.nota||"¡Ánimo!")}</span></div>`).join("")}</div>`:""}
+    ${retoCard()}${avisosCard()}
     <div class="card"><h3 style="margin-top:0">Tu cuenta</h3>
       <div class="soc-lista"><a class="btn ghost" href="/api/cuenta/exportar" download>Descargar mis datos</a><button class="btn ghost" id="socSalir">Cerrar sesión</button></div>
       <details class="soc-det"><summary>Cambiar contraseña</summary><form id="socClave" class="soc-form"><input class="inp" type="password" name="actual" autocomplete="current-password" placeholder="Contraseña actual" required><input class="inp" type="password" name="nueva" autocomplete="new-password" placeholder="Nueva (mínimo 8)" minlength="8" required><button class="btn ghost">Cambiar</button></form></details>
+      <details class="soc-det"><summary>Nuevo código de recuperación</summary><form id="socCod" class="soc-form"><p class="muted soc-nota">El anterior deja de valer.</p><input class="inp" type="password" name="pass" autocomplete="current-password" placeholder="Tu contraseña" required><button class="btn ghost">Crear código nuevo</button></form></details>
       <details class="soc-det"><summary>Borrar mi cuenta</summary><form id="socBorra" class="soc-form"><p class="muted soc-nota">Se borra todo: progreso en la nube, amigos, regalos y mensajes. No se puede deshacer. Lo de este navegador se queda.</p><input class="inp" type="password" name="pass" autocomplete="current-password" placeholder="Tu contraseña" required><button class="btn ghost" style="color:var(--bad,#b3261e)">Borrar para siempre</button></form></details>
     </div></aside></div>`}
 let socPendiente=new URLSearchParams(location.search).get("amigo");
@@ -1195,11 +1217,19 @@ function bindSocial(){
     if(!/^[a-z0-9_.]{3,20}$/.test(u))return toast("Usuario: de 3 a 20 letras sin tildes, números, punto o guion bajo");
     if(p.length<8)return toast("La contraseña necesita al menos 8 caracteres");
     const b=$("#socGo"),txt=b.textContent;b.disabled=true;b.textContent="Protegiendo tu contraseña…";
-    try{const clave=await claveDe(u,p);await apiF(socModo==="nueva"?"registro":"entrar",{method:"POST",body:{usuario:u,clave,nombre:String(fd.get("nombre")||"")}});try{localStorage.setItem("dojoCuenta","1")}catch(x){}
-      await connectApi();if(!cuenta)throw new Error("No se pudo abrir la sesión");toast(socModo==="nueva"?"¡Cuenta creada! Tu progreso ya está en la nube":"¡Hola otra vez!");cargarSoc()}
+    try{const clave=await claveDe(u,p),modo=socModo;
+      const d=await apiF(modo==="nueva"?"registro":modo==="recuperar"?"recuperar":"entrar",{method:"POST",body:{usuario:u,clave,nombre:String(fd.get("nombre")||""),codigo:String(fd.get("codigo")||"")}});try{localStorage.setItem("dojoCuenta","1")}catch(x){}
+      await connectApi();if(!cuenta)throw new Error("No se pudo abrir la sesión");socModo="entrar";
+      toast(modo==="nueva"?"¡Cuenta creada! Tu progreso ya está en la nube":modo==="recuperar"?"Contraseña cambiada":"¡Hola otra vez!");cargarSoc();
+      if(d.codigo)codigoVer(d.codigo,modo==="recuperar"?"Tu código nuevo (el usado ya no vale)":"Tu código de recuperación")}
     catch(err){toast(err.message);b.disabled=false;b.textContent=txt}};
   if(!cuenta)return;
-  if(!soc)cargarSoc();
+  if(!soc||soc.viejo)cargarSoc();
+  if(!soc?.reto)retoTabla(S.retoUlt||"n5");
+  pushEstado().then(s=>{if(!!s!==!!$("#pushOff"))render()});
+  const po=$("#pushOn");if(po)po.onclick=pushActivar;const pf=$("#pushOff");if(pf)pf.onclick=pushQuitar;$("#pushHora").onchange=e=>pushHora(+e.target.value);
+  $("#socCod").onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);
+    try{const d=await apiF("cuenta/codigo",{method:"POST",body:{clave:await claveDe(cuenta.usuario,String(fd.get("pass")))}});e.target.reset();codigoVer(d.codigo,"Tu código de recuperación nuevo")}catch(err){toast(err.message)}};
   document.querySelectorAll("[data-avatar]").forEach(b=>b.onclick=async()=>{try{const d=await apiF("yo",{method:"PATCH",body:{avatar:b.dataset.avatar}});cuenta=d.yo;if(soc)soc.yo=d.yo;render()}catch(e){toast(e.message)}});
   $("#socNombreOk").onclick=async()=>{try{const d=await apiF("yo",{method:"PATCH",body:{nombre:$("#socNombre").value}});cuenta=d.yo;if(soc)soc.yo=d.yo;toast("Nombre guardado");render()}catch(e){toast(e.message)}};
   $("#socShare").onclick=async()=>{const url=location.origin+"/?amigo="+cuenta.usuario,t="Estudia conmigo en el Dojo: simulacros, kana y portugués gratis. Añádeme:";
@@ -1239,6 +1269,75 @@ function chatPon(ms){const box=$("#chatMsgs");if(!box||!charla)return;ms=ms.filt
   box.insertAdjacentHTML("beforeend",ms.map(m=>`<div class="chat-m ${m.mio?"mio":""}"><span>${h(m.texto)}</span><time>${new Date(m.creado).toLocaleTimeString("es",{hour:"2-digit",minute:"2-digit"})}</time></div>`).join(""));
   box.scrollTop=box.scrollHeight}
 function chatCerrar(){const d=$("#chatBox");if(!d||!charla)return;clearInterval(charla.t);const b=charla.back;charla=null;d.hidden=true;if(lenis)lenis.start();if(b&&b.isConnected)b.focus();if(cuenta)apiF("avisos").then(a=>{avisos=a;pintaAvisos();if(route.v==="social")cargarSoc()}).catch(()=>{})}
+/* ============ Reto del día: 10 preguntas iguales para todos, cambian a medianoche ============ */
+const RETO_N=10;
+const retoKey=(x,d)=>x+":"+d;
+function buildReto(x,dia){const b=BANK[x],r=rng(hashStr("reto:"+x+":"+dia)),items=[];
+  for(const s of shuffle(b.sets,r)){if(items.length>=RETO_N)break;for(const it of expand(s))if(it.q.t!=="open"&&items.length<RETO_N)items.push(it)}
+  return items}
+async function startReto(x){const dia=today();
+  try{await loadBank(x)}catch(e){toast(e.message);return}
+  const hecho=(S.retos||{})[retoKey(x,dia)];
+  if(hecho)toast(`Ya lo hiciste hoy (${hecho.ok}/${hecho.n}). Este intento no cuenta para la clasificación`);
+  await startRun(x,null,"exam",buildReto(x,dia),"Reto del día · "+EX[x].short);
+  if(run)run.reto=dia}
+function retoFin(x,dia,ok,n,ms){S.retos??={};const k=retoKey(x,dia);if(S.retos[k])return false;
+  S.retos[k]={ok,n,ms};
+  // solo se guardan los 60 últimos para no inflar el progreso
+  const ks=Object.keys(S.retos);if(ks.length>60)for(const old of ks.slice(0,ks.length-60))delete S.retos[old];
+  if(soc)soc.reto=null;if(cuenta)apiF("reto",{method:"POST",body:{dia,examen:x,aciertos:ok,total:n,ms}}).then(()=>retoTabla(x)).catch(()=>{});
+  S.retoUlt=x;return true}
+function retoHome(){const dia=today();
+  return `<section class="reto reveal"><div><span class="eyebrow">⚡ Reto del día · cambia a medianoche</span><h2>10 preguntas, las mismas para todos</h2>
+    <p class="muted">Compite con tus amigos: gana quien más acierte y, si empatáis, quien vaya más rápido.</p></div>
+    <div class="reto-bts">${Object.keys(EX).map(x=>{const r=(S.retos||{})[retoKey(x,dia)];return `<button class="reto-b ${r?"hecho":""}" data-reto="${x}" style="--c:var(--${x})"><b>${h(EX[x].short)}</b><span>${r?`✓ ${r.ok}/${r.n}`:"Jugar"}</span></button>`}).join("")}</div></section>`}
+async function retoTabla(x){if(!cuenta)return;soc??={amigos:[],recibidas:[],enviadas:[],yo:cuenta};
+  try{const d=await apiF(`reto?dia=${today()}&examen=${x}`);soc.reto={x,tabla:d.tabla};if(route.v==="social"&&!$("#socForm:focus-within"))render()}catch(e){}}
+function retoCard(){const x=soc?.reto?.x||S.retoUlt||"n5",t=soc?.reto?.x===x?soc.reto.tabla:null,mio=(S.retos||{})[retoKey(x,today())];
+  return `<div class="card"><h3 style="margin-top:0">⚡ Reto de hoy</h3><div class="tabs" role="tablist" style="margin:0 0 10px">${Object.keys(EX).map(k=>`<button role="tab" data-rtab="${k}" aria-selected="${k===x}">${h(EX[k].short)}</button>`).join("")}</div>
+    ${t?t.length?`<ol class="soc-liga">${t.map((a,i)=>`<li class="${a.yo?"yo":""}"><span class="soc-pos">${["🥇","🥈","🥉"][i]||i+1}</span><span class="soc-av sm">${h(a.avatar)}</span><span class="soc-who"><b>${a.yo?"Tú":h(a.nombre)}</b></span><span class="mono">${a.aciertos}/${a.total} · ${Math.round(a.ms/1000)} s</span></li>`).join("")}</ol>`:`<p class="muted">Nadie lo ha hecho todavía. ¡Sé el primero!</p>`:`<p class="muted">Cargando…</p>`}
+    <button class="btn ${mio?"ghost":"acc"}" data-reto="${x}" style="width:100%;margin-top:10px">${mio?`Repetir (cuenta el primero: ${mio.ok}/${mio.n})`:"Jugar el reto de "+h(EX[x].short)}</button></div>`}
+
+/* ============ Avisos al móvil (Web Push, gratis): mensajes, regalos y racha ============ */
+const VAPID_PUB="BJXYtj4UuQxn28gaQuHDqHmtW0XS9TtKcIM8x-FN_swNnTQIy9AgudriMlfdPG3qB5RAT43FqJvoPvjjFFxqJpI";
+const pushPuede=()=>"serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window;
+const esIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)&&!navigator.standalone;
+let pushSub=null;
+async function pushEstado(){if(!pushPuede())return null;try{const r=await navigator.serviceWorker.getRegistration();pushSub=r?await r.pushManager.getSubscription():null}catch(e){pushSub=null}return pushSub}
+const b64uBytes=s=>Uint8Array.from(atob(s.replace(/-/g,"+").replace(/_/g,"/")+"===".slice((s.length+3)%4)),c=>c.charCodeAt(0));
+async function pushActivar(){
+  if(!pushPuede())return toast(esIOS()?"En iPhone: Compartir → «Añadir a pantalla de inicio», abre el Dojo desde ahí y vuelve aquí":"Este navegador no admite avisos");
+  if(await Notification.requestPermission()!=="granted")return toast("Sin permiso no se pueden mandar avisos. Puedes darlo en los ajustes del navegador");
+  try{const reg=await navigator.serviceWorker.ready;
+    pushSub=await reg.pushManager.getSubscription()||await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64uBytes(VAPID_PUB)});
+    await apiF("push",{method:"POST",body:{sub:pushSub.toJSON(),tz:new Date().getTimezoneOffset(),hora:S.avisoHora??20,probar:true}});
+    toast("Avisos activados: te llega uno de prueba");render()}catch(e){toast("No se pudo activar: "+e.message)}}
+async function pushQuitar(){try{const s=await pushEstado();if(s){await apiF("push",{method:"DELETE",body:{endpoint:s.endpoint}}).catch(()=>{});await s.unsubscribe()}pushSub=null;toast("Avisos desactivados en este dispositivo");render()}catch(e){toast(e.message)}}
+async function pushHora(hh){S.avisoHora=hh;save();const s=await pushEstado();if(s)apiF("push",{method:"POST",body:{sub:s.toJSON(),tz:new Date().getTimezoneOffset(),hora:hh}}).then(()=>toast(`Recordatorio a las ${hh}:00`)).catch(e=>toast(e.message))}
+function avisosCard(){const hh=S.avisoHora??20;
+  return `<div class="card"><h3 style="margin-top:0">🔔 Avisos en este dispositivo</h3>
+    <p class="muted soc-nota" style="margin:-4px 0 10px">Mensajes, regalos, solicitudes, el reto de tus amigos y un recordatorio si tu racha está en peligro.</p>
+    ${pushSub?`<div class="row"><span class="pill ok">Activados</span><button class="btn ghost" id="pushOff">Desactivar</button></div>`:`<button class="btn acc" id="pushOn" style="width:100%">Activar avisos</button>`}
+    <label class="lib-row">Recordatorio de racha <select class="inp" id="pushHora">${Array.from({length:16},(_,i)=>i+8).map(n=>`<option value="${n}" ${n===hh?"selected":""}>${n}:00</option>`).join("")}</select></label>
+    ${esIOS()&&!pushPuede()?`<p class="muted soc-nota">En iPhone primero instala el Dojo: Compartir → «Añadir a pantalla de inicio».</p>`:""}</div>`}
+
+/* ============ Código de recuperación (sustituye al correo) ============ */
+function codigoVer(c,titulo){let d=$("#codBox");if(!d){d=document.createElement("div");d.id="codBox";d.className="cmd";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");document.body.append(d)}
+  d.hidden=false;d.innerHTML=`<div class="cmd-box" style="padding:22px 24px"><span class="eyebrow">Guárdalo ahora: no se vuelve a enseñar</span><h2 style="margin:6px 0 8px">${h(titulo||"Tu código de recuperación")}</h2>
+    <p class="muted">Si olvidas la contraseña, con tu usuario y este código pones una nueva. Guárdalo en tu gestor de contraseñas o en una foto.</p>
+    <div class="cod" id="codTxt">${h(c)}</div>
+    <div class="row" style="margin-top:14px"><button class="btn ghost" id="codCopy">Copiar</button><button class="btn ghost" id="codBaja">Descargar .txt</button><button class="btn acc" id="codOk" style="margin-left:auto">Ya lo he guardado</button></div></div>`;
+  $("#codCopy").onclick=()=>navigator.clipboard.writeText(c).then(()=>toast("Copiado")).catch(()=>toast("Cópialo a mano"));
+  $("#codBaja").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([`Dojo · dojo.tonykansaiguide.com\nUsuario: @${cuenta?.usuario||""}\nCódigo de recuperación: ${c}\n`],{type:"text/plain"}));a.download="dojo-codigo-recuperacion.txt";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
+  $("#codOk").onclick=()=>{d.hidden=true;d.innerHTML=""};$("#codOk").focus()}
+
+/* ============ Instalar como app ============ */
+let instalarEv=null;
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();instalarEv=e;const b=$("#instalar");if(b)b.hidden=false});
+addEventListener("appinstalled",()=>{instalarEv=null;toast("Dojo instalado: ya lo tienes como app");const b=$("#instalar");if(b)b.hidden=true});
+const yaInstalada=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+async function instalar(){if(instalarEv){instalarEv.prompt();await instalarEv.userChoice.catch(()=>{});instalarEv=null;const b=$("#instalar");if(b)b.hidden=true}
+  else toast(esIOS()?"En Safari: botón Compartir → «Añadir a pantalla de inicio»":"Usa el menú del navegador: «Instalar app» o «Añadir a pantalla de inicio»")}
 /* ============ Teclado: un solo oyente para toda la app ============ */
 const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["K","Kana y kanji"],["P","Portugués"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
@@ -1265,6 +1364,7 @@ const simName=k=>k[0]==="c"?"Calentamiento "+k.slice(1):"Simulacro "+k.slice(1);
 function cmdItems(){
   const L=[],add=(g,l,f,k="",q="")=>L.push({g,l,f,k,q});
   [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
+  Object.keys(EX).forEach(x=>add("Reto",`⚡ Reto del día · ${EX[x].short}`,()=>startReto(x),"","reto diario hoy"));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
     add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
     if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
@@ -1299,7 +1399,10 @@ function cmdDraw(soloSel){const ul=$("#cmdList");
   ul.querySelectorAll("li[data-i]").forEach(li=>li.setAttribute("aria-selected",+li.dataset.i===cmdSel));
   const cur=$("#cmd"+cmdSel);if(cur){cur.scrollIntoView({block:"nearest"});$("#cmdIn").setAttribute("aria-activedescendant",cur.id)}}
 function cmdRun(n){const it=cmdShown[n];if(!it)return;S.cmdRec=[it.l,...(S.cmdRec||[]).filter(l=>l!==it.l)].slice(0,4);save();cmdClose();it.f()}
-document.addEventListener("click",e=>{if(e.target.closest("[data-cmd]"))cmdOpen()});
+document.addEventListener("click",e=>{if(e.target.closest("[data-cmd]"))cmdOpen();
+  const rt=e.target.closest("[data-reto]");if(rt)startReto(rt.dataset.reto);
+  const tb=e.target.closest("[data-rtab]");if(tb){soc&&(soc.reto={x:tb.dataset.rtab,tabla:null});S.retoUlt=tb.dataset.rtab;render();retoTabla(tb.dataset.rtab)}
+  if(e.target.closest("#instalar"))instalar()});
 const kbNum=(k,lk,max)=>{const n=/^[1-9]$/.test(k)?+k-1:/^[a-e]$/.test(lk)?"abcde".indexOf(lk):-1;return n<max?n:-1};
 const kbClick=b=>{if(b&&!b.disabled){b.click();return true}return false};
 document.addEventListener("keydown",e=>{
@@ -1404,8 +1507,9 @@ function finish(){
   if(Object.values(S.exams).reduce((a,e)=>a+Object.keys(e).length,0)>=10)award("ten");
   if(Object.keys(EX).every(k=>Object.keys(S.exams[k]).length))award("trio");
   if(x==="aws"&&run.key&&Math.round(100+900*p)>=720)award("aws720");
+  const retoNuevo=run.reto?retoFin(x,run.reto,correct,run.items.length,Date.now()-run.start):null;
   save();
-  const res={x,p,band,per,gained,items:run.items,ans:run.ans,rub:run.rub,title:run.title,key:run.key,mode:run.mode};
+  const res={x,p,band,per,gained,items:run.items,ans:run.ans,rub:run.rub,title:run.title,key:run.key,mode:run.mode,reto:run.reto||null,retoNuevo};
   run=null;route={v:"result",x,res};render();scrollTo(0,0);
   if(band.pass||p>=.8)confetti();
 }
@@ -1416,7 +1520,7 @@ function viewResult(){
     <div><h1 style="font-size:clamp(28px,4vw,40px)">${h(r.band.s)} ${r.band.pass?'<span class="pill ok">Objetivo conseguido</span>':'<span class="pill warn">Sigue así</span>'}</h1><p class="muted">${h(r.band.sub)}</p>
     <div class="secbars">${Object.entries(r.per).map(([sec,v])=>`<div class="secbar"><span>${SEC_LABEL[sec]}</span><span class="t"><i style="width:${v[0]/v[1]*100}%"></i></span><span class="mono">${Math.round(v[0]/v[1]*100)}%</span></div>`).join("")}</div>
     <div class="row" style="margin-top:16px"><span class="pill ok">+${r.gained} XP</span><span class="pill">${wrong.length} fallos guardados en tus tarjetas</span></div></div></section>
-    <div class="row" style="margin-bottom:24px"><button class="btn acc" data-exam="${x}">Volver a ${EX[x].short}</button>${wrong.length?`<button class="btn ghost" data-go="cards">Repasar los fallos ahora</button>`:""}</div>
+    <div class="row" style="margin-bottom:24px">${r.reto?`<button class="btn acc" data-go="social">⚡ ${cuenta?"Ver cómo van tus amigos":"Crea tu cuenta y compite con amigos"}</button>`:""}<button class="btn ${r.reto?"ghost":"acc"}" data-exam="${x}">Volver a ${EX[x].short}</button>${wrong.length?`<button class="btn ghost" data-go="cards">Repasar los fallos ahora</button>`:""}</div>
     <div class="sec-title"><h2>Repaso de fallos</h2><span class="muted">Lee el truco de cada uno: aquí se aprende</span></div>
     <div class="review" ${x==="n5"?'lang="ja"':""}>${wrong.length?wrong.map(({it,i})=>{const q=it.q;const sol=solText(q);const mine=mineText(q,r.ans[i]);
       return `<div class="rv"><span class="eyebrow">${h(it.set.task)}</span><div class="q">${hl(q.q,x)}</div><div><span class="pill bad">Tú: ${h(mine)}</span> <span class="pill ok">Bien: ${h(sol)}</span></div><div class="muted" lang="es">${h(q.e||"")}</div>${aiOn?`<button class="btn ghost" style="justify-self:start;padding:8px 14px" data-explain="${i}">Explícamelo mejor</button><div id="ex${i}"></div>`:""}</div>`}).join(""):'<p class="muted">Ni un fallo. Prueba el siguiente simulacro o sube a modo examen.</p>'}</div>`;
@@ -1778,7 +1882,12 @@ function confetti(){
 }
 
 /* ============ Arranque ============ */
-function start(){loadLocal();if(socPendiente)route={v:"social"};render();connectStore();connectApi();connectExtras()}
+function start(){loadLocal();
+  const q=new URLSearchParams(location.search),irChat=q.get("chat"),irReto=q.get("reto");
+  if(socPendiente||irChat||q.get("amigos"))route={v:"social"};
+  if([...q.keys()].some(k=>["chat","amigos","reto"].includes(k)))history.replaceState(null,"",location.pathname+(socPendiente?"?amigo="+encodeURIComponent(socPendiente):""));
+  if(irChat)connectApi().then(()=>{if(cuenta)chatAbrir(irChat)});
+  if(irReto&&EX[irReto])setTimeout(()=>startReto(irReto),300);render();connectStore();connectApi();connectExtras()}
 start();
 </script>
 

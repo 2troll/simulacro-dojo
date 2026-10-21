@@ -1,5 +1,6 @@
 // API del Dojo: cuentas, progreso en la nube, amigos, regalos y chat.
 // Todo en Cloudflare D1 (SQLite, plan gratis). La web estática la sirve ASSETS; aquí solo llega /api/*.
+import { avisa } from "./push.js";
 
 const DIA = 864e5, SESION_DIAS = 90;
 const NOMBRE = /^[a-z0-9_.]{3,20}$/;
@@ -19,6 +20,21 @@ const b64u = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\
 const sha = async t => b64u(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)));
 const limpio = (t, max) => String(t ?? "").replace(/[\u0000-\u0008\u000B-\u001F\u007F‪-‮⁦-⁩]/g, "").trim().slice(0, max);
 
+const EXAMENES = ["aws", "toefl", "ielts", "n5"];
+const PUSH_HOSTS = /(^|\.)(fcm\.googleapis\.com|push\.services\.mozilla\.com|push\.apple\.com|notify\.windows\.com)$/;
+const entero = (v, a, z) => Math.max(a, Math.min(z, Math.floor(+v || 0)));
+const nombreDe = u => u.mostrar || u.nombre;
+
+// Código de recuperación: 100 bits sin letras que se confundan (0/O, 1/I). Sustituye al correo para recuperar la cuenta.
+const ALF = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const normCod = c => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+async function nuevoCodigo(env, id) {
+  const c = [...crypto.getRandomValues(new Uint8Array(20))].map(x => ALF[x & 31]).join("").match(/.{5}/g).join("-");
+  const sal = b64u(crypto.getRandomValues(new Uint8Array(16)));
+  await env.DB.prepare("UPDATE usuarios SET rec_sal=?, rec_hash=? WHERE id=?").bind(sal, await sha(sal + ":" + normCod(c)), id).run();
+  return c;
+}
+
 // Comparación en tiempo constante para no filtrar el hash por tiempos de respuesta
 function igual(a, b) {
   if (a.length !== b.length) return false;
@@ -27,13 +43,31 @@ function igual(a, b) {
 }
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     const u = new URL(req.url);
     if (!u.pathname.startsWith("/api/")) return env.ASSETS.fetch(req);
-    try { return await api(req, env, u); }
+    try { return await api(req, env, u, ctx); }
     catch (e) { console.error(e); return mal("Error del servidor. Prueba otra vez en un momento.", 500); }
   },
+  // Cada hora: recordatorio a quien tenga racha y aún no haya estudiado hoy, a la hora que eligió
+  async scheduled(_ev, env, ctx) { ctx.waitUntil(recordatorios(env)); },
 };
+
+async function recordatorios(env) {
+  const subs = (await env.DB.prepare("SELECT p.endpoint, p.usuario, p.tz, p.hora, p.ultimo AS avisado, u.racha, u.ultimo AS estudio FROM avisos_push p JOIN usuarios u ON u.id=p.usuario").all()).results;
+  const hechos = new Set();
+  for (const s of subs) {
+    const local = new Date(ahora() - s.tz * 60e3), dia = local.toISOString().slice(0, 10);
+    if (local.getUTCHours() !== s.hora || s.avisado === dia || s.estudio === dia) continue;   // ni a otra hora, ni dos veces, ni si ya estudió
+    await env.DB.prepare("UPDATE avisos_push SET ultimo=? WHERE endpoint=?").bind(dia, s.endpoint).run();
+    if (hechos.has(s.usuario)) continue;   // avisa() ya manda a todos sus dispositivos
+    hechos.add(s.usuario);
+    const viva = s.racha > 0 && s.estudio && (Date.parse(dia) - Date.parse(s.estudio)) / DIA <= 1;
+    await avisa(env, s.usuario, viva
+      ? { title: `🔥 Tu racha de ${s.racha} días`, body: "Se rompe esta noche. Con 5 minutos la salvas.", url: "/", tag: "racha" }
+      : { title: "Dojo · 10 minutos hoy", body: "Un reto del día o unas tarjetas y listo.", url: "/", tag: "racha" });
+  }
+}
 
 // Freno contra abusos: máximo «max» intentos por clave en «ms»
 async function freno(env, k, max, ms) {
@@ -87,7 +121,8 @@ async function cuerpo(req, max = 20_000) {
   try { return t ? JSON.parse(t) : {}; } catch { return {}; }
 }
 
-async function api(req, env, u) {
+async function api(req, env, u, ctx) {
+  const luego = p => ctx?.waitUntil(p.catch(e => console.warn(e.message)));   // avisos al móvil sin hacer esperar a quien escribe
   const ruta = u.pathname.slice(5).replace(/\/+$/, ""), M = req.method;
   // Contra CSRF: toda escritura debe venir de esta misma web con la cabecera propia
   if (M !== "GET") {
@@ -110,7 +145,19 @@ async function api(req, env, u) {
     const avatar = AVATARES.includes(b.avatar) ? b.avatar : AVATARES[Math.floor(Math.random() * AVATARES.length)];
     const r = await env.DB.prepare("INSERT INTO usuarios(nombre,mostrar,avatar,sal,hash,creado,visto,semana) VALUES(?,?,?,?,?,?,?,?) RETURNING id")
       .bind(nombre, limpio(b.nombre, 30) || null, avatar, sal, await sha(sal + ":" + b.clave), ahora(), ahora(), semanaAct()).first();
-    return J({ ok: true }, 201, { "set-cookie": await abrirSesion(env, r.id) });
+    return J({ ok: true, codigo: await nuevoCodigo(env, r.id) }, 201, { "set-cookie": await abrirSesion(env, r.id) });
+  }
+  if (ruta === "recuperar" && M === "POST") {
+    const nombre = limpio(b.usuario, 21).replace(/^@/, "").toLowerCase();
+    if (await freno(env, "rec:" + ip, 10, 3600e3) || await freno(env, "recu:" + nombre, 5, 3600e3)) return mal("Demasiados intentos. Prueba dentro de una hora.", 429);
+    const x = NOMBRE.test(nombre) && CLAVE.test(b.clave || "") ? await env.DB.prepare("SELECT * FROM usuarios WHERE nombre=?").bind(nombre).first() : null;
+    if (!x || !x.rec_hash || !igual(await sha(x.rec_sal + ":" + normCod(b.codigo)), x.rec_hash)) return mal("Usuario o código incorrectos", 401);
+    const sal = b64u(crypto.getRandomValues(new Uint8Array(16)));
+    await env.DB.batch([
+      env.DB.prepare("UPDATE usuarios SET sal=?, hash=? WHERE id=?").bind(sal, await sha(sal + ":" + b.clave), x.id),
+      env.DB.prepare("DELETE FROM sesiones WHERE usuario=?").bind(x.id),
+    ]);
+    return J({ ok: true, codigo: await nuevoCodigo(env, x.id) }, 200, { "set-cookie": await abrirSesion(env, x.id) });   // el código usado deja de valer
   }
   if (ruta === "entrar" && M === "POST") {
     const nombre = limpio(b.usuario, 21).replace(/^@/, "").toLowerCase();
@@ -150,15 +197,21 @@ async function api(req, env, u) {
     ]);
     return J({ ok: true });
   }
+  if (ruta === "cuenta/codigo" && M === "POST") {
+    if (await freno(env, "cl:" + yo.id, 5, 900e3)) return mal("Demasiados intentos. Espera 15 minutos.", 429);
+    if (!CLAVE.test(b.clave || "") || !igual(await sha(yo.sal + ":" + b.clave), yo.hash)) return mal("La contraseña no es esa", 401);
+    return J({ codigo: await nuevoCodigo(env, yo.id) });
+  }
   if (ruta === "cuenta/exportar" && M === "GET") {
     const q = (s, ...v) => env.DB.prepare(s).bind(...v).all().then(r => r.results);
-    const { sal, hash, _s, ...datos } = yo;
+    const { sal, hash, _s, rec_sal, rec_hash, ...datos } = yo;
     return J({
       cuenta: datos,
       progreso: await env.DB.prepare("SELECT * FROM progreso WHERE usuario=?").bind(yo.id).first(),
       amistades: await q("SELECT * FROM amistades WHERE a=? OR b=?", yo.id, yo.id),
       regalos: await q("SELECT * FROM regalos WHERE de=? OR para=?", yo.id, yo.id),
       mensajes: await q("SELECT * FROM mensajes WHERE de=? OR para=?", yo.id, yo.id),
+      retos: await q("SELECT * FROM retos WHERE usuario=?", yo.id),
     }, 200, { "content-disposition": `attachment; filename="dojo-${yo.nombre}.json"` });
   }
   if (ruta === "cuenta/borrar" && M === "POST") {
@@ -169,6 +222,8 @@ async function api(req, env, u) {
       env.DB.prepare("DELETE FROM regalos WHERE de=? OR para=?").bind(i, i),
       env.DB.prepare("DELETE FROM amistades WHERE a=? OR b=?").bind(i, i),
       env.DB.prepare("DELETE FROM sesiones WHERE usuario=?").bind(i),
+      env.DB.prepare("DELETE FROM retos WHERE usuario=?").bind(i),
+      env.DB.prepare("DELETE FROM avisos_push WHERE usuario=?").bind(i),
       env.DB.prepare("DELETE FROM progreso WHERE usuario=?").bind(i),
       env.DB.prepare("DELETE FROM usuarios WHERE id=?").bind(i),
     ]);
@@ -222,12 +277,14 @@ async function api(req, env, u) {
     const [a, c] = par(yo.id, otro.id);
     if (f && f.pide !== yo.id) {           // te la había pedido él: queda aceptada
       await env.DB.prepare("UPDATE amistades SET estado='amigos' WHERE a=? AND b=?").bind(a, c).run();
+      luego(avisa(env, otro.id, { title: "🤝 ¡Ya sois amigos!", body: `${nombreDe(yo)} ha aceptado. Ya podéis competir en la liga.`, url: "/?amigos=1", tag: "amigo" }));
       return J({ estado: "amigos" });
     }
     if (f) return J({ estado: "enviada" });
     const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM amistades WHERE a=?1 OR b=?1").bind(yo.id).first();
     if (n.n >= MAX_AMIGOS) return mal("Has llegado al máximo de amigos");
     await env.DB.prepare("INSERT INTO amistades(a,b,pide,estado,creado) VALUES(?,?,?,'pendiente',?)").bind(a, c, yo.id, ahora()).run();
+    luego(avisa(env, otro.id, { title: "👋 Solicitud de amistad", body: `${nombreDe(yo)} (@${yo.nombre}) quiere estudiar contigo`, url: "/?amigos=1", tag: "amigo" }));
     return J({ estado: "enviada" }, 201);
   }
   let m;
@@ -245,6 +302,9 @@ async function api(req, env, u) {
     const r = await env.DB.prepare("INSERT OR IGNORE INTO regalos(de,para,tipo,nota,dia,creado) VALUES(?,?,?,?,?,?)")
       .bind(yo.id, otro.id, b.tipo, limpio(b.nota, 120) || null, diaUTC(), ahora()).run();
     if (!r.meta.changes) return mal(`Hoy ya le has mandado un «${REGALOS[b.tipo]}». Mañana puedes otro.`, 409);
+    luego(avisa(env, otro.id, b.tipo === "congela"
+      ? { title: "❄ Te han regalado un protector de racha", body: `${nombreDe(yo)} te cubre un día sin estudiar`, url: "/?amigos=1", tag: "regalo" }
+      : { title: `👏 ${nombreDe(yo)}`, body: limpio(b.nota, 120) || "¡Ánimo con el estudio!", url: "/?amigos=1", tag: "regalo" }));
     return J({ ok: true }, 201);
   }
   if (ruta === "regalos/recoger" && M === "POST") {
@@ -252,6 +312,45 @@ async function api(req, env, u) {
       RETURNING id, tipo, nota, (SELECT nombre FROM usuarios WHERE id=de) AS de_usuario, (SELECT COALESCE(mostrar,nombre) FROM usuarios WHERE id=de) AS de_nombre`)
       .bind(ahora(), yo.id).all();
     return J({ regalos: r.results });
+  }
+
+  // ---------- Avisos al móvil (Web Push) ----------
+  if (ruta === "push" && M === "POST") {
+    const s = b.sub || {}, ep = String(s.endpoint || "");
+    let host = ""; try { host = new URL(ep).hostname; } catch {}
+    // solo servicios de push reales: así nadie usa el servidor para llamar a otras webs
+    if (!ep.startsWith("https://") || ep.length > 1000 || !PUSH_HOSTS.test(host) || !s.keys?.p256dh || !s.keys?.auth) return mal("Este navegador no admite avisos");
+    await env.DB.prepare(`INSERT INTO avisos_push(endpoint,usuario,p256dh,auth,tz,hora,creado) VALUES(?,?,?,?,?,?,?)
+      ON CONFLICT(endpoint) DO UPDATE SET usuario=excluded.usuario, p256dh=excluded.p256dh, auth=excluded.auth, tz=excluded.tz, hora=excluded.hora`)
+      .bind(ep, yo.id, limpio(s.keys.p256dh, 200), limpio(s.keys.auth, 100), entero(b.tz, -840, 840), entero(b.hora, 0, 23), ahora()).run();
+    if (b.probar) luego(avisa(env, yo.id, { title: "✅ Avisos activados", body: "Así te llegarán los mensajes, los regalos y el recordatorio de tu racha.", url: "/", tag: "prueba" }));
+    return J({ ok: true });
+  }
+  if (ruta === "push" && M === "DELETE") {
+    await env.DB.prepare("DELETE FROM avisos_push WHERE endpoint=? AND usuario=?").bind(String(b.endpoint || ""), yo.id).run();
+    return J({ ok: true });
+  }
+
+  // ---------- Reto del día: las mismas preguntas para todos ----------
+  if (ruta === "reto" && M === "POST") {
+    const dia = String(b.dia || ""), ex = String(b.examen || "");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dia) || Math.abs(Date.parse(dia) - Date.parse(diaUTC())) > 2 * DIA || !EXAMENES.includes(ex)) return mal("Reto no válido");
+    const total = entero(b.total, 1, 50), ac = entero(b.aciertos, 0, total), ms = entero(b.ms, 0, 36e5);
+    const r = await env.DB.prepare("INSERT OR IGNORE INTO retos(usuario,dia,examen,aciertos,total,ms,creado) VALUES(?,?,?,?,?,?,?)").bind(yo.id, dia, ex, ac, total, ms, ahora()).run();
+    if (r.meta.changes) {   // primer intento del día: se lo cuenta a los amigos que aún no lo han hecho
+      const otros = (await env.DB.prepare(`SELECT CASE WHEN a=?1 THEN b ELSE a END AS id FROM amistades WHERE (a=?1 OR b=?1) AND estado='amigos'
+        AND CASE WHEN a=?1 THEN b ELSE a END NOT IN (SELECT usuario FROM retos WHERE dia=?2 AND examen=?3)`).bind(yo.id, dia, ex).all()).results;
+      for (const o of otros.slice(0, 50)) luego(avisa(env, o.id, { title: `⚡ ${nombreDe(yo)}: ${ac}/${total} en el reto de hoy`, body: "Mismas preguntas para todos. ¿Le superas?", url: `/?reto=${ex}`, tag: "reto" }));
+    }
+    return J({ ok: true, nuevo: !!r.meta.changes });
+  }
+  if (ruta === "reto" && M === "GET") {
+    const dia = String(u.searchParams.get("dia") || ""), ex = String(u.searchParams.get("examen") || "");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dia) || !EXAMENES.includes(ex)) return mal("Reto no válido");
+    const r = await env.DB.prepare(`SELECT r.aciertos, r.total, r.ms, u.* FROM retos r JOIN usuarios u ON u.id=r.usuario
+      WHERE r.dia=?2 AND r.examen=?3 AND (r.usuario=?1 OR r.usuario IN (SELECT CASE WHEN a=?1 THEN b ELSE a END FROM amistades WHERE (a=?1 OR b=?1) AND estado='amigos'))
+      ORDER BY r.aciertos DESC, r.ms ASC LIMIT 100`).bind(yo.id, dia, ex).all();
+    return J({ tabla: r.results.map(x => ({ ...publico(x), aciertos: x.aciertos, total: x.total, ms: x.ms, yo: x.id === yo.id })) });
   }
 
   // ---------- Avisos (lo que se consulta de fondo cada minuto) ----------
@@ -280,6 +379,7 @@ async function api(req, env, u) {
       const texto = limpio(b.texto, 500);
       if (!texto) return mal("Mensaje vacío");
       const r = await env.DB.prepare("INSERT INTO mensajes(de,para,texto,creado) VALUES(?,?,?,?) RETURNING id, creado").bind(yo.id, otro.id, texto, ahora()).first();
+      luego(avisa(env, otro.id, { title: `💬 ${nombreDe(yo)}`, body: texto.slice(0, 140), url: `/?chat=${yo.nombre}`, tag: "chat-" + yo.nombre, chat: yo.nombre }));
       return J({ id: r.id, mio: true, texto, creado: r.creado }, 201);
     }
   }
