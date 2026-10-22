@@ -8,7 +8,7 @@
 /* Identidad «dojo»: papel washi, tinta sumi y el sello rojo (hanko). Cada examen conserva su color para orientarse. */
 :root{
   --paper:#f2ede3; --sheet:#fbf8f2; --ink:#191612; --ink-2:#5a5248; --line:#ddd4c4; --bubble:#e9e2d4; --sumi:#191612; --on-sumi:#f2ede3;
-  --hanko:#c8361d; --pt:#0b7a4b; --ru:#2a52be; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --accent:var(--hanko);
+  --hanko:#c8361d; --pt:#0b7a4b; --ru:#2a52be; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --det:#3c8a18; --az900:#0f6cbd; --psm:#0b6e74; --accent:var(--hanko);
   --ok:#1f7a4c; --ok-bg:#dff0e3; --bad:#b8321f; --bad-bg:#f7e1db; --warn:#a96d12; --warn-bg:#f6ead0;
   --shadow:0 1px 0 rgba(25,22,18,.05),0 18px 40px -24px rgba(25,22,18,.45);
   --f-display:"Fraunces","Lora","Iowan Old Style",Georgia,serif;
@@ -19,19 +19,19 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#13110e; --sheet:#1c1915; --ink:#efe8db; --ink-2:#b0a594; --line:#342e26; --bubble:#29241e; --sumi:#0b0a08; --on-sumi:#efe8db;
-  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee;
+  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee; --det:#8fd36a; --az900:#6cb4f2; --psm:#5fc9c7;
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#13110e; --sheet:#1c1915; --ink:#efe8db; --ink-2:#b0a594; --line:#342e26; --bubble:#29241e; --sumi:#0b0a08; --on-sumi:#efe8db;
-  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee;
+  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee; --det:#8fd36a; --az900:#6cb4f2; --psm:#5fc9c7;
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:16.5px/1.6 var(--f-body);margin:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-optical-sizing:auto}
 [lang="ru"],[lang="ru-RU"]{font-family:var(--f-body)}h1[lang^="ru"],h2[lang^="ru"],.kbig[lang^="ru"]{font-family:var(--f-body);font-weight:700;letter-spacing:-.01em}
 h1{letter-spacing:-.02em}h2,h3{letter-spacing:-.01em}p{text-wrap:pretty}
-body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="ru"]{--accent:var(--ru)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)}
+body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="ru"]{--accent:var(--ru)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)} body[data-x="det"]{--accent:var(--det)} body[data-x="az900"]{--accent:var(--az900)} body[data-x="psm"]{--accent:var(--psm)}
 .jp,[lang="ja"]{font-family:var(--f-jp)}
 h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
 button{font:inherit;color:inherit;cursor:pointer}
@@ -620,10 +620,91 @@ h1{font-weight:900}.sec-title h2{position:relative}
 .mnav{border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);backdrop-filter:blur(18px) saturate(1.4)}.mnav button[aria-current="page"]{color:var(--accent)}
 .plan-card{box-shadow:var(--sh-2);border-radius:28px}
 @media(prefers-reduced-motion:reduce){.btn,.kc,.kset,.idioma,.tk-lec{transition:none}.btn:hover,.kc:hover,.idioma:hover{transform:none}}
+
+/* Certificados desde casa: billetes con talón perforado (idea de dqnamo, código propio) */
+.prio.casa{background:var(--c);color:var(--sheet);transform:none}
+.ch-hero{position:relative;padding:34px 0 10px}
+.ch-hero h1{font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:-.03em;margin:10px 0 14px;max-width:14ch}
+.ch-hero h1 em{font-style:italic;color:var(--accent)}
+.ch-stats{display:flex;flex-wrap:wrap;gap:12px 34px;margin:22px 0 8px}
+.ch-stats div{display:grid}.ch-stats b{font:700 clamp(34px,5vw,52px)/1 var(--f-display,inherit);letter-spacing:-.02em}.ch-stats span{color:var(--muted);font-size:14px}
+.ch-pasos{padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 34px;counter-reset:p}
+.ch-pasos li{list-style:none;padding:16px 18px;border:1px dashed var(--line);border-radius:16px;font-size:15px}
+.ch-pasos li::before{counter-increment:p;content:"0" counter(p);display:block;font:700 12px var(--f-mono);color:var(--accent);margin-bottom:6px;letter-spacing:.1em}
+.tix{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin:6px 0 40px;perspective:1100px}
+.tix-c{--c:var(--accent);position:relative;display:grid;grid-template-columns:1fr 118px;border-radius:22px;background:var(--card,var(--paper));border:1px solid var(--line);box-shadow:var(--sh-1);text-align:left;color:inherit;font:inherit;padding:0;cursor:pointer;transform-style:preserve-3d;will-change:transform}
+.tix-c:hover{box-shadow:var(--sh-2);border-color:color-mix(in srgb,var(--c) 55%,var(--line))}
+.tix-main{padding:20px 22px;display:grid;gap:8px;align-content:start}
+.tix-main .eyebrow{color:var(--c)}.tix-main b{font-size:21px;line-height:1.15}.tix-main small{color:var(--muted);font-size:14px;line-height:1.45}
+.tix-stub{position:relative;display:grid;place-content:center;text-align:center;gap:4px;padding:16px 10px;border-left:2px dashed var(--line);background:color-mix(in srgb,var(--c) 9%,transparent);border-radius:0 22px 22px 0}
+.tix-stub::before,.tix-stub::after{content:"";position:absolute;left:-11px;width:20px;height:20px;border-radius:50%;background:var(--bg,var(--paper));border:1px solid var(--line)}
+.tix-stub::before{top:-11px}.tix-stub::after{bottom:-11px}
+.tix-stub b{font:700 24px/1 var(--f-mono);white-space:nowrap;color:var(--c)}.tix-stub span{font-size:12px;color:var(--muted)}
+.tix-sello{position:absolute;top:-12px;right:128px;transform:rotate(-6deg);font:800 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:8px;color:#fff;background:linear-gradient(110deg,var(--c),color-mix(in srgb,var(--c) 60%,#fff) 45%,var(--c) 60%);background-size:220% 100%;animation:sello 4s linear infinite;box-shadow:0 6px 16px -6px var(--c)}
+@keyframes sello{to{background-position:-220% 0}}
+.tix-go{display:inline-flex;gap:6px;align-items:center;font-weight:700;color:var(--c);margin-top:4px}
+.tabs.ch-fil{position:relative}.ch-ind{position:absolute;bottom:-1px;height:3px;border-radius:3px;background:var(--accent);pointer-events:none}
+.tabs.ch-fil button[aria-selected="true"]{border-bottom-color:transparent}
+@media(max-width:640px){.ch-pasos{grid-template-columns:1fr}.tix{grid-template-columns:1fr}.tix-c{grid-template-columns:1fr 96px}.tix-sello{right:104px}}
+@media(prefers-reduced-motion:reduce){.tix-sello{animation:none}}
+/* 404: radar que barre y buscador en línea */
+.perdido{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,420px);gap:30px;align-items:center;min-height:70vh;padding:30px 0}
+.perdido h1{font-size:clamp(84px,16vw,190px);line-height:.85;letter-spacing:-.05em;margin:0}
+.perdido h1 .o{-webkit-text-stroke:3px var(--ink);color:transparent}
+.perdido h2{font-size:clamp(26px,3.4vw,40px);margin:18px 0 8px}
+.radar{position:relative;aspect-ratio:1;border-radius:50%;border:1px solid var(--line);background:repeating-radial-gradient(circle,transparent 0 17%,color-mix(in srgb,var(--line) 80%,transparent) 17% calc(17% + 1px));overflow:hidden}
+.radar::before,.radar::after{content:"";position:absolute;background:var(--line)}.radar::before{left:50%;top:0;bottom:0;width:1px}.radar::after{top:50%;left:0;right:0;height:1px}
+.radar-haz{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,color-mix(in srgb,var(--accent) 45%,transparent),transparent 25%)}
+.radar-p{position:absolute;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 20%,transparent);opacity:0}
+.perdido form{display:flex;gap:8px;margin:22px 0 12px;max-width:520px}.perdido form .inp{flex:1}
+.perdido-res{display:grid;gap:6px;max-width:520px}.perdido-res button{display:flex;justify-content:space-between;text-align:left;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card,var(--paper));color:inherit;font:inherit;cursor:pointer}
+.perdido-res button:hover{border-color:var(--accent)}
+@media(max-width:760px){.perdido{grid-template-columns:1fr}.radar{max-width:260px}}
+
+/* Camino por niveles */
+.dhero.simple{padding-block:44px 26px}
+.today.mini{align-self:center}
+.cam-tabs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-bottom:30px}
+.cam-tab{display:grid;gap:4px;text-align:left;padding:16px 18px;border-radius:18px;border:1.5px solid var(--line);background:var(--sheet);color:inherit;font:inherit;cursor:pointer;transition:border-color .2s,transform .3s var(--ease),box-shadow .3s}
+.cam-tab:hover{transform:translateY(-2px);box-shadow:var(--sh-1)}
+.cam-tab[aria-selected="true"]{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 18%,transparent)}
+.cam-tab .idioma-w{font-size:22px;color:var(--c);font-weight:700}.cam-tab b{font-size:18px}.cam-tab small{color:var(--muted)}
+.camino{--c:var(--accent);list-style:none;margin:0 0 34px;padding:0;display:grid;gap:10px;position:relative}
+.camino:not(.mini)::before{content:"";position:absolute;left:27px;top:24px;bottom:24px;width:2px;background:var(--line)}
+.cam-n button{position:relative;display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;width:100%;text-align:left;padding:14px 16px 14px 0;border:0;border-radius:18px;background:none;color:inherit;font:inherit;cursor:pointer}
+.cam-n button:hover .cam-tx b{color:var(--c)}
+.cam-dot{justify-self:center;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;font:700 16px var(--f-mono);background:var(--paper);border:2px solid var(--line);color:var(--muted);position:relative;z-index:1}
+.cam-n.ok .cam-dot{background:var(--c);border-color:var(--c);color:var(--sheet)}
+.cam-n.ahora .cam-dot{border-color:var(--c);color:var(--c);box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 18%,transparent);animation:camPulso 2.2s ease-in-out infinite}
+@keyframes camPulso{50%{box-shadow:0 0 0 11px color-mix(in srgb,var(--c) 6%,transparent)}}
+.cam-n.ahora button{background:var(--sheet);box-shadow:var(--sh-1);outline:1.5px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.cam-n.luego .cam-tx{opacity:.62}
+.cam-tx{display:grid;gap:3px}.cam-tx b{font-size:19px;transition:color .2s}.cam-tx small{color:var(--muted);font-size:14px}
+.cam-tx .eyebrow{color:var(--c)}
+.cam-bar{display:block;height:5px;border-radius:5px;background:color-mix(in srgb,var(--line) 70%,transparent);overflow:hidden;max-width:260px;margin-top:4px}.cam-bar i{display:block;height:100%;background:var(--c);border-radius:5px}
+.cam-go{white-space:nowrap}
+.camino.mini{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.camino.mini .cam-n button{grid-template-columns:1fr;gap:6px;padding:12px;border:1.5px solid var(--line);background:var(--sheet);height:100%;align-content:start}
+.camino.mini .cam-dot{justify-self:start;width:30px;height:30px;font-size:13px}
+.camino.mini .cam-tx b{font-size:15px;line-height:1.2}.camino.mini .cam-n.sel button{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 16%,transparent)}
+.camino.mini .cam-n.ahora button{outline:0}
+a.btn{text-decoration:none}
+.kb-line{display:none}
+.cam-vacio{padding:26px;border:1.5px dashed var(--line);border-radius:18px;text-align:center}
+.mas{margin:10px 0 30px;border-top:1px solid var(--line);padding-top:18px}.mas summary{cursor:pointer;font:700 18px var(--f-display);list-style:none}.mas summary::before{content:"＋ ";color:var(--accent)}.mas[open] summary::before{content:"－ "}
+.mas-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:16px 0 26px}
+.mas-i{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;text-align:left;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--sheet);color:inherit;font:inherit;cursor:pointer}.mas-i span{grid-row:1/3;font-size:22px}.mas-i:hover{border-color:var(--accent)}
+.ptv{padding-right:.14em}
+.kset span[lang="ru"],.kset span[lang="pt-PT"]{font-family:var(--f-body,inherit);font-weight:700}
+@media(max-width:760px){.camino.mini{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.camino.mini .cam-n{scroll-snap-align:start}
+  .cam-n button{grid-template-columns:48px 1fr}.cam-go{grid-column:2;justify-self:start}.camino:not(.mini)::before{left:23px}}
+@media(prefers-reduced-motion:reduce){.cam-n.ahora .cam-dot{animation:none}}
 </style>
 
 <div id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Flip.min.js"></script>
 <script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
 <canvas id="confetti" hidden></canvas>
 
@@ -716,9 +797,67 @@ const EX = {
       ["Respuesta rápida","Saludos fijos: いただきます / ごちそうさまでした, いってきます → いってらっしゃい, ただいま → おかえりなさい, しつれいします al entrar."],
       ["Números y horas","Lecturas raras que siempre caen: よっか (día 4), はつか (día 20), ここのか (9), よじ (4 en punto), くじ (9 en punto), ろっぴゃく, はっぴゃく."],
       ["Gestión del tiempo","Vocabulario: 20 min para unas 30 preguntas. Si dudas más de 30 s, marca la más probable y sigue: no se resta por fallo."]
+    ]},
+  det:{name:"Duolingo English Test",short:"DET",lang:"en-US",scale:"10–160 · desde casa",casa:true,
+    blurb:"Una hora en tu ordenador, sin cita, y la nota en 48 h. Tareas cortas y adaptativas: palabras reales, huecos, escucha y habla.",
+    secs:["vocab","reading","listening","writing","speaking"],
+    blueprint:[["Read and Select",2],["Fill in the Blanks",2],["Read and Complete",1],["Interactive Reading",1],["Listen and Type",3],["Interactive Listening",1],["Read, Then Write|Writing Sample",1],["Read Aloud",2],["Listen, Then Speak|Speaking Sample",1]],
+    easy:[["Read and Select",3],["Fill in the Blanks",3],["Listen and Type",3],["Read Aloud",2]],
+    format:[["Palabras","Read and Select · Fill in the Blanks","≈ 5 min","Elige palabras reales y completa las que faltan"],["Lectura","Read and Complete · Interactive Reading","≈ 12 min","Texto con huecos y preguntas sobre un pasaje"],["Escucha","Listen and Type · Interactive Listening","≈ 10 min","Escribes lo que oyes y sigues una conversación"],["Escritura","Write About the Photo · Read, Then Write · Writing Sample","≈ 13 min","El Writing Sample se envía a las universidades"],["Habla","Read Aloud · Listen, Then Speak · Speaking Sample","≈ 10 min","Grabas tu voz; el Sample también se envía"]],
+    scoreNote:"Nota de 10 a 160 en pasos de 5, con subnotas de Literacy, Comprehension, Conversation y Production. Orientativo: 105-115 ≈ IELTS 6.5 · 120 ≈ IELTS 7. Cuesta 70 $, vale 2 años y mandar la nota a universidades es gratis. Se repite cuando quieras (máx. 3 veces en 30 días). Comprobado el 22-10-2026.",
+    tricks:[
+      ["Antes de pagar: prueba el equipo","Necesitas ordenador (no móvil), cámara, micrófono, altavoz y una habitación sola y en silencio. Haz la práctica gratis de su web con el mismo ordenador."],
+      ["Read and Select: el oído manda","Las palabras falsas suenan inglesas pero no existen («plinter»). Si dudas, NO la marques: marcar una falsa resta más que dejar una real."],
+      ["Fill in the Blanks","Mira qué tipo de palabra falta: tras «very» va un adjetivo; tras «the» un sustantivo. Las letras que te dan ya marcan la raíz; tú pones la terminación."],
+      ["Listen and Type","Escúchalo entero una vez, escribe el esqueleto y usa la 2.ª y 3.ª escucha para las palabras pequeñas (a, the, of, has). Revisa plurales y la -ed."],
+      ["Read Aloud","Lee en bloques de sentido y sin prisa. Vale más claro y seguido que rápido con tropiezos."],
+      ["Escritura con plantilla","Frase con la idea principal, dos razones con un ejemplo cada una, y una frase de cierre. Usa conectores: however, for example, as a result."],
+      ["Habla sin silencios","Si te quedas en blanco: «That's an interesting question. Personally, I think…». El examen premia hablar seguido el tiempo entero."],
+      ["El reloj de cada tarea","Cada pregunta tiene su propio reloj y no se puede volver atrás. No te quedes atascado: responde lo que tengas y sigue."]
+    ]},
+  az900:{name:"Microsoft Azure Fundamentals",short:"AZ-900",lang:"en-US",scale:"1–1000 · aprobado 700",casa:true,per:{mcq:70,multi:80},
+    blurb:"La certificación de nube más fácil para empezar. 45 minutos en casa con vigilancia online. Conceptos de nube, servicios de Azure y gestión.",
+    secs:["azcloud","azarch","azgov"],
+    blueprint:[["Cloud concepts",6],["Azure architecture and services",8],["Azure management and governance",6]],
+    full:[["Cloud concepts",11],["Azure architecture and services",15],["Azure management and governance",14]],fullTxt:"40 preguntas · 45 min",
+    easy:[["Cloud concepts",4],["Azure architecture and services",4],["Azure management and governance",4]],
+    fmtHead:["Dominio","Qué entra","Peso","Lo que más cae"],
+    format:[["1 · Conceptos de nube","Modelos de nube, beneficios, IaaS/PaaS/SaaS, responsabilidad compartida","25-30 %","CapEx/OpEx, elasticidad, híbrida"],["2 · Arquitectura y servicios","Regiones y zonas, cómputo, redes, almacenamiento, identidad y seguridad","35-40 %","VM, App Service, Functions, VNet, Blob, Entra ID"],["3 · Gestión y gobierno","Costes, gobierno y cumplimiento, herramientas de despliegue y supervisión","30-35 %","Policy, bloqueos, etiquetas, Advisor, Monitor"]],
+    scoreNote:"Unas 40-60 preguntas en 45 minutos; nota de 1 a 1000 y se aprueba con 700. Cuesta 99 $ (en Japón el precio sale en yenes al reservar) y la certificación de Fundamentals NO caduca. Se hace desde casa con Pearson OnVUE. Microsoft regala a veces el examen en sus Virtual Training Days: mira antes de pagar.",
+    tricks:[
+      ["Gratis si puedes","Apúntate a un «Microsoft Virtual Training Day: Azure Fundamentals»: al terminarlo suelen dar un vale para hacer el AZ-900 gratis."],
+      ["IaaS, PaaS o SaaS","Tú gestionas el sistema operativo = IaaS (VM). Solo subes tu código = PaaS (App Service, Functions). Solo usas el programa = SaaS (Microsoft 365)."],
+      ["Responsabilidad compartida","Lo que SIEMPRE es tuyo: los datos, los dispositivos, las cuentas y las identidades. Lo físico (centro de datos, red física) es siempre de Microsoft."],
+      ["Disponible ≠ escalable ≠ elástico","Disponible = sigue funcionando. Escalable = puede crecer. Elástico = crece y decrece solo según la demanda."],
+      ["Jerarquía de gobierno","Grupos de administración → suscripciones → grupos de recursos → recursos. Lo que pones arriba (Policy, RBAC) se hereda hacia abajo."],
+      ["Policy, bloqueo o RBAC","¿QUÉ se puede crear? = Azure Policy. ¿QUIÉN puede hacerlo? = RBAC. ¿Evitar que se borre por error? = bloqueo (CanNotDelete / ReadOnly)."],
+      ["Costes en una línea","Antes de migrar = calculadora de TCO. Para presupuestar servicios nuevos = calculadora de precios. Para ver y avisar lo que gastas = Cost Management."],
+      ["Consejos y avisos","Recomendaciones para ahorrar o mejorar = Azure Advisor. Caídas de Azure que te afectan = Service Health. Métricas y logs = Azure Monitor."],
+      ["Redundancia del almacenamiento","LRS = 3 copias en un centro. ZRS = en 3 zonas. GRS = otra región. GZRS = zonas + otra región. RA- delante = puedes leer de la otra región."],
+      ["Yes / No","En las series «¿Cumple el objetivo?» cada frase se juzga sola. No intentes que encajen entre ellas."]
+    ]},
+  psm:{name:"Professional Scrum Master I",short:"PSM I",lang:"en-US",scale:"Aprobado con 85 %",casa:true,per:{mcq:45,multi:45},
+    blurb:"El certificado de Scrum más valorado para trabajos remotos. 60 minutos online, sin vigilancia, y no caduca nunca.",
+    secs:["theory","team","events","artifacts"],
+    blueprint:[["Scrum theory and values",4],["Scrum Team and accountabilities",5],["Scrum events",6],["Scrum artifacts and commitments",5]],
+    full:[["Scrum theory and values",16],["Scrum Team and accountabilities",20],["Scrum events",24],["Scrum artifacts and commitments",20]],fullTxt:"80 preguntas · 60 min",
+    easy:[["Scrum theory and values",3],["Scrum Team and accountabilities",3],["Scrum events",3],["Scrum artifacts and commitments",3]],
+    fmtHead:["Bloque","Qué entra","Peso aprox.","Lo que más cae"],
+    format:[["Teoría y valores","Empirismo, lean, los 5 valores, autogestión","≈ 20 %","Transparencia, inspección, adaptación"],["Equipo Scrum","Developers, Product Owner, Scrum Master","≈ 25 %","Quién decide qué; un solo PO"],["Eventos","Sprint, Planning, Daily, Review, Retrospectiva","≈ 30 %","Duraciones máximas y quién asiste"],["Artefactos","Product/Sprint Backlog, Incremento y sus compromisos","≈ 25 %","Product Goal, Sprint Goal, Definition of Done"]],
+    scoreNote:"80 preguntas en 60 minutos; se aprueba con el 85 % (68 bien). Cuesta 200 $, se hace online cuando quieras (la contraseña dura 2 años) y el certificado no caduca. Todo sale de la Scrum Guide 2020, gratis y de 13 páginas: léela tres veces.",
+    tricks:[
+      ["La Scrum Guide es la ley","Si una opción suena razonable pero no está en la Scrum Guide 2020 (Sprint 0, hardening sprint, el SM reparte tareas), es falsa."],
+      ["Quién hace qué","Developers = cómo se hace y el Sprint Backlog. Product Owner = qué y el orden del Product Backlog. Scrum Master = la eficacia del equipo y que Scrum se entienda."],
+      ["Duraciones para un Sprint de un mes","Planning 8 h · Daily 15 min · Review 4 h · Retrospectiva 3 h. Para Sprints más cortos, normalmente menos."],
+      ["Solo el PO cancela","Solo el Product Owner puede cancelar un Sprint, y solo si el Sprint Goal se queda obsoleto."],
+      ["Un producto, un PO, un backlog","Varios equipos en el mismo producto comparten un único Product Backlog, un Product Owner y una Definition of Done."],
+      ["La Daily es de los Developers","El Scrum Master se asegura de que ocurra, pero la Daily es de los Developers. No es una reunión de estado para nadie."],
+      ["Done es Done","Si un elemento no cumple la Definition of Done, no forma parte del Incremento y vuelve al Product Backlog."],
+      ["Ojo con «must» y «always»","Las respuestas con «siempre», «debe» o «el gestor» suelen ser falsas. Scrum es un marco mínimo: pocas reglas, mucho «depende»."],
+      ["Reloj","45 segundos por pregunta. Marca las dudosas y sigue: te sobrarán unos 10 minutos para revisarlas."]
     ]}
 };
-const SEC_LABEL={secure:"Seguridad",resilient:"Resiliencia",performance:"Rendimiento",cost:"Costes",reading:"Lectura",listening:"Escucha",vocab:"Vocabulario",grammar:"Gramática",writing:"Escritura",speaking:"Expresión oral"};
+const SEC_LABEL={azcloud:"Conceptos de nube",azarch:"Arquitectura y servicios",azgov:"Gestión y gobierno",theory:"Teoría y valores",team:"Equipo Scrum",events:"Eventos",artifacts:"Artefactos",secure:"Seguridad",resilient:"Resiliencia",performance:"Rendimiento",cost:"Costes",reading:"Lectura",listening:"Escucha",vocab:"Vocabulario",grammar:"Gramática",writing:"Escritura",speaking:"Expresión oral"};
 const N5_LISTEN=new Set(["listening"]);
 const PLAN=[
   ["AWS · la palabra clave manda","Antes de cada simulacro, juega dos rondas de Empareja en «Aprende». Cuando veas «menos trabajo», «más barato» o «más seguro» en el enunciado, ya sabrás qué servicio buscar."],
@@ -749,9 +888,9 @@ function toast(msg){const t=document.createElement("div");t.className="toast";t.
 const norm=s=>String(s).toLowerCase().replace(/[.,!?;:"'’`]/g,"").replace(/\s+/g," ").trim();
 
 /* ============ Estado y guardado ============ */
-const BLANK={v:1,xp:0,streak:0,last:null,daily:{d:null,n:0},goal:20,exams:{},hist:[],sec:{},srs:{},cards:0,rayo:{},badges:[],remind:{time:"20:00"},target:{aws:"720",toefl:"4.5",ielts:"6.5",n5:"aprobar"},match:{},kana:{}};
+const BLANK={v:1,xp:0,streak:0,last:null,daily:{d:null,n:0},goal:20,exams:{},hist:[],sec:{},srs:{},cards:0,rayo:{},badges:[],remind:{time:"20:00"},target:{aws:"720",toefl:"4.5",ielts:"6.5",n5:"aprobar",det:"120",az900:"700",psm:"85"},match:{},kana:{}};
 /* Rellena lo que falte (exámenes nuevos, estados guardados con versiones anteriores) */
-function normalize(){S.kana??={};for(const x of Object.keys(EX)){S.exams[x]??={};S.sec[x]??={};S.rayo[x]??=0;S.match??={};S.match[x]??=0;S.target[x]??=BLANK.target[x]}}
+function normalize(){if(!S.vozMig){if(!S.voz||S.voz==="mao")S.voz="nanami";S.vozMig=1}S.kana??={};for(const x of Object.keys(EX)){S.exams[x]??={};S.sec[x]??={};S.rayo[x]??=0;S.match??={};S.match[x]??=0;S.target[x]??=BLANK.target[x]}}
 let S=structuredClone(BLANK);
 let store={kind:"local",db:null,path:null};
 function loadLocal(){try{const r=localStorage.getItem("dojo");if(r)S=Object.assign(structuredClone(BLANK),JSON.parse(r))}catch(e){}normalize()}
@@ -874,16 +1013,20 @@ function speak(script,lang,onEnd){
 // ok:true = comprobado en la web oficial; si no, se muestra «a confirmar». ir = dónde practicarlo en el Dojo
 const CERTS=[
   {c:"ingles",n:"IELTS Academic",abre:["uni","trabajo"],p:"29.700 ¥ en Japón",t:"Resultado en 1-5 días (por ordenador)",d:"Centros en Osaka y en todo el mundo",v:"2 años",u:"https://www.eiken.or.jp/ielts/test/",ok:true,ir:{v:"exam",x:"ielts"},tip:"El más aceptado por universidades y visados. Si no tienes ningún certificado de inglés, empieza por este."},
-  {c:"ingles",n:"Duolingo English Test",abre:["uni"],p:"70 $",t:"Resultado en ≤ 48 h · sin cita, cuando quieras",d:"Desde casa: ordenador, cámara y micro · 1 hora",v:"2 años",u:"https://englishtest.duolingo.com",ok:true,casa:true,tip:"El más fácil de sacar: lo haces hoy en tu habitación y mandas la nota gratis a las universidades que quieras. Mira antes si la tuya lo acepta."},
+  {c:"ingles",n:"Duolingo English Test",abre:["uni"],ir:{v:"exam",x:"det"},p:"70 $",t:"Resultado en ≤ 48 h · sin cita, cuando quieras",d:"Desde casa: ordenador, cámara y micro · 1 hora",v:"2 años",u:"https://englishtest.duolingo.com",ok:true,casa:true,tip:"El más fácil de sacar: lo haces hoy en tu habitación y mandas la nota gratis a las universidades que quieras. Mira antes si la tuya lo acepta."},
   {c:"ingles",n:"EF SET English Certificate",abre:["trabajo"],p:"Gratis",t:"50 min · nota al momento",d:"Desde casa, sin cámara ni cita",v:"No caduca",u:"https://www.efset.org",ok:true,casa:true,gratis:true,tip:"Te da tu nivel MCER (A1-C2) en lectura y comprensión oral para el CV y LinkedIn. No vale para universidades ni visados, pero cuesta cero y te dice si estás listo para el IELTS."},
   {c:"ingles",n:"Linguaskill (Cambridge)",abre:["uni","trabajo"],p:"≈ 80-190 € según el centro",t:"Resultado en ≈ 2 días",d:"Desde casa con vigilancia online (lo ofrecen algunos centros) o en un centro",v:"Lo decide quien lo pida",u:"https://www.cambridgeenglish.org/exams-and-tests/linguaskill/",ok:false,casa:true,tip:"Es de Cambridge, adaptativo y por ordenador. Algunas universidades europeas lo aceptan: pregúntales antes de pagar."},
   {c:"ingles",n:"TOEFL iBT",abre:["uni"],p:"≈ 195 $ en Japón",t:"Resultado en unos días",d:"Centro o desde casa (Home Edition)",v:"2 años",u:"https://www.ets.org/toefl",ok:false,ir:{v:"exam",x:"toefl"},tip:"Pesa sobre todo en EE. UU. Para Europa rinde más el IELTS o el C1."},
   {c:"ingles",n:"Cambridge C1 Advanced",abre:["uni","trabajo","docencia"],p:"≈ 21.000 ¥ en Japón",t:"Resultado en unas semanas",d:"En papel en muchas ciudades",v:"No caduca",u:"https://www.cambridgeenglish.org/exams-and-tests/advanced/",ok:false,tip:"Más difícil, pero sirve para toda la vida en Europa."},
+  {c:"ingles",n:"LanguageCert Academic (online)",abre:["uni"],p:"≈ 190 $",t:"Resultado en ≈ 5 días laborables",d:"Desde casa con vigilante en directo y 2.ª cámara (el móvil)",v:"2 años (según quien lo pida)",u:"https://www.languagecert.org/en/language-exams/english/languagecert-academic",ok:false,casa:true,tip:"Alternativa al IELTS con las 4 destrezas. La versión online NO vale para visados de Reino Unido ni de Australia, y algunas universidades no la aceptan: pregunta antes."},
   {c:"pt",n:"CIPLE (A2)",abre:["trabajo","nacionalidad"],p:"≈ 95 €",t:"Sesiones en mayo, julio y noviembre",d:"Lisboa y centros CAPLE fuera de Portugal",v:"Sin caducidad indicada",u:"https://caple.letras.ulisboa.pt",ok:false,ir:{v:"pt"},tip:"El nivel que piden para la nacionalidad. Con el español de base se prepara en 1-2 meses."},
   {c:"pt",n:"DIPLE (B2)",abre:["uni","trabajo"],p:"≈ 135 €",t:"Prepararlo lleva unos 4-6 meses",d:"Centros CAPLE (Lisboa, Valencia…)",v:"—",u:"https://caple.letras.ulisboa.pt/centros",ok:false,ir:{v:"pt"},tip:"El nivel habitual para estudiar en portugués. Puedes saltarte el B1."},
   {c:"ru",n:"ТРКИ / TORFL",abre:["uni"],p:"Según el centro",t:"Desde cero, el ТРКИ-1 (B1) lleva ≈ 1 año",d:"Universidades rusas y algunos centros fuera (Osaka lo ha organizado)",v:"El ТРКИ-1 suele valer para entrar en la carrera",u:"https://education-in-russia.com",ok:false,ir:{v:"ru"},tip:"Con la beca de cuota estatal no hace falta antes: el año preparatorio (подфак) enseña el ruso."},
   {c:"es",n:"CCP · Formador en Portugal",abre:["trabajo","docencia"],p:"190-950 € (curso de 90 h)",t:"3-6 semanas",d:"Portugal, presencial o mixto",v:"No caduca",u:"https://www.netforce.iefp.pt",ok:false,tip:"Para dar cursos financiados de idiomas o informática en Portugal."},
   {c:"tec",n:"AWS Cloud Practitioner",abre:["trabajo"],p:"100 $",t:"Aprobado o no al momento",d:"Online con vigilancia o en un centro",v:"3 años",u:"https://aws.amazon.com/certification/certified-cloud-practitioner/",ok:true,ir:{v:"exam",x:"aws"},tip:"La puerta de entrada al cloud. Aquí tienes simulacros completos."},
+  {c:"tec",n:"Microsoft AZ-900 · Azure Fundamentals",abre:["trabajo"],p:"99 $ (a veces gratis con un Virtual Training Day)",t:"45 min · aprobado o no al momento",d:"Desde casa con Pearson OnVUE",v:"No caduca",u:"https://learn.microsoft.com/credentials/certifications/azure-fundamentals/",ok:false,casa:true,ir:{v:"exam",x:"az900"},tip:"El primer escalón de nube y el más fácil. Con AWS + Azure en el CV te piden para soporte y ventas técnicas."},
+  {c:"tec",n:"Professional Scrum Master I",abre:["trabajo"],p:"200 $",t:"60 min · nota al momento",d:"Online, sin vigilante y cuando quieras",v:"No caduca",u:"https://www.scrum.org/assessments/professional-scrum-master-i-certification",ok:false,casa:true,ir:{v:"exam",x:"psm"},tip:"Muy pedido en ofertas remotas de coordinación y proyectos. Sin curso obligatorio: con la Scrum Guide y simulacros basta."},
+  {c:"tec",n:"Google Cloud Digital Leader",abre:["trabajo"],p:"≈ 99 $",t:"90 min",d:"Desde casa con vigilancia online o en centro",v:"3 años",u:"https://cloud.google.com/learn/certification/cloud-digital-leader",ok:false,casa:true,tip:"La versión de Google del AZ-900: conceptos de nube y de negocio, sin programar."},
   {c:"tec",n:"Google Skillshop (Ads, Analytics)",abre:["trabajo"],p:"Gratis",t:"Unas horas cada uno",d:"Online",v:"≈ 1 año",u:"https://skillshop.withgoogle.com",ok:false,gratis:true,tip:"Para conseguir clientes de webs y marketing."},
   {c:"tec",n:"HubSpot Academy",abre:["trabajo"],p:"Gratis",t:"2-6 h",d:"Online",v:"≈ 2 años",u:"https://academy.hubspot.com",ok:false,gratis:true,tip:"Marketing y captación de clientes: queda bien en un perfil de autónomo."},
   {c:"tec",n:"freeCodeCamp",abre:["trabajo"],p:"Gratis",t:"Cientos de horas, menos si ya programas",d:"Online",v:"No caduca",u:"https://www.freecodecamp.org/learn",ok:false,gratis:true,tip:"Certificados de desarrollo web con proyectos que puedes enseñar."},
@@ -895,20 +1038,46 @@ const CERTS=[
 CERTS.forEach(c=>{if(/^Online|casa/i.test(c.d))c.casa=true});
 const CERT_CAT={ingles:"Inglés",pt:"Portugués y Portugal",ru:"Ruso",es:"Dar clases",tec:"Técnico y negocio"};
 const CERT_ABRE={uni:"🎓 Universidad",trabajo:"💼 Trabajo",docencia:"🧑‍🏫 Dar clases",nacionalidad:"🇵🇹 Nacionalidad"};
+// Los de pago que se hacen desde casa y tienen simulacros en el Dojo: van arriba, como billetes
+const CASA_PREP=[["det","70 $","1 hora"],["az900","99 $","45 min"],["psm","200 $","60 min"],["toefl","195 $","2 horas"],["aws","150 $","130 min"]];
 function viewCerts(){const f=route.f||"todo",L=CERTS.filter(c=>f==="todo"||(f==="gratis"?c.gratis:f==="casa"?c.casa:c.abre.includes(f)));
   const fil=[["todo","Todo"],["casa","🏠 Desde casa"],["trabajo","Trabajo rápido"],["uni","Universidad"],["gratis","Gratis"]];
-  return `<div class="ex-head"><div><span class="eyebrow">Revisado el 22-10-2026 · precios orientativos</span><h1 style="margin-top:8px">Certificados que abren puertas</h1>
-    <p class="muted" style="max-width:62ch">Los que más rápido te dan trabajo o plaza en la universidad: cuánto cuestan, cuánto tardan y dónde se hacen. Si el Dojo tiene práctica, hay un botón para empezar ya.</p></div></div>
-    <div class="tabs" role="tablist" style="margin:6px 0 18px">${fil.map(([k,n])=>`<button role="tab" data-cf="${k}" aria-selected="${k===f}">${n}</button>`).join("")}</div>
-    ${Object.keys(CERT_CAT).map(cat=>{const l=L.filter(c=>c.c===cat);if(!l.length)return "";
-      return `<h2 class="kh">${CERT_CAT[cat]}</h2><div class="certs">${l.map(c=>`<article class="card cert reveal">
+  const nCasa=CERTS.filter(c=>c.casa).length,nGratis=CERTS.filter(c=>c.gratis).length;
+  const tix=CASA_PREP.map(([x,pr,t])=>{const E=EX[x],r=lastScore(x);return `<button class="tix-c reveal" style="--c:var(--${x})" data-exam="${x}">
+      <span class="tix-sello">Simulacros aquí</span>
+      <span class="tix-main"><span class="eyebrow">${h(E.short)} · desde casa</span><b>${h(E.name)}</b><small>${h(E.blurb)}</small>
+        <span class="tix-go">${r?"Tu última nota: "+h(r)+" · seguir":"Empezar a prepararlo"} →</span></span>
+      <span class="tix-stub"><span>Examen</span><b>${h(pr)}</b><span>${h(t)}</span></span></button>`}).join("");
+  return `<section class="ch-hero"><span class="eyebrow">Revisado el 22-10-2026 · precios orientativos</span>
+    <h1 class="ch-tit">Prepárate aquí. <em>Examínate en casa.</em></h1>
+    <p class="muted" style="max-width:60ch;font-size:17px">Certificados de pago que haces desde tu habitación con un ordenador y una cámara. En el Dojo tienes los simulacros, los trucos y las clases para aprobarlos a la primera.</p>
+    <div class="ch-stats"><div><b data-count="${nCasa}">${nCasa}</b><span>certificados desde casa</span></div><div><b data-count="${CASA_PREP.length}">${CASA_PREP.length}</b><span>con simulacros aquí</span></div><div><b data-count="${nGratis}">${nGratis}</b><span>gratis</span></div></div></section>
+    <ol class="ch-pasos"><li><b>Aprende</b> con Empareja y los trucos de cada examen.</li><li><b>Practica</b> simulacros con reloj hasta pasar del 80 %.</li><li><b>Reserva</b> en la web oficial y hazlo desde casa.</li></ol>
+    <div class="sec-title"><h2>Te preparo para estos</h2><span class="muted">Pagas el examen, pero la preparación es gratis</span></div>
+    <div class="tix">${tix}</div>
+    <div class="sec-title"><h2>Todos los certificados</h2></div>
+    <div class="tabs ch-fil" role="tablist" style="margin:6px 0 18px">${fil.map(([k,n])=>`<button role="tab" data-cf="${k}" aria-selected="${k===f}">${n}</button>`).join("")}<i class="ch-ind" aria-hidden="true"></i></div>
+    <div id="certList">${Object.keys(CERT_CAT).map(cat=>{const l=L.filter(c=>c.c===cat);if(!l.length)return "";
+      return `<h2 class="kh">${CERT_CAT[cat]}</h2><div class="certs">${l.map(c=>`<article class="card cert reveal" data-flip="${h(c.n)}">
         <div class="cert-top"><h3>${h(c.n)}</h3>${c.casa?'<span class="pill">🏠 Desde casa</span>':""}${c.gratis?'<span class="pill ok">Gratis</span>':""}</div>
         <div class="cert-abre">${c.abre.map(a=>`<span>${CERT_ABRE[a]}</span>`).join("")}</div>
         <dl class="cert-dl"><dt>Precio</dt><dd>${h(c.p)}</dd><dt>Tiempo</dt><dd>${h(c.t)}</dd><dt>Dónde</dt><dd>${h(c.d)}</dd><dt>Validez</dt><dd>${h(c.v)}</dd></dl>
         <p class="cert-tip">${h(c.tip)}</p>
         <div class="row"><a class="btn ghost" href="${h(c.u)}" target="_blank" rel="noopener">Web oficial ↗</a>${c.ir?`<button class="btn acc" data-cir='${h(JSON.stringify(c.ir))}'>Practicar aquí</button>`:""}${c.ok?"":'<span class="muted cert-conf">a confirmar en la web oficial</span>'}</div>
-      </article>`).join("")}</div>`}).join("")}`}
-function bindCerts(){document.querySelectorAll("[data-cf]").forEach(b=>b.onclick=()=>{route.f=b.dataset.cf;render()});
+      </article>`).join("")}</div>`}).join("")}</div>`}
+function chIndicador(inst){const t=$(".ch-fil"),b=t&&t.querySelector('[aria-selected="true"]'),i=t&&t.querySelector(".ch-ind");if(!b||!i)return;
+  const st={left:b.offsetLeft+"px",width:b.offsetWidth+"px"};if(window.gsap&&!inst)gsap.to(i,{...st,duration:.45,ease:"power3.out"});else Object.assign(i.style,st)}
+function bindCerts(){chIndicador(true);
+  document.querySelectorAll("[data-cf]").forEach(b=>b.onclick=()=>{
+    const est=window.Flip&&window.gsap&&!document.documentElement.classList.contains("no-fx")?Flip.getState("#certList [data-flip]"):null;
+    route.f=b.dataset.cf;const y=scrollY;const tmp=document.createElement("div");tmp.innerHTML=viewCerts();
+    $("#certList").replaceWith(tmp.querySelector("#certList"));document.querySelectorAll(".ch-fil [data-cf]").forEach(x=>x.setAttribute("aria-selected",x.dataset.cf===route.f));
+    bindCerts();chIndicador(false);scrollTo(0,y);document.querySelectorAll("#certList .reveal").forEach(el=>{el.style.opacity=1;el.style.transform="none"});
+    if(est)Flip.from(est,{targets:"#certList [data-flip]",duration:.55,ease:"power3.inOut",absolute:true,onEnter:el=>gsap.fromTo(el,{opacity:0,scale:.94},{opacity:1,scale:1,duration:.4}),onLeave:el=>gsap.to(el,{opacity:0,scale:.94,duration:.3})})});
+  if(window.gsap&&matchMedia("(hover:hover)").matches&&!document.documentElement.classList.contains("no-fx"))document.querySelectorAll(".tix-c").forEach(c=>{
+    const rx=gsap.quickTo(c,"rotationX",{duration:.5,ease:"power3"}),ry=gsap.quickTo(c,"rotationY",{duration:.5,ease:"power3"});
+    c.onpointermove=e=>{const r=c.getBoundingClientRect();ry(((e.clientX-r.left)/r.width-.5)*10);rx(-((e.clientY-r.top)/r.height-.5)*10)};
+    c.onpointerleave=()=>{rx(0);ry(0)}});
   document.querySelectorAll("[data-cir]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.cir);if(r.v==="exam"){go({...r,tab:"sims"});loadBank(r.x).catch(e=>toast(e.message))}else go(r)})}
 function certsHome(){return `<button class="certs-home reveal" data-go="teclas"><span class="eyebrow">Nuevo · juego</span><b>⌨ Mecanografía en 5 idiomas</b><span class="muted">Escribe sin mirar en español, inglés, portugués, ruso y japonés · lluvia de palabras y carrera</span><span aria-hidden="true">→</span></button>`+`<button class="certs-home reveal" data-go="certs"><span class="eyebrow">Nuevo</span><b>Certificados que abren puertas</b><span class="muted">Trabajo rápido, universidad y los gratis · IELTS, CIPLE, ТРКИ, AWS…</span><span aria-hidden="true">→</span></button>`}
 
@@ -928,7 +1097,7 @@ const RUTA=[
   {t:"La universidad",ru:"ruuni",pt:"pt",obj:[{s:"ruuni",n:17},{ex:"ielts",n:5}],jefe:"ruuni"},
   {t:"Examen final",ru:"ruvocab",pt:"pt",obj:[{s:"cirilico",n:33},{s:"ruvocab",n:64},{s:"pt",n:85}],jefe:"ruvocab"},
 ];
-const AREA_DE_EX={ielts:"en",toefl:"en",n5:"ja",aws:"aws"};
+const AREA_DE_EX={ielts:"en",toefl:"en",det:"en",n5:"ja",aws:"aws",az900:"aws",psm:"aws"};
 const addD=(d,n)=>{const x=new Date(d+"T12:00:00");x.setDate(x.getDate()+n);return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0")};
 const fechaCorta=(d,o={weekday:"short",day:"numeric",month:"short"})=>new Date(d+"T12:00:00").toLocaleDateString("es-ES",o);
 // Actividad del día por área: ru, pt, en, ja, aws, libre (la registran los tests, simulacros, Rayo y Manos libres)
@@ -1211,6 +1380,49 @@ addEventListener("keydown",e=>{if(route.v==="leer"&&!route.id&&/^[1-9]$/.test(e.
   else if(e.key.toLowerCase()==="t"){e.preventDefault();e.stopImmediatePropagation();lee.trad=!lee.trad;render()}
   else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();stopVoz();lee=null;go({v:"leer",lang:route.lang})}},true);
 
+/* ============ Camino por niveles: qué hacer primero y qué viene después ============ */
+// Cada nivel se da por superado al llegar a «need»; el primero sin superar es «el tuyo»
+const kNum=set=>KANA?.[set]?KANA[set].filter(i=>kKnown(set,i.c)).length:0;
+const leidas=lang=>Object.keys(S.leido||{}).filter(k=>k.startsWith(lang+"-")).length;
+const hechos=(x,pre)=>Object.keys(S.exams[x]||{}).filter(k=>!pre||k[0]===pre).length;
+const CAMINO={
+  ru:{n:"Ruso",w:"Привет",l:"ru",c:"ru",niv:[
+    ["Las letras","Las 33 letras del cirílico: 5 iguales, 7 engañosas y 21 nuevas.",{v:"ru",k:"cirilico"},()=>kNum("cirilico"),25],
+    ["Primeras palabras","Saludar, presentarte, pedir y preguntar.",{v:"ru",k:"ruvocab"},()=>kNum("ruvocab"),30],
+    ["Frases y gramática","Pronombres, verbos en presente y los primeros casos.",{v:"ru",k:"rugram"},()=>kNum("rugram"),10],
+    ["Leer y escuchar","Historias cortas con voz: café, metro, tienda, Kazán.",{v:"leer",lang:"ru"},()=>leidas("ru"),4],
+    ["La universidad","Подфак, ТРКИ, residencia: lo que vas a vivir allí.",{v:"ru",k:"ruuni"},()=>kNum("ruuni"),12]]},
+  pt:{n:"Portugués",w:"Olá!",l:"pt-PT",c:"pt",niv:[
+    ["Para sobrevivir","Lo de cada día en Portugal: saludar, comprar, moverte.",{v:"pt",k:"pt"},()=>kNum("pt"),35],
+    ["Los verbos","Ser, estar, ir, tener… y el «estou a fazer».",{v:"pt",k:"ptverbos"},()=>kNum("ptverbos"),12],
+    ["Falsos amigos","Las palabras que traicionan a los hispanohablantes.",{v:"pt",k:"falsos"},()=>kNum("falsos"),18],
+    ["Leer y escuchar","Historias con voz: café, casa, mercado, tren, entrevista.",{v:"leer",lang:"pt"},()=>leidas("pt"),4],
+    ["Trámites","NIF, contrato, banco: el papeleo para vivir allí.",{v:"pt",k:"tramites"},()=>kNum("tramites"),12]]},
+  ja:{n:"Japonés",w:"こんにちは",l:"ja",c:"n5",niv:[
+    ["Hiragana","La base: con ella se escribe todo.",{v:"kana",k:"hira"},()=>kNum("hira"),40],
+    ["Katakana","Las palabras extranjeras: コーヒー, テレビ.",{v:"kana",k:"kata"},()=>kNum("kata"),40],
+    ["Kanji N5","Los ~100 kanji del primer examen.",{v:"kana",k:"kanji"},()=>kNum("kanji"),50],
+    ["Palabras N5","El vocabulario del día a día.",{v:"kana",k:"vocab"},()=>kNum("vocab"),80],
+    ["Examen N5","Calentamientos y simulacros con reloj.",{v:"exam",x:"n5",tab:"sims"},()=>hechos("n5"),3]]},
+  en:{n:"Inglés",w:"Hello",l:"en",c:"det",niv:[
+    ["Tu punto de partida","Tres calentamientos fáciles del Duolingo Test para ver tu nivel.",{v:"exam",x:"det",tab:"sims"},()=>hechos("det","c"),3],
+    ["Palabras y escucha","Empareja y Modo Rayo: vocabulario que cae siempre.",{v:"exam",x:"det",tab:"learn"},()=>Math.min(S.match?.det||0,5),5],
+    ["Simulacros Duolingo","Con reloj, como en casa el día del examen.",{v:"exam",x:"det",tab:"sims"},()=>hechos("det","s"),5],
+    ["IELTS paso a paso","Calentamientos del IELTS: lectura, escucha y escritura.",{v:"exam",x:"ielts",tab:"sims"},()=>hechos("ielts","c"),3],
+    ["Listo para el examen","Simulacros de IELTS o TOEFL hasta pasar tu objetivo.",{v:"exam",x:"ielts",tab:"sims"},()=>hechos("ielts","s")+hechos("toefl","s"),5]]},
+};
+function camEstado(id){const C=CAMINO[id];const ns=C.niv.map(([t,d,ir,f,need],i)=>{const v=Math.min(f(),need);return{i,t,d,ir,v,need,ok:v>=need}});
+  const cur=ns.findIndex(n=>!n.ok);return{C,ns,cur:cur<0?ns.length:cur}}
+function camino(id,compacto,sel){const {C,ns,cur}=camEstado(id);
+  return `<ol class="camino ${compacto?"mini":""}" style="--c:var(--${C.c})">${ns.map(n=>{const est=n.ok?"ok":n.i===cur?"ahora":"luego";
+    return `<li class="cam-n ${est} ${sel&&n.ir.k===sel?"sel":""}"><button data-cam='${h(JSON.stringify(n.ir))}'><span class="cam-dot">${n.ok?"✓":n.i+1}</span>
+      <span class="cam-tx"><span class="eyebrow">Nivel ${n.i+1}${est==="ahora"?" · empieza aquí":est==="ok"?" · superado":""}</span><b>${h(n.t)}</b>${compacto?"":`<small>${h(n.d)}</small>`}
+      <span class="cam-bar"><i style="width:${Math.round(n.v/n.need*100)}%"></i></span><small class="mono">${n.v}/${n.need}</small></span>${est==="ahora"&&!compacto?`<span class="btn acc cam-go">${n.v?"Seguir":"Empezar"} →</span>`:""}</button></li>`}).join("")}</ol>`}
+function bindCamino(){document.querySelectorAll("[data-cam]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.cam);if(r.v==="leer"){lee=null}if(r.v==="exam"){go(r);loadBank(r.x).catch(e=>toast(e.message))}else go(r)});
+  document.querySelectorAll("[data-camid]").forEach(b=>b.onclick=()=>{S.camino=b.dataset.camid;save();
+    const box=$("#camBox");if(!box)return render();box.innerHTML=camino(S.camino);const ti=$("#camTit");if(ti)ti.innerHTML=`<span class="num">PASO 2</span>Tu camino de ${h(CAMINO[S.camino].n.toLowerCase())}`;document.querySelectorAll("[data-camid]").forEach(x=>x.setAttribute("aria-selected",x.dataset.camid===S.camino));bindCamino();
+    if(window.gsap&&!document.documentElement.classList.contains("no-fx"))gsap.from("#camBox .cam-n",{x:-18,opacity:0,duration:.45,stagger:.06,ease:"power3.out"})})}
+
 /* ============ Portada: los idiomas, con su progreso y accesos directos ============ */
 const IDIOMAS=[
   {v:"ru",n:"Ruso",w:"Привет",l:"ru",c:"ru",sub:"Desde cero: cirílico, palabras, gramática y vida universitaria.",sets:["cirilico","ruvocab","rugram","ruuni"],a:[["Aprender",{v:"ru"}],["Tarjetas",{v:"cards"}],["Leer",{v:"leer",lang:"ru"}],["Teclado",{v:"teclas",lang:"ru"}]]},
@@ -1235,9 +1447,9 @@ function go0(r){if(r.v!=="leer")lee=null;if(r.v!=="teclas"&&tk){clearInterval(tk
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="plan"?viewPlan():v==="teclas"?viewTeclas():v==="leer"?viewLeer():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="plan"?viewPlan():v==="teclas"?viewTeclas():v==="leer"?viewLeer():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():v==="perdido"?viewPerdido():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="teclas")bindTeclas(); if(v==="leer")bindLeer(); document.querySelectorAll("[data-golee]").forEach(b=>b.onclick=()=>go({v:"leer",lang:b.dataset.golee})); if(v==="home"){bindPlanBtns();bindIdiomas()} if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="teclas")bindTeclas(); if(v==="leer")bindLeer(); document.querySelectorAll("[data-golee]").forEach(b=>b.onclick=()=>go({v:"leer",lang:b.dataset.golee})); if(v==="home"){bindPlanBtns();bindIdiomas();bindCamino();if(!KANA)loadKana().then(()=>{if(route.v==="home")render()}).catch(()=>{})} if(v==="kana"||v==="pt"||v==="ru")bindCamino(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); if(v==="perdido")bindPerdido(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
@@ -1266,7 +1478,7 @@ function viewHome(){
     const e=S.exams[x];const dots=[];
     for(let k=1;k<=33;k++){const key=k<=3?"c"+k:"s"+(k-3);const r=e[key];dots.push(`<i class="${r?(r.pass?"pass":"done"):""}"></i>`)}
     const best=lastScore(x);
-    return `<button class="exam-card reveal ${EX[x].prio?"big-card":""}" style="--c:var(--${x})" data-exam="${x}" data-key="${ix+1}"><span class="glyph" aria-hidden="true">${({aws:"雲",toefl:"英",ielts:"語",n5:"日"})[x]}</span>${EX[x].prio?'<span class="prio">Prioridad</span>':""}
+    return `<button class="exam-card reveal ${EX[x].prio?"big-card":""}" style="--c:var(--${x})" data-exam="${x}" data-key="${ix+1}"><span class="glyph" aria-hidden="true">${({aws:"雲",toefl:"英",ielts:"語",n5:"日",det:"話",az900:"蒼",psm:"回"})[x]}</span>${EX[x].prio?'<span class="prio">Prioridad</span>':EX[x].casa?'<span class="prio casa">🏠 Desde casa</span>':""}
       <span class="eyebrow">${h(EX[x].scale)}</span><span class="tag">${h(EX[x].name)}</span>
       <span class="muted" style="font-size:14.5px">${h(EX[x].blurb)}</span>
       <span class="dots" aria-label="${examDone(x)} de 33 hechos">${dots.join("")}</span>
@@ -1277,34 +1489,26 @@ function viewHome(){
       <span class="eyebrow">Empieza por aquí · N5</span><span class="tag">Kana y kanji</span>
       <span class="muted" style="font-size:14.5px">Hiragana, katakana, los 104 kanji y 167 palabras del N5 con frases para reír, más el japonés de Kansai. Con voz, test y lienzo.</span>
       <span class="kana-strip" lang="ja"><span>あ</span><span>カ</span><span>日</span><span>本</span><span>語</span></span></button>`;
-  return `<section class="dhero">
+  const cid=CAMINO[S.camino]?S.camino:null, est=cid?camEstado(cid):null, sig=est&&est.ns[est.cur];
+  return `<section class="dhero simple">
     <span class="kanji-bg" aria-hidden="true">道</span>
-    <div><p class="eyebrow reveal">Ruso · Portugués · Japonés · Inglés · gratis y sin anuncios</p>
+    <div><p class="eyebrow reveal">Gratis · sin anuncios · con voz real</p>
       <h1 class="reveal">Aprende idiomas<br>sin <span class="red">aburrirte</span>.</h1>
-      <p class="lead reveal">Ruso desde cero, portugués de Portugal y japonés con voz real, tarjetas que vuelven justo antes de olvidarlas, juegos de teclado y un plan de 12 semanas con misiones cada día. Y simulacros de IELTS, TOEFL, AWS y N5.</p>
-      <div class="cta reveal"><button class="btn acc" data-go="plan">${S.plan?.ini?"Misiones de hoy":"Empezar el plan"}</button><button class="btn ghost" data-go="ru">Ruso desde cero</button>${dueCards().length?"":`<button class="btn ghost" data-go="cards">Tarjetas</button>`}<button class="btn ghost" id="instalar" ${instalarEv||(esIOS()&&!yaInstalada())?"":"hidden"}>📲 Instalar app</button>${due?`<button class="btn ghost" data-go="cards">${due} ${due===1?"tarjeta":"tarjetas"}</button>`:""}</div>
-      <div class="figs reveal"><div><b>4</b><span>idiomas</span></div><div><b data-count="9000">9000</b><span>audios con voz real</span></div><div><b data-count="132">132</b><span>simulacros</span></div><div><b>0 €</b><span>para siempre</span></div></div></div>
-    <div class="today reveal">
-      <div class="ring">${ringSvg(p)}<div><div class="eyebrow">Meta de hoy</div><div style="font:900 32px var(--f-display)">${dn} / ${S.goal}</div><div class="muted" style="font-size:14px">preguntas respondidas</div></div></div>
-      <div class="goal-row"><span class="pill">${h(L.name)} · ${S.xp} XP</span><span class="pill">Racha ${S.streak||0} ${S.streak===1?"día":"días"}</span><span class="pill">${due} ${due===1?"tarjeta":"tarjetas"}</span></div>
-      <div class="row">${due?`<button class="btn acc" data-go="cards">Repasar ${due} ${due===1?"tarjeta":"tarjetas"}</button>`:""}<button class="btn ghost" data-go="guide">Plan y recordatorio</button></div>
-      ${metaHTML()}
-      <div class="sync" id="sync">${store.kind==="db"?"Guardado en tu cuenta":"Guardado en este navegador"}</div>
-    </div>
+      <p class="lead reveal">Elige un idioma y sigue el camino: cada nivel te dice qué hacer y cuándo pasar al siguiente. Empiezas desde cero.</p>
+      <div class="cta reveal">${sig?`<button class="btn acc" data-cam='${h(JSON.stringify(sig.ir))}'>Sigue: ${h(est.C.n)} · Nivel ${sig.i+1} →</button>`:`<a class="btn acc" href="#elige" data-lenis-anchor>Empieza aquí ↓</a>`}${due?`<button class="btn ghost" data-go="cards">Repasar ${due} ${due===1?"tarjeta":"tarjetas"}</button>`:""}</div></div>
+    <div class="today mini reveal"><div class="ring">${ringSvg(p)}<div><div class="eyebrow">Meta de hoy</div><div style="font:900 30px var(--f-display)">${dn} / ${S.goal}</div></div></div>
+      <div class="goal-row"><span class="pill">${h(L.name)} · ${S.xp} XP</span><span class="pill">🔥 ${S.streak||0} ${S.streak===1?"día":"días"}</span></div></div>
   </section>
-  ${planHome()}
-  ${idiomasHome()}
-  ${retoHome()}
-  ${certsHome()}
-  <div class="marq" aria-hidden="true"><div class="marq-in">${[0,1].map(()=>`<span>Русский <i>露</i> Português <i>ポ</i> 日本語 <i>日</i> English <i>英</i> IELTS <i>語</i> AWS <i>雲</i> Hiragana <i>あ</i> Кириллица <i>字</i></span>`).join("")}</div></div>
-  ${!practicedToday&&S.last?`<div class="banner"><span><b>Aún no has practicado hoy.</b> Tu racha de ${S.streak} días se pierde a medianoche.</span><button class="btn acc" data-quick="1">Práctica rápida de 5 min</button></div>`:""}
-  <div class="sec-title reveal"><h2><span class="num">02 — EXÁMENES</span>Elige tu examen</h2><span class="muted">3 calentamientos + 30 simulacros por examen · AWS con examen real de 65</span></div>
-  <div class="exams">${cards}${kanaCard}</div>
-  <div class="sec-title reveal"><h2><span class="num">03 — MÉTODO</span>Veinte minutos al día</h2><span class="muted">Mejor poco y diario que tres horas el domingo</span></div>
-  <div class="steps">${[["一","Calienta","Dos rondas de Empareja o un test de kana. Cinco minutos."],["二","Simula","Un simulacro con reloj. Los fallos pasan solos a tus tarjetas."],["三","Repasa","Lee el truco de cada fallo. Ahí está el 80 % del aprendizaje."],["四","Repite","Tarjetas cada día: lo que fallas vuelve hasta que lo sabes."]].map(([k,t,d])=>`<div class="step reveal"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
-  <div class="sec-title reveal"><h2><span class="num">04 — INSIGNIAS</span>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div>
-  <div class="badges">${badges}</div>
-  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (ACML 1.0), Kokoro (Apache 2.0) y, en español y portugués, las voces neuronales de Microsoft Edge</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos de teclado</span><span>${cuenta?"Tu progreso se guarda en tu cuenta":"Tu progreso se guarda solo en este navegador"}</span></footer>`;
+  ${!practicedToday&&S.last?`<div class="banner"><span><b>Aún no has practicado hoy.</b> Tu racha de ${S.streak} días se pierde a medianoche.</span><button class="btn acc" data-quick="1">5 minutos ahora</button></div>`:""}
+  <section id="elige" class="elige"><div class="sec-title reveal"><h2><span class="num">PASO 1</span>¿Qué quieres aprender?</h2></div>
+    <div class="cam-tabs" role="tablist">${Object.entries(CAMINO).map(([k,C])=>{const e=camEstado(k);return `<button role="tab" class="cam-tab reveal" style="--c:var(--${C.c})" data-camid="${k}" aria-selected="${k===cid}"><span class="idioma-w" lang="${C.l}">${h(C.w)}</span><b>${C.n}</b><small class="mono">${e.cur>=e.ns.length?"Camino completo":"Nivel "+(e.cur+1)+" de "+e.ns.length}</small></button>`}).join("")}
+      <button class="cam-tab reveal" style="--c:var(--az900)" data-go="certs"><span class="idioma-w">🏠</span><b>Certificados</b><small class="mono">desde casa</small></button></div></section>
+  <section class="reveal"><div class="sec-title"><h2 id="camTit"><span class="num">PASO 2</span>${cid?"Tu camino de "+h(CAMINO[cid].n.toLowerCase()):"Tu camino"}</h2><span class="muted">Hazlos en orden. Si ya sabes algo, puedes saltar.</span></div>
+    <div id="camBox">${cid?camino(cid):`<p class="muted cam-vacio">Elige un idioma arriba y aquí verás sus 5 niveles, del primero al último.</p>`}</div></section>
+  <details class="mas reveal"><summary>Más cosas del Dojo</summary>
+    <div class="mas-g">${[["plan","🗓","Plan de 12 semanas","Misiones diarias con fechas"],["cards","🃏","Tarjetas","Lo que fallas vuelve antes de olvidarlo"],["teclas","⌨","Mecanografía","Escribe sin mirar en 5 idiomas"],["libre","🎧","Manos libres","Escucha sin tocar nada"],["social","👥","Amigos y liga","Estudia con otros"],["guide","🧭","Guía y tutor","Cómo sacarle partido"]].map(([v,i,t,d])=>`<button class="mas-i" data-go="${v}"><span>${i}</span><b>${t}</b><small class="muted">${d}</small></button>`).join("")}</div>
+    <div class="sec-title"><h2>Tu cinturón</h2><span class="muted">${S.badges.length}/${BADGES.length}</span></div><div class="badges">${badges}</div></details>
+  <footer class="foot"><span>Dojo · hecho por Tony Hanma para estudiar gratis · Voces: AivisSpeech (ACML 1.0), Kokoro (Apache 2.0) y las voces neuronales de Microsoft Edge</span><span class="kb-tip">Pulsa <kbd>?</kbd> para ver los atajos</span></footer>`;
 }
 // Cuenta atrás: cuánto queda para tu examen y cuánto practicar al día
 function metaHTML(){
@@ -1324,7 +1528,7 @@ function viewExam(){
     const tile=(key,label,sub,easy)=>{const r=S.exams[x][key];return `<button class="tile ${r?"done":""} ${easy?"easy":""}" data-start="${key}"><span class="b">${r?Math.round(r.best*100):""}</span><span class="n">${label}</span><small>${r?h(r.s):sub}</small></button>`};
     body=`<div class="mode-pick"><span class="eyebrow">Modo</span><div class="seg" role="group">
       <button data-mode="exam" aria-pressed="${mode==="exam"}">Examen · con reloj</button><button data-mode="study" aria-pressed="${mode==="study"}">Estudio · ves la solución al momento</button></div></div>
-      ${E.full?`<div class="full-tile"><div><div class="eyebrow">Como el día del examen</div><h3 style="margin:4px 0 2px">Examen real · 65 preguntas · 130 min</h3><span class="muted" style="font-size:14px">${S.exams[x].full?"Mejor nota: "+h(S.exams[x].full.s):"Hazlo cuando aciertes más del 75 % en los simulacros"}</span></div><button class="btn acc" data-start="full">Empezar examen real</button></div>`:""}
+      ${E.full?`<div class="full-tile"><div><div class="eyebrow">Como el día del examen</div><h3 style="margin:4px 0 2px">Examen real · ${E.fullTxt||"65 preguntas · 130 min"}</h3><span class="muted" style="font-size:14px">${S.exams[x].full?"Mejor nota: "+h(S.exams[x].full.s):"Hazlo cuando aciertes más del 75 % en los simulacros"}</span></div><button class="btn acc" data-start="full">Empezar examen real</button></div>`:""}
       <h3 style="margin-bottom:10px">Calentamiento <span class="muted" style="font-size:15px;font-weight:400">· fáciles, para empezar sin agobios</span></h3>
       <div class="board" style="margin-bottom:24px">${[1,2,3].map(k=>tile("c"+k,"C"+k,"fácil",1)).join("")}</div>
       <h3 style="margin-bottom:10px">Simulacros</h3>
@@ -1367,7 +1571,7 @@ async function startRun(x,key,mode,items,title){
   try{await loadBank(x)}catch(e){toast(e.message);return}
   if(!items){if(key==="full")items=buildExam(x,0,false,true);else items=buildExam(x,+key.slice(1),key[0]==="c")}
   if(!items.length){toast("Este examen aún no tiene preguntas cargadas");return}
-  const per=x==="aws"?{mcq:120,multi:120}:{mcq:50,fill:45,order:60,multi:60,open:0};
+  const per=EX[x].per||(x==="aws"?{mcq:120,multi:120}:{mcq:50,fill:45,order:60,multi:60,open:0});
   let secs=items.reduce((a,it)=>a+(per[it.q.t]??50)+(it.q.t==="open"?(it.set.sec==="writing"?(/Task 2|Discussion/.test(it.set.task)?600:420):90):0),0);
   run={x,key,mode,items,i:0,ans:{},title,start:Date.now(),limit:mode==="exam"?secs:0,plays:{},checked:{},rub:{}};
   route={v:"run",x};document.body.dataset.x=x;render();
@@ -1415,7 +1619,7 @@ function answerUI(it){
   if(q.t==="multi"){
     const ord=optOrder(it);const sel=a||[];const need=q.a.length;
     return `<p class="pill warn" style="margin:0 0 10px">Elige ${need===2?"DOS":need===3?"TRES":need}: marca y desmarca</p><div class="opts">${ord.map((oi,k)=>{let c=sel.includes(oi)?"sel":"";if(chk){if(q.a.includes(oi))c="right";else if(sel.includes(oi))c="wrong"}
-      return `<button class="opt multi ${c}" data-m="${oi}" ${chk?"disabled":""}><span class="bub">${"ABCDE"[k]}</span><span>${h(q.o[oi])}</span></button>`}).join("")}</div>`;
+      return `<button class="opt multi ${c}" data-m="${oi}" ${chk?"disabled":""}><span class="bub">${"ABCDEFGHIJ"[k]}</span><span>${h(q.o[oi])}</span></button>`}).join("")}</div>`;
   }
   if(q.t==="fill")return `<input class="fill-in" id="fill" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe la palabra" value="${h(a||"")}" ${chk?"disabled":""}>`;
   if(q.t==="order"){
@@ -1511,13 +1715,13 @@ const libEspera=ms=>new Promise(r=>setTimeout(r,ms));
 function libTTS(t,lang,rate){return new Promise(res=>{try{let ok=false;const fin=()=>{if(!ok){ok=true;clearTimeout(to);res()}};const to=setTimeout(fin,2000+t.length*200);
   const u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=rate||1;const v=pickVoice(lang,"F");if(v)u.voice=v;u.onend=u.onerror=fin;speechSynthesis.speak(u)}catch(e){res()}})}
 function libJa(t){if(S.voz==="sys")return libTTS(t,"ja-JP",.85);
-  return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>libTTS(t,"ja-JP",.85).then(fin),fin)})}
+  return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"nanami"),t),()=>libTTS(t,"ja-JP",.85).then(fin),fin)})}
 // Audio grabado (español y portugués con las voces de Edge); si falta, la voz del sistema
 function libVoz(pq,t,lang,rate){return new Promise(res=>{const to=setTimeout(res,15000),fin=()=>{clearTimeout(to);res()};playVoz(vozUrl(pq,t),()=>libTTS(t,lang,rate).then(fin),fin)})}
 function libDi(set,t){lib.dicho=sinTilde(t);return KPT(set)?libVoz(KEXT(set),t,kLang(set),.92):libJa(t)}
 function libEs(t){lib.dicho=sinTilde(t);return libVoz("es",t,"es-ES",1.05)}
 // Calienta la caché con los audios de la siguiente tarjeta para que no haya silencios al pasar
-function libPrecarga(){const n=lib.cola[(lib.i+1)%lib.cola.length];if(!n)return;const [s,it]=n,c=libCfg(),pj=KPT(s)?KEXT(s):KMATON.has(kVoice(s,it))?"maton":(S.voz||"mao"),u=[vozUrl(pj,kVoice(s,it))];
+function libPrecarga(){const n=lib.cola[(lib.i+1)%lib.cola.length];if(!n)return;const [s,it]=n,c=libCfg(),pj=KPT(s)?KEXT(s):KMATON.has(kVoice(s,it))?"maton":(S.voz||"nanami"),u=[vozUrl(pj,kVoice(s,it))];
   if(c.es)u.push(vozUrl("es",libSignif(s,it)));if(c.frase&&it.f){u.push(vozUrl(pj,it.f));if(c.es&&it.fe)u.push(vozUrl("es",it.fe))}
   for(const x of u)fetch(x).catch(()=>{})}
 function libSignif(set,it){return set==="hira"||set==="kata"?"Se lee "+it.r:it.m}
@@ -1563,7 +1767,7 @@ function libMic(on){const SR=window.SpeechRecognition||window.webkitSpeechRecogn
 // Descarga las voces de lo elegido para estudiar sin internet
 async function libGuardar(){const b=$("#libSave"),c=libCfg(),urls=new Set(["kana.json"]);
   if(!navigator.serviceWorker?.controller){toast("Abre la web una vez con internet y vuelve a probar");return}
-  for(const s of c.sets){if(KPT(s))continue;for(const it of KANA[s]){const t=kVoice(s,it);urls.add(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t));if(s==="vocab"&&it.f)urls.add(vozUrl(S.voz||"mao",it.f))}}
+  for(const s of c.sets){if(KPT(s))continue;for(const it of KANA[s]){const t=kVoice(s,it);urls.add(vozUrl(KMATON.has(t)?"maton":(S.voz||"nanami"),t));if(s==="vocab"&&it.f)urls.add(vozUrl(S.voz||"nanami",it.f))}}
   if(S.voz==="sys"){toast("Con la voz del sistema no hace falta descargar nada");return}
   const L=[...urls];let n=0,mal=0;b.disabled=true;
   for(let k=0;k<L.length;k+=6){await Promise.all(L.slice(k,k+6).map(u=>fetch(u).then(r=>{if(!r.ok)mal++}).catch(()=>mal++)));n=Math.min(L.length,k+6);b.textContent=`Guardando… ${n}/${L.length}`}
@@ -1915,13 +2119,13 @@ function cmdItems(){
   [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["plan","Plan de 12 semanas · misiones de hoy","O"],["ru","Ruso desde cero","R"],["certs","Certificados que abren puertas",""],["teclas","Mecanografía · escribir sin mirar (5 idiomas)","E"],["leer","Lecturas con audio · portugués y ruso",""],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
   Object.keys(EX).forEach(x=>add("Reto",`⚡ Reto del día · ${EX[x].short}`,()=>startReto(x),"","reto diario hoy"));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
-    add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":" ingles"));
+    add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":x==="az900"?" azure microsoft nube casa":x==="psm"?" scrum agile casa":x==="det"?" duolingo ingles casa":" ingles"));
     if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
     add("Estudiar",`${E.short} · ${simName(nx||"s1")} en modo estudio`,()=>startRun(x,nx||"s1","study",null,E.short+" · "+simName(nx||"s1")));
     if(E.full)add("Empezar",`${E.short} · examen real completo`,()=>startRun(x,"full","exam",null,E.short+" · Examen real"))});
   Object.entries(KSETS).forEach(([k,[n,j]])=>{const v=KEXT(k)||"kana",g={pt:"Portugués",ru:"Ruso",kana:"Kana"}[v];
     add(g,`${n} ${j} · tabla`,()=>go({v,k}),"",k);add(g,`${n} · test`,()=>go({v,k,kt:"test"}),"",k+" examen practicar");if(v==="kana")add(g,`${n} · dibuja`,()=>go({v,k,kt:"dibuja"}),"",k+" escribir trazar")});
-  VOZ_JA.forEach(([k,n,d])=>add("Voz",`Voz japonesa ${n} · ${d}${(S.voz||"mao")===k?" (la que tienes)":""}`,()=>{S.voz=k;save();render();sayJa("こんにちは！いっしょに がんばろうね。")},"",k));
+  VOZ_JA.forEach(([k,n,d])=>add("Voz",`Voz japonesa ${n} · ${d}${(S.voz||"nanami")===k?" (la que tienes)":""}`,()=>{S.voz=k;save();render();sayJa("こんにちは！いっしょに がんばろうね。")},"",k));
   add("Voz","Voz japonesa del sistema",()=>{S.voz="sys";save();render();sayJa("こんにちは！いっしょに がんばろうね。")});
   add("Ayuda","Atajos de teclado",()=>ayuda(true),"?");
   return L}
@@ -2037,6 +2241,9 @@ function scoreItem(it,i){
 function bandFor(x,p,secP){
   if(x==="aws"){const sc=Math.round(100+900*p);return{s:sc+" / 1000",sub:`Aprobado con 720 · estimación lineal (AWS escala la nota y no publica la fórmula)`,pass:sc>=+(S.target.aws||720)}}
   if(x==="toefl"){const b=Math.max(1,Math.min(6,Math.round((1+5*p)*2)/2));const cefr=b>=6?"C2":b>=5?"C1":b>=4?"B2":b>=3?"B1":b>=2?"A2":"A1";return{s:"Banda "+b.toFixed(1),sub:"≈ "+cefr+" del MCER",pass:b>=+S.target.toefl}}
+  if(x==="det"){const sc=Math.max(10,Math.min(160,Math.round((10+150*p)/5)*5));return{s:sc+" / 160",sub:sc>=120?"≈ IELTS 7":sc>=105?"≈ IELTS 6.5":sc>=95?"≈ IELTS 6":"Por debajo de lo que piden casi todas las universidades (≥ 105)",pass:sc>=+(S.target.det||120)}}
+  if(x==="az900"){const sc=Math.round(1+999*p);return{s:sc+" / 1000",sub:"Aprobado con 700 · estimación lineal",pass:sc>=+(S.target.az900||700)}}
+  if(x==="psm"){const pc=Math.round(p*100);return{s:pc+" %",sub:"Aprobado con el 85 % (68 de 80)",pass:pc>=+(S.target.psm||85)}}
   if(x==="ielts"){const raw=Math.round(p*40);const t=[[39,9],[37,8.5],[35,8],[32,7.5],[30,7],[26,6.5],[23,6],[18,5.5],[16,5],[13,4.5],[10,4],[8,3.5],[6,3],[4,2.5],[0,2]];const b=t.find(r=>raw>=r[0])[1];return{s:"Banda "+b.toFixed(1),sub:"≈ "+raw+"/40 aciertos equivalentes",pass:b>=+S.target.ielts}}
   const lk=Math.round((secP.lk??p)*120),li=Math.round((secP.li??p)*60),tot=lk+li;const pass=tot>=80&&lk>=38&&li>=19;
   return{s:tot+" / 180",sub:`Lenguaje+Lectura ${lk}/120 (mín. 38) · Escucha ${li}/60 (mín. 19)`,pass};
@@ -2251,6 +2458,9 @@ function viewGuide(){
         <label for="tg-aws">AWS</label><select class="inp" id="tg-aws">${["720","750","800","850","900"].map(v=>`<option ${S.target.aws===v?"selected":""}>${v}</option>`).join("")}</select>
         <label for="tg-toefl">TOEFL</label><select class="inp" id="tg-toefl">${["3.0","3.5","4.0","4.5","5.0","5.5","6.0"].map(v=>`<option ${S.target.toefl===v?"selected":""}>${v}</option>`).join("")}</select>
         <label for="tg-ielts">IELTS</label><select class="inp" id="tg-ielts">${["5.0","5.5","6.0","6.5","7.0","7.5","8.0"].map(v=>`<option ${S.target.ielts===v?"selected":""}>${v}</option>`).join("")}</select>
+        <label for="tg-det">DET</label><select class="inp" id="tg-det">${["100","105","110","115","120","125","130"].map(v=>`<option ${S.target.det===v?"selected":""}>${v}</option>`).join("")}</select>
+        <label for="tg-az900">AZ-900</label><select class="inp" id="tg-az900">${["700","750","800","850","900"].map(v=>`<option ${S.target.az900===v?"selected":""}>${v}</option>`).join("")}</select>
+        <label for="tg-psm">PSM I</label><select class="inp" id="tg-psm">${["85","90","95"].map(v=>`<option ${S.target.psm===v?"selected":""}>${v}</option>`).join("")}</select>
         <span class="pill">N5: aprobar (80/180)</span></div></div>
     </div>
   </div>`;
@@ -2269,7 +2479,7 @@ function icsText(){
 function bindGuide(){
   const rt=$("#rtime");if(rt)rt.onchange=()=>{S.remind.time=rt.value||"20:00";save();$("#gcal").href=gcalUrl()};
   const rg=$("#rgoal");if(rg)rg.onchange=()=>{S.goal=+rg.value;save();$("#gcal").href=gcalUrl()};
-  ["aws","toefl","ielts"].forEach(x=>{const el=$("#tg-"+x);if(el)el.onchange=()=>{S.target[x]=el.value;save()}});
+  ["aws","toefl","ielts","det","az900","psm"].forEach(x=>{const el=$("#tg-"+x);if(el)el.onchange=()=>{S.target[x]=el.value;save()}});
   const ic=$("#ics");if(ic)ic.onclick=async()=>{try{await downloads.save({filename:"recordatorio-simulacro-dojo.ics",data:new Blob([icsText()],{type:"text/calendar"})});toast("Recordatorio guardado")}catch(e){toast("No se guardó el archivo")}};
   const f=$("#chatf");if(f)f.onsubmit=e=>{e.preventDefault();const v=$("#chatin").value.trim();if(v)sendChat(v)};
   document.querySelectorAll("[data-sug]").forEach(b=>b.onclick=()=>sendChat(b.dataset.sug));
@@ -2322,18 +2532,18 @@ function kid(set,c){return set+":"+c}
 function kStat(set,c){return S.kana[kid(set,c)]||[0,0]}
 function kKnown(set,c){const s=kStat(set,c);return s[1]>=2&&s[0]/s[1]>=.75}
 // Voces grabadas (datos/grabar_voces.py): voz/<paquete>/<hashStr del texto>.m4a; si falta, la del sistema
-const VOZ_JA=[["mao","まお","dulce"],["kohaku","コハク","tierna"],["runa","るな","natural"],["sakurane","桜音","suave"],["kanon","花音","clara"],["eru","凛音エル","alegre"],["alpha","アルファ","serena"],["nezumi","ねずみ","aguda"],["kumo","クモ","chico"]];
+const VOZ_JA=[["nanami","ななみ","tranquila · adulta"],["keita","けいた","tranquilo · chico"],["mao","まお","dulce · aguda"],["kohaku","コハク","tierna"],["runa","るな","natural"],["sakurane","桜音","suave"],["kanon","花音","clara"],["eru","凛音エル","alegre"],["alpha","アルファ","serena"],["nezumi","ねずみ","aguda"],["kumo","クモ","chico"]];
 const VOZ_EN=[["auto","Según el examen (TOEFL americano · IELTS británico)"],["us","Americano"],["gb","Británico"],["sys","Voz del sistema"]];
 let kAudio=null, KMATON=new Set();
 function vozUrl(pq,t){return "voz/"+pq+"/"+hashStr(t).toString(16).padStart(8,"0")+".m4a"}
 function stopVoz(){try{speechSynthesis.cancel()}catch(e){}if(kAudio){kAudio.onended=kAudio.onerror=null;kAudio.pause();kAudio=null}}
 let vozRate=1;
-function playVoz(url,fallback,onEnd){stopVoz();let done=false;const a=new Audio(url);kAudio=a;a.playbackRate=vozRate;a.preservesPitch=true;const fb=()=>{if(done||kAudio!==a)return;done=true;fallback()};a.onerror=fb;a.onended=()=>{if(kAudio===a)onEnd&&onEnd()};a.play().catch(fb);return a}
-function sayJa(t){if(S.voz==="sys")return sayTTS(t);playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"mao"),t),()=>sayTTS(t))}
+function playVoz(url,fallback,onEnd){stopVoz();let done=false;const a=new Audio(url);kAudio=a;a.playbackRate=vozRate;a.preservesPitch=true;a.volume=.85;const fb=()=>{if(done||kAudio!==a)return;done=true;fallback()};a.onerror=fb;a.onended=()=>{if(kAudio===a)onEnd&&onEnd()};a.play().catch(fb);return a}
+function sayJa(t){if(S.voz==="sys")return sayTTS(t);playVoz(vozUrl(KMATON.has(t)?"maton":(S.voz||"nanami"),t),()=>sayTTS(t))}
 function sayPT(t,set){const pq=KEXT(set)||"pt";playVoz(vozUrl(pq,t),()=>ptTTS(t,KLANGS[pq]))}
 function ptTTS(t,lang="pt-PT"){stopVoz();try{const u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=.92;const v=pickVoice(lang,"F");if(v&&v.lang.replace("_","-").startsWith(lang))u.voice=v;speechSynthesis.speak(u)}catch(e){toast("Tu navegador no tiene esa voz")}}
 function vozPicker(soloJa){
-  return `<div class="vozbar"><label><span class="eyebrow">Voz japonesa</span><select class="inp" id="vozja">${VOZ_JA.map(([k,n,d])=>`<option value="${k}" ${(S.voz||"mao")===k?"selected":""}>${n} · ${d}</option>`).join("")}<option value="sys" ${S.voz==="sys"?"selected":""}>Voz del sistema</option></select></label><button class="btn ghost" data-vprev="ja">▶ Probar</button>
+  return `<div class="vozbar"><label><span class="eyebrow">Voz japonesa</span><select class="inp" id="vozja">${VOZ_JA.map(([k,n,d])=>`<option value="${k}" ${(S.voz||"nanami")===k?"selected":""}>${n} · ${d}</option>`).join("")}<option value="sys" ${S.voz==="sys"?"selected":""}>Voz del sistema</option></select></label><button class="btn ghost" data-vprev="ja">▶ Probar</button>
   ${soloJa?"":`<label><span class="eyebrow">Inglés (TOEFL · IELTS)</span><select class="inp" id="vozen">${VOZ_EN.map(([k,n])=>`<option value="${k}" ${(S.vozEn||"auto")===k?"selected":""}>${n}</option>`).join("")}</select></label><button class="btn ghost" data-vprev="en">▶ Probar</button>`}</div>`}
 function bindVoz(){
   const j=$("#vozja");if(j)j.onchange=()=>{S.voz=j.value;save();sayJa("こんにちは！いっしょに がんばろうね。")};
@@ -2364,9 +2574,11 @@ function kDetail(set){
 }
 function viewKana(){
   if(!KANA){loadKana().then(render).catch(e=>toast(e.message));return `<p class="muted" style="padding:40px 0">Cargando…</p>`}
-  const grp=KGRUPO[kGv()], set=grp.includes(route.k)?route.k:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
+  const camId=({ru:"ru",pt:"pt",kana:"ja"})[route.v],ce=camEstado(camId),camSet=ce.ns[ce.cur]?.ir?.k;
+  const grp=KGRUPO[kGv()], set=grp.includes(route.k)?route.k:grp.includes(camSet)?camSet:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
   const known=L.filter(i=>kKnown(set,i.c)).length;
-  const sw=grp.map(k=>[k,KSETS[k]]).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="ja">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
+  const kl=route.v==="ru"?"ru":route.v==="pt"?"pt-PT":"ja";
+  const sw=grp.map(k=>[k,KSETS[k]]).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="${kl}">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
   let body="";
   if(tab==="tabla"){
     if(!kSel||!L.some(i=>i.c===kSel))kSel=L[0].c;
@@ -2384,9 +2596,9 @@ function viewKana(){
       <div class="card"><h3>Cómo practicar</h3><ol class="plan"><li>Dibuja 3 veces <b>con</b> la guía, diciendo el sonido en voz alta.</li><li>Oculta la guía y dibújalo de memoria.</li><li>Orden de trazos: de arriba abajo y de izquierda a derecha; las horizontales antes que las verticales que las cruzan.</li></ol>
       <p class="muted" style="font-size:14px">Ahora: <b lang="ja" style="font-size:22px">${h(c)}</b> ${h(set==="kanji"?(L.find(i=>i.c===c)||{}).m:(L.find(i=>i.c===c)||{}).r)}</p></div></div>`;
   }
-  const tabs=kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
-  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 style="margin-top:8px"><span class="ptv">Русский</span> desde cero</h1><button class="btn ghost" data-golee="ru" style="margin-top:10px">📖 Lecturas con audio</button>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1><button class="btn ghost" data-golee="pt" style="margin-top:10px">📖 Lecturas con audio</button>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
-    <div class="ksets ${route.v!=="kana"?"k3s":""}">${sw}</div>${route.v!=="kana"?"":vozPicker(true)}
+  const tabs=set==="cirilico"?[["tabla","Letras y trucos"],["test","Test"]]:kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
+  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 style="margin-top:8px"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
+    ${camino(camId,true,set)}${route.v==="kana"?`<div class="row" style="margin:-6px 0 14px"><button class="btn ghost ${set==="kansai"?"acc":""}" data-kset="kansai">関西弁 · Extra: Kansai y calle</button></div>`:""}${route.v!=="kana"?"":vozPicker(true)}
     <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
@@ -2449,6 +2661,27 @@ function bindDraw(can){
   if(document.fonts)document.fonts.ready.then(paint);paint();
 }
 
+/* ============ 404: radar que barre y buscador en línea ============ */
+function viewPerdido(){return `<section class="perdido"><div>
+    <span class="eyebrow">Error 404</span><h1 aria-label="404">4<span class="o">0</span>4</h1>
+    <h2>Aquí no hay nada que estudiar.</h2>
+    <p class="muted" style="max-width:46ch;font-size:17px">Hemos barrido todo el Dojo y esta página no existe. Busca lo que quieres o vuelve a la portada.</p>
+    <form id="perF" role="search"><input class="inp" id="perQ" placeholder="Busca: ruso, AZ-900, tarjetas…" autocomplete="off" aria-label="Buscar en el Dojo"><button class="btn acc">Buscar</button></form>
+    <div class="perdido-res" id="perR"></div>
+    <button class="btn ghost" data-go="home" style="margin-top:14px">← Volver a la portada</button></div>
+  <div class="radar" aria-hidden="true"><div class="radar-haz"></div>${[[28,34],[66,22],[72,64],[38,72],[52,46]].map(([x,y])=>`<i class="radar-p" style="left:${x}%;top:${y}%"></i>`).join("")}</div></section>`}
+function bindPerdido(){const q=$("#perQ"),R=$("#perR");if(!q)return;
+  const todo=()=>[...Object.keys(EX).map(x=>[`${EX[x].short} · ${EX[x].name}`,{v:"exam",x,tab:"sims"},x+" "+EX[x].name]),
+    ...[["Ruso desde cero",{v:"ru"},"ruso cirilico"],["Portugués de Portugal",{v:"pt"},"portugues lisboa"],["Kana y kanji",{v:"kana"},"japones hiragana"],["Certificados desde casa",{v:"certs"},"certificado casa examen"],["Tarjetas de repaso",{v:"cards"},"tarjetas"],["Mecanografía",{v:"teclas"},"teclado escribir"],["Lecturas con audio",{v:"leer"},"leer lecturas"],["Plan de 12 semanas",{v:"plan"},"plan misiones"]]];
+  const pinta=()=>{const t=norm(q.value);const l=todo().filter(([n,,k])=>!t||norm(n+" "+k).includes(t)).slice(0,6);
+    R.innerHTML=l.map(([n],i)=>`<button data-pi="${i}"><span>${h(n)}</span><span aria-hidden="true">→</span></button>`).join("")||'<p class="muted">Nada con ese nombre. Prueba con «inglés» o «ruso».</p>';
+    R.querySelectorAll("[data-pi]").forEach(b=>b.onclick=()=>{const r=l[+b.dataset.pi][1];history.replaceState(null,"","/");go(r);if(r.v==="exam")loadBank(r.x).catch(e=>toast(e.message))})};
+  q.oninput=pinta;$("#perF").onsubmit=e=>{e.preventDefault();R.querySelector("button")?.click()};pinta();
+  document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>history.replaceState(null,"","/")));
+  if(window.gsap&&!document.documentElement.classList.contains("no-fx")){gsap.to(".radar-haz",{rotation:360,duration:4,repeat:-1,ease:"none"});
+    gsap.utils.toArray(".radar-p").forEach((p,i)=>gsap.to(p,{keyframes:[{opacity:1,scale:1.4,duration:.25},{opacity:0,scale:1,duration:1.4}],repeat:-1,repeatDelay:2.4,delay:i*.8}));
+    gsap.from(".perdido h1",{yPercent:30,opacity:0,duration:1,ease:"expo.out"})}}
+
 /* ============ Movimiento: GSAP + Lenis (si no cargan, la página se ve igual sin animar) ============ */
 let lenis=null, fxIO=null;
 function dojoFx(v){
@@ -2457,6 +2690,8 @@ function dojoFx(v){
   if(fxIO)fxIO.disconnect();
   fxIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;fxIO.unobserve(e.target);gsap.to(e.target,{opacity:1,y:0,duration:.85,ease:"power3.out",delay:+e.target.dataset.d||0})}),{rootMargin:"0px 0px -6% 0px"});
   gsap.utils.toArray(".reveal").forEach((el,i)=>{gsap.set(el,{y:30});el.dataset.d=Math.min(i,7)*.07;fxIO.observe(el)});
+  if(v==="certs"&&window.SplitText&&$(".ch-tit")){const sp=SplitText.create(".ch-tit",{type:"words",mask:"words"});gsap.from(sp.words,{yPercent:110,duration:.9,ease:"expo.out",stagger:.06})}
+  if(v==="certs")gsap.utils.toArray(".ch-stats [data-count]").forEach(el=>gsap.from(el,{textContent:0,duration:1.4,ease:"power2.out",snap:{textContent:1},delay:.3}));
   if(v==="home"){
     gsap.fromTo(".dhero .kanji-bg",{opacity:0,scale:.86,rotate:-8},{opacity:1,scale:1,rotate:0,duration:1.8,ease:"expo.out"});
     gsap.utils.toArray("[data-count]").forEach(el=>gsap.from(el,{textContent:0,duration:1.6,ease:"power2.out",snap:{textContent:1},delay:.4}));
@@ -2498,6 +2733,8 @@ function start(){loadLocal();
   const q=new URLSearchParams(location.search),irChat=q.get("chat"),irReto=q.get("reto");
   if(socPendiente||irChat||q.get("amigos")||unirsePendiente)route={v:"social"};
   if(/^\d+$/.test(q.get("clase")||""))route={v:"clase",id:+q.get("clase")};
+  // Cualquier ruta que no sea la portada llega aquí por el modo SPA del Worker: es un enlace roto
+  if(!/^\/(index\.html)?$/.test(location.pathname))route={v:"perdido"};
   if([...q.keys()].some(k=>["chat","amigos","reto","clase","unirse"].includes(k)))history.replaceState(null,"",location.pathname+(socPendiente?"?amigo="+encodeURIComponent(socPendiente):""));
   if(irChat)connectApi().then(()=>{if(cuenta)chatAbrir(irChat)});
   if(irReto&&EX[irReto])setTimeout(()=>startReto(irReto),300);render();connectStore();connectApi();connectExtras()}

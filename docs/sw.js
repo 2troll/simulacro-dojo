@@ -1,9 +1,9 @@
 // Caché para que la web funcione sin conexión (en el metro, en el avión…).
-const CACHE = "dojo-6695991026";
+const CACHE = "dojo-6557029114";
 // Voces y librerías externas no cambian: van en cachés propias que sobreviven a cada versión
 const VOZ = "dojo-voz-1", EXT = "dojo-ext-1";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png",
-  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "kana.json"];
+  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "bank-det.json", "bank-az900.json", "bank-psm.json", "kana.json"];
 const EXT_HOSTS = /^(cdn\.jsdelivr\.net|unpkg\.com|cdnjs\.cloudflare\.com|fonts\.googleapis\.com|fonts\.gstatic\.com)$/;
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== VOZ && k !== EXT).map(k => caches.delete(k)))).then(() => self.clients.claim())));
