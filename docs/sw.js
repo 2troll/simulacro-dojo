@@ -1,5 +1,5 @@
 // Caché para que la web funcione sin conexión (en el metro, en el avión…).
-const CACHE = "dojo-3436893073";
+const CACHE = "dojo-6695991026";
 // Voces y librerías externas no cambian: van en cachés propias que sobreviven a cada versión
 const VOZ = "dojo-voz-1", EXT = "dojo-ext-1";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png",

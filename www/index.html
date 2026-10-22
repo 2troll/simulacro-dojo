@@ -874,7 +874,9 @@ function speak(script,lang,onEnd){
 // ok:true = comprobado en la web oficial; si no, se muestra «a confirmar». ir = dónde practicarlo en el Dojo
 const CERTS=[
   {c:"ingles",n:"IELTS Academic",abre:["uni","trabajo"],p:"29.700 ¥ en Japón",t:"Resultado en 1-5 días (por ordenador)",d:"Centros en Osaka y en todo el mundo",v:"2 años",u:"https://www.eiken.or.jp/ielts/test/",ok:true,ir:{v:"exam",x:"ielts"},tip:"El más aceptado por universidades y visados. Si no tienes ningún certificado de inglés, empieza por este."},
-  {c:"ingles",n:"Duolingo English Test",abre:["uni"],p:"≈ 70 $",t:"Resultado en ≤ 48 h",d:"Desde casa, 1 hora",v:"2 años",u:"https://englishtest.duolingo.com",ok:false,tip:"El más rápido y barato, pero mira antes si tu universidad lo acepta: muchas piden IELTS."},
+  {c:"ingles",n:"Duolingo English Test",abre:["uni"],p:"70 $",t:"Resultado en ≤ 48 h · sin cita, cuando quieras",d:"Desde casa: ordenador, cámara y micro · 1 hora",v:"2 años",u:"https://englishtest.duolingo.com",ok:true,casa:true,tip:"El más fácil de sacar: lo haces hoy en tu habitación y mandas la nota gratis a las universidades que quieras. Mira antes si la tuya lo acepta."},
+  {c:"ingles",n:"EF SET English Certificate",abre:["trabajo"],p:"Gratis",t:"50 min · nota al momento",d:"Desde casa, sin cámara ni cita",v:"No caduca",u:"https://www.efset.org",ok:true,casa:true,gratis:true,tip:"Te da tu nivel MCER (A1-C2) en lectura y comprensión oral para el CV y LinkedIn. No vale para universidades ni visados, pero cuesta cero y te dice si estás listo para el IELTS."},
+  {c:"ingles",n:"Linguaskill (Cambridge)",abre:["uni","trabajo"],p:"≈ 80-190 € según el centro",t:"Resultado en ≈ 2 días",d:"Desde casa con vigilancia online (lo ofrecen algunos centros) o en un centro",v:"Lo decide quien lo pida",u:"https://www.cambridgeenglish.org/exams-and-tests/linguaskill/",ok:false,casa:true,tip:"Es de Cambridge, adaptativo y por ordenador. Algunas universidades europeas lo aceptan: pregúntales antes de pagar."},
   {c:"ingles",n:"TOEFL iBT",abre:["uni"],p:"≈ 195 $ en Japón",t:"Resultado en unos días",d:"Centro o desde casa (Home Edition)",v:"2 años",u:"https://www.ets.org/toefl",ok:false,ir:{v:"exam",x:"toefl"},tip:"Pesa sobre todo en EE. UU. Para Europa rinde más el IELTS o el C1."},
   {c:"ingles",n:"Cambridge C1 Advanced",abre:["uni","trabajo","docencia"],p:"≈ 21.000 ¥ en Japón",t:"Resultado en unas semanas",d:"En papel en muchas ciudades",v:"No caduca",u:"https://www.cambridgeenglish.org/exams-and-tests/advanced/",ok:false,tip:"Más difícil, pero sirve para toda la vida en Europa."},
   {c:"pt",n:"CIPLE (A2)",abre:["trabajo","nacionalidad"],p:"≈ 95 €",t:"Sesiones en mayo, julio y noviembre",d:"Lisboa y centros CAPLE fuera de Portugal",v:"Sin caducidad indicada",u:"https://caple.letras.ulisboa.pt",ok:false,ir:{v:"pt"},tip:"El nivel que piden para la nacionalidad. Con el español de base se prepara en 1-2 meses."},
@@ -890,16 +892,17 @@ const CERTS=[
   {c:"tec",n:"Microsoft Applied Skills",abre:["trabajo"],p:"Evaluación gratis",t:"Horas o días",d:"Online",v:"No caduca",u:"https://learn.microsoft.com/credentials/applied-skills/",ok:false,gratis:true,tip:"Pruebas prácticas cortas para el CV técnico."},
   {c:"pt",n:"RNAAT · vender tours propios en Portugal",abre:["trabajo"],p:"Desde 20,28 €",t:"Inscripción online",d:"gov.pt",v:"Permanente",u:"https://www.gov.pt/servicos/animacao-turistica-inscricao-no-registo-nacional-rnaat-",ok:true,tip:"Para guiar no hace falta licencia en Portugal continental; el RNAAT es para vender tours con tu propia marca."},
 ];
+CERTS.forEach(c=>{if(/^Online|casa/i.test(c.d))c.casa=true});
 const CERT_CAT={ingles:"Inglés",pt:"Portugués y Portugal",ru:"Ruso",es:"Dar clases",tec:"Técnico y negocio"};
 const CERT_ABRE={uni:"🎓 Universidad",trabajo:"💼 Trabajo",docencia:"🧑‍🏫 Dar clases",nacionalidad:"🇵🇹 Nacionalidad"};
-function viewCerts(){const f=route.f||"todo",L=CERTS.filter(c=>f==="todo"||(f==="gratis"?c.gratis:c.abre.includes(f)));
-  const fil=[["todo","Todo"],["trabajo","Trabajo rápido"],["uni","Universidad"],["gratis","Gratis"]];
+function viewCerts(){const f=route.f||"todo",L=CERTS.filter(c=>f==="todo"||(f==="gratis"?c.gratis:f==="casa"?c.casa:c.abre.includes(f)));
+  const fil=[["todo","Todo"],["casa","🏠 Desde casa"],["trabajo","Trabajo rápido"],["uni","Universidad"],["gratis","Gratis"]];
   return `<div class="ex-head"><div><span class="eyebrow">Revisado el 22-10-2026 · precios orientativos</span><h1 style="margin-top:8px">Certificados que abren puertas</h1>
     <p class="muted" style="max-width:62ch">Los que más rápido te dan trabajo o plaza en la universidad: cuánto cuestan, cuánto tardan y dónde se hacen. Si el Dojo tiene práctica, hay un botón para empezar ya.</p></div></div>
     <div class="tabs" role="tablist" style="margin:6px 0 18px">${fil.map(([k,n])=>`<button role="tab" data-cf="${k}" aria-selected="${k===f}">${n}</button>`).join("")}</div>
     ${Object.keys(CERT_CAT).map(cat=>{const l=L.filter(c=>c.c===cat);if(!l.length)return "";
       return `<h2 class="kh">${CERT_CAT[cat]}</h2><div class="certs">${l.map(c=>`<article class="card cert reveal">
-        <div class="cert-top"><h3>${h(c.n)}</h3>${c.gratis?'<span class="pill ok">Gratis</span>':""}</div>
+        <div class="cert-top"><h3>${h(c.n)}</h3>${c.casa?'<span class="pill">🏠 Desde casa</span>':""}${c.gratis?'<span class="pill ok">Gratis</span>':""}</div>
         <div class="cert-abre">${c.abre.map(a=>`<span>${CERT_ABRE[a]}</span>`).join("")}</div>
         <dl class="cert-dl"><dt>Precio</dt><dd>${h(c.p)}</dd><dt>Tiempo</dt><dd>${h(c.t)}</dd><dt>Dónde</dt><dd>${h(c.d)}</dd><dt>Validez</dt><dd>${h(c.v)}</dd></dl>
         <p class="cert-tip">${h(c.tip)}</p>
