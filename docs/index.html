@@ -792,6 +792,9 @@ a.btn{text-decoration:none}
 .lc-fb{border-radius:0;justify-content:initial;display:block}.lc-fb.ok{background:var(--ok-bg);border-top-color:var(--ok)}.lc-fb.mal{background:var(--bad-bg);border-top-color:var(--bad)}
 .lc-fb b{font-size:20px}.lc-fb.ok .btn.acc{background:var(--ok)}.lc-fb.mal .btn.acc{background:var(--bad)}
 body:has(.lc-card) .mnav{display:none}
+.lc-kb{color:var(--muted);font-size:14px}.lc-kb kbd,.lc-pie kbd{font:700 12px var(--f-mono);padding:2px 7px;border-radius:6px;border:1px solid currentColor;margin:0 2px;opacity:.75}
+.lc-opt kbd{font:800 13px var(--f-mono);min-width:26px;text-align:center;padding:3px 6px;border-radius:7px;border:1.5px solid var(--line);opacity:1;color:var(--muted)}
+@media(hover:none){.lc-kb,.lc-pie kbd,.lc-opt kbd{display:none}}
 @media(max-width:560px){.lc-pie-in{flex-wrap:wrap}.lc-pie-in .btn.acc{flex:1}.lc-pie-in .btn.ghost{flex:0 0 auto}}
 
 </style>
@@ -1473,6 +1476,7 @@ addEventListener("keydown",e=>{if(route.v==="leer"&&!route.id&&/^[1-9]$/.test(e.
   if(route.v!=="leer"||!lee||e.ctrlKey||e.metaKey||e.altKey||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||""))return;
   if(e.key===" "){e.preventDefault();e.stopImmediatePropagation();leeTodo()}
   else if(e.key.toLowerCase()==="t"){e.preventDefault();e.stopImmediatePropagation();lee.trad=!lee.trad;render()}
+  else if(KB_OPC.slice(0,4).includes(e.key.toLowerCase())){const q=[...document.querySelectorAll(".lee-q")].find(d=>d.querySelector(".lee-op:not([disabled])"));const b=q&&q.querySelectorAll(".lee-op")[KB_OPC.indexOf(e.key.toLowerCase())];if(b){e.preventDefault();e.stopImmediatePropagation();b.click()}}
   else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();stopVoz();lee=null;go({v:"leer",lang:route.lang})}},true);
 
 /* ============ Lecciones guiadas: 5 cosas nuevas, se aprenden, se practican y a la siguiente ============ */
@@ -1510,21 +1514,21 @@ function viewLeccion(){
       <p class="lc-sig">${LEC_ALFA.has(set)?"Suena: ":""}<b>${h(it.m||it.r)}</b></p>
       ${it.f?`<p class="lc-ej"><span lang="${lang}">${h(it.f)}</span>${it.fe?`<small>${h(it.fe)}</small>`:""}</p>`:""}
       ${it.t?`<p class="lc-truco">💡 ${h(it.t)}</p>`:""}
-      <div class="lc-pie"><div class="lc-pie-in"><button class="btn ghost" data-lcoir>🔊 Oír otra vez</button><button class="btn acc" data-lcsig>${lc.i+1<lc.items.length?"Siguiente →":"¡A practicar! →"}</button></div></div></div>`}
+      <div class="lc-pie"><div class="lc-pie-in"><button class="btn ghost" data-lcoir>🔊 Oír <kbd>E</kbd></button><button class="btn acc" data-lcsig>${lc.i+1<lc.items.length?"Siguiente":"¡A practicar!"} <kbd>Espacio</kbd></button></div></div></div>`}
   if(lc.fase==="practica"){const Q=lc.cola[lc.q],it=Q.it,a=lc.ans,inv=Q.t==="inverso";
     const enun=Q.t==="oido"?`<button class="lc-oido" data-lcoir aria-label="Escuchar otra vez">🔊</button><p class="muted">¿Qué has oído?</p>`
       :inv?`<p class="muted">¿Cuál es…?</p><div class="lc-pre">${h(lecResp(set,it))}</div>`
       :`<p class="muted">${LEC_ALFA.has(set)?"¿Cómo suena?":"¿Qué significa?"}</p><div class="lc-big ${it.c.length>4?"largo":""}" lang="${lang}">${h(it.c)}</div>`;
     return top+`<div class="lc-card"><span class="eyebrow">${Q.repaso?"Repaso de la lección anterior":"Practica"}</span>${enun}
       <div class="lc-opts">${Q.opts.map((o,k)=>{const cls=a==null?"":o===it?"ok":k===a?"mal":"";const txt=inv||(Q.t==="oido"&&LEC_ALFA.has(set))?o.c:lecResp(set,o);
-        return `<button class="lc-opt ${cls}" data-lcop="${k}" ${a!=null?"disabled":""} ${inv||(Q.t==="oido"&&LEC_ALFA.has(set))?`lang="${lang}"`:""}><kbd>${k+1}</kbd><span>${h(txt)}</span></button>`}).join("")}</div>
-      ${a!=null?`<div class="lc-pie lc-fb ${Q.opts[a]===it?"ok":"mal"}"><div class="lc-pie-in"><span><b>${Q.opts[a]===it?["¡Bien!","¡Eso es!","¡Perfecto!","¡Muy bien!"][lc.q%4]:"Casi. La buena es:"}</b>${Q.opts[a]===it?"":` <span lang="${lang}">${h(it.c)}</span> = ${h(lecResp(set,it))}`}</span><button class="btn acc" data-lcnext>Seguir →</button></div></div>`:`<div class="lc-pie"><div class="lc-pie-in"><span class="muted">Elige una respuesta · teclas 1-4</span></div></div>`}</div>`}
+        return `<button class="lc-opt ${cls}" data-lcop="${k}" ${a!=null?"disabled":""} ${inv||(Q.t==="oido"&&LEC_ALFA.has(set))?`lang="${lang}"`:""}><kbd>${kbL(k)}</kbd><span>${h(txt)}</span></button>`}).join("")}</div>
+      ${a!=null?`<div class="lc-pie lc-fb ${Q.opts[a]===it?"ok":"mal"}"><div class="lc-pie-in"><span><b>${Q.opts[a]===it?["¡Bien!","¡Eso es!","¡Perfecto!","¡Muy bien!"][lc.q%4]:"Casi. La buena es:"}</b>${Q.opts[a]===it?"":` <span lang="${lang}">${h(it.c)}</span> = ${h(lecResp(set,it))}`}</span><button class="btn acc" data-lcnext>Seguir <kbd>Espacio</kbd></button></div></div>`:`<div class="lc-pie"><div class="lc-pie-in"><span class="lc-kb"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd> elegir · <kbd>E</kbd> oír</span></div></div>`}</div>`}
   const pc=Math.round(lc.ok/Math.max(1,lc.ok+lc.mal)*100),hech=lecHechas(set),tot=lecTotal(set),fin=hech>=tot;
   const id=({ru:"ru",pt:"pt",kana:"ja"})[KEXT(set)||"kana"],est=camEstado(id),niv=est.ns.find(n=>n.ir.k===set);
   return top+`<div class="lc-card lc-fin"><div class="lc-medalla">${fin?"🏆":"⭐"}</div><h1>${fin?"¡Nivel superado!":"¡Lección "+(lc.n+1)+" completada!"}</h1>
     <div class="lc-stats"><div><b>+${lc.xp}</b><span>XP</span></div><div><b>${pc} %</b><span>aciertos</span></div><div><b>🔥 ${lc.max}</b><span>mejor racha</span></div></div>
     <p class="muted">${niv?`Nivel ${niv.i+1} · ${h(niv.t)}`:""}</p><div class="lc-nivel"><i data-w="${Math.round(hech/tot*100)}" style="width:${Math.round(Math.max(0,hech-1)/tot*100)}%"></i></div><p class="mono muted">${hech} de ${tot} lecciones</p>
-    <div class="lc-pie"><div class="lc-pie-in"><button class="btn ghost" data-lcruta>Volver al camino</button>${fin?`<button class="btn acc" data-lcruta>Ver el siguiente nivel →</button>`:`<button class="btn acc" data-lcotra="${lc.n+1}">Lección ${lc.n+2} →</button>`}</div></div></div>`}
+    <div class="lc-pie"><div class="lc-pie-in"><button class="btn ghost" data-lcruta>Volver al camino</button>${fin?`<button class="btn acc" data-lcruta>Ver el siguiente nivel →</button>`:`<button class="btn acc" data-lcotra="${lc.n+1}">Lección ${lc.n+2} <kbd>Espacio</kbd></button>`}</div></div></div>`}
 function lcSigue(){if(!lc)return;
   if(lc.fase==="aprende"){if(lc.i+1<lc.items.length){lc.i++;render();lcSuena(lc.items[lc.i])}else{lc.fase="practica";lcOpciones();render();const Q=lc.cola[0];if(Q.t==="oido")lcSuena(Q.it)}return}
   if(lc.fase==="practica"&&lc.ans!=null){lc.q++;lc.ans=null;if(lc.q>=lc.cola.length)return lcTermina();lcOpciones();render();const Q=lc.cola[lc.q];if(Q.t==="oido")lcSuena(Q.it);return}
@@ -1548,7 +1552,8 @@ function bindLeccion(){if(!lc)return;
   if(window.gsap&&!document.documentElement.classList.contains("no-fx")){const c=$(".lc-card");if(c&&lc.fase!=="fin")gsap.from(c.children,{y:14,opacity:0,duration:.35,ease:"power2.out",stagger:.03,clearProps:"transform,opacity"});const o=$(".lc-fb");if(o)gsap.from(o,{yPercent:100,duration:.28,ease:"power2.out",clearProps:"transform"})}}
 addEventListener("keydown",e=>{if(route.v!=="leccion"||!lc||e.ctrlKey||e.metaKey||e.altKey)return;
   if(e.key===" "||e.key==="Enter"){e.preventDefault();e.stopImmediatePropagation();lcSigue()}
-  else if(/^[1-4]$/.test(e.key)&&lc.fase==="practica"){e.preventDefault();e.stopImmediatePropagation();lcResponde(+e.key-1)}
+  else if(lc.fase==="practica"&&lc.ans==null&&kbNum(e.key,e.key.toLowerCase(),4)>=0){e.preventDefault();e.stopImmediatePropagation();lcResponde(kbNum(e.key,e.key.toLowerCase(),4))}
+  else if(e.key.toLowerCase()==="e"){e.preventDefault();e.stopImmediatePropagation();$("[data-lcoir]")?.click()}
   else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();$("[data-lcfuera]")?.click()}},true);
 
 
@@ -1792,8 +1797,8 @@ function viewRun(){
       <div id="fb">${feedbackHTML(it)}</div>
     </section></div>
     <div class="dock"><div class="dock-in">
-      <button class="btn ghost" id="prev" data-key="←" ${run.i?"":"disabled"}>← Anterior</button>
-      <span class="kbd">${q.t==="mcq"||q.t==="multi"?"1-"+q.o.length+" · ":""}Espacio: ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?"comprobar":"siguiente"} · ←→ · ? ayuda</span>
+      <button class="btn ghost" id="prev" data-key="Q" ${run.i?"":"disabled"}>← Anterior</button>
+      <span class="kbd">${q.t==="mcq"||q.t==="multi"?KB_OPC.slice(0,q.o.length).toUpperCase().split("").join(" ")+": elegir · ":""}Espacio: ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?"comprobar":"siguiente"} · Q: atrás${it.set.audio?" · E: oír":""}</span>
       ${run.mode==="study"&&q.t!=="open"&&!run.checked[run.i]?`<button class="btn acc" id="check" data-key="Espacio">Comprobar</button>`:`<button class="btn acc" id="next" data-key="Espacio">${run.i===n-1?"Terminar":"Siguiente →"}</button>`}
     </div></div></div>`;
 }
@@ -1809,14 +1814,14 @@ function optOrder(it){const r=rng(hashStr(run.x+it.set.id+":"+it.qi));return shu
 function answerUI(it){
   const q=it.q,a=run.ans[run.i],chk=run.checked[run.i]||false;
   if(q.t==="mcq"){
-    const ord=optOrder(it);const L=it.q.o.length===3?"123":"ABCD";
+    const ord=optOrder(it);
     return `<div class="opts">${ord.map((oi,k)=>{let c="";if(a===oi)c="sel";if(chk){if(oi===q.a)c="right";else if(a===oi)c="wrong"}
-      return `<button class="opt ${c}" data-o="${oi}" ${chk?"disabled":""}><span class="bub">${run.x==="n5"?k+1:L[k]}</span><span>${h(q.o[oi])}</span></button>`}).join("")}</div>`;
+      return `<button class="opt ${c}" data-o="${oi}" ${chk?"disabled":""}><span class="bub">${kbL(k)}</span><span>${h(q.o[oi])}</span></button>`}).join("")}</div>`;
   }
   if(q.t==="multi"){
     const ord=optOrder(it);const sel=a||[];const need=q.a.length;
     return `<p class="pill warn" style="margin:0 0 10px">Elige ${need===2?"DOS":need===3?"TRES":need}: marca y desmarca</p><div class="opts">${ord.map((oi,k)=>{let c=sel.includes(oi)?"sel":"";if(chk){if(q.a.includes(oi))c="right";else if(sel.includes(oi))c="wrong"}
-      return `<button class="opt multi ${c}" data-m="${oi}" ${chk?"disabled":""}><span class="bub">${"ABCDEFGHIJ"[k]}</span><span>${h(q.o[oi])}</span></button>`}).join("")}</div>`;
+      return `<button class="opt multi ${c}" data-m="${oi}" ${chk?"disabled":""}><span class="bub">${kbL(k)}</span><span>${h(q.o[oi])}</span></button>`}).join("")}</div>`;
   }
   if(q.t==="fill")return `<input class="fill-in" id="fill" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe la palabra" value="${h(a||"")}" ${chk?"disabled":""}>`;
   if(q.t==="order"){
@@ -2291,14 +2296,15 @@ function bindClase(){if(!cuenta)return;
 /* ============ Teclado: un solo oyente para toda la app ============ */
 const ATAJOS=[["General",[["?","Abrir o cerrar esta ayuda"],["H","Portada"],["O","Plan y misiones de hoy"],["E","Mecanografía"],["K","Kana y kanji"],["P","Portugués"],["R","Ruso"],["L","Manos libres"],["F","Amigos y cuenta"],["T","Tarjetas"],["G","Guía y tutor"],["/ · Ctrl+K","Buscar e ir a cualquier sitio"],["Esc","Volver atrás"],["Shift+← →","Cambiar de pestaña"]]],
   ["Portada y examen",[["1-4","Portada: abrir ese examen"],["Intro","Examen: empezar el siguiente que te falta"],["M","Examen: cambiar entre modo examen y estudio"]]],
-  ["Preguntas",[["1-5 · A-E","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["← →","Anterior / siguiente"],["P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
+  ["Una mano",[["A S D F","Elegir respuesta (G y Z X C V B si hay más; los números también valen)"],["Espacio","Comprobar, seguir y siguiente lección"],["E","Oír otra vez"],["Q","Pregunta anterior"],["Esc","Salir"]]],
+  ["Preguntas",[["A S D F G…","Elegir (en múltiple, marca y desmarca)"],["Espacio · Intro","Comprobar o siguiente"],["Q · ← →","Anterior / siguiente"],["E · P","Escuchar el audio"],["Esc","Salir del simulacro"]]],
   ["Resultado",[["Intro","Volver al examen"]]],
   ["Manos libres",[["Espacio · Intro","Empezar / pausa"],["← →","Anterior / siguiente"],["R","Repetir"],["S","Ya la sé (sale de la cola)"],["M","Mandos por voz"],["+ · -","Más o menos tiempo para pensar"]]],
-  ["Tarjetas",[["Espacio · Intro","Girar"],["→ · 2","La sé"],["← · 1","Otra vez"]]],
-  ["Rayo y Empareja",[["1-4","Rayo: elegir respuesta"],["1-5 · A-E","Empareja: pista y su pareja"],["Intro","Empezar / otra ronda"]]],
-  ["Kana, kanji y portugués",[["Shift+← →","Tabla / Test / Dibuja"],["Shift+↑ ↓","Hiragana, katakana, kanji…"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["1-4 · A-D","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"],["Esc","Cerrar la ficha / volver"]]]];
+  ["Tarjetas",[["Espacio","Girar"],["A S D F","Otra vez · Difícil · Bien · Fácil"],["E","Oír"]]],
+  ["Rayo y Empareja",[["A S D F","Rayo: elegir respuesta"],["1-5 · A-E","Empareja: pista y su pareja"],["Intro","Empezar / otra ronda"]]],
+  ["Kana, kanji y portugués",[["Shift+← →","Tabla / Test / Dibuja"],["Shift+↑ ↓","Hiragana, katakana, kanji…"],["Flechas","Moverte por la tabla"],["Espacio","Escuchar"],["A S D F","Responder el test"],["Espacio · Intro","Siguiente pregunta"],["Retroceso","Borrar el dibujo"],["Intro","Otra letra"],["V","Mostrar u ocultar la guía"],["Esc","Cerrar la ficha / volver"]]]];
 // Qué grupo de la ayuda va primero según dónde estés
-const kbAqui=()=>({home:"Portada y examen",exam:route.tab==="learn"?"Rayo y Empareja":"Portada y examen",run:"Preguntas",result:"Resultado",cards:"Tarjetas",libre:"Manos libres",rayo:"Rayo y Empareja",kana:"Kana, kanji y portugués",pt:"Kana, kanji y portugués"})[route.v]||"General";
+const kbAqui=()=>({leccion:"Una mano",home:"Portada y examen",exam:route.tab==="learn"?"Rayo y Empareja":"Portada y examen",run:"Preguntas",result:"Resultado",cards:"Tarjetas",libre:"Manos libres",rayo:"Rayo y Empareja",kana:"Kana, kanji y portugués",pt:"Kana, kanji y portugués"})[route.v]||"General";
 let kbBack=null;
 function ayuda(on){let d=$("#kbHelp");if(on==null)on=!d||d.hidden;
   if(!d){d=document.createElement("div");d.id="kbHelp";d.className="kb-help";d.hidden=true;d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-labelledby","kbT");
@@ -2353,7 +2359,9 @@ document.addEventListener("click",e=>{if(e.target.closest("[data-cmd]"))cmdOpen(
   const rt=e.target.closest("[data-reto]");if(rt)startReto(rt.dataset.reto);
   const tb=e.target.closest("[data-rtab]");if(tb){soc&&(soc.reto={x:tb.dataset.rtab,tabla:null});S.retoUlt=tb.dataset.rtab;render();retoTabla(tb.dataset.rtab)}
   if(e.target.closest("#instalar"))instalar()});
-const kbNum=(k,lk,max)=>{const n=/^[1-9]$/.test(k)?+k-1:/^[a-e]$/.test(lk)?"abcde".indexOf(lk):-1;return n<max?n:-1};
+// Una mano: el pulgar en Espacio y los dedos en A S D F (G y Z X C V B si hay más opciones). Los números siguen valiendo
+const KB_OPC="asdfgzxcvb",kbL=k=>KB_OPC[k]?.toUpperCase()||"";
+const kbNum=(k,lk,max)=>{const n=/^[1-9]$/.test(k)?+k-1:KB_OPC.indexOf(lk);return n>=0&&n<max?n:-1};
 const kbClick=b=>{if(b&&!b.disabled){b.click();return true}return false};
 document.addEventListener("keydown",e=>{
   if((e.ctrlKey||e.metaKey)&&!e.altKey&&e.key.toLowerCase()==="k"){e.preventDefault();cmdOpen();return}
@@ -2368,12 +2376,14 @@ document.addEventListener("keydown",e=>{
   // Sobre un botón enfocado con Tab, Intro y Espacio hacen lo suyo (accesibilidad)
   const onCtl=ae&&ae!==document.body&&/BUTTON|^A$|SUMMARY/.test(tag)&&(k==="Enter"||k===" ");
   const v=route.v,act=b=>{if(kbClick(b))e.preventDefault()};
-  if(v!=="run"&&!e.shiftKey){const to={h:"home",o:"plan",e:"teclas",k:"kana",p:"pt",r:"ru",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to&&!(v==="libre"&&lk==="r")){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
+  const enPreguntas=(v==="cards"&&deck)||v==="rayo"||v==="leccion"||v==="teclas"||(v==="leer"&&lee)||(v==="exam"&&route.tab==="learn")||((v==="kana"||v==="pt"||v==="ru")&&route.kt==="test");
+  if(v!=="run"&&!e.shiftKey&&!enPreguntas){const to={h:"home",o:"plan",e:"teclas",k:"kana",p:"pt",r:"ru",l:"libre",t:"cards",g:"guide",f:"social"}[lk];if(to&&!(v==="libre"&&lk==="r")){e.preventDefault();if(to==="cards")deck=null;go({v:to});return}}
   if(v==="run"&&run){
     const it=run.items[run.i],q=it.q;
     if(k==="Escape"){e.preventDefault();act($("#quit"));return}
     if((q.t==="mcq"||q.t==="multi")&&!run.checked[run.i]){const n=kbNum(k,lk,q.o.length);if(n>=0){act(document.querySelectorAll("#answer .opt")[n]);return}}
-    if(lk==="p"){act($("#play"));return}
+    if(lk==="p"||lk==="e"){act($("#play"));return}
+    if(lk==="q"){act($("#prev"));return}
     if(onCtl)return;
     if(k==="Enter"||k===" "){act($("#check")||$("#next"));return}
     if(k==="ArrowLeft"){act($("#prev"));return}
@@ -2393,17 +2403,17 @@ document.addEventListener("keydown",e=>{
     if(k==="ArrowRight"){e.preventDefault();libSalta(1);return}if(k==="ArrowLeft"){e.preventDefault();libSalta(-1);return}
     if(lk==="r"){libRep();return}if(lk==="s"){libSe();return}if(lk==="m"){libMic(!lib.micOn);return}
     if(k==="+"){libPausa(1);return}if(k==="-"){libPausa(-1);return}}
-  if(v==="result"&&k==="Enter"){act($("#app main .btn.acc"));return}
+  if(v==="result"&&(k==="Enter"||k===" ")){e.preventDefault();act($("#app main .btn.acc"));return}
   if(v==="cards"&&deck?.cards[deck.i]){
     if(k===" "||k==="Enter"){e.preventDefault();tarGirar();return}
-    if(/^[1-4]$/.test(k)){e.preventDefault();tarResponde(+k);return}
+    {const n=kbNum(k,lk,4);if(n>=0){e.preventDefault();tarResponde(n+1);return}}
     if(k==="ArrowRight"){tarResponde(3);return}if(k==="ArrowLeft"){tarResponde(1);return}
-    if(lk==="o"||lk==="a"){tarOir();return}
+    if(lk==="o"||lk==="e"){tarOir();return}
     if(k==="Escape"){deck=null;render();return}
     return}
   if(v==="rayo"){
     if(k==="Enter"||k===" "){act($("#rgo"));return}
-    const os=document.querySelectorAll("[data-ro]"),n=/^[1-4]$/.test(k)?+k-1:-1;
+    const os=document.querySelectorAll("[data-ro]"),n=kbNum(k,lk,os.length);
     if(n>=0&&os[n]&&!document.querySelector(".opt.right,.opt.wrong"))act(os[n]);return}
   if(v==="exam"&&route.tab==="learn"&&$("#matchBox")){
     if(k==="Enter"){act($("#mAgain"));return}
@@ -2530,7 +2540,7 @@ function viewCards(){
 <div class="fc-in">
       <div class="cara frente">${tarFrente(c)}<span class="fc-pista">Toca o pulsa espacio para girar</span></div>
       <div class="cara dorso">${tarDorso(c)}</div></div></div></div>
-    <div class="deck-ctrl ${deck.flipped?"":"oculto"}" id="tarBts">${[["1","again","Otra vez","hoy"],["2","hard","Difícil","1 día"],["3","good","Bien",tarIntervalo(c,1)],["4","easy","Fácil",tarIntervalo(c,2)]].map(([k,id,n,d])=>`<button class="btn tar-b ${id}" data-tar="${k}" data-key="${k}"><b>${n}</b><small>${d}</small></button>`).join("")}</div>
+    <div class="deck-ctrl ${deck.flipped?"":"oculto"}" id="tarBts">${[["1","again","Otra vez","hoy"],["2","hard","Difícil","1 día"],["3","good","Bien",tarIntervalo(c,1)],["4","easy","Fácil",tarIntervalo(c,2)]].map(([k,id,n,d])=>`<button class="btn tar-b ${id}" data-tar="${k}" data-key="${kbL(k-1)}"><b>${n}</b><small>${d}</small></button>`).join("")}</div>
     <p class="muted kb-tip" style="text-align:center;font-size:14px">Espacio gira · 1 otra vez · 2 difícil · 3 bien · 4 fácil · también puedes deslizar (→ bien, ← otra vez)</p>`}
 function tarIntervalo(c,salto){const b=Math.min(5,(S.srs[c.id]?.b||0)+salto),d=BOX_DAYS[b];return d>=30?Math.round(d/30)+" mes":d+" día"+(d>1?"s":"")}
 function tarGirar(){if(!deck?.cards[deck.i])return;deck.flipped=!deck.flipped;$("#fc")?.classList.toggle("girada",deck.flipped);$("#tarBts")?.classList.toggle("oculto",!deck.flipped);if(deck.flipped)tarOir()}
@@ -2598,7 +2608,7 @@ function viewRayo(){
     <button class="btn acc" id="rgo">${rayo?.done?"Otra vez":"¡Empezar!"}</button></div>`}
   const q=rayo.q,ord=shuffle(q.o.map((_,i)=>i),rng(rayo.n*7+1));
   return `<div class="ex-head"><div><span class="eyebrow">Modo Rayo · ${EX[x].short}</span><div class="row" style="margin-top:6px"><span class="rayo-num" style="font-size:54px">${rayo.score}</span>${rayo.combo>=3?`<span class="combo">COMBO ×2</span>`:""}</div></div><span class="timer mono" id="rt" style="font-size:28px">${Math.ceil(rayo.left)}</span></div>
-    <div class="qbox" style="max-width:720px" ${x==="n5"?'lang="ja"':""}><div class="qtext">${h(q.q)}</div><div class="opts">${ord.map((oi,k)=>`<button class="opt" data-ro="${oi}"><span class="bub">${k+1}</span><span>${h(q.o[oi])}</span></button>`).join("")}</div></div>`;
+    <div class="qbox" style="max-width:720px" ${x==="n5"?'lang="ja"':""}><div class="qtext">${h(q.q)}</div><div class="opts">${ord.map((oi,k)=>`<button class="opt" data-ro="${oi}"><span class="bub">${kbL(k)}</span><span>${h(q.o[oi])}</span></button>`).join("")}</div></div>`;
 }
 function bindRayo(){
   const x=route.x;
@@ -2797,7 +2807,7 @@ function viewKana(){
   const tabs=[["ruta","Lecciones"],...(set==="cirilico"?[["tabla","Todas las letras"],["test","Test"]]:kWord(set)?[["tabla","Todas las palabras"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]])];
   return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 class="k-tit"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 class="k-tit"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 class="k-tit"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div></div>
     ${tab==="ruta"?"":camino(camId,true,set)}${route.v!=="kana"||tab==="ruta"?"":vozPicker(true)}
-    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
+    <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"A S D F: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
   const L=KANA[set];let pool=kind==="basic"?L.filter(i=>!i.g):kind&&kind.startsWith("g:")?L.filter(i=>i.g===kind.slice(2)):L.slice();
@@ -2813,7 +2823,7 @@ function kQuizHTML(){
   const {it,opts}=kq.qs[kq.i],set=kq.set,a=kq.ans;
   return `<div class="card kquiz"><div class="row" style="justify-content:space-between"><span class="eyebrow">${kq.i+1} / 10</span><span class="pill ok">${kq.ok} bien</span></div>
     <div class="kprompt">${kLabel(set,it,false)}</div>
-    <div class="kopts">${opts.map((o,n)=>`<button class="opt ${a==null?"":o===it?"right":a===n?"wrong":""}" data-ka="${n}" ${a!=null?"disabled":""}><span class="bub">${"ABCD"[n]}</span><span>${kLabel(set,o,true)}</span></button>`).join("")}</div>
+    <div class="kopts">${opts.map((o,n)=>`<button class="opt ${a==null?"":o===it?"right":a===n?"wrong":""}" data-ka="${n}" ${a!=null?"disabled":""}><span class="bub">${kbL(n)}</span><span>${kLabel(set,o,true)}</span></button>`).join("")}</div>
     ${a!=null?`<div class="feedback ${opts[a]===it?"ok":"bad"}"><b>${opts[a]===it?"¡Bien!":"Era "+h(it.c)+" · "+h(kShow(set,it))}</b>${it.t?`<span>${h(it.t)}</span>`:""}</div><button class="btn acc" data-knext="1">${kq.i===9?"Ver resultado":"Siguiente →"}</button>`:""}</div>`;
 }
 function kSay(){const set=kCur();kSpeak(set,kVoice(set,KANA[set].find(i=>i.c===kSel)||{c:kSel}))}
