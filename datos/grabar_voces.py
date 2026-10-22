@@ -44,7 +44,11 @@ VOCES_JA = {
     "alpha": ("kokoro", "jf_alpha", "jf_alpha"),
     "nezumi": ("kokoro", "jf_nezumi", "jf_nezumi"),
     "kumo": ("kokoro", "jm_kumo", "jm_kumo"),     # voz de chico
+    # Edge: voces adultas y tranquilas, más graves y con menos volumen (las anime asustaban)
+    "nanami": ("edge", "ja-JP-NanamiNeural", "ja-JP-NanamiNeural"),
+    "keita": ("edge", "ja-JP-KeitaNeural", "ja-JP-KeitaNeural"),
 }
+EDGE_JA = "-8%|-12Hz|-20%"
 MATON = ("kokoro", "jm_kumo")
 # Escucha de los exámenes: paquete → (motor, voz, idioma de Kokoro)
 ESCUCHA = {
@@ -244,7 +248,9 @@ def edge(texto, voz, ritmo):
     import edge_tts
     async def _go():
         b = b""
-        async for c in edge_tts.Communicate(texto, voz, rate=ritmo).stream():
+        # ritmo puede ser "rate" o "rate|tono|volumen" (las voces japonesas van más graves y bajas)
+        r, tono, vol = (ritmo.split("|") + ["+0Hz", "+0%"])[:3] if "|" in ritmo else (ritmo, "+0Hz", "+0%")
+        async for c in edge_tts.Communicate(texto, voz, rate=r, pitch=tono, volume=vol).stream():
             if c["type"] == "audio":
                 b += c["data"]
         return b
@@ -282,7 +288,7 @@ def trabajos(motor):
     tareas = []
     for pq, (m, v_pal, v_burla) in VOCES_JA.items():
         if m == motor:
-            tareas += [(pq, t, v_burla if burla else v_pal, "ja") for t, burla in ja.items()]
+            tareas += [(pq, t, v_burla if burla else v_pal, EDGE_JA if m == "edge" else "ja") for t, burla in ja.items()]
     if MATON[0] == motor:
         tareas += [("maton", t, MATON[1], "ja") for t in maton]
     for ex, (w, mm) in (("n5", ("n5w", "n5m")), ("toefl", ("usw", "usm")), ("ielts", ("gbw", "gbm"))):
