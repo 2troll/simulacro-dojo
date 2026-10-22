@@ -45,7 +45,7 @@ const CACHE = "dojo-%s";
 // Voces y librerías externas no cambian: van en cachés propias que sobreviven a cada versión
 const VOZ = "dojo-voz-1", EXT = "dojo-ext-1";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png",
-  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "kana.json"];
+  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "bank-det.json", "bank-az900.json", "bank-psm.json", "kana.json"];
 const EXT_HOSTS = /^(cdn\\.jsdelivr\\.net|unpkg\\.com|cdnjs\\.cloudflare\\.com|fonts\\.googleapis\\.com|fonts\\.gstatic\\.com)$/;
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== VOZ && k !== EXT).map(k => caches.delete(k)))).then(() => self.clients.claim())));
@@ -124,7 +124,7 @@ def main():
     with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as f:
         f.write(HEAD + pagina + "\n" + SW_REG + "</body>\n</html>\n")
     bancos = sorted(n for n in os.listdir(WWW) if n.startswith("bank-"))
-    if len(bancos) != 4:
+    if len(bancos) != 7:
         raise SystemExit(f"Faltan bancos en www/: {bancos}. Ejecuta antes build.py")
     for n in bancos + ["kana.json"]:
         shutil.copy(os.path.join(WWW, n), DOCS)

@@ -1,0 +1,2797 @@
+[
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two tools can you use to copy data to Azure Storage? Select TWO.",
+    "o": [
+     "AzCopy",
+     "Azure Advisor",
+     "Azure Policy",
+     "Azure Monitor",
+     "Azure Storage Explorer"
+    ],
+    "a": [
+     0,
+     4
+    ],
+    "e": "AzCopy (CLI) y Storage Explorer (GUI) transfieren datos a Storage."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure construct is the billing boundary and also an access control boundary?",
+    "o": [
+     "Resource group",
+     "Subscription",
+     "Availability zone",
+     "Region"
+    ],
+    "a": 1,
+    "e": "La suscripción es el límite de facturación y de acceso."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure Storage service is best for storing unstructured data such as images and videos?",
+    "o": [
+     "Azure Queue Storage",
+     "Azure Table Storage",
+     "Azure Blob Storage",
+     "Azure Disk Storage"
+    ],
+    "a": 2,
+    "e": "Blob = objetos no estructurados (imágenes, vídeo, backups)."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A team wants to host a web app and its API using a managed platform with built-in autoscaling and patching. Which service should it use?",
+    "o": [
+     "Azure Virtual Machines",
+     "Azure Data Box",
+     "Azure Bastion",
+     "Azure App Service"
+    ],
+    "a": 3,
+    "e": "App Service: PaaS para web apps y APIs."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want VMs to survive the failure of an entire datacenter in a region. What should you use?",
+    "o": [
+     "Availability sets",
+     "Availability zones",
+     "Tags",
+     "Resource groups"
+    ],
+    "a": 1,
+    "e": "Availability zones protegen contra fallo de un datacenter completo; los sets, no."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two services can connect an on-premises network to Azure? Select TWO.",
+    "o": [
+     "Azure DNS",
+     "Azure VPN Gateway",
+     "Azure Bastion",
+     "Azure Key Vault",
+     "Azure ExpressRoute"
+    ],
+    "a": [
+     1,
+     4
+    ],
+    "e": "VPN Gateway (túnel por internet) y ExpressRoute (privada) conectan on-premises con Azure."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need VMs in two virtual networks to communicate using private IP addresses. Solution: You configure virtual network peering. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 0,
+    "e": "VNet peering permite comunicación privada entre VNets."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two are services included in an Azure Storage account? Select TWO.",
+    "o": [
+     "Azure SQL Database",
+     "Azure Cosmos DB",
+     "Azure Virtual Network",
+     "Azure Blob Storage",
+     "Azure Files"
+    ],
+    "a": [
+     3,
+     4
+    ],
+    "e": "Una storage account incluye Blob, Files, Queue y Table. SQL y Cosmos son bases de datos aparte."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does an Azure Virtual Network (VNet) provide?",
+    "o": [
+     "A private network in Azure where resources can communicate securely",
+     "A physical firewall appliance",
+     "A way to store files",
+     "A billing report"
+    ],
+    "a": 0,
+    "e": "VNet = red privada de Azure para comunicar recursos."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to store rarely accessed data for at least 180 days at the lowest cost and can accept retrieval taking hours. Solution: You use the Archive access tier. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 0,
+    "e": "Archive: mínimo 180 días, el más barato, con rehidratación de horas."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which scenario describes Microsoft Entra B2B collaboration?",
+    "o": [
+     "Letting consumers sign up to a public app with social accounts",
+     "Replicating on-premises servers to the cloud",
+     "Encrypting traffic between virtual networks",
+     "Inviting external partners to access your organization's resources using their own identities"
+    ],
+    "a": 3,
+    "e": "B2B = socios externos. B2C = clientes de tus apps de consumo."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure Storage service is used to store large numbers of messages for asynchronous processing between application components?",
+    "o": [
+     "Azure Queue Storage",
+     "Azure Files",
+     "Azure Blob Storage",
+     "Azure Disk Storage"
+    ],
+    "a": 0,
+    "e": "Queue Storage = mensajes entre componentes."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service provides virtualized Windows desktops and apps that users can access remotely from any device?",
+    "o": [
+     "Azure Functions",
+     "Azure Arc",
+     "Azure Migrate",
+     "Azure Virtual Desktop"
+    ],
+    "a": 3,
+    "e": "AVD = escritorios y apps virtuales en la nube."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to run a container quickly without managing virtual machines or an orchestrator. Which service should you use?",
+    "o": [
+     "Azure Container Instances",
+     "Azure Kubernetes Service",
+     "Azure Virtual Desktop",
+     "Azure Data Box"
+    ],
+    "a": 0,
+    "e": "ACI ejecuta contenedores sin gestionar VMs ni orquestador."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to require multifactor authentication for sign-ins from outside the corporate network. Solution: You create an Azure Policy assignment. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 1,
+    "e": "Azure Policy gobierna recursos, no inicios de sesión. Para eso se usa Conditional Access."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure service is a fully managed relational database based on the SQL Server engine?",
+    "o": [
+     "Azure Cosmos DB",
+     "Azure SQL Database",
+     "Azure Queue Storage",
+     "Azure Blob Storage"
+    ],
+    "a": 1,
+    "e": "Relacional gestionado PaaS = Azure SQL Database."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is an availability zone in Azure?",
+    "o": [
+     "A pair of regions in the same geography",
+     "A physically separate location within a region with independent power, cooling and networking",
+     "A group of subscriptions",
+     "A logical group of virtual networks"
+    ],
+    "a": 1,
+    "e": "Las zonas son datacenters separados DENTRO de una región (protegen de fallos de datacenter)."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service is a globally distributed NoSQL database with single-digit millisecond latency?",
+    "o": [
+     "Azure SQL Database",
+     "Azure Files",
+     "Azure Cosmos DB",
+     "Azure Disk Storage"
+    ],
+    "a": 2,
+    "e": "Cosmos DB: NoSQL distribuida globalmente y multimodelo."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is a resource group in Azure?",
+    "o": [
+     "A logical container that holds related resources for an Azure solution",
+     "A physical datacenter",
+     "A billing account",
+     "A virtual network"
+    ],
+    "a": 0,
+    "e": "Resource group = contenedor lógico; cada recurso está en un único resource group."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service lets you host your DNS domains and resolve names using Azure infrastructure?",
+    "o": [
+     "Azure DNS",
+     "Azure Key Vault",
+     "Azure Monitor",
+     "Azure Advisor"
+    ],
+    "a": 0,
+    "e": "Azure DNS aloja dominios DNS."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which blob access tier is optimized for data that is accessed frequently?",
+    "o": [
+     "Cool",
+     "Cold",
+     "Hot",
+     "Archive"
+    ],
+    "a": 2,
+    "e": "Hot = acceso frecuente, almacenamiento más caro pero acceso barato."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the main benefit of Azure region pairs?",
+    "o": [
+     "They double the price of resources",
+     "They merge two subscriptions",
+     "Planned updates are rolled out to one region at a time and recovery of one region is prioritized during a wide outage",
+     "They let you avoid using availability zones entirely"
+    ],
+    "a": 2,
+    "e": "Region pairs: actualizaciones secuenciales y prioridad de recuperación; sirven para DR."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two services can you use to run containers in Azure? Select TWO.",
+    "o": [
+     "Azure DNS",
+     "Azure Container Instances",
+     "Azure Key Vault",
+     "Azure Kubernetes Service",
+     "Azure Cosmos DB"
+    ],
+    "a": [
+     1,
+     3
+    ],
+    "e": "Contenedores: ACI (simple) y AKS (orquestación). DNS, Key Vault y Cosmos no ejecutan contenedores."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which storage access tier has the lowest storage cost but requires rehydration that can take hours before data can be read?",
+    "o": [
+     "Hot",
+     "Archive",
+     "Cool",
+     "Cold"
+    ],
+    "a": 1,
+    "e": "Archive es offline: el más barato, pero con rehidratación lenta."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You deploy several VMs and want to protect them from hardware failures and planned maintenance within a single datacenter. What should you use?",
+    "o": [
+     "An availability set",
+     "A resource lock",
+     "A virtual network",
+     "Azure Policy"
+    ],
+    "a": 0,
+    "e": "Availability set reparte VMs en fault domains y update domains del mismo datacenter."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two are benefits of availability zones? Select TWO.",
+    "o": [
+     "Protection from a datacenter failure",
+     "Moving VMs between subscriptions",
+     "Independent power, cooling and networking per zone",
+     "Lower cost than LRS storage",
+     "Automatic tagging of resources"
+    ],
+    "a": [
+     0,
+     2
+    ],
+    "e": "Zonas: datacenters separados con infraestructura independiente dentro de una región."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need VMs in two different virtual networks to communicate using private IP addresses over the Microsoft backbone. What should you configure?",
+    "o": [
+     "Azure DNS",
+     "Virtual network peering",
+     "A resource lock",
+     "Azure Data Box"
+    ],
+    "a": 1,
+    "e": "VNet peering conecta VNets por la red troncal de Microsoft."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A government agency must keep data in a region that is isolated for compliance reasons. Which Azure option should it consider?",
+    "o": [
+     "A paired region",
+     "An availability set",
+     "A management group",
+     "A sovereign region such as Azure Government"
+    ],
+    "a": 3,
+    "e": "Sovereign regions (Azure Government, Azure China) están aisladas para cumplimiento legal."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which security approach uses multiple layers, such as physical, identity, perimeter, network, compute, application and data?",
+    "o": [
+     "Defense in depth",
+     "Single sign-on",
+     "Economies of scale",
+     "Role inheritance"
+    ],
+    "a": 0,
+    "e": "Defense in depth = varias capas, si una falla, otra protege."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which tier is intended for data that is rarely accessed and stored for at least 90 days?",
+    "o": [
+     "Hot",
+     "Cool",
+     "Archive",
+     "Cold"
+    ],
+    "a": 3,
+    "e": "Mínimos: Cool 30 días, Cold 90 días, Archive 180 días."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company wants to keep file shares on its Windows Servers in sync with Azure Files, keeping a local cache for fast access. What should it use?",
+    "o": [
+     "Azure File Sync",
+     "Azure Data Box",
+     "Azure Migrate",
+     "AzCopy"
+    ],
+    "a": 0,
+    "e": "File Sync centraliza shares en Azure Files y cachea localmente en Windows Server."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which graphical tool lets you manage Azure Storage data on your Windows, macOS or Linux computer?",
+    "o": [
+     "AzCopy",
+     "Azure Migrate",
+     "Azure Cost Management",
+     "Azure Storage Explorer"
+    ],
+    "a": 3,
+    "e": "Storage Explorer = aplicación con interfaz gráfica."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company has 30 subscriptions and wants to apply governance settings to all of them at once. What should it use?",
+    "o": [
+     "Resource groups",
+     "Availability sets",
+     "Management groups",
+     "Tags"
+    ],
+    "a": 2,
+    "e": "Management groups organizan varias suscripciones y heredan políticas y roles."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need an encrypted connection between your on-premises network and Azure over the public internet. What should you use?",
+    "o": [
+     "Azure ExpressRoute",
+     "Azure Data Box",
+     "Azure VPN Gateway",
+     "Azure Policy"
+    ],
+    "a": 2,
+    "e": "VPN Gateway = túnel cifrado por internet público."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company requires a private, dedicated connection to Azure that does NOT go over the public internet. What should it use?",
+    "o": [
+     "Azure VPN Gateway",
+     "Azure DNS",
+     "Azure Bastion",
+     "Azure ExpressRoute"
+    ],
+    "a": 3,
+    "e": "ExpressRoute = conexión privada vía proveedor, no pasa por internet."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is an Azure region?",
+    "o": [
+     "A set of datacenters deployed within a latency-defined perimeter and connected through a low-latency network",
+     "A single physical building with one server room",
+     "A logical container for resources",
+     "A billing boundary for subscriptions"
+    ],
+    "a": 0,
+    "e": "Region = conjunto de datacenters cercanos con red de baja latencia."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which storage redundancy option keeps three copies of data within a single datacenter?",
+    "o": [
+     "Locally redundant storage (LRS)",
+     "Zone-redundant storage (ZRS)",
+     "Geo-redundant storage (GRS)",
+     "Geo-zone-redundant storage (GZRS)"
+    ],
+    "a": 0,
+    "e": "LRS = 3 copias en un único datacenter; la más barata y la menos resiliente."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure service provides fully managed file shares accessible via the SMB protocol?",
+    "o": [
+     "Azure Blob Storage",
+     "Azure Queue Storage",
+     "Azure Cosmos DB",
+     "Azure Files"
+    ],
+    "a": 3,
+    "e": "Azure Files = recursos compartidos SMB (y NFS)."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service provides cloud-based identity and access management, including sign-in and single sign-on?",
+    "o": [
+     "Azure Key Vault",
+     "Azure Policy",
+     "Azure Firewall",
+     "Microsoft Entra ID"
+    ],
+    "a": 3,
+    "e": "Entra ID (antes Azure AD) es el servicio de identidad."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which is the correct hierarchy of Azure organization, from highest to lowest?",
+    "o": [
+     "Subscriptions, management groups, resource groups, resources",
+     "Resource groups, subscriptions, management groups, resources",
+     "Management groups, resource groups, subscriptions, resources",
+     "Management groups, subscriptions, resource groups, resources"
+    ],
+    "a": 3,
+    "e": "Jerarquía: management group > subscription > resource group > resource."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is multifactor authentication (MFA)?",
+    "o": [
+     "Using one very long password",
+     "Requiring two or more verification methods to sign in",
+     "Signing in once to access many apps",
+     "Encrypting data at rest"
+    ],
+    "a": 1,
+    "e": "MFA combina algo que sabes, tienes o eres."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two are passwordless authentication methods supported by Microsoft Entra ID? Select TWO.",
+    "o": [
+     "Security questions",
+     "Windows Hello for Business",
+     "A FIDO2 security key",
+     "A password plus an SMS code",
+     "A shared password list"
+    ],
+    "a": [
+     1,
+     2
+    ],
+    "e": "Passwordless: Windows Hello, FIDO2 y Microsoft Authenticator. Password + SMS sigue usando contraseña."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which redundancy option replicates data synchronously across three availability zones in the primary region?",
+    "o": [
+     "Locally redundant storage (LRS)",
+     "Zone-redundant storage (ZRS)",
+     "Read-access geo-redundant storage (RA-GRS)",
+     "Premium LRS"
+    ],
+    "a": 1,
+    "e": "ZRS = tres zonas de disponibilidad de la misma región."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company runs many containers and needs orchestration, scaling and self-healing. Which service should it use?",
+    "o": [
+     "Azure Container Instances",
+     "Azure Kubernetes Service (AKS)",
+     "Azure DNS",
+     "Azure Key Vault"
+    ],
+    "a": 1,
+    "e": "Orquestación de muchos contenedores = AKS (Kubernetes)."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which redundancy option combines ZRS in the primary region with replication to a secondary region?",
+    "o": [
+     "Geo-redundant storage (GRS)",
+     "Locally redundant storage (LRS)",
+     "Zone-redundant storage (ZRS)",
+     "Geo-zone-redundant storage (GZRS)"
+    ],
+    "a": 3,
+    "e": "GZRS = ZRS en primaria + copia en región secundaria."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company needs a group of identical VMs that automatically increases or decreases in number based on load. What should it use?",
+    "o": [
+     "Azure Migrate",
+     "Azure File Sync",
+     "Azure Virtual Machine Scale Sets",
+     "Azure Bastion"
+    ],
+    "a": 2,
+    "e": "Scale sets = VMs idénticas con autoescalado."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company needs to move 80 TB of data to Azure but has limited network bandwidth. Which service should it use?",
+    "o": [
+     "AzCopy",
+     "Azure Data Box",
+     "Azure DNS",
+     "Azure Bastion"
+    ],
+    "a": 1,
+    "e": "Data Box es un dispositivo físico para transferencia offline de grandes volúmenes."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which command-line tool is used to copy blobs and files to and from a storage account?",
+    "o": [
+     "Azure Advisor",
+     "Azure Policy",
+     "AzCopy",
+     "Azure Service Health"
+    ],
+    "a": 2,
+    "e": "AzCopy = utilidad de línea de comandos para copiar datos a Storage."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to require extra verification only when users sign in from an unfamiliar location. Which feature should you use?",
+    "o": [
+     "Conditional Access",
+     "Resource locks",
+     "Azure Policy",
+     "Network peering"
+    ],
+    "a": 0,
+    "e": "Conditional Access = políticas 'si pasa X, exigir Y' (p. ej., MFA)."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company wants to discover, assess and migrate on-premises servers and databases to Azure. Which service should it use?",
+    "o": [
+     "Azure Migrate",
+     "Azure Advisor",
+     "Azure Arc",
+     "Azure Monitor"
+    ],
+    "a": 0,
+    "e": "Azure Migrate = centro de evaluación y migración."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which redundancy option copies data to a secondary region and also lets you read from that secondary region at any time?",
+    "o": [
+     "Geo-redundant storage (GRS)",
+     "Zone-redundant storage (ZRS)",
+     "Read-access geo-redundant storage (RA-GRS)",
+     "Locally redundant storage (LRS)"
+    ],
+    "a": 2,
+    "e": "El prefijo RA- (read access) permite leer de la región secundaria; GRS solo la usa en failover."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want a storage account to be reachable only through a private IP address inside your virtual network. What should you use?",
+    "o": [
+     "A public endpoint",
+     "A private endpoint",
+     "A resource lock",
+     "A management group"
+    ],
+    "a": 1,
+    "e": "Private endpoint asigna una IP privada de tu VNet al servicio PaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service runs small pieces of code in response to events, such as a file being uploaded, without managing servers?",
+    "o": [
+     "Azure Virtual Machines",
+     "Azure ExpressRoute",
+     "Azure Functions",
+     "Azure File Sync"
+    ],
+    "a": 2,
+    "e": "Evento + código sin servidores = Azure Functions."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need data in a storage account to survive the loss of an entire Azure region. Solution: You use locally redundant storage (LRS). Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 1,
+    "e": "LRS solo copia dentro de un datacenter. Para sobrevivir a una región necesitas GRS o GZRS."
+   }
+  ]
+ },
+ {
+  "sec": "azarch",
+  "task": "Azure architecture and services",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does single sign-on (SSO) allow users to do?",
+    "o": [
+     "Sign in without any identity",
+     "Store passwords in a vault",
+     "Sign in once and access multiple applications without signing in again",
+     "Replicate data across regions"
+    ],
+    "a": 2,
+    "e": "SSO = un inicio de sesión para muchas aplicaciones."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two services are examples of SaaS? Select TWO.",
+    "o": [
+     "Azure Virtual Machines",
+     "Azure Kubernetes Service",
+     "Azure Virtual Network",
+     "Microsoft 365",
+     "Dynamics 365"
+    ],
+    "a": [
+     3,
+     4
+    ],
+    "e": "SaaS = software completo listo para usar (Microsoft 365, Dynamics 365)."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company deploys its app to multiple Azure regions so users in different countries get low latency. Which benefit is this?",
+    "o": [
+     "Vertical scaling",
+     "Geo-distribution (global reach)",
+     "Fixed capacity",
+     "Predictability"
+    ],
+    "a": 1,
+    "e": "Desplegar cerca de los usuarios en varias regiones = alcance global / geo-distribución."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which of the following is an example of PaaS?",
+    "o": [
+     "Microsoft Teams",
+     "Azure Virtual Machines",
+     "Azure Disk Storage",
+     "Azure SQL Database"
+    ],
+    "a": 3,
+    "e": "Bases de datos gestionadas y App Service son PaaS; Teams es SaaS; VMs y discos son IaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which cloud benefit ensures an application is accessible with minimal downtime, as guaranteed by an SLA?",
+    "o": [
+     "High availability",
+     "Economies of scale",
+     "Capital expenditure",
+     "Vertical scaling"
+    ],
+    "a": 0,
+    "e": "High availability se mide con SLA (p. ej., 99,99 %)."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two are benefits of using a public cloud like Azure? Select TWO.",
+    "o": [
+     "No upfront hardware purchase",
+     "You must own and maintain the datacenter",
+     "Pay only for the resources you use",
+     "Fixed monthly cost regardless of usage",
+     "Hardware is dedicated to a single customer"
+    ],
+    "a": [
+     0,
+     2
+    ],
+    "e": "Nube pública: sin compra inicial y pago por uso. Datacenter propio y coste fijo son del modelo tradicional."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two services are examples of PaaS? Select TWO.",
+    "o": [
+     "Azure Virtual Machines",
+     "Azure App Service",
+     "Microsoft 365",
+     "Azure Disk Storage",
+     "Azure SQL Database"
+    ],
+    "a": [
+     1,
+     4
+    ],
+    "e": "PaaS: tú pones código/datos y Azure gestiona el SO. VMs y discos son IaaS; Microsoft 365 es SaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which type of expenditure is incurred when a company pays monthly for Azure virtual machines?",
+    "o": [
+     "Capital expenditure (CapEx)",
+     "Operational expenditure (OpEx)",
+     "Depreciation expenditure",
+     "Asset expenditure"
+    ],
+    "a": 1,
+    "e": "Pago periódico por uso = OpEx. CapEx es el gasto inicial en hardware propio."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "In a SaaS solution, which of the following is Microsoft responsible for?",
+    "o": [
+     "User accounts and access permissions",
+     "Classifying the company's data",
+     "Security of end-user devices",
+     "Operating system and application software"
+    ],
+    "a": 3,
+    "e": "En SaaS Microsoft gestiona SO y aplicación; el cliente sigue con datos, identidades y dispositivos."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A retail company wants to avoid buying servers and instead pay only for the compute it uses each month. Which Azure benefit describes this?",
+    "o": [
+     "Consumption-based model",
+     "Fixed-cost licensing",
+     "Capital expenditure model",
+     "Dedicated hardware leasing"
+    ],
+    "a": 0,
+    "e": "Consumption = pagas solo lo que usas, sin gasto inicial. Pista: 'pay only for what you use'."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Microsoft can offer lower per-unit prices because it purchases hardware and operates datacenters at massive scale. Which concept is this?",
+    "o": [
+     "Elasticity",
+     "Geo-distribution",
+     "Fault tolerance",
+     "Economies of scale"
+    ],
+    "a": 3,
+    "e": "Comprar a gran volumen reduce el coste por unidad: economies of scale."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which cloud deployment model is used exclusively by a single organization and is not shared with other customers?",
+    "o": [
+     "Public cloud",
+     "Hybrid cloud",
+     "Shared cloud",
+     "Private cloud"
+    ],
+    "a": 3,
+    "e": "Private = una sola organización (puede estar on-premises). Public = hardware del proveedor compartido."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which model lets a company use a service such as email without installing or maintaining any software or servers?",
+    "o": [
+     "Infrastructure as a Service (IaaS)",
+     "Private cloud hardware",
+     "Software as a Service (SaaS)",
+     "On-premises hosting"
+    ],
+    "a": 2,
+    "e": "Usar el software ya hecho sin mantener nada es SaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which statement best describes capital expenditure (CapEx)?",
+    "o": [
+     "A monthly charge based on usage",
+     "Upfront spending on physical infrastructure that is depreciated over time",
+     "A fee billed per transaction",
+     "A subscription renewed every year"
+    ],
+    "a": 1,
+    "e": "CapEx = inversión inicial en activos físicos. Usa/paga-por-uso es OpEx."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Azure Functions bills only while your code runs and you do not manage servers. Which type of computing is this?",
+    "o": [
+     "Serverless computing",
+     "Dedicated hosting",
+     "Bare-metal computing",
+     "Private virtualization"
+    ],
+    "a": 0,
+    "e": "Serverless: no gestionas servidores y pagas por ejecución."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two responsibilities are always retained by the customer in every cloud service type? Select TWO.",
+    "o": [
+     "Information and data",
+     "Physical datacenter",
+     "Physical network",
+     "Accounts and identities",
+     "Physical hosts"
+    ],
+    "a": [
+     0,
+     3
+    ],
+    "e": "Datos, identidades y dispositivos nunca se delegan; lo físico es siempre de Microsoft."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which cloud model uses hardware owned and operated by a cloud provider and shared by multiple customers?",
+    "o": [
+     "Public cloud",
+     "Private cloud",
+     "Hybrid cloud",
+     "On-premises datacenter"
+    ],
+    "a": 0,
+    "e": "Public cloud: el proveedor posee el hardware y no necesitas comprarlo."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A school buys physical servers and builds its own server room. Which type of spending is this?",
+    "o": [
+     "Operational expenditure (OpEx)",
+     "Consumption-based expenditure",
+     "Capital expenditure (CapEx)",
+     "Subscription expenditure"
+    ],
+    "a": 2,
+    "e": "Comprar infraestructura física por adelantado es CapEx."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which statement about the public cloud is true?",
+    "o": [
+     "You must buy and install your own servers",
+     "You do not need to purchase or maintain the underlying hardware",
+     "Only your organization uses the hardware",
+     "It requires a minimum of three datacenters of your own"
+    ],
+    "a": 1,
+    "e": "En la nube pública el proveedor posee y mantiene el hardware."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two are advantages of a hybrid cloud? Select TWO.",
+    "o": [
+     "It removes the need for any on-premises hardware",
+     "It guarantees zero latency for all users",
+     "Sensitive data can stay in your own datacenter",
+     "It eliminates all security responsibilities",
+     "You can use cloud capacity for peak demand"
+    ],
+    "a": [
+     2,
+     4
+    ],
+    "e": "Hybrid combina on-premises (datos sensibles) con nube (picos de demanda). No elimina nada por completo."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which responsibility always belongs to the customer, regardless of the cloud service type?",
+    "o": [
+     "Physical datacenter security",
+     "Physical network",
+     "Information and data stored in the cloud",
+     "Physical hosts"
+    ],
+    "a": 2,
+    "e": "Datos, cuentas/identidades y dispositivos son siempre del cliente; lo físico siempre es de Microsoft."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A university needs extra computing capacity only during exam season and does not want to buy hardware that sits idle the rest of the year. Which cloud advantage addresses this?",
+    "o": [
+     "Capital expenditure with fixed capacity",
+     "Dedicated on-premises servers",
+     "A private cloud datacenter",
+     "Pay-as-you-go consumption with scalability"
+    ],
+    "a": 3,
+    "e": "Capacidad puntual sin comprar hardware = consumo bajo demanda + escalabilidad."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which of the following is an example of SaaS?",
+    "o": [
+     "Azure Virtual Machines",
+     "Azure Kubernetes Service",
+     "Microsoft Dynamics 365",
+     "Azure Virtual Network"
+    ],
+    "a": 2,
+    "e": "Dynamics 365 y Microsoft 365 son SaaS; VMs son IaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A development team wants to deploy a web app without managing the operating system or web server patching. Which service type should they use?",
+    "o": [
+     "Platform as a Service (PaaS)",
+     "Infrastructure as a Service (IaaS)",
+     "On-premises hosting",
+     "Private cloud"
+    ],
+    "a": 0,
+    "e": "Quieres desplegar tu código y que el proveedor gestione el SO = PaaS (p. ej., App Service)."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "An online store receives heavy traffic during a sale and then drops back. Resources are automatically added and removed to match demand. Which cloud concept is this?",
+    "o": [
+     "Predictability",
+     "Elasticity",
+     "Geo-distribution",
+     "Governance"
+    ],
+    "a": 1,
+    "e": "Elasticity = añadir y quitar recursos automáticamente según la demanda."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to automatically reduce resources when demand falls to lower costs. Solution: You use the elasticity of the cloud. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 0,
+    "e": "Elasticity añade y quita recursos según la demanda, ahorrando coste."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Your company plans to migrate to Azure to reduce capital expenditure. Solution: You move on-premises servers to Azure virtual machines that are billed monthly. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 0,
+    "e": "Pagar VMs mensualmente convierte CapEx en OpEx, que es el objetivo."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A hospital keeps patient records in its own datacenter and runs a public appointment website in Azure. Which cloud model is this?",
+    "o": [
+     "Public cloud",
+     "Hybrid cloud",
+     "Private cloud",
+     "Community cloud"
+    ],
+    "a": 1,
+    "e": "On-premises + nube pública combinados = hybrid."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Microsoft 365 is an example of which cloud service type?",
+    "o": [
+     "Infrastructure as a Service (IaaS)",
+     "Platform as a Service (PaaS)",
+     "Software as a Service (SaaS)",
+     "Serverless computing"
+    ],
+    "a": 2,
+    "e": "Si solo usas el software ya hecho (correo, Office) es SaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which practice lets an organization restore operations in a secondary region after a regional outage?",
+    "o": [
+     "Disaster recovery",
+     "Vertical scaling",
+     "Cost allocation",
+     "Resource tagging"
+    ],
+    "a": 0,
+    "e": "Recuperarse de una caída regional en otra región = disaster recovery."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You change a virtual machine size from 2 vCPUs to 8 vCPUs. What is this called?",
+    "o": [
+     "Scaling out (horizontal scaling)",
+     "Load balancing",
+     "Geo-replication",
+     "Scaling up (vertical scaling)"
+    ],
+    "a": 3,
+    "e": "Aumentar el tamaño de una sola VM es escalado vertical (scale up)."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which cloud service type requires you to manage the guest operating system of your virtual machines?",
+    "o": [
+     "Platform as a Service (PaaS)",
+     "Software as a Service (SaaS)",
+     "Serverless computing",
+     "Infrastructure as a Service (IaaS)"
+    ],
+    "a": 3,
+    "e": "En IaaS (VMs) el sistema operativo invitado y sus parches son tuyos."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which cloud service type gives the customer the LEAST control over the underlying infrastructure and platform?",
+    "o": [
+     "Platform as a Service (PaaS)",
+     "Infrastructure as a Service (IaaS)",
+     "On-premises",
+     "Software as a Service (SaaS)"
+    ],
+    "a": 3,
+    "e": "Orden de control: on-premises > IaaS > PaaS > SaaS (el menor)."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A system detects failures, recovers automatically and continues to function. Which cloud benefit does this describe?",
+    "o": [
+     "Predictability",
+     "Reliability",
+     "Scalability",
+     "Economies of scale"
+    ],
+    "a": 1,
+    "e": "Reliability = capacidad de recuperarse de fallos y seguir funcionando."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which scenario best justifies a hybrid cloud?",
+    "o": [
+     "The company wants to avoid using the internet entirely",
+     "The company has no datacenter and wants fully managed email",
+     "Regulations require data to stay in the company datacenter, while a web front end needs cloud scale",
+     "The company wants all operating costs to be zero"
+    ],
+    "a": 2,
+    "e": "Hybrid = parte on-premises por requisitos (datos) y parte en la nube por escala."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company wants to move its existing on-premises virtual machines to the cloud with minimal changes (lift-and-shift). Which service type is the closest match?",
+    "o": [
+     "Software as a Service (SaaS)",
+     "Infrastructure as a Service (IaaS)",
+     "Platform as a Service (PaaS)",
+     "Function as a Service (FaaS)"
+    ],
+    "a": 1,
+    "e": "Lift-and-shift de VMs = IaaS, porque mantienes control del SO y de las apps."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You increase the number of VM instances behind a load balancer to handle more users. What is this called?",
+    "o": [
+     "Scaling up (vertical scaling)",
+     "Fault tolerance",
+     "Scaling out (horizontal scaling)",
+     "Data sovereignty"
+    ],
+    "a": 2,
+    "e": "Más instancias = scale out (horizontal). Más CPU/RAM en la misma VM = scale up."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company moves from its own datacenter to Azure. Which statement describes the financial impact?",
+    "o": [
+     "Upfront capital costs shift to ongoing operating costs",
+     "Operating costs become zero",
+     "Costs become fixed regardless of usage",
+     "Hardware depreciation increases"
+    ],
+    "a": 0,
+    "e": "Se pasa de CapEx a OpEx: se paga por uso en lugar de comprar hardware."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company can forecast the cost of its Azure workload and anticipate how it will perform under load. Which cloud benefit is this?",
+    "o": [
+     "Elasticity",
+     "Geo-distribution",
+     "Predictability",
+     "Reliability"
+    ],
+    "a": 2,
+    "e": "Predictability cubre rendimiento y coste previsibles."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "In the shared responsibility model, who is responsible for the physical hosts in every cloud service type?",
+    "o": [
+     "Microsoft",
+     "The customer",
+     "Both equally",
+     "It depends on whether you use IaaS or PaaS"
+    ],
+    "a": 0,
+    "e": "Lo físico (datacenter, red, hosts) es siempre del proveedor, sea IaaS, PaaS o SaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azcloud",
+  "task": "Cloud concepts",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need Microsoft to patch the guest operating system of your workloads. Solution: You deploy the workloads on Azure virtual machines (IaaS). Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 1,
+    "e": "En IaaS el parcheo del SO invitado es del cliente. Para delegarlo hay que usar PaaS o SaaS."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service lets you analyze Azure spending, set budgets and create cost alerts?",
+    "o": [
+     "Azure Service Health",
+     "Microsoft Purview",
+     "Azure Arc",
+     "Microsoft Cost Management"
+    ],
+    "a": 3,
+    "e": "Cost Management = análisis, presupuestos y alertas de gasto."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service analyzes your resource configuration and usage and recommends improvements for cost, security, reliability, performance and operational excellence?",
+    "o": [
+     "Azure Service Health",
+     "Azure Policy",
+     "Azure Advisor",
+     "Azure Migrate"
+    ],
+    "a": 2,
+    "e": "Advisor da recomendaciones personalizadas en cinco pilares."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to prevent accidental deletion of a resource group. Solution: You apply a CanNotDelete resource lock to the resource group. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 0,
+    "e": "CanNotDelete en el grupo evita borrarlo y los recursos heredan el lock."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to group resources by department so that costs can be reported per department. What should you use?",
+    "o": [
+     "Resource locks",
+     "Tags",
+     "Availability sets",
+     "Network peering"
+    ],
+    "a": 1,
+    "e": "Las tags (p. ej., Department=Sales) permiten agrupar costes."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Where can you find Microsoft compliance reports, audit documents and certifications?",
+    "o": [
+     "Service Trust Portal",
+     "Azure Advisor",
+     "Azure Cost Management",
+     "Azure Arc"
+    ],
+    "a": 0,
+    "e": "Service Trust Portal publica informes de auditoría y cumplimiento."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which built-in Azure role can manage all resources but cannot assign roles to others?",
+    "o": [
+     "Owner",
+     "Reader",
+     "Contributor",
+     "User Access Administrator"
+    ],
+    "a": 2,
+    "e": "Contributor gestiona recursos sin asignar roles; Owner sí asigna."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which metric-based capability in Azure Monitor notifies you when CPU usage on a VM exceeds a threshold?",
+    "o": [
+     "Tags",
+     "Cost analysis",
+     "Alerts",
+     "Blueprints"
+    ],
+    "a": 2,
+    "e": "Azure Monitor alerts notifican cuando una métrica o consulta supera un umbral."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two actions can help reduce Azure costs? Select TWO.",
+    "o": [
+     "Leave unused resources running",
+     "Over-provision all VMs",
+     "Purchase reserved instances for steady workloads",
+     "Deploy everything to the most expensive region",
+     "Use Azure Hybrid Benefit with eligible licenses"
+    ],
+    "a": [
+     2,
+     4
+    ],
+    "e": "Reservas y Hybrid Benefit bajan el precio; recursos ociosos o sobredimensionados lo suben."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure tool is a web-based graphical interface for creating and managing resources?",
+    "o": [
+     "Azure CLI",
+     "Azure portal",
+     "Bicep",
+     "AzCopy"
+    ],
+    "a": 1,
+    "e": "El portal es la interfaz web gráfica."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to see which resource groups or tags are driving spend over time. Which Microsoft Cost Management feature should you use?",
+    "o": [
+     "Service Health",
+     "Cost analysis",
+     "Policy compliance",
+     "Resource Health"
+    ],
+    "a": 1,
+    "e": "Cost analysis desglosa el gasto por recurso, grupo o tag."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure Monitor feature lets you write Kusto queries (KQL) against collected log data?",
+    "o": [
+     "Azure Advisor",
+     "Azure Blueprints",
+     "Log Analytics",
+     "Azure Bastion"
+    ],
+    "a": 2,
+    "e": "Log Analytics = consultas KQL sobre logs."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to enforce that resources can be created only in specific Azure regions. What should you use?",
+    "o": [
+     "Azure Policy",
+     "Azure role-based access control (RBAC)",
+     "Azure Advisor",
+     "Azure Service Health"
+    ],
+    "a": 0,
+    "e": "Policy impone reglas sobre propiedades de recursos, como la ubicación permitida."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to estimate the cost of running VMs before you deploy them. Solution: You use Azure Service Health. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 1,
+    "e": "Service Health informa de incidencias. Para estimar costes: Pricing calculator."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A role assigned at the subscription scope applies to which resources?",
+    "o": [
+     "All resource groups and resources in that subscription",
+     "Only the subscription object",
+     "Only resources with matching tags",
+     "Resources in other subscriptions"
+    ],
+    "a": 0,
+    "e": "Los permisos RBAC se heredan hacia abajo desde el ámbito asignado."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which factor can change the price of the same virtual machine size?",
+    "o": [
+     "The name of the resource group",
+     "The value of a tag",
+     "The Azure region where it is deployed",
+     "The display name of the subscription"
+    ],
+    "a": 2,
+    "e": "El precio depende de región, tipo de recurso, uso y tamaño; nombres y tags no."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to identify underutilized virtual machines to reduce spending. Which service provides this recommendation?",
+    "o": [
+     "Azure Service Health",
+     "Azure Arc",
+     "Azure Advisor",
+     "Azure Bastion"
+    ],
+    "a": 2,
+    "e": "Advisor detecta VMs infrautilizadas y sugiere reducir o apagar."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which built-in role lets a user manage all resources AND grant access to others?",
+    "o": [
+     "Contributor",
+     "Reader",
+     "Monitoring Reader",
+     "Owner"
+    ],
+    "a": 3,
+    "e": "Owner = acceso total + delegar acceso."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which SLA percentage represents the LEAST allowed downtime?",
+    "o": [
+     "99.9 percent",
+     "99.5 percent",
+     "99.99 percent",
+     "99 percent"
+    ],
+    "a": 2,
+    "e": "Más nueves = menos tiempo de inactividad permitido."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to estimate the monthly cost of a planned set of Azure services before deploying them. Which tool should you use?",
+    "o": [
+     "Total Cost of Ownership (TCO) calculator",
+     "Pricing calculator",
+     "Azure Service Health",
+     "Azure Policy"
+    ],
+    "a": 1,
+    "e": "Pricing calculator estima el coste de servicios Azure concretos."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which tool shows the health of an individual resource, such as one specific virtual machine?",
+    "o": [
+     "Resource Health",
+     "Azure status page",
+     "Azure Advisor",
+     "Microsoft Purview"
+    ],
+    "a": 0,
+    "e": "Resource Health = recurso concreto; Azure status = global; Service Health = tus servicios."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which VM option uses unused Azure capacity at a deep discount but can be evicted when Azure needs the capacity back?",
+    "o": [
+     "Reserved instances",
+     "Azure Spot Virtual Machines",
+     "Dedicated hosts",
+     "Availability sets"
+    ],
+    "a": 1,
+    "e": "Spot = capacidad sobrante barata, apta para cargas interrumpibles."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What happens to the resources inside a resource group when you delete the resource group?",
+    "o": [
+     "Resources move to the default group",
+     "Only empty resources are deleted",
+     "Nothing, the group is hidden",
+     "All resources in the group are deleted"
+    ],
+    "a": 3,
+    "e": "Borrar el grupo borra todo su contenido (por eso existen los locks)."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A budget in Microsoft Cost Management reaches its threshold. What happens by default?",
+    "o": [
+     "A notification can be sent, but resources are not stopped",
+     "All resources in the subscription are deleted",
+     "The subscription is moved to another management group",
+     "All virtual machines are deallocated automatically"
+    ],
+    "a": 0,
+    "e": "Los presupuestos alertan; no detienen recursos salvo que configures una automatización."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to restrict which Azure regions can be used to deploy resources. Solution: You assign Azure RBAC roles to users. Does this meet the goal?",
+    "o": [
+     "Yes",
+     "No"
+    ],
+    "a": 1,
+    "e": "RBAC controla permisos de usuarios, no ubicaciones permitidas. Eso es Azure Policy."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company wants to compare the cost of running its workloads on-premises with the cost of running them in Azure. Which tool should it use?",
+    "o": [
+     "Pricing calculator",
+     "Azure Advisor",
+     "Total Cost of Ownership (TCO) calculator",
+     "Azure Monitor"
+    ],
+    "a": 2,
+    "e": "TCO calculator compara on-premises vs Azure."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which cross-platform command-line tool uses commands that start with 'az'?",
+    "o": [
+     "Azure PowerShell",
+     "AzCopy",
+     "Bicep",
+     "Azure CLI"
+    ],
+    "a": 3,
+    "e": "Los comandos 'az' pertenecen a Azure CLI."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which statement about tags is true?",
+    "o": [
+     "Tags are automatically inherited from the subscription to every resource",
+     "Tags prevent a resource from being deleted",
+     "By default, tags applied to a resource group are not inherited by the resources in it",
+     "A resource can have only one tag"
+    ],
+    "a": 2,
+    "e": "Las tags no se heredan automáticamente; puedes usar Azure Policy para aplicarlas."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which is an advantage of infrastructure as code (IaC)?",
+    "o": [
+     "Deployments are consistent and repeatable",
+     "Resources must be created manually each time",
+     "Costs are removed from the subscription",
+     "It replaces the need for subscriptions"
+    ],
+    "a": 0,
+    "e": "IaC repite despliegues idénticos sin pasos manuales."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company wants to apply Azure Policy and tagging to servers running in its own datacenter. Which service enables this?",
+    "o": [
+     "Azure Arc",
+     "Azure Migrate",
+     "Azure Data Box",
+     "Azure Bastion"
+    ],
+    "a": 0,
+    "e": "Arc proyecta servidores externos a Azure Resource Manager para gobernarlos."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two tools can you use to manage Azure resources from the command line? Select TWO.",
+    "o": [
+     "Azure CLI",
+     "Azure Advisor",
+     "Azure Service Health",
+     "Azure Policy",
+     "Azure PowerShell"
+    ],
+    "a": [
+     0,
+     4
+    ],
+    "e": "CLI y PowerShell son las herramientas de línea de comandos."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two areas does Azure Advisor give recommendations about? Select TWO.",
+    "o": [
+     "Reliability",
+     "Language translation",
+     "Phone support billing",
+     "Performance",
+     "Employee payroll"
+    ],
+    "a": [
+     0,
+     3
+    ],
+    "e": "Advisor: reliability, security, performance, cost y operational excellence."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company already owns Windows Server licenses with Software Assurance and wants to reduce Azure costs. What should it use?",
+    "o": [
+     "Azure Hybrid Benefit",
+     "Azure Reservations only",
+     "Azure Advisor",
+     "Azure Spot VMs"
+    ],
+    "a": 0,
+    "e": "Hybrid Benefit reutiliza licencias existentes con Software Assurance."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which type of resource lock prevents users from deleting a resource but allows them to modify it?",
+    "o": [
+     "CanNotDelete",
+     "ReadOnly",
+     "Audit",
+     "Deny"
+    ],
+    "a": 0,
+    "e": "CanNotDelete evita borrar; ReadOnly impide también modificar."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Two services in an application each have a 99.9 percent SLA and both are required for the application to work. What is the composite SLA?",
+    "o": [
+     "Exactly 99.9 percent",
+     "Lower than 99.9 percent",
+     "Higher than 99.9 percent",
+     "100 percent"
+    ],
+    "a": 1,
+    "e": "Al encadenar servicios dependientes, el SLA compuesto baja (aprox. 99,8 %)."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service monitors the performance and usage of a live web application and detects anomalies?",
+    "o": [
+     "Azure Advisor",
+     "Azure Data Box",
+     "Azure DNS",
+     "Application Insights"
+    ],
+    "a": 3,
+    "e": "Application Insights es el APM de Azure Monitor."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You apply a ReadOnly lock to a resource group. What is the effect on the resources inside it?",
+    "o": [
+     "Only the group itself is locked",
+     "Resources inherit the lock and cannot be modified or deleted",
+     "The lock is ignored by Owners",
+     "Resources can be changed but not read"
+    ],
+    "a": 1,
+    "e": "Los locks se heredan por los recursos hijos."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which language offers a simpler syntax than ARM templates and compiles to ARM templates for declarative deployments?",
+    "o": [
+     "Kusto Query Language",
+     "SQL",
+     "Markdown",
+     "Bicep"
+    ],
+    "a": 3,
+    "e": "Bicep = IaC declarativo que se transpila a ARM."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which two options can you use for infrastructure as code deployments to Azure? Select TWO.",
+    "o": [
+     "Azure Advisor",
+     "ARM templates",
+     "Azure Service Health",
+     "Bicep",
+     "Microsoft Cost Management"
+    ],
+    "a": [
+     1,
+     3
+    ],
+    "e": "IaC en Azure: plantillas ARM (JSON) y Bicep."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Azure feature enforces a standard set of controls so that all subscriptions under a management group meet organizational requirements?",
+    "o": [
+     "A resource lock on a VM",
+     "Azure Policy assigned at the management group",
+     "Availability zones",
+     "VNet peering"
+    ],
+    "a": 1,
+    "e": "Asignar Policy en el management group lo hereda toda suscripción debajo."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which format do Azure Resource Manager (ARM) templates use to declare resources?",
+    "o": [
+     "Python scripts",
+     "Spreadsheets",
+     "JSON",
+     "Binary packages"
+    ],
+    "a": 2,
+    "e": "Las plantillas ARM son declarativas en JSON."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service helps govern and protect data across on-premises, multicloud and SaaS environments by providing data cataloging and classification?",
+    "o": [
+     "Azure Advisor",
+     "Azure Bastion",
+     "Azure DNS",
+     "Microsoft Purview"
+    ],
+    "a": 3,
+    "e": "Purview = gobierno y cumplimiento de datos."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which feature gives you a browser-based command-line environment that supports Bash and PowerShell?",
+    "o": [
+     "Azure Storage Explorer",
+     "Azure Advisor",
+     "Azure Cloud Shell",
+     "Azure Data Box"
+    ],
+    "a": 2,
+    "e": "Cloud Shell: shell en el navegador con Bash o PowerShell."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is Azure Resource Manager?",
+    "o": [
+     "A storage tier for archived data",
+     "The deployment and management service that all Azure tools use to create and manage resources",
+     "A tool to estimate costs",
+     "A VPN device"
+    ],
+    "a": 1,
+    "e": "Portal, CLI, PowerShell y plantillas pasan todos por ARM."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You want to be notified when planned maintenance or an Azure service issue affects the services you use. Which service should you use?",
+    "o": [
+     "Azure Advisor",
+     "Microsoft Cost Management",
+     "Azure Arc",
+     "Azure Service Health"
+    ],
+    "a": 3,
+    "e": "Service Health avisa de incidencias y mantenimientos que afectan a TUS recursos."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A free Azure account provides which of the following when you sign up?",
+    "o": [
+     "A credit to explore services for the first 30 days plus some services free",
+     "Unlimited free VMs forever",
+     "Free access to all paid support plans",
+     "A permanent discount on reservations"
+    ],
+    "a": 0,
+    "e": "Cuenta gratuita: crédito inicial de 30 días y servicios gratuitos limitados."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which service collects, analyzes and acts on telemetry such as metrics and logs from Azure and on-premises environments?",
+    "o": [
+     "Azure Policy",
+     "Azure Monitor",
+     "Azure Migrate",
+     "Azure Key Vault"
+    ],
+    "a": 1,
+    "e": "Azure Monitor recopila y analiza métricas y logs."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the main difference between Azure Policy and Azure RBAC?",
+    "o": [
+     "Policy controls user permissions; RBAC evaluates resource properties",
+     "Policy evaluates resource properties; RBAC controls what users can do",
+     "Both only apply to billing",
+     "Policy is used only for identities"
+    ],
+    "a": 1,
+    "e": "RBAC = quién puede hacer qué. Policy = qué configuraciones de recursos se permiten."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is generally true of Azure services in public preview?",
+    "o": [
+     "They always have a 99.99 percent SLA",
+     "They cannot be used in Azure portal",
+     "They are free forever",
+     "They are typically not covered by the standard SLA"
+    ],
+    "a": 3,
+    "e": "Los servicios en preview normalmente no están cubiertos por SLA."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You need to prevent any modification, including updates, to a critical database resource. Which lock type should you use?",
+    "o": [
+     "CanNotDelete",
+     "Audit",
+     "Tag lock",
+     "ReadOnly"
+    ],
+    "a": 3,
+    "e": "ReadOnly impide modificar y borrar; CanNotDelete solo borrar."
+   }
+  ]
+ },
+ {
+  "sec": "azgov",
+  "task": "Azure management and governance",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A company commits to using specific VMs for one or three years to receive a discount. Which option is this?",
+    "o": [
+     "Azure Spot VMs",
+     "Azure Hybrid Benefit",
+     "Pay-as-you-go",
+     "Azure Reservations (reserved instances)"
+    ],
+    "a": 3,
+    "e": "Reservas a 1 o 3 años = descuento por compromiso."
+   }
+  ]
+ }
+]

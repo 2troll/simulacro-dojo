@@ -1,0 +1,2692 @@
+[
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which three pillars uphold every implementation of empirical process control in Scrum?",
+    "o": [
+     "Transparency, inspection and adaptation",
+     "Roles, events and artifacts",
+     "Planning, execution and review",
+     "Commitment, focus and openness"
+    ],
+    "a": 0,
+    "e": "Guía de Scrum 2020: el empirismo se apoya en transparencia, inspección y adaptación. Truco: no confundir con los valores ni con roles/eventos/artefactos."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "According to the Scrum Guide, Scrum is best described as:",
+    "o": [
+     "A set of engineering techniques for software testing",
+     "A lightweight framework that helps people, teams and organizations generate value through adaptive solutions for complex problems",
+     "A detailed methodology that prescribes every practice a team must follow",
+     "A project management process with sequential phases"
+    ],
+    "a": 1,
+    "e": "La Guía 2020 define Scrum como un marco ligero para problemas complejos adaptativos. No es una metodología detallada ni fases secuenciales."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Why is transparency required for inspection in Scrum?",
+    "o": [
+     "Because it allows management to assign tasks",
+     "Because it replaces the need for adaptation",
+     "Without transparency, inspection can be misleading and wasteful",
+     "Because stakeholders must approve every artifact"
+    ],
+    "a": 2,
+    "e": "Guía 2020: la inspección sin transparencia es engañosa y un desperdicio. Los artefactos deben ser visibles para quienes los inspeccionan."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "On which two foundations is Scrum built?",
+    "o": [
+     "Estimation and velocity",
+     "Predictive planning and command and control",
+     "Waterfall and Agile",
+     "Empiricism and lean thinking"
+    ],
+    "a": 3,
+    "e": "La Guía 2020 dice que Scrum se basa en el empirismo y el pensamiento Lean. Truco: nada de planificación predictiva."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does lean thinking do in Scrum?",
+    "o": [
+     "Reduces waste and focuses on the essentials",
+     "Adds more roles to improve control",
+     "Increases documentation to reduce risk",
+     "Extends the Sprint to gain more time"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el pensamiento Lean reduce el desperdicio y se centra en lo esencial."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which of the following is NOT one of the Scrum Values?",
+    "o": [
+     "Respect",
+     "Efficiency",
+     "Focus",
+     "Courage"
+    ],
+    "a": 1,
+    "e": "Los valores son compromiso, enfoque, apertura, respeto y coraje. 'Efficiency' no es un valor de Scrum."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does empiricism assert in Scrum?",
+    "o": [
+     "Knowledge comes from detailed upfront plans",
+     "Experience is less important than documentation",
+     "Knowledge comes from experience and making decisions based on what is observed",
+     "Decisions must be approved by management"
+    ],
+    "a": 2,
+    "e": "Guía 2020: el empirismo sostiene que el conocimiento viene de la experiencia y de decidir según lo observado."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the typical size of a Scrum Team according to the Scrum Guide?",
+    "o": [
+     "At least 12 people",
+     "Between 15 and 20 people",
+     "Exactly 7 plus or minus 2",
+     "10 or fewer people"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Scrum Team es pequeño, típicamente de 10 personas o menos. Equipos pequeños se comunican mejor y son más productivos."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which statement about the Scrum framework is true?",
+    "o": [
+     "Scrum is purposefully incomplete and only defines the parts required to implement Scrum theory",
+     "Scrum requires the use of a specific estimation technique",
+     "Scrum defines detailed instructions for every situation",
+     "Scrum prescribes the engineering practices to use"
+    ],
+    "a": 0,
+    "e": "Guía 2020: Scrum es deliberadamente incompleto; define solo las partes necesarias y deja el resto a las personas."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does adaptation mean in Scrum?",
+    "o": [
+     "Changing the Definition of Done at the end of the project",
+     "Adjusting a process or what is being made as soon as possible when inspection shows deviations outside acceptable limits",
+     "Waiting for the next release to correct problems",
+     "Updating documentation after the Sprint ends"
+    ],
+    "a": 1,
+    "e": "Guía 2020: si la inspección detecta desviaciones fuera de límites aceptables, se ajusta lo antes posible para minimizar más desviaciones."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The value of openness is demonstrated when:",
+    "o": [
+     "All meetings are open to any employee",
+     "Team members share their personal data",
+     "The Scrum Team and its stakeholders are open about the work and the challenges",
+     "Everyone is open to working overtime"
+    ],
+    "a": 2,
+    "e": "Guía 2020: apertura significa ser abiertos con el trabajo y los desafíos. Truco: no es abrir las reuniones a todo el mundo."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "For what kind of problems is Scrum intended?",
+    "o": [
+     "Only simple and well-understood problems",
+     "Problems whose solution is fully known upfront",
+     "Only software maintenance work",
+     "Complex adaptive problems"
+    ],
+    "a": 3,
+    "e": "Guía 2020: Scrum ayuda a generar valor mediante soluciones adaptativas para problemas complejos."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A manager asks if a team can use Scrum with its own additional techniques. According to the Scrum Guide:",
+    "o": [
+     "Scrum is a framework within which people can employ various processes and techniques",
+     "Any addition makes it no longer Scrum, so none can be used",
+     "Additional techniques require Scrum Master approval",
+     "Only techniques listed in the Scrum Guide are allowed"
+    ],
+    "a": 0,
+    "e": "Guía 2020: Scrum es un marco en el que se pueden emplear otros procesos y técnicas, siempre que respeten las reglas de Scrum."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A team uses only some parts of Scrum and drops the Retrospective. What does the Scrum Guide say?",
+    "o": [
+     "It is acceptable if the Scrum Master agrees",
+     "Scrum exists only in its entirety; omitting elements causes problems and reduces the benefits",
+     "It is acceptable if the Sprint is shorter than two weeks",
+     "It is still Scrum, because it is customizable"
+    ],
+    "a": 1,
+    "e": "Guía 2020: Scrum solo existe en su totalidad; omitir elementos oculta problemas y limita beneficios. Trampa: 'Scrum-but'."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does cross-functional mean for a Scrum Team?",
+    "o": [
+     "Every member can do every task equally well",
+     "Team includes a separate tester group",
+     "Members collectively have all the skills needed to create value each Sprint",
+     "Members come from different departments and keep their managers"
+    ],
+    "a": 2,
+    "e": "Guía 2020: multifuncional significa que los miembros tienen en conjunto todas las habilidades necesarias; no que todos sepan hacerlo todo."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does self-managing mean for a Scrum Team?",
+    "o": [
+     "The Product Owner assigns work to each Developer",
+     "Management decides how the Sprint Backlog is worked",
+     "The Scrum Master assigns tasks to the Developers",
+     "The team decides internally who does what, when and how"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el equipo es autogestionado; decide internamente quién hace qué, cuándo y cómo. El SM no asigna tareas."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Scrum Value of courage means:",
+    "o": [
+     "Scrum Team members have the courage to do the right thing and work on tough problems",
+     "Taking on more work than the Developers can handle",
+     "Challenging the Scrum Master's authority",
+     "Avoiding conflict with stakeholders"
+    ],
+    "a": 0,
+    "e": "Guía 2020: coraje es hacer lo correcto y abordar problemas difíciles."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Scrum Value of focus means:",
+    "o": [
+     "Only the Product Owner decides priorities",
+     "Everyone focuses on the work of the Sprint and the goals of the Scrum Team",
+     "Developers work on one task each until the end",
+     "Teams avoid meetings entirely"
+    ],
+    "a": 1,
+    "e": "Guía 2020: enfoque es concentrarse en el trabajo del Sprint y en los objetivos del Scrum Team."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What are Scrum events for?",
+    "o": [
+     "They allow management to track individual performance",
+     "They are optional and can be skipped when busy",
+     "They are formal opportunities to inspect and adapt Scrum artifacts, creating regularity and minimizing the need for other meetings",
+     "They are status meetings for management"
+    ],
+    "a": 2,
+    "e": "Guía 2020: cada evento es una oportunidad formal de inspección y adaptación, y crea regularidad."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the main change in the 2020 Scrum Guide regarding the team structure?",
+    "o": [
+     "The team must now include a tester sub-team",
+     "A fourth role, the Scrum Coach, was added",
+     "The Scrum Master became the team manager",
+     "The Development Team was replaced by Developers inside a single Scrum Team with no sub-teams or hierarchies"
+    ],
+    "a": 3,
+    "e": "Guía 2020: un único Scrum Team (Developers, PO, SM) sin subequipos ni jerarquías."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A team inspects its Increment every day but never changes anything based on what it sees. What does the Scrum Guide imply?",
+    "o": [
+     "Inspection without adaptation is considered pointless",
+     "The team needs more transparency only",
+     "The team is applying Scrum correctly",
+     "The team should inspect less frequently"
+    ],
+    "a": 0,
+    "e": "Guía 2020: la inspección sin adaptación se considera inútil. Los eventos están diseñados para provocar cambio."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the purpose of the Scrum Team accountability for 'creating value'?",
+    "o": [
+     "Only the Product Owner interacts with stakeholders",
+     "The Scrum Team is responsible for all product-related activities, including collaboration with stakeholders, verification, maintenance and experimentation",
+     "Only the Developers are responsible for product delivery",
+     "The organization's managers are responsible for stakeholder collaboration"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el Scrum Team es responsable de todas las actividades relacionadas con el producto, desde colaboración con interesados hasta mantenimiento."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which statement about respect as a Scrum Value is correct?",
+    "o": [
+     "Respect means following instructions from management",
+     "Team members must always agree with the Product Owner",
+     "Scrum Team members respect each other to be capable, independent people",
+     "Respect means avoiding disagreement"
+    ],
+    "a": 2,
+    "e": "Guía 2020: respeto es considerar a los demás personas capaces e independientes."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are foundations on which Scrum is founded? Choose TWO answers.",
+    "o": [
+     "Empiricism",
+     "Lean thinking",
+     "Command and control",
+     "Predictive planning"
+    ],
+    "a": [
+     0,
+     1
+    ],
+    "e": "Guía 2020: Scrum se funda en empirismo y pensamiento Lean."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are Scrum Values? Choose TWO answers.",
+    "o": [
+     "Courage",
+     "Predictability",
+     "Respect",
+     "Discipline"
+    ],
+    "a": [
+     0,
+     2
+    ],
+    "e": "Valores 2020: compromiso, enfoque, apertura, respeto y coraje. Disciplina y previsibilidad no figuran."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are pillars of empirical process control? Choose TWO answers.",
+    "o": [
+     "Documentation",
+     "Transparency",
+     "Adaptation",
+     "Estimation"
+    ],
+    "a": [
+     1,
+     2
+    ],
+    "e": "Los tres pilares son transparencia, inspección y adaptación."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements describe the Scrum Team? Choose TWO answers.",
+    "o": [
+     "It is divided into a development and a testing sub-team",
+     "It is cross-functional",
+     "It is led by a project manager",
+     "It is self-managing"
+    ],
+    "a": [
+     1,
+     3
+    ],
+    "e": "Guía 2020: equipo multifuncional y autogestionado, sin subequipos ni jerarquías."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Scrum Guide 2020 requires a Sprint burn-down chart for every Scrum Team.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "La Guía no exige burn-down; menciona herramientas como práctica útil pero no obligatoria."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Scrum is based on empiricism: decisions are made on what is observed and experienced.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el empirismo es una de las dos bases de Scrum."
+   }
+  ]
+ },
+ {
+  "sec": "theory",
+  "task": "Scrum theory and values",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Scrum Teams must plan the whole product upfront in detail before the first Sprint.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "Scrum es empírico y adaptativo; el Product Backlog evoluciona, no se fija por completo al inicio."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is accountable for maximizing the value of the product resulting from the work of the Scrum Team?",
+    "o": [
+     "The stakeholders",
+     "The Developers",
+     "The Scrum Master",
+     "The Product Owner"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el PO es responsable de maximizar el valor del producto."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "How many Product Owners can a Scrum Team have?",
+    "o": [
+     "One person, not a committee",
+     "Two, to cover absences",
+     "One per Developer",
+     "As many as there are stakeholder groups"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el PO es una persona, no un comité. Puede representar deseos de muchos, pero decide uno."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is accountable for establishing Scrum as defined in the Scrum Guide?",
+    "o": [
+     "The Product Owner",
+     "The Scrum Master",
+     "The organization's management",
+     "The Developers"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el SM es responsable de establecer Scrum ayudando a todos a entender la teoría y la práctica."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is accountable for creating a usable Increment every Sprint?",
+    "o": [
+     "The stakeholders",
+     "The Product Owner",
+     "The Developers",
+     "The Scrum Master"
+    ],
+    "a": 2,
+    "e": "Guía 2020: los Developers crean cualquier aspecto de un Incremento utilizable en cada Sprint."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who creates the Sprint Backlog?",
+    "o": [
+     "Management",
+     "The Scrum Master",
+     "The Product Owner",
+     "The Developers"
+    ],
+    "a": 3,
+    "e": "Guía 2020: los Developers son responsables de crear el plan del Sprint, el Sprint Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is accountable for ordering the Product Backlog?",
+    "o": [
+     "The Product Owner",
+     "The stakeholders by voting",
+     "The Scrum Master",
+     "The Developers"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el PO es responsable de ordenar los elementos del Product Backlog; puede delegar el trabajo, pero sigue siendo responsable."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Scrum Team wants a separate QA sub-team inside the Scrum Team. According to the Scrum Guide:",
+    "o": [
+     "It is required for large products",
+     "Scrum recognizes no sub-teams; accountability belongs to the Developers as a whole",
+     "It is allowed for teams of more than 10",
+     "It is allowed if the Scrum Master approves"
+    ],
+    "a": 1,
+    "e": "Guía 2020: no hay subequipos ni jerarquías. Cualquier especialidad sigue siendo Developer."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who holds the accountability for adhering to the Definition of Done?",
+    "o": [
+     "The quality manager",
+     "The Product Owner",
+     "The Developers",
+     "The Scrum Master"
+    ],
+    "a": 2,
+    "e": "Guía 2020: los Developers están obligados a instilar calidad adhiriéndose a la Definition of Done."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which best describes the Scrum Master?",
+    "o": [
+     "A project manager who reports status",
+     "A manager who directs the Developers",
+     "A secretary who schedules meetings",
+     "A true leader who serves the Scrum Team and the larger organization"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el SM es un verdadero líder que sirve al equipo y a la organización. No gestiona ni asigna tareas."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Developers and the Product Owner disagree on the order of the Product Backlog. Who decides?",
+    "o": [
+     "The Product Owner",
+     "The Scrum Master",
+     "The Developers by majority vote",
+     "The stakeholders"
+    ],
+    "a": 0,
+    "e": "Guía 2020: para que el PO tenga éxito, toda la organización debe respetar sus decisiones, visibles en el orden del Product Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is the only person who can cancel a Sprint?",
+    "o": [
+     "The Scrum Master",
+     "The Product Owner",
+     "The stakeholders",
+     "The Developers"
+    ],
+    "a": 1,
+    "e": "Guía 2020: solo el PO tiene la autoridad para cancelar el Sprint."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A manager asks the Scrum Master to assign tasks to Developers. What is the best response?",
+    "o": [
+     "Assign tasks according to each person's skills",
+     "Ask the Product Owner to assign them",
+     "Coach the Developers to decide who does what, since they are self-managing",
+     "Let the manager assign them directly"
+    ],
+    "a": 2,
+    "e": "Guía 2020: los Developers deciden quién hace qué. El SM coachea en autogestión; asignar tareas es una trampa clásica."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who decides how to turn selected Product Backlog items into an Increment?",
+    "o": [
+     "The Scrum Master",
+     "The Product Owner",
+     "The architect",
+     "The Developers"
+    ],
+    "a": 3,
+    "e": "Guía 2020: los Developers deciden el 'cómo' (Sprint Planning, tema tres)."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "How does the Scrum Master serve the Product Owner?",
+    "o": [
+     "By helping find techniques for effective Product Goal definition and Product Backlog management",
+     "By reporting the product's value to executives",
+     "By approving the Product Owner's decisions",
+     "By deciding the order of the Product Backlog"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el SM ayuda al PO a definir el Product Goal, gestionar el Backlog y entender planificación empírica."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which activity is a way the Scrum Master serves the organization?",
+    "o": [
+     "Prioritizing projects across teams",
+     "Leading, training and coaching the organization in its Scrum adoption",
+     "Approving the release of each Increment",
+     "Setting performance targets for Developers"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el SM sirve a la organización liderando, entrenando y asesorando la adopción de Scrum."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Three Scrum Teams work on the same product. What should they share?",
+    "o": [
+     "A Product Owner per team and one Chief Product Owner",
+     "A separate Product Backlog each, merged at the end",
+     "The same Product Goal, Product Backlog and Product Owner",
+     "Only the Definition of Done"
+    ],
+    "a": 2,
+    "e": "Guía 2020: varios equipos en el mismo producto comparten Product Goal, Product Backlog y PO."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Product Owner delegates Product Backlog refinement to the Developers. Who remains accountable?",
+    "o": [
+     "Nobody; it becomes shared",
+     "The Scrum Master",
+     "The Developers",
+     "The Product Owner"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el PO puede delegar el trabajo, pero sigue siendo el responsable."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Developer is blocked by an organizational impediment outside the team's control. What does the Scrum Master do?",
+    "o": [
+     "Helps remove it, working with the organization",
+     "Ignores it since it is outside the team",
+     "Escalates to the PO who must solve it",
+     "Tells the Developer to find a workaround"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el SM causa la eliminación de impedimentos al progreso del equipo."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Scrum Team lacks a skill needed to complete a PBI. What does the Scrum Guide imply?",
+    "o": [
+     "Scrum Team should ask for an outside specialist sub-team",
+     "The Scrum Team as a whole must have all the skills; Developers decide how to close the gap",
+     "The Scrum Master performs the missing task",
+     "The Product Owner removes the item permanently"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el equipo es multifuncional; debe cubrir las habilidades necesarias, sin subequipos."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A stakeholder asks a Developer to add an item to the work for this Sprint. What is the best approach?",
+    "o": [
+     "The Developer adds it to the Sprint Backlog",
+     "The Scrum Master decides",
+     "The Developer refers them to the Product Owner, who is accountable for the Product Backlog",
+     "The Developers vote"
+    ],
+    "a": 2,
+    "e": "Guía 2020: el PO es responsable del Product Backlog; quien quiera cambiar su contenido debe convencer al PO."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which job titles does Scrum recognize within the Developers?",
+    "o": [
+     "Team lead and engineer",
+     "Business analyst and architect",
+     "Tester and programmer",
+     "Only 'Developer', regardless of the work performed"
+    ],
+    "a": 3,
+    "e": "Guía 2020: los Developers son las personas que se comprometen a crear cualquier aspecto del Incremento; Scrum no reconoce títulos."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who ensures that all Scrum events take place and are positive, productive and kept within the timebox?",
+    "o": [
+     "The Scrum Master",
+     "Management",
+     "The Product Owner",
+     "The Developers alone"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el SM se asegura de que los eventos tengan lugar y sean positivos, productivos y respeten el timebox."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "During the Sprint, who can renegotiate the scope with the Developers as more is learned?",
+    "o": [
+     "The stakeholders",
+     "The Product Owner",
+     "The Scrum Master",
+     "Management"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el alcance puede clarificarse y renegociarse con el PO a medida que se aprende más."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which of the following is NOT an accountability of the Scrum Master?",
+    "o": [
+     "Causing the removal of impediments to the team's progress",
+     "Coaching the team in self-management",
+     "Deciding the order of the Product Backlog",
+     "Helping the team focus on creating high-value Increments"
+    ],
+    "a": 2,
+    "e": "El orden del Product Backlog es del PO. El SM no decide el contenido ni el orden."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who creates the Product Goal communication, making sure it is explicit?",
+    "o": [
+     "The stakeholders",
+     "The Developers",
+     "The Scrum Master",
+     "The Product Owner"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el PO desarrolla y comunica explícitamente el Product Goal."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Scrum Master also works as a Developer on Sprint Backlog items. Which statement is correct?",
+    "o": [
+     "This is permitted, but the Scrum Master remains accountable for the Scrum Master accountabilities",
+     "The Scrum Master must then stop attending events",
+     "It makes the Scrum Master the team lead",
+     "It is forbidden by the Scrum Guide"
+    ],
+    "a": 0,
+    "e": "La Guía 2020 no lo prohíbe: SM, PO o SM que trabajan en elementos del Sprint participan como Developers. La responsabilidad del rol sigue."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are accountabilities of the Developers? Choose TWO answers.",
+    "o": [
+     "Creating a plan for the Sprint (the Sprint Backlog)",
+     "Ordering the Product Backlog",
+     "Instilling quality by adhering to the Definition of Done",
+     "Cancelling the Sprint"
+    ],
+    "a": [
+     0,
+     2
+    ],
+    "e": "Guía 2020: Developers crean el Sprint Backlog y garantizan calidad con la DoD. Ordenar y cancelar son del PO."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are accountabilities of the Product Owner? Choose TWO answers.",
+    "o": [
+     "Removing impediments for the Developers",
+     "Ensuring Product Backlog items are transparent, visible and understood",
+     "Assigning tasks to the Developers",
+     "Developing and explicitly communicating the Product Goal"
+    ],
+    "a": [
+     1,
+     3
+    ],
+    "e": "Guía 2020: el PO gestiona Product Goal y Backlog. Asignar tareas no es de nadie fuera de los Developers."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO describe how the Scrum Master serves the Scrum Team? Choose TWO answers.",
+    "o": [
+     "Coaching team members in self-management and cross-functionality",
+     "Helping the team focus on creating high-value Increments that meet the Definition of Done",
+     "Assigning work to the Developers",
+     "Reporting on each Developer's performance to management"
+    ],
+    "a": [
+     0,
+     1
+    ],
+    "e": "Guía 2020: el SM coachea, ayuda a mantener el foco y retira impedimentos; no asigna ni vigila personas."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are true about the Scrum Team? Choose TWO answers.",
+    "o": [
+     "It has no sub-teams or hierarchies",
+     "It includes a project manager",
+     "It includes a separate testing team",
+     "It is a cohesive unit of professionals focused on one objective at a time, the Product Goal"
+    ],
+    "a": [
+     0,
+     3
+    ],
+    "e": "Guía 2020: unidad cohesionada sin subequipos ni jerarquías, centrada en el Product Goal."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO describe how the Scrum Master serves the organization? Choose TWO answers.",
+    "o": [
+     "Helping employees and stakeholders understand and enact an empirical approach for complex work",
+     "Setting velocity targets for teams",
+     "Removing barriers between stakeholders and Scrum Teams",
+     "Deciding which products receive funding"
+    ],
+    "a": [
+     0,
+     2
+    ],
+    "e": "Guía 2020: el SM facilita la colaboración de interesados y ayuda a adoptar el enfoque empírico."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Scrum Master is the manager of the Developers.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "El SM es un líder-servidor, no un gestor; no dirige ni asigna al equipo."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Product Owner may delegate work to others but remains accountable.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el PO puede delegar, pero sigue siendo responsable."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Scrum Team may include a dedicated QA sub-team.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "No hay subequipos en Scrum; la Guía 2020 lo dice explícitamente."
+   }
+  ]
+ },
+ {
+  "sec": "team",
+  "task": "Scrum Team and accountabilities",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Developers can cancel a Sprint when the Sprint Goal becomes obsolete.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "Solo el PO puede cancelar el Sprint."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the maximum length of a Sprint?",
+    "o": [
+     "Six weeks",
+     "One month or less",
+     "Three months",
+     "Two weeks"
+    ],
+    "a": 1,
+    "e": "Guía 2020: los Sprints son de un mes o menos, con duración constante."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the maximum timebox for Sprint Planning for a one-month Sprint?",
+    "o": [
+     "2 hours",
+     "16 hours",
+     "8 hours",
+     "4 hours"
+    ],
+    "a": 2,
+    "e": "Guía 2020: Sprint Planning máximo 8 horas para un Sprint de un mes; menos si es más corto."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the timebox of the Daily Scrum?",
+    "o": [
+     "1 hour, for a one-month Sprint",
+     "As long as needed",
+     "30 minutes",
+     "15 minutes"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Daily Scrum dura 15 minutos, todos los días de trabajo del Sprint."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the maximum timebox of the Sprint Review for a one-month Sprint?",
+    "o": [
+     "4 hours",
+     "8 hours",
+     "2 hours",
+     "3 hours"
+    ],
+    "a": 0,
+    "e": "Guía 2020: Sprint Review máximo 4 horas para un Sprint de un mes."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the maximum timebox of the Sprint Retrospective for a one-month Sprint?",
+    "o": [
+     "8 hours",
+     "3 hours",
+     "4 hours",
+     "1 hour"
+    ],
+    "a": 1,
+    "e": "Guía 2020: la Retrospectiva dura como máximo 3 horas para un Sprint de un mes."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which topics are addressed in Sprint Planning?",
+    "o": [
+     "Budget, schedule and the project's scope baseline",
+     "Who did what last Sprint, which bugs were found, and who is to blame",
+     "Why is the Sprint valuable, what can be Done this Sprint, and how will the chosen work get done",
+     "Release dates, team vacations and hiring"
+    ],
+    "a": 2,
+    "e": "Guía 2020: tres temas: el por qué (Sprint Goal), el qué y el cómo."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who must attend the Daily Scrum?",
+    "o": [
+     "The whole Scrum Team plus stakeholders",
+     "Management",
+     "The Scrum Master and Product Owner",
+     "The Developers"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Daily Scrum es para los Developers. Si PO o SM trabajan en elementos del Sprint, participan como Developers."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the purpose of the Daily Scrum?",
+    "o": [
+     "Inspect progress toward the Sprint Goal and adapt the Sprint Backlog as necessary",
+     "Assign tasks for the day",
+     "Report hours to management",
+     "Report status to the Scrum Master"
+    ],
+    "a": 0,
+    "e": "Guía 2020: inspeccionar el avance hacia el Sprint Goal y adaptar el Sprint Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the purpose of the Sprint Review?",
+    "o": [
+     "Formally accept the Increment from stakeholders",
+     "Inspect the outcome of the Sprint and determine future adaptations",
+     "Plan the next Sprint's work",
+     "Evaluate the Developers' individual performance"
+    ],
+    "a": 1,
+    "e": "Guía 2020: inspeccionar el resultado del Sprint y determinar adaptaciones futuras."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the purpose of the Sprint Retrospective?",
+    "o": [
+     "Review the Increment with stakeholders",
+     "Estimate the next Sprint's work",
+     "Plan ways to increase quality and effectiveness",
+     "Evaluate each person's performance"
+    ],
+    "a": 2,
+    "e": "Guía 2020: la retrospectiva planifica formas de aumentar calidad y efectividad."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Under what condition may a Sprint be cancelled?",
+    "o": [
+     "When a stakeholder requests it",
+     "When the Scrum Master finds a risk",
+     "When the Developers are behind schedule",
+     "When the Sprint Goal becomes obsolete"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el PO puede cancelar si el Sprint Goal queda obsoleto, p. ej. por cambio de rumbo."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "During the Sprint, which of the following is true about scope?",
+    "o": [
+     "Scope may be clarified and renegotiated with the Product Owner as more is learned",
+     "Scope is frozen once Sprint Planning ends",
+     "Scope is set by the Developers alone",
+     "Scope changes need Scrum Master approval"
+    ],
+    "a": 0,
+    "e": "Guía 2020: no se hacen cambios que pongan en peligro el Sprint Goal; el alcance se renegocia con el PO."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "During the Sprint, which of the following must NOT happen?",
+    "o": [
+     "The Sprint Backlog is updated",
+     "Changes are made that endanger the Sprint Goal",
+     "The scope is clarified with the Product Owner",
+     "The Product Backlog is refined"
+    ],
+    "a": 1,
+    "e": "Guía 2020: durante el Sprint no se hacen cambios que pongan en peligro el Sprint Goal ni se reduce la calidad."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "When does a new Sprint start?",
+    "o": [
+     "After management releases the Increment",
+     "After a break decided by the Scrum Master",
+     "Immediately after the conclusion of the previous Sprint",
+     "After the Product Owner approves the Increment"
+    ],
+    "a": 2,
+    "e": "Guía 2020: un nuevo Sprint comienza inmediatamente después de concluir el anterior."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "When does the Sprint Retrospective occur?",
+    "o": [
+     "Before the Sprint Review",
+     "After the next Sprint Planning",
+     "In the middle of the Sprint",
+     "After the Sprint Review and prior to the next Sprint Planning"
+    ],
+    "a": 3,
+    "e": "Guía 2020: la retrospectiva concluye el Sprint; ocurre tras la Review y antes de la siguiente Planning."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A team wants to run a 'Sprint 0' to set up infrastructure before the first Sprint. How does the Scrum Guide treat this?",
+    "o": [
+     "Scrum does not define a Sprint 0; every Sprint aims to produce a usable Increment",
+     "It is a Sprint with no Sprint Goal",
+     "It must be approved by the Product Owner",
+     "It is required for all new products"
+    ],
+    "a": 0,
+    "e": "La Guía no define el 'Sprint 0'. Truco clásico: todo Sprint se orienta a crear un Incremento útil."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A team proposes a 'hardening Sprint' to fix defects before release. According to Scrum:",
+    "o": [
+     "It is allowed when velocity decreases",
+     "Each Sprint must produce a Done Increment; hardening Sprints are not part of Scrum",
+     "It is required before every release",
+     "It is an official event"
+    ],
+    "a": 1,
+    "e": "Guía 2020: cada Incremento debe ser utilizable al final del Sprint cumpliendo la DoD. No hay 'sprint de estabilización'."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Why would a team choose shorter Sprints?",
+    "o": [
+     "To avoid delivering a Done Increment",
+     "To reduce the number of Scrum events",
+     "To limit risk and generate more learning cycles",
+     "To avoid refining the Product Backlog"
+    ],
+    "a": 2,
+    "e": "Guía 2020: los Sprints más cortos generan más ciclos de aprendizaje y limitan el costo y esfuerzo a un periodo pequeño."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who selects the structure and techniques for the Daily Scrum?",
+    "o": [
+     "Management",
+     "The Product Owner",
+     "The Scrum Master",
+     "The Developers"
+    ],
+    "a": 3,
+    "e": "Guía 2020: los Developers pueden elegir la estructura y técnicas, siempre que se centren en el progreso hacia el Sprint Goal."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does the Scrum Master do with respect to the Daily Scrum?",
+    "o": [
+     "Ensures that the Developers have the meeting, but the Developers are responsible for conducting it",
+     "Takes notes and reports to management",
+     "Runs the meeting and asks each Developer three questions",
+     "Decides who speaks next"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el SM se asegura de que se celebre, pero los Developers lo conducen."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "How should the Sprint Review be described?",
+    "o": [
+     "A presentation by the Product Owner",
+     "A working session where the Scrum Team and stakeholders collaborate; it is not limited to a presentation",
+     "An approval gate for releasing",
+     "A demo where stakeholders formally accept the work"
+    ],
+    "a": 1,
+    "e": "Guía 2020: la Review no debe limitarse a una presentación; es una sesión de trabajo."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What may happen at the Sprint Review regarding the Product Backlog?",
+    "o": [
+     "It is replaced by the Sprint Backlog",
+     "It must be frozen",
+     "It may be adjusted to meet new opportunities",
+     "It can only be changed by management"
+    ],
+    "a": 2,
+    "e": "Guía 2020: el Product Backlog puede ajustarse para aprovechar nuevas oportunidades."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who crafts the Sprint Goal?",
+    "o": [
+     "The Scrum Master alone",
+     "The Product Owner alone",
+     "The stakeholders",
+     "The entire Scrum Team collaboratively during Sprint Planning"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Scrum Team colabora en el Sprint Goal durante la Planning."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does the Sprint Retrospective inspect?",
+    "o": [
+     "How the last Sprint went regarding individuals, interactions, processes, tools and the Definition of Done",
+     "Each person's performance",
+     "Only the Increment",
+     "Only the Product Backlog"
+    ],
+    "a": 0,
+    "e": "Guía 2020: se inspecciona individuos, interacciones, procesos, herramientas y DoD."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Developers finish all the work forecast for the Sprint two days early. What happens?",
+    "o": [
+     "The Scrum Master cancels the Sprint",
+     "The Sprint continues until its timebox ends; the team and the Product Owner can add work to the Sprint Backlog",
+     "The next Sprint starts early",
+     "The Sprint ends immediately"
+    ],
+    "a": 1,
+    "e": "Guía 2020: un Sprint es un timebox fijo y no termina antes. Se puede renegociar más trabajo con el PO."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who decides whether a Sprint should be cancelled when the Sprint Goal becomes obsolete?",
+    "o": [
+     "The Developers",
+     "The Scrum Master",
+     "The Product Owner",
+     "The stakeholders"
+    ],
+    "a": 2,
+    "e": "Guía 2020: solo el PO puede cancelar el Sprint, y la causa típica es que el Sprint Goal quede obsoleto."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Developers realize they cannot complete all forecast work. What should they do?",
+    "o": [
+     "Ask the Scrum Master to remove items",
+     "Skip the Definition of Done",
+     "Extend the Sprint",
+     "Collaborate with the Product Owner to renegotiate the Sprint Backlog while keeping the Sprint Goal"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el alcance puede renegociarse con el PO. No se extiende el Sprint ni se baja la calidad."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What guides the Sprint Planning's selection of work the Developers can do?",
+    "o": [
+     "The Developers' forecast of what they can complete, plus the Sprint Goal",
+     "The Scrum Master's assessment",
+     "Past velocity as a fixed commitment",
+     "The Product Owner's demand"
+    ],
+    "a": 0,
+    "e": "Guía 2020: los Developers seleccionan elementos y pronostican; el Sprint Goal da el foco."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which events are held inside the Sprint?",
+    "o": [
+     "Only events with stakeholders",
+     "All Scrum events, including Sprint Planning, Daily Scrums, Sprint Review and Sprint Retrospective",
+     "Only the Daily Scrum",
+     "Only Sprint Planning and the Daily Scrum"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el Sprint contiene todos los eventos; es el contenedor del resto."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO topics belong to Sprint Planning? Choose TWO answers.",
+    "o": [
+     "How many hours has each Developer logged?",
+     "Who is to blame for last Sprint's defects?",
+     "What can be Done this Sprint?",
+     "Why is this Sprint valuable?"
+    ],
+    "a": [
+     2,
+     3
+    ],
+    "e": "Guía 2020: por qué, qué y cómo. No se evalúa individuos."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements about the Daily Scrum are correct? Choose TWO answers.",
+    "o": [
+     "It is a 15-minute event for the Developers",
+     "It is a status report to the Scrum Master",
+     "It is held at the same time and place every working day to reduce complexity",
+     "The Product Owner must ask each Developer to answer three questions"
+    ],
+    "a": [
+     0,
+     2
+    ],
+    "e": "Guía 2020: 15 minutos, mismos hora y lugar. No exige formato de tres preguntas."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are outcomes of the Sprint Review? Choose TWO answers.",
+    "o": [
+     "Discussion of what to do next with stakeholders",
+     "A formal sign-off required to release",
+     "An evaluation of each Developer's performance",
+     "A potentially revised Product Backlog"
+    ],
+    "a": [
+     0,
+     3
+    ],
+    "e": "Guía 2020: la Review genera un Product Backlog revisado y decisiones sobre qué hacer. No es aprobación formal."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO things does the Sprint Retrospective address? Choose TWO answers.",
+    "o": [
+     "Interactions, processes and tools",
+     "The Definition of Done",
+     "Stakeholders' budgets",
+     "Individual performance appraisals"
+    ],
+    "a": [
+     0,
+     1
+    ],
+    "e": "Guía 2020: se inspecciona individuos, interacciones, procesos, herramientas y DoD."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements about the Sprint are true? Choose TWO answers.",
+    "o": [
+     "A new Sprint starts immediately after the previous one ends",
+     "It is one month or less in length",
+     "It can be extended if the work isn't Done",
+     "It must be preceded by a Sprint 0"
+    ],
+    "a": [
+     0,
+     1
+    ],
+    "e": "Guía 2020: duración fija de un mes o menos; sin pausas ni extensiones; no hay Sprint 0."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements about cancelling a Sprint are true? Choose TWO answers.",
+    "o": [
+     "The Developers can cancel it if they are behind",
+     "It can happen if the Sprint Goal becomes obsolete",
+     "The Scrum Master can cancel it for lack of progress",
+     "Only the Product Owner can cancel it"
+    ],
+    "a": [
+     1,
+     3
+    ],
+    "e": "Guía 2020: solo el PO cancela, y solo si el Sprint Goal queda obsoleto."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Sprint Review is a status meeting at which stakeholders formally approve the Increment.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "La Review es una sesión de trabajo colaborativa para inspeccionar el resultado; no es una aprobación."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Daily Scrum must follow the 'three questions' format.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "La Guía 2020 deja la estructura a los Developers. Las tres preguntas fueron una sugerencia antigua."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Sprint Planning for a shorter Sprint is usually shorter than 8 hours.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el timebox de 8 horas es para un Sprint de un mes; suele ser más corto en Sprints más cortos."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Sprint can be extended if the Developers need more time to finish.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "Un Sprint es un timebox fijo; no se extiende. El alcance se renegocia."
+   }
+  ]
+ },
+ {
+  "sec": "events",
+  "task": "Scrum events",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Sprint Retrospective takes place after the Sprint Review and before the next Sprint Planning.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "Guía 2020: la retrospectiva concluye el Sprint, tras la Review y antes de la siguiente Planning."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which are the three Scrum artifacts?",
+    "o": [
+     "Product Goal, Sprint Goal and Definition of Done",
+     "Release plan, Sprint Backlog and Increment",
+     "Product Backlog, Sprint Backlog and Increment",
+     "Product Backlog, Sprint Backlog and burn-down chart"
+    ],
+    "a": 2,
+    "e": "Guía 2020: los artefactos son Product Backlog, Sprint Backlog e Incremento."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which commitment belongs to the Product Backlog?",
+    "o": [
+     "The Sprint Goal",
+     "The Definition of Done",
+     "The Release Goal",
+     "The Product Goal"
+    ],
+    "a": 3,
+    "e": "Guía 2020: Product Goal para Product Backlog, Sprint Goal para Sprint Backlog, DoD para Increment."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which commitment belongs to the Sprint Backlog?",
+    "o": [
+     "The Sprint Goal",
+     "The Definition of Done",
+     "The Product Goal",
+     "The Velocity"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el compromiso del Sprint Backlog es el Sprint Goal."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which commitment belongs to the Increment?",
+    "o": [
+     "The Product Goal",
+     "The Definition of Done",
+     "The Sprint Goal",
+     "The release date"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el compromiso del Incremento es la Definition of Done."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "How is the Product Backlog best described?",
+    "o": [
+     "A fixed list of requirements agreed at the start",
+     "A collection of tasks assigned to Developers",
+     "An emergent, ordered list of what is needed to improve the product, and the single source of work for the Scrum Team",
+     "A document approved by management"
+    ],
+    "a": 2,
+    "e": "Guía 2020: lista emergente y ordenada; única fuente de trabajo del equipo."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the Product Goal?",
+    "o": [
+     "The Definition of Done for the product",
+     "A list of features for the next release",
+     "A goal for each Sprint",
+     "A long-term objective for the Scrum Team; the Scrum Team must fulfill or abandon one objective before taking on the next"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Product Goal describe un estado futuro del producto; solo uno a la vez."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does the Sprint Backlog consist of?",
+    "o": [
+     "The Sprint Goal (why), the Product Backlog items selected (what) and an actionable plan for delivering the Increment (how)",
+     "A list of stakeholder requests",
+     "The entire Product Backlog",
+     "Only the tasks the Scrum Master assigned"
+    ],
+    "a": 0,
+    "e": "Guía 2020: Sprint Goal, elementos seleccionados y plan de entrega."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who can update the Sprint Backlog during the Sprint?",
+    "o": [
+     "The Scrum Master only",
+     "The Developers",
+     "The Product Owner only",
+     "Management"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el Sprint Backlog se actualiza a lo largo del Sprint; los Developers lo gestionan."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is an Increment?",
+    "o": [
+     "A document that records progress",
+     "A work item still in progress",
+     "A concrete stepping stone toward the Product Goal that is usable",
+     "A release candidate approved by management"
+    ],
+    "a": 2,
+    "e": "Guía 2020: un Incremento es un peldaño concreto hacia el Product Goal y debe ser utilizable."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "When can work be considered part of an Increment?",
+    "o": [
+     "When tests pass but documentation is pending",
+     "When the Product Owner approves it informally",
+     "When the Developers say it is done",
+     "When it meets the Definition of Done"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el trabajo no puede considerarse parte de un Incremento a menos que cumpla la DoD."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Product Backlog item does not meet the Definition of Done at the end of the Sprint. What happens?",
+    "o": [
+     "It cannot be released or presented in the Sprint Review and returns to the Product Backlog",
+     "It is released with a known-issue list",
+     "It is presented as 'almost done'",
+     "It automatically goes into the next Sprint"
+    ],
+    "a": 0,
+    "e": "Guía 2020: un elemento que no cumple la DoD no puede liberarse ni presentarse; vuelve al Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "If the Definition of Done is part of the organization's standards, what must Scrum Teams do?",
+    "o": [
+     "Ask the Product Owner for exceptions",
+     "Follow it as a minimum",
+     "Replace it with a lighter one",
+     "Ignore it if the team has its own"
+    ],
+    "a": 1,
+    "e": "Guía 2020: si es un estándar de la organización, todos los equipos lo siguen como mínimo."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Several Scrum Teams work on the same product. What must they do regarding the Definition of Done?",
+    "o": [
+     "Avoid having one",
+     "Each define a separate one",
+     "Mutually define and comply with the same Definition of Done",
+     "Let each Product Owner define it"
+    ],
+    "a": 2,
+    "e": "Guía 2020: los equipos que trabajan en el mismo producto deben definir y cumplir mutuamente la DoD."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is Product Backlog refinement?",
+    "o": [
+     "A job done only by the Product Owner",
+     "A phase held before the first Sprint",
+     "A formal Scrum event held every Sprint",
+     "The ongoing act of breaking down and further defining Product Backlog items into smaller, more precise items"
+    ],
+    "a": 3,
+    "e": "Guía 2020: refinamiento es una actividad continua, no un evento. Truco: no es un evento formal."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is responsible for sizing the Product Backlog items?",
+    "o": [
+     "The Developers, who will do the work",
+     "The Product Owner",
+     "The stakeholders",
+     "The Scrum Master"
+    ],
+    "a": 0,
+    "e": "Guía 2020: los Developers dimensionan; el PO puede influir ayudándoles a entender y seleccionar."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "When can an Increment be delivered to stakeholders?",
+    "o": [
+     "Only with management approval",
+     "Before the end of the Sprint; the Sprint Review is not a gate to releasing value",
+     "Only after a hardening Sprint",
+     "Only after the Sprint Review"
+    ],
+    "a": 1,
+    "e": "Guía 2020: un Incremento puede entregarse antes del final del Sprint; la Review no es una puerta de liberación."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which statement about burn-down charts is correct?",
+    "o": [
+     "They are mandatory in Scrum",
+     "They must be shown in the Sprint Review",
+     "They are useful practices for forecasting, but they do not replace the importance of empiricism",
+     "They replace the Daily Scrum"
+    ],
+    "a": 2,
+    "e": "Guía 2020: menciona burn-down/up y flujo acumulado como útiles pero no obligatorios."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "When is the Sprint Goal created?",
+    "o": [
+     "Before the Sprint by the Product Owner",
+     "At the Sprint Review",
+     "During the Daily Scrum",
+     "During Sprint Planning, and then added to the Sprint Backlog"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Sprint Goal se crea en la Planning y se añade al Sprint Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does the Definition of Done create?",
+    "o": [
+     "A shared understanding of what work was completed as part of the Increment",
+     "A schedule for releases",
+     "A way to track individual productivity",
+     "A list of tasks for the next Sprint"
+    ],
+    "a": 0,
+    "e": "Guía 2020: la DoD crea transparencia."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Which Product Backlog items are considered ready for selection in Sprint Planning?",
+    "o": [
+     "Those larger than one Sprint",
+     "Those that can be Done by the Scrum Team within one Sprint",
+     "Those with detailed specifications",
+     "Those approved by stakeholders"
+    ],
+    "a": 1,
+    "e": "Guía 2020: los elementos que pueden Hacerse en un Sprint se consideran listos para selección."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Who is accountable for Product Backlog content, availability and ordering?",
+    "o": [
+     "Management",
+     "The Scrum Master",
+     "The Product Owner",
+     "The Developers"
+    ],
+    "a": 2,
+    "e": "Guía 2020: el PO es responsable del contenido, disponibilidad y orden del Product Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A team wants a Definition of Done weaker than the organization's standard. Is this permitted?",
+    "o": [
+     "Yes, for urgent releases",
+     "Yes, if the Sprint Goal is at risk",
+     "Yes, if the Scrum Master agrees",
+     "No; the organizational standard is the minimum, the team may add stricter criteria"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el estándar de la organización es el mínimo; el equipo puede añadir criterios más estrictos."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "At the end of the Sprint, one item is 90 percent complete according to the Developers. What is its status?",
+    "o": [
+     "Not Done: it is not part of the Increment and returns to the Product Backlog",
+     "Part of the Increment",
+     "Done with a known defect",
+     "Counted as 0.9 of the work"
+    ],
+    "a": 0,
+    "e": "Guía 2020: lo no Hecho no forma parte del Incremento. No existe el 'casi hecho'."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What is the purpose of the Sprint Goal?",
+    "o": [
+     "To list every item in the Sprint",
+     "To provide coherence and focus, encouraging the Scrum Team to work together rather than on separate initiatives",
+     "To set the maximum number of items",
+     "To establish individual targets"
+    ],
+    "a": 1,
+    "e": "Guía 2020: el Sprint Goal es un objetivo único que da coherencia y foco."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "What does the Sprint Backlog represent?",
+    "o": [
+     "The final plan for the whole product",
+     "A contract between the PO and Developers",
+     "A highly visible, real-time picture of the work the Developers plan to accomplish during the Sprint",
+     "A list of tasks assigned by the Scrum Master"
+    ],
+    "a": 2,
+    "e": "Guía 2020: es una imagen en tiempo real, muy visible, del trabajo planificado."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Product Owner wants a complete, fixed Product Backlog before the first Sprint. How does the Scrum Guide describe the Product Backlog?",
+    "o": [
+     "It is frozen during each Sprint",
+     "It must be completed before the first Sprint",
+     "It is only changed at the end of a release",
+     "It is never complete and constantly changes; the earliest development lays out initially known requirements"
+    ],
+    "a": 3,
+    "e": "Guía 2020: el Product Backlog es emergente y nunca está completo."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Where does the Product Goal live?",
+    "o": [
+     "In the Product Backlog; the rest of the Backlog emerges to define what fulfils the Product Goal",
+     "In the Definition of Done",
+     "In the Sprint Backlog",
+     "In the release plan"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el Product Goal está en el Product Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements about the Product Backlog are correct? Choose TWO answers.",
+    "o": [
+     "It is fixed at the start of the project",
+     "It is ordered by the Product Owner",
+     "It is never complete",
+     "It is frozen during the Sprint by the Scrum Master"
+    ],
+    "a": [
+     1,
+     2
+    ],
+    "e": "Guía 2020: emergente, nunca completo; el PO es responsable de su orden."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO are Scrum commitments? Choose TWO answers.",
+    "o": [
+     "Burn-down chart",
+     "The Product Goal",
+     "The Definition of Done",
+     "Velocity"
+    ],
+    "a": [
+     1,
+     2
+    ],
+    "e": "Guía 2020: PG, SG y DoD son los compromisos. Velocidad y burn-down no lo son."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO belong in the Sprint Backlog? Choose TWO answers.",
+    "o": [
+     "The complete project plan",
+     "The Sprint Goal",
+     "An actionable plan for delivering the Increment",
+     "Task assignments set by the Scrum Master"
+    ],
+    "a": [
+     1,
+     2
+    ],
+    "e": "Guía 2020: Sprint Goal, elementos seleccionados y plan. Nada de asignaciones del SM."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements about the Increment are correct? Choose TWO answers.",
+    "o": [
+     "It is only the work completed by the last Developer",
+     "It may include work that is nearly done",
+     "It is the sum of all completed Product Backlog items plus the Increments of all previous Sprints",
+     "It must be usable"
+    ],
+    "a": [
+     2,
+     3
+    ],
+    "e": "Guía 2020: el Incremento es acumulativo y debe ser utilizable."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "multi",
+    "q": "Which TWO statements about the Definition of Done are correct? Choose TWO answers.",
+    "o": [
+     "It is defined solely by the Scrum Master and cannot change",
+     "It creates transparency by giving everyone a shared understanding",
+     "It applies only to testing activities",
+     "It is a formal description of the state of the Increment when it meets the quality measures required"
+    ],
+    "a": [
+     1,
+     3
+    ],
+    "e": "Guía 2020: describe el estado del Incremento; crea transparencia; el equipo la mejora."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Burn-down charts are mandatory in Scrum.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "La Guía 2020 no los exige; son prácticas útiles que no sustituyen al empirismo."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A Product Backlog item that doesn't meet the Definition of Done may be shown in the Sprint Review if clearly marked.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "Guía 2020: no puede liberarse ni presentarse en la Review; vuelve al Product Backlog."
+   }
+  ]
+ },
+ {
+  "sec": "artifacts",
+  "task": "Scrum artifacts and commitments",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The Scrum Team works toward one Product Goal at a time.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "Guía 2020: el equipo debe cumplir o abandonar un objetivo antes de asumir el siguiente."
+   }
+  ]
+ }
+]

@@ -1,0 +1,3186 @@
+[
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 1,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"garden",
+"plinter",
+"flarnish",
+"gorrible",
+"bridge",
+"drestful",
+"quickly",
+"mountain"
+],
+"a": [
+0,
+4,
+6,
+7
+],
+"e": "Reales: garden, bridge, mountain, quickly. Inventadas: plinter, gorrible, drestful, flarnish (no existen en inglés). Truco: las palabras falsas suenan inglesas pero no tienen significado; si no puedes imaginar su traducción, desconfía."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"mellick",
+"tralent",
+"borrow",
+"journey",
+"neighbor",
+"library",
+"vorsity",
+"stroven",
+"ancient"
+],
+"a": [
+2,
+3,
+4,
+5,
+8
+],
+"e": "Reales: library, journey, borrow, ancient, neighbor. Inventadas: stroven, mellick, tralent, vorsity (no existen en inglés). Truco: busca terminaciones reales (-ity, -ent) pegadas a raíces que no existen."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"machine",
+"flurdle",
+"blorter",
+"wistable",
+"grompet",
+"canvidate",
+"silent",
+"prenzy",
+"exercise"
+],
+"a": [
+0,
+6,
+8
+],
+"e": "Reales: machine, silent, exercise. Inventadas: blorter, canvidate, prenzy, wistable, grompet, flurdle (no existen en inglés). Truco: 'canvidate' imita 'candidate'; los falsos suelen ser deformaciones de palabras reales."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 3,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"thrimble",
+"narrow",
+"curious",
+"vegetable",
+"weather",
+"nexible",
+"clostard",
+"frimble"
+],
+"a": [
+1,
+2,
+3,
+4
+],
+"e": "Reales: vegetable, weather, curious, narrow. Inventadas: thrimble, clostard, nexible, frimble (no existen en inglés). Truco: no te fíes del sonido; pregúntate si lo has visto en un texto o diccionario."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 1,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"shelmet",
+"improve",
+"tindrive",
+"balance",
+"ovarent",
+"century",
+"crondle",
+"collect",
+"engineer"
+],
+"a": [
+1,
+3,
+5,
+7,
+8
+],
+"e": "Reales: engineer, century, balance, collect, improve. Inventadas: crondle, shelmet, ovarent, tindrive (no existen en inglés). Truco: 'shelmet' mezcla 'shell' y 'helmet'; los falsos son mezclas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"orsible",
+"harvest",
+"fragile",
+"generous",
+"glarvish",
+"telescope",
+"zelmet",
+"praddle"
+],
+"a": [
+1,
+2,
+3,
+5
+],
+"e": "Reales: telescope, harvest, generous, fragile. Inventadas: zelmet, praddle, orsible, glarvish (no existen en inglés). Truco: las terminaciones -ible, -ish engañan; comprueba la raíz."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 3,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"glacier",
+"tremendous",
+"hurnish",
+"tolerate",
+"clovate",
+"stremble",
+"achieve",
+"bastery"
+],
+"a": [
+0,
+1,
+3,
+6
+],
+"e": "Reales: achieve, tremendous, glacier, tolerate. Inventadas: stremble, clovate, hurnish, bastery (no existen en inglés). Truco: 'stremble' recuerda a 'tremble' pero no existe."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"route",
+"volunteer",
+"damplick",
+"wombrish",
+"ocean",
+"peculiar",
+"jundle",
+"phelter",
+"trasion",
+"enormous"
+],
+"a": [
+0,
+1,
+4,
+5,
+9
+],
+"e": "Reales: volunteer, ocean, peculiar, enormous, route. Inventadas: damplick, trasion, phelter, jundle, wombrish (no existen en inglés). Truco: las palabras reales tienen un significado claro; los falsos solo 'suenan' bien."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 1,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"tuvering",
+"scrivet",
+"schedule",
+"mextral",
+"glopper",
+"prolden",
+"fandrous",
+"deserve",
+"climate"
+],
+"a": [
+2,
+7,
+8
+],
+"e": "Reales: schedule, deserve, climate. Inventadas: prolden, scrivet, fandrous, mextral, tuvering, glopper (no existen en inglés). Truco: 'tuvering' parece un gerundio (-ing) de un verbo que no existe."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"remarkable",
+"wisdom",
+"hindrace",
+"laboratory",
+"drambly",
+"vorbing",
+"crelm",
+"shelter",
+"plostic"
+],
+"a": [
+0,
+1,
+3,
+7
+],
+"e": "Reales: laboratory, remarkable, wisdom, shelter. Inventadas: plostic, hindrace, vorbing, crelm, drambly (no existen en inglés). Truco: 'plostic' y 'hindrace' son deformaciones de 'plastic' y 'hindrance'."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"sporant",
+"abundant",
+"blenture",
+"consequence",
+"eager",
+"tharval",
+"quiffle",
+"fossil",
+"mondrous"
+],
+"a": [
+1,
+3,
+4,
+7
+],
+"e": "Reales: consequence, abundant, eager, fossil. Inventadas: blenture, sporant, mondrous, quiffle, tharval (no existen en inglés). Truco: 'mondrous' imita 'monstrous'/'wondrous', pero no existe."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 3,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"anvolt",
+"reluctant",
+"trelling",
+"gostrich",
+"sustain",
+"mervical",
+"orbit",
+"canyon"
+],
+"a": [
+1,
+4,
+6,
+7
+],
+"e": "Reales: reluctant, sustain, orbit, canyon. Inventadas: trelling, gostrich, anvolt, mervical (no existen en inglés). Truco: 'gostrich' recuerda a 'ostrich'; ojo con los parecidos."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 1,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"ambitious",
+"metaphor",
+"snoddle",
+"thrive",
+"orquent",
+"glimpse",
+"dentrify",
+"scarce",
+"blavish"
+],
+"a": [
+0,
+1,
+3,
+5,
+7
+],
+"e": "Reales: metaphor, thrive, ambitious, glimpse, scarce. Inventadas: dentrify, orquent, blavish, snoddle (no existen en inglés). Truco: marca solo las que puedas usar en una frase real."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Read and Select",
+"lvl": 2,
+"qs": [
+{
+"t": "multi",
+"q": "Select the real English words.",
+"o": [
+"truncible",
+"nutrition",
+"hoverance",
+"bamboo",
+"glymph",
+"crassify",
+"pertand",
+"vilmont",
+"inevitable"
+],
+"a": [
+1,
+3,
+8
+],
+"e": "Reales: inevitable, nutrition, bamboo. Inventadas: crassify, vilmont, truncible, hoverance, glymph, pertand (no existen en inglés). Truco: 'hoverance' imita 'perseverance'/'tolerance'; no existe."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 3,
+"qs": [
+{
+"t": "fill",
+"q": "She was very happ___ with the result.",
+"a": [
+"happy"
+],
+"e": "Respuesta: happy. Adjetivo tras 'very'. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Please turn off the light when you leave the ro___.",
+"a": [
+"room"
+],
+"e": "Respuesta: room. 'leave the ...' = lugar: room. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "He walks to scho___ every morning.",
+"a": [
+"school"
+],
+"e": "Respuesta: school. 'walks to ...' = lugar de estudio. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "I usually drink tea with a little hon___.",
+"a": [
+"honey"
+],
+"e": "Respuesta: honey. Se endulza el té con honey. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 1,
+"qs": [
+{
+"t": "fill",
+"q": "The museum opens at nine in the morn___.",
+"a": [
+"morning"
+],
+"e": "Respuesta: morning. 'in the morning' es la expresión fija. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "My brother is tall___ than me.",
+"a": [
+"taller"
+],
+"e": "Respuesta: taller. 'than' pide comparativo: taller. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Drinking enough wa___ is important for health.",
+"a": [
+"water"
+],
+"e": "Respuesta: water. Lo que se bebe para la salud: water. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 2,
+"qs": [
+{
+"t": "fill",
+"q": "I forgot to bring my umbr___ and got wet.",
+"a": [
+"umbrella"
+],
+"e": "Respuesta: umbrella. Te mojas sin umbrella. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The train was delayed because of heavy sn___.",
+"a": [
+"snow"
+],
+"e": "Respuesta: snow. Retraso por nieve: snow. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "She spoke so quiet___ that nobody heard her.",
+"a": [
+"quietly"
+],
+"e": "Respuesta: quietly. Modifica un verbo: adverbio -ly. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 3,
+"qs": [
+{
+"t": "fill",
+"q": "It is import___ to sleep at least seven hours.",
+"a": [
+"important"
+],
+"e": "Respuesta: important. 'It is ... to' + adjetivo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "He decided to apply for a scholar___ to study abroad.",
+"a": [
+"scholarship"
+],
+"e": "Respuesta: scholarship. 'apply for a scholarship' es colocación típica. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The recipe requires fresh ingred___.",
+"a": [
+"ingredients"
+],
+"e": "Respuesta: ingredients. Receta: ingredients (plural). Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 2,
+"qs": [
+{
+"t": "fill",
+"q": "The scientist made an amaz___ discovery.",
+"a": [
+"amazing"
+],
+"e": "Respuesta: amazing. Adjetivo antes de sustantivo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "We are looking forward to seeing you next we___.",
+"a": [
+"week"
+],
+"e": "Respuesta: week. 'next week' expresión de tiempo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Please be care___ with the glass.",
+"a": [
+"careful"
+],
+"e": "Respuesta: careful. 'be' + adjetivo: careful. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The village is surrounded by beautiful mount___.",
+"a": [
+"mountains"
+],
+"e": "Respuesta: mountains. 'surrounded by' + montañas, plural. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 1,
+"qs": [
+{
+"t": "fill",
+"q": "The teacher asked us to discuss the quest___ in groups.",
+"a": [
+"question"
+],
+"e": "Respuesta: question. Se discute una question. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "He has a lot of experi___ in teaching.",
+"a": [
+"experience"
+],
+"e": "Respuesta: experience. 'a lot of' + sustantivo: experience. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The bus stop is clo___ to my house.",
+"a": [
+"close"
+],
+"e": "Respuesta: close. 'close to' = cerca de. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 2,
+"qs": [
+{
+"t": "fill",
+"q": "The company will introd___ a new product next month.",
+"a": [
+"introduce"
+],
+"e": "Respuesta: introduce. Tras 'will' va un verbo: introduce. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Regular exer___ keeps your heart strong.",
+"a": [
+"exercise"
+],
+"e": "Respuesta: exercise. Sujeto: exercise. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The river is too dang___ to swim in after the storm.",
+"a": [
+"dangerous"
+],
+"e": "Respuesta: dangerous. 'too ... to' + adjetivo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 2,
+"qs": [
+{
+"t": "fill",
+"q": "She is fluent in three langu___.",
+"a": [
+"languages"
+],
+"e": "Respuesta: languages. 'three' pide plural. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The library is quiet, so please do not make any no___.",
+"a": [
+"noise"
+],
+"e": "Respuesta: noise. 'make noise' colocación. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Our flight was cancelled, so we had to wait at the air___.",
+"a": [
+"airport"
+],
+"e": "Respuesta: airport. Se espera en el airport. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 3,
+"qs": [
+{
+"t": "fill",
+"q": "The population of the city has increa___ rapidly.",
+"a": [
+"increased"
+],
+"e": "Respuesta: increased. 'has' + participio. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "It is difficult to concent___ when it is noisy.",
+"a": [
+"concentrate"
+],
+"e": "Respuesta: concentrate. 'to' + verbo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "He apologized for being late and promised to be on ti___ next time.",
+"a": [
+"time"
+],
+"e": "Respuesta: time. 'on time' = puntual. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "She enjoys read___ novels in her free time.",
+"a": [
+"reading"
+],
+"e": "Respuesta: reading. 'enjoy' + gerundio. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 1,
+"qs": [
+{
+"t": "fill",
+"q": "The mountain is covered with snow throughout the ye___.",
+"a": [
+"year"
+],
+"e": "Respuesta: year. 'throughout the year'. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "A healthy diet includes plenty of fru___ and vegetables.",
+"a": [
+"fruit",
+"fruits"
+],
+"e": "Respuesta: fruit. Pareja típica: fruit and vegetables. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The engineer explained how the mach___ works.",
+"a": [
+"machine"
+],
+"e": "Respuesta: machine. 'how the ... works': machine. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 2,
+"qs": [
+{
+"t": "fill",
+"q": "Climate change is a serious prob___ for farmers.",
+"a": [
+"problem"
+],
+"e": "Respuesta: problem. 'serious problem'. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "She was nerv___ before the interview.",
+"a": [
+"nervous"
+],
+"e": "Respuesta: nervous. 'was' + adjetivo de emoción. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The film was so bor___ that we left early.",
+"a": [
+"boring"
+],
+"e": "Respuesta: boring. 'so ... that' + adjetivo; la película es boring. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 1,
+"qs": [
+{
+"t": "fill",
+"q": "Many students prefer to study in the evening because it is peace___.",
+"a": [
+"peaceful"
+],
+"e": "Respuesta: peaceful. 'it is' + adjetivo: peaceful. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The new bridge will reduce traffic conges___.",
+"a": [
+"congestion"
+],
+"e": "Respuesta: congestion. 'traffic congestion' colocación. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "We should protect the environ___ for future generations.",
+"a": [
+"environment"
+],
+"e": "Respuesta: environment. 'protect the environment'. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 2,
+"qs": [
+{
+"t": "fill",
+"q": "He gradu___ from university last year.",
+"a": [
+"graduated"
+],
+"e": "Respuesta: graduated. 'last year' pide pasado. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The article describes how ancient peo___ built boats.",
+"a": [
+"people"
+],
+"e": "Respuesta: people. 'ancient people'. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "I am writing to inquire about the avail___ of the room.",
+"a": [
+"availability"
+],
+"e": "Respuesta: availability. 'the ... of the room': sustantivo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "The tour guide spoke slow___ so everyone could understand.",
+"a": [
+"slowly"
+],
+"e": "Respuesta: slowly. Modifica 'spoke': adverbio. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "vocab",
+"task": "Fill in the Blanks",
+"lvl": 3,
+"qs": [
+{
+"t": "fill",
+"q": "The new software is much more effic___ than the old one.",
+"a": [
+"efficient"
+],
+"e": "Respuesta: efficient. 'more' + adjetivo largo. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Despite the heavy rain, the match was not cancel___.",
+"a": [
+"cancelled",
+"canceled"
+],
+"e": "Respuesta: cancelled. 'was not' + participio. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+},
+{
+"t": "fill",
+"q": "Visitors are advised to wear comfort___ shoes.",
+"a": [
+"comfortable"
+],
+"e": "Respuesta: comfortable. Adjetivo antes de 'shoes'. Fíjate en la gramática y el contexto, no solo en las letras dadas."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 2,
+"passage": "Bees are small insects that play a very important role in nature. They collect nectar from flowers and carry pollen from one plant to another, which helps plants produce fruit and seeds. Without bees, many of the foods we eat every day would become scarce. Farmers often place hives near their fields to improve the harvest. Sadly, the number of bees is falling in many countries, so scientists are looking for ways to protect them.",
+"qs": [
+{
+"t": "fill",
+"q": "They collect nec___ from flowers and carry pollen from one plant to another, which helps plants produce fruit and seeds.",
+"a": [
+"nectar"
+],
+"e": "Respuesta: nectar (néctar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "They collect nectar from flowers and carry pollen from one plant to another, which helps plants prod___ fruit and seeds.",
+"a": [
+"produce"
+],
+"e": "Respuesta: produce (producir). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Without bees, many of the foods we eat every day would become sca___.",
+"a": [
+"scarce"
+],
+"e": "Respuesta: scarce (escasos). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Farmers often place hives near their fields to improve the harv___.",
+"a": [
+"harvest"
+],
+"e": "Respuesta: harvest (cosecha). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Sadly, the number of bees is falling in many countries, so scientists are looking for ways to prot___ them.",
+"a": [
+"protect"
+],
+"e": "Respuesta: protect (proteger). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 2,
+"passage": "Sleep is essential for good health. During the night, the body repairs its muscles and the brain organizes what we learned during the day. Adults usually need between seven and nine hours of rest, while children need even more. People who sleep too little often feel tired, find it hard to concentrate, and become ill more easily. A quiet, dark room and a regular bedtime can help you sleep better.",
+"qs": [
+{
+"t": "fill",
+"q": "Sleep is esse___ for good health.",
+"a": [
+"essential"
+],
+"e": "Respuesta: essential (esencial). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "During the night, the body rep___ its muscles and the brain organizes what we learned during the day.",
+"a": [
+"repairs"
+],
+"e": "Respuesta: repairs (repara). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "During the night, the body repairs its muscles and the brain orga___ what we learned during the day.",
+"a": [
+"organizes"
+],
+"e": "Respuesta: organizes (organiza). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "People who sleep too little often feel tired, find it hard to conce___, and become ill more easily.",
+"a": [
+"concentrate"
+],
+"e": "Respuesta: concentrate (concentrarse). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "A quiet, dark room and a regu___ bedtime can help you sleep better.",
+"a": [
+"regular"
+],
+"e": "Respuesta: regular (regular, constante). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 3,
+"passage": "Many cities are encouraging people to ride bicycles instead of driving cars. Cycling is cheap, healthy, and good for the environment because it produces no pollution. To make it safer, some cities have built special lanes that separate bicycles from traffic. As a result, the number of cyclists has grown quickly, and streets have become quieter. Experts believe that this trend will continue in the coming years.",
+"qs": [
+{
+"t": "fill",
+"q": "Many cities are encou___ people to ride bicycles instead of driving cars.",
+"a": [
+"encouraging"
+],
+"e": "Respuesta: encouraging (animando). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Cycling is cheap, healthy, and good for the enviro___ because it produces no pollution.",
+"a": [
+"environment"
+],
+"e": "Respuesta: environment (medio ambiente). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Cycling is cheap, healthy, and good for the environment because it produces no poll___.",
+"a": [
+"pollution"
+],
+"e": "Respuesta: pollution (contaminación). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "To make it safer, some cities have built special lanes that sepa___ bicycles from traffic.",
+"a": [
+"separate"
+],
+"e": "Respuesta: separate (separar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Experts believe that this tre___ will continue in the coming years.",
+"a": [
+"trend"
+],
+"e": "Respuesta: trend (tendencia). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 1,
+"passage": "A desert is a region that receives very little rain during the year. Although it may seem empty, many animals and plants have adapted to survive there. Camels, for example, can travel for days without drinking water because they store fat in their humps. Some plants have long roots that reach water deep under the ground. Temperatures can be extremely hot in the daytime and surprisingly cold at night.",
+"qs": [
+{
+"t": "fill",
+"q": "A desert is a reg___ that receives very little rain during the year.",
+"a": [
+"region"
+],
+"e": "Respuesta: region (región). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Although it may seem empty, many animals and plants have adap___ to survive there.",
+"a": [
+"adapted"
+],
+"e": "Respuesta: adapted (adaptado). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Although it may seem empty, many animals and plants have adapted to surv___ there.",
+"a": [
+"survive"
+],
+"e": "Respuesta: survive (sobrevivir). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Camels, for example, can travel for days without drinking water because they sto___ fat in their humps.",
+"a": [
+"store"
+],
+"e": "Respuesta: store (almacenar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Temperatures can be extre___ hot in the daytime and surprisingly cold at night.",
+"a": [
+"extremely"
+],
+"e": "Respuesta: extremely (extremadamente). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 2,
+"passage": "In the fifteenth century, a German inventor named Johannes Gutenberg developed a printing machine that changed the world. Before his invention, books were copied by hand, which took months and made them very expensive. The new machine allowed workers to produce many copies quickly. As a result, more people learned to read, and ideas spread across Europe faster than ever before.",
+"qs": [
+{
+"t": "fill",
+"q": "In the fifteenth century, a German inve___ named Johannes Gutenberg developed a printing machine that changed the world.",
+"a": [
+"inventor"
+],
+"e": "Respuesta: inventor (inventor). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Before his inven___, books were copied by hand, which took months and made them very expensive.",
+"a": [
+"invention"
+],
+"e": "Respuesta: invention (invento). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Before his invention, books were copied by hand, which took months and made them very expen___.",
+"a": [
+"expensive"
+],
+"e": "Respuesta: expensive (caros). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "The new machine allowed workers to produce many cop___ quickly.",
+"a": [
+"copies"
+],
+"e": "Respuesta: copies (copias). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "As a result, more people learned to read, and id___ spread across Europe faster than ever before.",
+"a": [
+"ideas"
+],
+"e": "Respuesta: ideas (ideas). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 3,
+"passage": "Volunteering means giving your time to help others without receiving payment. Many students volunteer at hospitals, libraries, or animal shelters during the holidays. They often say that the experience teaches them patience and responsibility. It also helps them meet new friends and discover what kind of career they might enjoy. Communities benefit greatly because volunteers fill gaps that official services cannot always cover.",
+"qs": [
+{
+"t": "fill",
+"q": "Volunteering means giving your time to help others without receiving pay___.",
+"a": [
+"payment"
+],
+"e": "Respuesta: payment (pago). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Many students volunteer at hospitals, libraries, or animal shel___ during the holidays.",
+"a": [
+"shelters"
+],
+"e": "Respuesta: shelters (refugios). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "They often say that the experience teaches them patience and respon___.",
+"a": [
+"responsibility"
+],
+"e": "Respuesta: responsibility (responsabilidad). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "It also helps them meet new friends and disc___ what kind of career they might enjoy.",
+"a": [
+"discover"
+],
+"e": "Respuesta: discover (descubrir). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Communities ben___ greatly because volunteers fill gaps that official services cannot always cover.",
+"a": [
+"benefit"
+],
+"e": "Respuesta: benefit (beneficiarse). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 2,
+"passage": "The Silk Road was a network of trade routes that connected China with the Mediterranean for many centuries. Merchants traveled in long groups called caravans to protect themselves from danger. They carried silk, spices, paper, and precious stones. Along the way, they also exchanged stories, languages, and religions. Because of this, the route helped different cultures learn from one another.",
+"qs": [
+{
+"t": "fill",
+"q": "The Silk Road was a net___ of trade routes that connected China with the Mediterranean for many centuries.",
+"a": [
+"network"
+],
+"e": "Respuesta: network (red). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Merc___ traveled in long groups called caravans to protect themselves from danger.",
+"a": [
+"merchants",
+"Merchants"
+],
+"e": "Respuesta: merchants (comerciantes). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "They carried silk, spices, paper, and prec___ stones.",
+"a": [
+"precious"
+],
+"e": "Respuesta: precious (preciosas). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Along the way, they also exch___ stories, languages, and religions.",
+"a": [
+"exchanged"
+],
+"e": "Respuesta: exchanged (intercambiaron). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Because of this, the route helped different cult___ learn from one another.",
+"a": [
+"cultures"
+],
+"e": "Respuesta: cultures (culturas). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 1,
+"passage": "Learning a second language has many benefits. Research shows that it can improve memory and make the brain more flexible. It also opens doors to new jobs, since many companies need employees who can communicate with customers abroad. The best way to progress is to practice a little every day instead of studying for many hours once a week. Listening to songs and talking with native speakers can make the process enjoyable.",
+"qs": [
+{
+"t": "fill",
+"q": "Learning a second language has many bene___.",
+"a": [
+"benefits"
+],
+"e": "Respuesta: benefits (beneficios). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Research shows that it can improve memory and make the brain more flex___.",
+"a": [
+"flexible"
+],
+"e": "Respuesta: flexible (flexible). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "It also opens doors to new jobs, since many companies need empl___ who can communicate with customers abroad.",
+"a": [
+"employees"
+],
+"e": "Respuesta: employees (empleados). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "The best way to progress is to prac___ a little every day instead of studying for many hours once a week.",
+"a": [
+"practice"
+],
+"e": "Respuesta: practice (practicar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Listening to songs and talking with native speakers can make the process enjo___.",
+"a": [
+"enjoyable"
+],
+"e": "Respuesta: enjoyable (agradable). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 2,
+"passage": "A volcano is an opening in the Earth's surface through which hot melted rock, gas, and ash can escape. When pressure builds up deep underground, the volcano may erupt suddenly. Scientists monitor many active volcanoes with special instruments to warn nearby villages in time. Although eruptions can be dangerous, volcanic soil is very rich, so farmers often grow crops on the slopes.",
+"qs": [
+{
+"t": "fill",
+"q": "A volcano is an opening in the Earth's surf___ through which hot melted rock, gas, and ash can escape.",
+"a": [
+"surface"
+],
+"e": "Respuesta: surface (superficie). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "When pres___ builds up deep underground, the volcano may erupt suddenly.",
+"a": [
+"pressure"
+],
+"e": "Respuesta: pressure (presión). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Scientists moni___ many active volcanoes with special instruments to warn nearby villages in time.",
+"a": [
+"monitor"
+],
+"e": "Respuesta: monitor (vigilar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Scientists monitor many active volcanoes with special instr___ to warn nearby villages in time.",
+"a": [
+"instruments"
+],
+"e": "Respuesta: instruments (instrumentos). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "Although eruptions can be dange___, volcanic soil is very rich, so farmers often grow crops on the slopes.",
+"a": [
+"dangerous"
+],
+"e": "Respuesta: dangerous (peligrosas). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Read and Complete",
+"lvl": 2,
+"passage": "More and more people now work from home instead of traveling to an office. This change saves time and money, and it gives employees greater freedom to organize their day. However, working alone can be difficult for some people because they miss talking with colleagues. To solve this problem, many companies arrange regular online meetings. A quiet workspace and clear daily goals also help workers stay productive.",
+"qs": [
+{
+"t": "fill",
+"q": "More and more people now work from home instead of trav___ to an office.",
+"a": [
+"traveling"
+],
+"e": "Respuesta: traveling (viajar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "This change saves time and money, and it gives employees greater free___ to organize their day.",
+"a": [
+"freedom"
+],
+"e": "Respuesta: freedom (libertad). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "However, working alone can be difficult for some people because they miss talking with colle___.",
+"a": [
+"colleagues"
+],
+"e": "Respuesta: colleagues (compañeros). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "To solve this problem, many companies arra___ regular online meetings.",
+"a": [
+"arrange"
+],
+"e": "Respuesta: arrange (organizar). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+},
+{
+"t": "fill",
+"q": "A quiet workspace and clear daily goals also help workers stay produ___.",
+"a": [
+"productive"
+],
+"e": "Respuesta: productive (productivos). Las letras iniciales y el sentido de la frase dentro del párrafo lo confirman; lee la frase completa antes de rellenar."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 2,
+"passage": "The octopus is one of the most intelligent animals in the ocean. Although it has no bones and lives alone, it can solve problems that puzzle many other creatures. In laboratory experiments, octopuses have learned to unscrew jar lids to reach food hidden inside. Some have even escaped from their tanks at night by squeezing through tiny gaps, only to be found the next morning in a nearby room. Scientists are particularly interested in how the octopus thinks, because its brain is built very differently from ours. Roughly two thirds of its neurons are located in its eight arms, which means each arm can make some decisions on its own. This unusual design allows the animal to taste, touch, and explore objects at the same time. Researchers hope that studying octopuses will help engineers create flexible robots that can move through narrow spaces. Despite their talents, octopuses live only a few years, so they cannot pass their knowledge on to their young.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"The octopus is a remarkably intelligent animal with an unusual nervous system.",
+"Octopuses are the fastest swimmers in the sea.",
+"Octopuses live in groups and teach their young.",
+"Laboratories should keep octopuses in larger tanks."
+],
+"a": 0,
+"e": "La idea principal abarca todo el texto: inteligencia + cerebro distinto. Las otras opciones son detalles falsos o no mencionados."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"Why Jars Are Hard to Open",
+"The Clever Octopus: A Mind in Eight Arms",
+"Life in the Deep Ocean",
+"Robots That Swim in Laboratories"
+],
+"a": 1,
+"e": "Un buen título resume el tema central sin quedarse en un detalle (los tarros) ni inventar temas."
+},
+{
+"t": "mcq",
+"q": "In the passage, the word \"puzzle\" is closest in meaning to:",
+"o": [
+"entertain",
+"protect",
+"confuse",
+"attack"
+],
+"a": 2,
+"e": "Aquí 'puzzle' es verbo: 'desconcertar'. Sustituye en la frase: problemas que confunden a otras criaturas."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about young octopuses?",
+"o": [
+"They forget everything they learn.",
+"They are born without a brain.",
+"They live longer than their parents.",
+"They probably must learn skills without being taught by adults."
+],
+"a": 3,
+"e": "El texto dice que viven pocos años y no transmiten conocimiento; de ahí se deduce que aprenden solos."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 3,
+"passage": "Parks and gardens are often seen as pleasant extras in a city, but research suggests they are much more than that. Trees reduce summer temperatures by providing shade and releasing moisture into the air. Grass and soil absorb rainwater, which lowers the risk of flooding during heavy storms. Green spaces also benefit people directly: studies show that residents who live near a park walk more, report lower stress, and feel more connected to their neighbors. Despite these advantages, land in city centers is expensive, and developers frequently prefer to build offices or apartments. Some planners have responded with creative solutions, such as planting gardens on rooftops and covering the walls of buildings with climbing plants. These projects use small amounts of space yet still deliver cooling, cleaner air, and a place for birds and insects to live. Critics argue that rooftop gardens are costly to maintain, but supporters point out that they also reduce energy bills by insulating buildings.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Green spaces bring practical benefits to cities, and planners are finding new ways to create them.",
+"Parks are only useful for relaxing on weekends.",
+"Rooftop gardens are too expensive to be worth building.",
+"Developers should stop building apartments."
+],
+"a": 0,
+"e": "La idea principal combina beneficios y soluciones. Las otras opciones exageran o contradicen el texto."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"How to Build an Office Tower",
+"More Than Pretty: Why Cities Need Green Space",
+"The History of Gardening",
+"Heavy Storms in Modern Cities"
+],
+"a": 1,
+"e": "El título debe reflejar el argumento: los espacios verdes son útiles, no solo bonitos."
+},
+{
+"t": "mcq",
+"q": "The word \"absorb\" in the passage means:",
+"o": [
+"throw away",
+"paint over",
+"take in",
+"move around"
+],
+"a": 2,
+"e": "'Absorb' = absorber/tomar. Si la lluvia no se acumula, es porque el suelo la 'toma'."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about developers?",
+"o": [
+"They dislike all types of plants.",
+"They never listen to planners.",
+"They believe parks cause floods.",
+"They probably expect to earn more money from buildings than from parks."
+],
+"a": 3,
+"e": "El texto dice que el suelo es caro y prefieren oficinas: inferencia económica, no una opinión sobre plantas."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 1,
+"passage": "The Library of Alexandria, founded in Egypt more than two thousand years ago, was one of the greatest centers of learning in the ancient world. Its rulers wanted to collect all the knowledge of humanity, so they ordered that every ship entering the harbor be searched for books. Any scroll found on board was copied, and the owner often received the copy while the library kept the original. Scholars from many countries came to work there, and they made important advances in geography, mathematics, and medicine. One of them calculated the size of the Earth with surprising accuracy by measuring shadows in two different cities. Historians still debate how the library finally disappeared. Some say a single fire destroyed it, while others believe it declined slowly over centuries as funding was reduced and scholars left. What is certain is that the loss of so many writings made it harder for later generations to understand the ancient world.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"The library was a great center of learning whose disappearance is still debated.",
+"The library was destroyed by one fire in a single night.",
+"Ships were forbidden to enter the harbor.",
+"Scholars were not allowed to copy scrolls."
+],
+"a": 0,
+"e": "La idea central es el papel del lugar y el debate final. Una opción afirma algo que el texto dice que se discute."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"A Guide to Egyptian Harbors",
+"The Lost Treasure House of Ancient Knowledge",
+"How to Measure Shadows",
+"The Best Ships of the Ancient World"
+],
+"a": 1,
+"e": "Elige el título que cubre todo: la biblioteca y su pérdida."
+},
+{
+"t": "mcq",
+"q": "In the passage, \"declined\" most nearly means:",
+"o": [
+"became larger",
+"was moved",
+"became weaker",
+"was refused"
+],
+"a": 2,
+"e": "'Decline' como verbo de proceso = decaer. El contexto (funding reduced, scholars left) lo confirma."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about the library's decline?",
+"o": [
+"It never had any scholars.",
+"It was too small to matter.",
+"It was built to store ships.",
+"It probably needed steady support to keep its scholars working."
+],
+"a": 3,
+"e": "Si el declive llegó al reducirse la financiación, se deduce que dependía de ese apoyo."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 2,
+"passage": "Many teenagers struggle to wake up for early classes, and parents often assume the problem is laziness. In fact, scientists have discovered that the body clock changes during adolescence. Hormones that make us sleepy are released later at night in teenagers than in children or adults, so a teenager may not feel tired until eleven o'clock or after. When school starts at seven or eight in the morning, students lose valuable hours of sleep and may find it hard to concentrate. Several schools have experimented with starting the day an hour later. In these schools, attendance improved, students reported feeling happier, and test scores rose slightly. Not everyone supports the change, however. Some parents worry that later finishing times would interfere with sports practice and part-time jobs, and bus companies would have to rearrange their schedules. Researchers suggest that a good compromise is to combine a later start with consistent bedtimes and less screen time in the evening.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Teenagers' body clocks differ from adults', so later school start times may help.",
+"Teenagers are lazy and should go to bed earlier.",
+"Buses are the main problem in schools.",
+"Sports practice is more important than sleep."
+],
+"a": 0,
+"e": "Mira la tesis: el reloj biológico cambia; el resto son ejemplos. Descarta opciones que culpan a la pereza (el texto la niega)."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"The Best Sports for Students",
+"Why Teenagers Need a Later Start",
+"How Hormones Make Adults Tired",
+"Ten Ways to Skip Class"
+],
+"a": 1,
+"e": "El título debe nombrar el problema y la solución propuesta."
+},
+{
+"t": "mcq",
+"q": "The word \"consistent\" in the last sentence means:",
+"o": [
+"very early",
+"expensive",
+"regular and steady",
+"uncomfortable"
+],
+"a": 2,
+"e": "'Consistent bedtimes' = horas de dormir regulares, que no cambian cada día."
+},
+{
+"t": "mcq",
+"q": "What can be inferred from the passage?",
+"o": [
+"Teenagers do not need sleep.",
+"Test scores always fall with later starts.",
+"Parents have no concerns about later schedules.",
+"Sleep is probably connected to how well students perform at school."
+],
+"a": 3,
+"e": "Si con más sueño suben asistencia y notas, se infiere la relación sueño-rendimiento."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 3,
+"passage": "Nearly every country faces pressure on its supply of fresh water, and some regions receive so little rain that people must look for other sources. One answer is desalination, a process that removes salt from seawater so that it can be drunk or used for farming. The most common method forces seawater through extremely thin filters that block salt but let water pass. Desalination plants now supply drinking water to millions of people in dry regions such as the Arabian Peninsula. The technology is not perfect, however. It uses large amounts of electricity, and the salty water left over, called brine, can harm sea life if it is released carelessly. To reduce these problems, engineers are building plants powered by solar energy and developing ways to spread the brine over wide areas so it mixes safely with the ocean. If these improvements succeed, desalination could become a reliable and sustainable source of water for many communities in the future.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Desalination provides fresh water in dry regions but still needs improvements.",
+"Seawater is already safe to drink.",
+"Rain is increasing in desert regions.",
+"Brine is the most valuable product of desalination."
+],
+"a": 0,
+"e": "La idea principal incluye ventaja y limitación. Evita opciones que niegan el problema."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"The Sound of the Ocean",
+"Turning Seawater into Drinking Water",
+"Why Filters Are Expensive",
+"Solar Panels on Every Roof"
+],
+"a": 1,
+"e": "Título = tema central (convertir agua salada en potable)."
+},
+{
+"t": "mcq",
+"q": "The word \"reliable\" in the last sentence means:",
+"o": [
+"temporary",
+"dangerous",
+"dependable",
+"unknown"
+],
+"a": 2,
+"e": "'Reliable' = fiable, en el que se puede confiar; piensa en 'rely' (depender)."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about desalination today?",
+"o": [
+"It is used only in rainy countries.",
+"It has no effect on sea life.",
+"It cannot supply drinking water.",
+"High electricity use is one of its main weaknesses."
+],
+"a": 3,
+"e": "El texto dice que gasta mucha electricidad y que los ingenieros intentan reducir ese problema."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 2,
+"passage": "Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. A reef is built by tiny animals called polyps, which form hard skeletons around themselves and slowly create large structures over thousands of years. Polyps live in partnership with algae, microscopic plants that give corals their bright colors and provide food through photosynthesis. This partnership is delicate. If the water becomes too warm, the polyps push the algae out, and the coral turns white in a process known as bleaching. A bleached reef is not necessarily dead, but it is weak and can starve if conditions do not improve quickly. Reefs also protect coasts by absorbing the force of waves, and they provide food and income for millions of people. Conservation groups therefore encourage visitors to avoid touching coral, to use sunscreens that do not harm marine life, and to support projects that grow new coral in nurseries.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Coral reefs are valuable but fragile ecosystems that need protection.",
+"Coral is a type of plant that grows quickly.",
+"Reefs cover most of the ocean floor.",
+"Bleached coral is always dead."
+],
+"a": 0,
+"e": "Resume el texto entero: valor + fragilidad + protección. Las otras contradicen datos."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"The Fastest Fish in the Sea",
+"Small Animals, Giant Reefs",
+"Sunscreen: A Short History",
+"Why the Ocean Is Blue"
+],
+"a": 1,
+"e": "El título debe reflejar el tema: animales diminutos que crean arrecifes enormes."
+},
+{
+"t": "mcq",
+"q": "In the passage, \"delicate\" most nearly means:",
+"o": [
+"very large",
+"well known",
+"easily damaged",
+"cheap"
+],
+"a": 2,
+"e": "Si una asociación se rompe con un pequeño cambio de temperatura, es 'delicada' (frágil)."
+},
+{
+"t": "mcq",
+"q": "What can be inferred if ocean temperatures keep rising?",
+"o": [
+"Algae will grow stronger on every reef.",
+"Waves will become weaker everywhere.",
+"Coral will stop needing food.",
+"Reefs and the people who depend on them may suffer."
+],
+"a": 3,
+"e": "Agua más cálida causa blanqueamiento; los arrecifes dan comida e ingresos: la consecuencia se infiere."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 1,
+"passage": "Solar panels convert sunlight into electricity, and their price has fallen dramatically over the last twenty years. Today, in many sunny countries, building a solar farm is cheaper than building a new power plant that burns fuel. Even so, the sun does not shine at night, and clouds can reduce output during the day. For this reason, engineers combine solar panels with large batteries that store energy for later use. Another challenge is space: a farm that powers a small city may cover several square kilometers. Some designers solve this by floating panels on reservoirs, where they also reduce evaporation, or by installing them above parking lots. Households can also benefit. A family that installs panels on its roof can lower its bills, and in some places it can even sell extra electricity back to the grid. As technology improves, experts expect solar power to become one of the world's main sources of energy.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Solar power is becoming affordable and practical thanks to new solutions.",
+"Solar panels work best at night.",
+"Power plants that burn fuel are cheaper everywhere.",
+"Households cannot use solar energy."
+],
+"a": 0,
+"e": "La tesis es el progreso del solar (precio + soluciones). Las demás opciones son falsas según el texto."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"Batteries Under the Sea",
+"The Rise of Solar Energy",
+"Life in a Sunny Country",
+"How to Paint a Roof"
+],
+"a": 1,
+"e": "El título correcto es general pero fiel al contenido."
+},
+{
+"t": "mcq",
+"q": "The word \"output\" in the passage means:",
+"o": [
+"the way out",
+"a type of cloud",
+"the amount produced",
+"a government rule"
+],
+"a": 2,
+"e": "'Output' = producción. Las nubes reducen la electricidad producida."
+},
+{
+"t": "mcq",
+"q": "Why are batteries mentioned?",
+"o": [
+"Panels cannot be built without batteries.",
+"Batteries are cheaper than panels.",
+"Batteries make the sun shine longer.",
+"Solar production is not constant, so energy must be stored."
+],
+"a": 3,
+"e": "Pregunta de inferencia: sol de noche = nada, así que se guarda energía."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 2,
+"passage": "Most students prepare for exams by reading their notes many times the night before. This method, often called cramming, feels productive, but psychologists have found that it produces weak long-term memory. A far better strategy is spaced repetition, which means reviewing the same material several times with gaps between sessions. The first review might happen the next day, the second after a week, and the third after a month. Each time you struggle slightly to remember, the connection in your brain becomes stronger. Another powerful technique is self-testing. Instead of rereading a chapter, close the book and try to write down everything you remember. The effort may feel uncomfortable, but studies show that students who test themselves score higher than those who only reread. Of course, no method can replace understanding. Memorizing facts without knowing how they connect will not help much if the exam asks you to apply ideas to a new situation.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Spaced repetition and self-testing are more effective than cramming.",
+"Cramming is the best way to remember.",
+"Students should never take exams.",
+"Understanding is less important than speed."
+],
+"a": 0,
+"e": "Busca la recomendación central: repetir espaciado y autoevaluarse."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"The Night Before the Exam",
+"Study Smarter, Not Longer",
+"Why Notes Are Useless",
+"A Month Without Books"
+],
+"a": 1,
+"e": "El título resume el consejo: método mejor, no más horas."
+},
+{
+"t": "mcq",
+"q": "In the last sentence, \"apply\" means:",
+"o": [
+"ask for",
+"remove",
+"use",
+"delay"
+],
+"a": 2,
+"e": "'Apply ideas' = aplicar/usar ideas en un caso nuevo. Cuidado: no es 'solicitar'."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about studying?",
+"o": [
+"Rereading always gives the highest scores.",
+"Memory does not need effort.",
+"Exams only test facts.",
+"Short, regular sessions can work better than one long session."
+],
+"a": 3,
+"e": "Los repasos separados fortalecen la memoria; por tanto, sesiones cortas y repartidas ganan."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 2,
+"passage": "In 1325, a young scholar named Ibn Battuta left his home in Tangier, Morocco, intending to make the pilgrimage to Mecca. He did not return for almost thirty years. During that time he traveled through North Africa, the Middle East, Central Asia, India, China, and parts of East and West Africa, covering roughly 120,000 kilometers. He generally traveled with caravans or on merchant ships, and he relied on the hospitality of local communities, scholars, and rulers. Because he was trained as a judge, he was often offered work along the way, which helped to pay for the journey. After returning, he dictated an account of his adventures to a writer, and the resulting book remains one of the most valuable sources about the fourteenth-century world. Modern historians sometimes question certain details, noting that he may have borrowed descriptions from earlier writers. Nevertheless, his travel record is impressive, and it shows how connected distant regions already were centuries ago.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Ibn Battuta's long journeys produced a valuable record of the medieval world.",
+"Ibn Battuta never left Morocco.",
+"Ibn Battuta wrote his book by himself during the trip.",
+"Caravans were invented by Ibn Battuta."
+],
+"a": 0,
+"e": "La idea central: viajes enormes + libro valioso. Revisa los detalles falsos de las otras."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"A Judge in Tangier",
+"Thirty Years on the Road",
+"The Shortest Route to Mecca",
+"Merchant Ships of China"
+],
+"a": 1,
+"e": "El título abarca el viaje completo, no un detalle."
+},
+{
+"t": "mcq",
+"q": "In the passage, \"relied on\" most nearly means:",
+"o": [
+"argued with",
+"looked for",
+"depended on",
+"got rid of"
+],
+"a": 2,
+"e": "'Rely on' = depender de, contar con."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about his book?",
+"o": [
+"Every detail is proven true.",
+"It was written before he traveled.",
+"It contains no information about other regions.",
+"It is useful, but readers should check some details carefully."
+],
+"a": 3,
+"e": "Los historiadores cuestionan algunos detalles: valioso, pero con cautela."
+}
+]
+},
+{
+"sec": "reading",
+"task": "Interactive Reading",
+"lvl": 3,
+"passage": "Japan experiences about one fifth of the world's strongest earthquakes, so its engineers have become experts in building structures that survive them. Rather than making buildings completely rigid, modern designs allow them to move slightly. Rubber and steel pads placed under the foundation absorb shaking, while heavy weights near the top, known as dampers, swing in the opposite direction to reduce sway. Many old temples use a similar idea: the famous five-story pagodas have a flexible central pillar that has helped them stand for centuries. Building codes in Japan are also strict, and they are updated after every major disaster. In addition, schools regularly practice drills so that children know how to protect themselves. Visitors are often surprised that life in tall buildings feels calm even when the ground trembles. Although no building can be completely safe, careful design, regular inspection, and public education greatly reduce the damage and save thousands of lives.",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main idea of the passage?",
+"o": [
+"Japan limits earthquake damage through flexible design and preparation.",
+"Earthquakes never damage Japanese buildings.",
+"Old temples are unsafe in earthquakes.",
+"Only schools are built to resist shaking."
+],
+"a": 0,
+"e": "La idea central incluye diseño + preparación. 'Nunca' o 'solo' suelen ser señales de opciones falsas."
+},
+{
+"t": "mcq",
+"q": "Which title best fits the passage?",
+"o": [
+"The Tallest Buildings in Asia",
+"Built to Sway: Japan's Earthquake Engineering",
+"How to Paint a Pagoda",
+"A Visitor's Guide to Rubber"
+],
+"a": 1,
+"e": "El título debe capturar la idea de edificios que se mueven para sobrevivir."
+},
+{
+"t": "mcq",
+"q": "In the passage, \"rigid\" most nearly means:",
+"o": [
+"very tall",
+"brightly colored",
+"stiff and unable to bend",
+"old-fashioned"
+],
+"a": 2,
+"e": "El contraste es 'moverse ligeramente': lo opuesto es rígido, que no se dobla."
+},
+{
+"t": "mcq",
+"q": "What can be inferred about the pagodas?",
+"o": [
+"They are made of rubber.",
+"They were built after modern building codes.",
+"They are more rigid than modern towers.",
+"Their survival suggests that flexible structures can resist shaking well."
+],
+"a": 3,
+"e": "Pagodas con pilar flexible duran siglos: se infiere que la flexibilidad ayuda."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 1,
+"audio": "The library closes at six o'clock on weekdays and at noon on Saturdays.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"The library closes at six o'clock on weekdays and at noon on Saturdays.",
+"The library closes at six o'clock on weekdays and at noon on Saturdays"
+],
+"e": "Lo difícil de oír: Se enlaza 'closes at' (cloh-ses-at) y 'weekdays and at' se reduce a 'weekdayzən-at'. 'Six o'clock' suena casi como una palabra. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "She decided to take a different route to avoid the heavy traffic.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"She decided to take a different route to avoid the heavy traffic.",
+"She decided to take a different route to avoid the heavy traffic"
+],
+"e": "Lo difícil de oír: 'Decided to' se une (di-sái-dit-tu) y 'to avoid' tiene 'to' débil (tə). 'Route' se pronuncia 'rut' o 'raut'. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 3,
+"audio": "Could you please tell me where the nearest train station is?",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"Could you please tell me where the nearest train station is?",
+"Could you please tell me where the nearest train station is?"
+],
+"e": "Lo difícil de oír: 'Could you' suena 'cudyu'. El 'is' final es débil y casi no se oye: escúchalo aunque sea suave. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "The scientists have been studying this rare species for almost ten years.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"The scientists have been studying this rare species for almost ten years.",
+"The scientists have been studying this rare species for almost ten years"
+],
+"e": "Lo difícil de oír: 'Have been' se reduce a 'əv bin'. 'Species' lleva acento en la primera sílaba (SPI-shiiz). Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 1,
+"audio": "We should finish the project before the deadline next Thursday.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"We should finish the project before the deadline next Thursday.",
+"We should finish the project before the deadline next Thursday"
+],
+"e": "Lo difícil de oír: 'Should' pierde la 'l'; 'next Thursday' se une sin pronunciar la 't' de 'next'. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "My brother usually goes for a long walk after dinner.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"My brother usually goes for a long walk after dinner.",
+"My brother usually goes for a long walk after dinner"
+],
+"e": "Lo difícil de oír: 'Usually' son tres sílabas (YU-zhu-li); 'for a' se une: 'fər-ə'. 'Walk after' también se enlaza. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "Although it was raining, the children played happily in the garden.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"Although it was raining, the children played happily in the garden.",
+"Although it was raining, the children played happily in the garden"
+],
+"e": "Lo difícil de oír: 'Although it' se enlaza (al-dhó-it); 'was' es débil (wəz). Presta atención a los sufijos -ed y -ly. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 3,
+"audio": "The professor asked us to submit our essays by the end of the week.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"The professor asked us to submit our essays by the end of the week.",
+"The professor asked us to submit our essays by the end of the week"
+],
+"e": "Lo difícil de oír: 'Asked us' suena 'ask-tus'; 'by the end of the' se une: 'baidhi-en-də-və-dhə'. Las palabras de función son débiles. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 1,
+"audio": "I would have called you earlier if I had known about the change.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"I would have called you earlier if I had known about the change.",
+"I would have called you earlier if I had known about the change"
+],
+"e": "Lo difícil de oír: 'Would have' se oye 'wudəv' (parece 'would of'); 'had known' = 'əd noun'. Es gramática condicional: 'would have + participio'. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "Most of the students in this class are preparing for the final exam.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"Most of the students in this class are preparing for the final exam.",
+"Most of the students in this class are preparing for the final exam"
+],
+"e": "Lo difícil de oír: 'Most of the' se comprime; 'are' es débil (ər). Acentúa palabras de contenido: students, class, preparing, final, exam. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 1,
+"audio": "The new bridge will make it much easier to cross the river.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"The new bridge will make it much easier to cross the river.",
+"The new bridge will make it much easier to cross the river"
+],
+"e": "Lo difícil de oír: 'Make it' se une: 'mei-kit'. 'Easier' = 'I-zi-ər'. La 'll' de 'will' es muy corta. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "He has lived in this neighborhood since he was a small child.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"He has lived in this neighborhood since he was a small child.",
+"He has lived in this neighborhood since he was a small child"
+],
+"e": "Lo difícil de oír: 'He has' se reduce a 'hi-əz'; 'neighborhood' tiene tres sílabas (NEI-bər-hud). 'Since he was a' va muy rápido. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 3,
+"audio": "Fresh vegetables and plenty of water are essential for a healthy lifestyle.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"Fresh vegetables and plenty of water are essential for a healthy lifestyle.",
+"Fresh vegetables and plenty of water are essential for a healthy lifestyle"
+],
+"e": "Lo difícil de oír: 'Vegetables' = VEJ-tə-bəlz (tres sílabas). 'And' es 'ən' y 'of' es 'əv'. Cuidado con 'essential' vs 'essentially'. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Listen and Type",
+"lvl": 2,
+"audio": "The conference was postponed because several speakers could not travel on time.",
+"qs": [
+{
+"t": "fill",
+"q": "Type the sentence you hear: ___",
+"a": [
+"The conference was postponed because several speakers could not travel on time.",
+"The conference was postponed because several speakers could not travel on time"
+],
+"e": "Lo difícil de oír: 'Postponed' termina en /d/ casi mudo antes de 'because'; 'could not' se puede oír como 'couldn't'. Escribe las dos palabras. Truco: escribe lo que oyes y revisa ortografía y mayúsculas al final."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 2,
+"audio": "M: Hi, I'd like to renew this book about ocean currents, please.\nW: Sure. Let me check your account. Oh, it looks like someone else has requested it.\nM: Really? I still need it for my research paper, which is due in two weeks.\nW: I understand. Unfortunately, I can't extend it when another student is waiting.\nM: Is there any other way I could keep reading it?\nW: Well, the library has a digital copy. You can read it online for free with your student ID.\nM: That would work. Can I also download it?\nW: No, but you can highlight and take notes inside the reading platform.\nM: Great. Is there anything else I should know before I log in?\nW: Only that you need to use the university network or the library's remote access page. Would you like me to write the address down for you?",
+"qs": [
+{
+"t": "mcq",
+"q": "Why does the man talk to the librarian?",
+"o": [
+"To renew a book he needs for his research.",
+"To pay a late fine.",
+"To reserve a study room.",
+"To return a book he finished."
+],
+"a": 0,
+"e": "El propósito aparece al inicio: 'I'd like to renew this book'."
+},
+{
+"t": "mcq",
+"q": "Why can't the librarian extend the loan?",
+"o": [
+"The book is damaged.",
+"Another student has requested the book.",
+"The man's card has expired.",
+"The library is closing."
+],
+"a": 1,
+"e": "Dato directo: 'someone else has requested it'."
+},
+{
+"t": "mcq",
+"q": "What can the man do with the digital copy?",
+"o": [
+"Download it to his computer.",
+"Print it for free.",
+"Highlight and take notes online.",
+"Lend it to a friend."
+],
+"a": 2,
+"e": "Ojo al 'No, but...': no puede descargar, pero sí subrayar y anotar."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"No, I already returned the book.",
+"I don't have a student ID.",
+"The library is open until six.",
+"Yes, please. That would be very helpful."
+],
+"a": 3,
+"e": "La pregunta es una oferta ('Would you like...'); la respuesta lógica acepta o rechaza la oferta."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 3,
+"audio": "W: Good morning, Professor Hale. Thank you for seeing me.\nM: Of course. How can I help you?\nW: I'm trying to choose my courses for next semester, and I'm not sure whether to take Statistics or Computer Programming.\nM: What are you planning to study in the end?\nW: I'd like to work in environmental science, probably in research.\nM: In that case, I'd recommend Statistics first. Most research projects need data analysis, and the course is a requirement for the advanced classes.\nW: But I've heard the class is very difficult.\nM: It's challenging, but the department offers free tutoring twice a week. Many students find it helpful.\nW: That sounds good. And could I take Programming the following semester?\nM: Absolutely. In fact, you'll understand it better after Statistics. Shall I sign the registration form now?",
+"qs": [
+{
+"t": "mcq",
+"q": "Why does the woman visit the professor?",
+"o": [
+"To get advice about which course to take.",
+"To complain about a grade.",
+"To ask for a job.",
+"To change her major to music."
+],
+"a": 0,
+"e": "Propósito: 'I'm not sure whether to take...'."
+},
+{
+"t": "mcq",
+"q": "Why does the professor recommend Statistics first?",
+"o": [
+"It is the easiest course.",
+"It is useful for research and required for advanced classes.",
+"It is only offered once a year.",
+"It replaces Programming."
+],
+"a": 1,
+"e": "La razón está en su primera recomendación: análisis de datos y requisito."
+},
+{
+"t": "mcq",
+"q": "What help is available for difficult classes?",
+"o": [
+"Extra homework.",
+"A private teacher at home.",
+"Free tutoring twice a week.",
+"A shorter exam."
+],
+"a": 2,
+"e": "Dato literal: 'free tutoring twice a week'."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the professor's last question?",
+"o": [
+"No, I already finished Statistics.",
+"I would rather study music.",
+"Programming is not offered.",
+"Yes, please. I have the form right here."
+],
+"a": 3,
+"e": "Responde a 'Shall I sign...?' aceptando o rechazando; las otras opciones no tienen sentido en el contexto."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 2,
+"audio": "W: Professor Reed, do you have a minute?\nM: Sure. Come in. What's on your mind?\nW: I'm having trouble finishing the history essay by Friday. I was sick last week and missed three days of research.\nM: I'm sorry to hear that. Are you feeling better now?\nW: Yes, much better, thank you. I've finished the outline and about half of the writing.\nM: Good. I can give you an extra three days, but no more, because I have to return all the essays before the break.\nW: That's perfectly fine. Should I send it by email or bring a printed copy?\nM: Email is fine. Just make sure you attach the bibliography as well.\nW: I will. Thank you so much for understanding.\nM: You're welcome. So, which day will you send the essay?",
+"qs": [
+{
+"t": "mcq",
+"q": "What is the main purpose of the conversation?",
+"o": [
+"The student wants more time to finish an essay.",
+"The student wants to change topics.",
+"The professor is returning a grade.",
+"The student wants to drop the class."
+],
+"a": 0,
+"e": "Propósito: pide ayuda con la fecha, no con otra cosa."
+},
+{
+"t": "mcq",
+"q": "Why does the woman need more time?",
+"o": [
+"She lost her notes.",
+"She was sick and missed research days.",
+"She traveled last week.",
+"She started the essay too early."
+],
+"a": 1,
+"e": "Razón literal al principio: 'I was sick last week'."
+},
+{
+"t": "mcq",
+"q": "What must the woman include with her essay?",
+"o": [
+"A doctor's letter.",
+"A printed copy.",
+"The bibliography.",
+"A summary page."
+],
+"a": 2,
+"e": "Detalle: 'attach the bibliography'."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the professor's last question?",
+"o": [
+"I'll bring a printed copy on Wednesday.",
+"I sent it last week.",
+"I will not send it.",
+"I'll send it by email on Monday."
+],
+"a": 3,
+"e": "Cuenta los días: viernes + 3 = lunes; además el profesor dijo que el correo es suficiente."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 1,
+"audio": "W: Housing office, how can I help you?\nM: Hi, I live in Building C, and the heater in my room has stopped working.\nW: I'm sorry about that. Has it been broken for long?\nM: Since Monday. The room gets really cold at night.\nW: Okay. I'll send a maintenance worker tomorrow between nine and noon. Will someone be in the room?\nM: I have a class until eleven. Can the worker come in the afternoon instead?\nW: Let me check the schedule. Yes, there is an opening at two o'clock.\nM: Perfect. In the meantime, is it possible to borrow a portable heater?\nW: We have a few at the front desk. You just need to sign a form and return it when the repair is finished.\nM: Thanks. I'll stop by this evening.\nW: Great. Could you also give me your room number, please?",
+"qs": [
+{
+"t": "mcq",
+"q": "Why is the man calling?",
+"o": [
+"To report a broken heater.",
+"To ask for a new room.",
+"To pay his rent.",
+"To complain about noise."
+],
+"a": 0,
+"e": "El propósito está en su primera frase."
+},
+{
+"t": "mcq",
+"q": "Why does the man ask for the afternoon?",
+"o": [
+"He works in the morning.",
+"He has class until eleven.",
+"He is traveling.",
+"He is sick."
+],
+"a": 1,
+"e": "Detalle: 'I have a class until eleven'."
+},
+{
+"t": "mcq",
+"q": "What will the man have to do to borrow a portable heater?",
+"o": [
+"Pay a deposit.",
+"Call maintenance.",
+"Sign a form at the front desk.",
+"Bring his own cable."
+],
+"a": 2,
+"e": "El tipo de dato: requisito para el préstamo."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"Tomorrow at two o'clock.",
+"I need a new heater.",
+"The class ends at eleven.",
+"It's room 214 in Building C."
+],
+"a": 3,
+"e": "Pide un dato concreto: número de habitación."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 2,
+"audio": "M: Hello. I'd like two tickets for the science museum tomorrow, please.\nW: Certainly. Are you interested in the regular ticket or the combined ticket that includes the planetarium?\nM: What's the difference in price?\nW: The regular ticket is twelve dollars. The combined one is eighteen, but it saves you time because you skip the line at the planetarium.\nM: We have only one afternoon, so the combined ticket sounds better.\nW: Good choice. The planetarium show starts at three, so I'd suggest arriving at the museum by one thirty.\nM: Is there a place to eat inside?\nW: Yes, there's a café on the second floor with a good selection of sandwiches and vegetarian dishes.\nM: Wonderful. Can I pay by card?\nW: Of course. Would you like to receive the tickets by email or collect them at the entrance?",
+"qs": [
+{
+"t": "mcq",
+"q": "What does the man want to do?",
+"o": [
+"Buy tickets for a museum.",
+"Cancel a reservation.",
+"Ask for a refund.",
+"Find a restaurant."
+],
+"a": 0,
+"e": "Propósito en la primera frase: 'I'd like two tickets'."
+},
+{
+"t": "mcq",
+"q": "Why does the man choose the combined ticket?",
+"o": [
+"It is cheaper.",
+"He has little time and can skip the line.",
+"It includes lunch.",
+"The museum is closed otherwise."
+],
+"a": 1,
+"e": "Combina dos datos: 'only one afternoon' y 'skip the line'."
+},
+{
+"t": "mcq",
+"q": "What time does the planetarium show start?",
+"o": [
+"At one thirty.",
+"At twelve.",
+"At three o'clock.",
+"At six."
+],
+"a": 2,
+"e": "Cuidado con 'one thirty': es la hora sugerida de llegada, no la del espectáculo."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"Yes, it is on the second floor.",
+"They cost eighteen dollars.",
+"At three o'clock.",
+"By email, please."
+],
+"a": 3,
+"e": "La pregunta ofrece dos opciones (email o entrada); hay que elegir una."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 2,
+"audio": "W: Did you see the message about tomorrow's meeting?\nM: Not yet. Has something changed?\nW: Yes. The manager moved it from ten to two o'clock because the client can't come in the morning.\nM: That's actually better for me. I had a dentist appointment at ten thirty.\nW: Great. Also, we need to prepare the presentation slides. Could you handle the sales charts?\nM: Sure. I already have most of the numbers from last quarter, but I need the new figures from the marketing team.\nW: I'll ask them to send those by this afternoon. I'll do the introduction and the summary.\nM: Perfect. Should we practice together before the meeting?\nW: Good idea. How about at one o'clock in the small conference room?",
+"qs": [
+{
+"t": "mcq",
+"q": "What are the speakers mainly discussing?",
+"o": [
+"A changed meeting time and preparing a presentation.",
+"A new employee.",
+"A problem with the client's payment.",
+"A trip to another city."
+],
+"a": 0,
+"e": "Resumen: hora cambiada + reparto de tareas."
+},
+{
+"t": "mcq",
+"q": "Why was the meeting moved?",
+"o": [
+"The manager is sick.",
+"The client cannot attend in the morning.",
+"The room is not available.",
+"The slides are not ready."
+],
+"a": 1,
+"e": "Razón literal del cambio."
+},
+{
+"t": "mcq",
+"q": "What will the man prepare?",
+"o": [
+"The introduction.",
+"The summary.",
+"The sales charts.",
+"The invitation."
+],
+"a": 2,
+"e": "La mujer hace introducción y resumen; él, los gráficos."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last suggestion?",
+"o": [
+"I have a dentist appointment tomorrow morning.",
+"The client is arriving at two.",
+"I already finished the summary.",
+"That works for me. I'll see you there."
+],
+"a": 3,
+"e": "Es una propuesta: acéptala o propón otra hora."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 3,
+"audio": "M: Excuse me, I'm supposed to use the microscope for my biology project, but the screen is blank.\nW: Let me take a look. Did you switch on the camera at the back?\nM: I'm not sure where that is.\nW: It's this small black button here. Press it for two seconds. There, the image is back.\nM: Oh, thank you! I thought it was broken. Is there a way to save the pictures?\nW: Yes. Insert a flash drive into this port, or you can send the images to your university email directly from the computer.\nM: I'll use email. How long can I use this equipment today?\nW: The lab is open until five, but you must sign out your slide samples before you leave.\nM: Understood. One more thing: do I need to clean the microscope afterwards?\nW: Just wipe the lens gently with the soft cloth in the drawer. Do you need help finding the drawer?",
+"qs": [
+{
+"t": "mcq",
+"q": "What problem does the man have at the beginning?",
+"o": [
+"The microscope screen shows nothing.",
+"He cannot find his slides.",
+"The lab is closed.",
+"He lost his flash drive."
+],
+"a": 0,
+"e": "Problema inicial: 'the screen is blank'."
+},
+{
+"t": "mcq",
+"q": "How did the woman fix the problem?",
+"o": [
+"She changed the lens.",
+"She turned on the camera with a button.",
+"She restarted the computer.",
+"She cleaned the screen."
+],
+"a": 1,
+"e": "Detalle: 'Press it for two seconds'."
+},
+{
+"t": "mcq",
+"q": "How will the man save his pictures?",
+"o": [
+"By printing them.",
+"By taking photos with a phone.",
+"By emailing them from the computer.",
+"By leaving them on the microscope."
+],
+"a": 2,
+"e": "Él dice 'I'll use email'."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"No, the lens is broken.",
+"The lab closes at five.",
+"I will use email.",
+"Yes, please. I can't see it anywhere."
+],
+"a": 3,
+"e": "Responde a 'Do you need help...?' con sí/no coherente y sin cambiar de tema."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 1,
+"audio": "W: IT help desk. How can I help?\nM: Hi. I can't connect to the campus Wi-Fi in the dormitory. It keeps asking for my password.\nW: Did you change your password recently?\nM: Yes, last week, because the system told me to.\nW: That's probably the problem. Your laptop is still using the old password. Try forgetting the network and connecting again.\nM: How do I forget the network?\nW: Open the Wi-Fi settings, click on the network name, and choose \"Forget.\" Then reconnect and enter the new password.\nM: Okay... it worked! Thank you so much.\nW: You're welcome. Also, remember that you should update your security questions before the end of the month.\nM: I didn't know that. Where do I do it?\nW: On the student portal, under Account Settings. Do you want me to send you the link by email?",
+"qs": [
+{
+"t": "mcq",
+"q": "Why does the man call the help desk?",
+"o": [
+"He cannot connect to the Wi-Fi.",
+"He forgot his laptop.",
+"He wants a new password.",
+"His room has no electricity."
+],
+"a": 0,
+"e": "Propósito en su primera frase."
+},
+{
+"t": "mcq",
+"q": "What caused the problem?",
+"o": [
+"The network is down.",
+"The laptop still used the old password.",
+"The laptop is broken.",
+"The dormitory has no signal."
+],
+"a": 1,
+"e": "Causa dicha por la mujer: 'still using the old password'."
+},
+{
+"t": "mcq",
+"q": "By when should he update his security questions?",
+"o": [
+"Tomorrow.",
+"Next year.",
+"Before the end of the month.",
+"Right after class."
+],
+"a": 2,
+"e": "Dato literal."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"No, I cannot find my laptop.",
+"The Wi-Fi is working now.",
+"I changed it last week.",
+"Yes, please. That would save me time."
+],
+"a": 3,
+"e": "Es una oferta de ayuda: acepta o rechaza con lógica."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 2,
+"audio": "M: Good evening. I'm in room 305. I have an early flight tomorrow, and I wonder how to get to the airport.\nW: We offer a free shuttle bus every hour from six in the morning. It takes about forty minutes.\nM: My flight is at nine thirty. Which shuttle should I take?\nW: I'd recommend the seven o'clock one. International passengers should be at the airport two hours before departure.\nM: That sounds right. Do I need to reserve a seat?\nW: Yes, please. It gets quite full in the morning. I can put your name down now.\nM: Please do. And is breakfast available that early?\nW: The restaurant opens at six thirty, so you'll have time. Or we can prepare a packed breakfast to take with you.\nM: A packed breakfast would be perfect.\nW: Certainly. Would you prefer fruit and sandwiches, or just pastries and juice?",
+"qs": [
+{
+"t": "mcq",
+"q": "What does the man want to know?",
+"o": [
+"How to get to the airport.",
+"Where to buy a ticket.",
+"When breakfast ends.",
+"Where to park."
+],
+"a": 0,
+"e": "Propósito: 'how to get to the airport'."
+},
+{
+"t": "mcq",
+"q": "Which shuttle does the woman recommend?",
+"o": [
+"The six o'clock one.",
+"The seven o'clock one.",
+"The nine thirty one.",
+"The eight o'clock one."
+],
+"a": 1,
+"e": "El 9:30 es el vuelo, no el autobús."
+},
+{
+"t": "mcq",
+"q": "Why should the man reserve a seat?",
+"o": [
+"The shuttle is free only with a reservation.",
+"The hotel is far away.",
+"The shuttle is usually full in the morning.",
+"He has a lot of luggage."
+],
+"a": 2,
+"e": "Razón literal: 'It gets quite full'."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"Room 305, please.",
+"At seven o'clock.",
+"The flight is at nine thirty.",
+"Fruit and sandwiches, please."
+],
+"a": 3,
+"e": "Hay que elegir una de las dos opciones ofrecidas."
+}
+]
+},
+{
+"sec": "listening",
+"task": "Interactive Listening",
+"lvl": 1,
+"audio": "W: Hello, Daniel. Have you brought your resume?\nM: Yes, here it is. I'm applying for a summer internship at an engineering company.\nW: Let me read it. Hmm, your education section is clear, but your work experience is hard to find.\nM: I've only had a part-time job at a bookstore. I didn't think it was relevant.\nW: It is, actually. It shows responsibility and customer service skills. I'd move it to the top and add a line about managing the inventory.\nM: I see. Should I include my school robotics project too?\nW: Definitely. Describe what your role was and what the team achieved. Employers like specific results.\nM: The robot we built won second place at a regional competition.\nW: Excellent. Put that in a separate section called Projects. Can you send me the new version by Friday so I can review it again?",
+"qs": [
+{
+"t": "mcq",
+"q": "Why does Daniel meet the counselor?",
+"o": [
+"To get help improving his resume.",
+"To practice a speech.",
+"To choose a university.",
+"To ask for a reference letter."
+],
+"a": 0,
+"e": "Propósito: lleva su CV y busca prácticas."
+},
+{
+"t": "mcq",
+"q": "Why does the woman say his bookstore job is relevant?",
+"o": [
+"It was full-time.",
+"It shows responsibility and customer service skills.",
+"It was in an engineering company.",
+"It paid very well."
+],
+"a": 1,
+"e": "Razón literal."
+},
+{
+"t": "mcq",
+"q": "What should he put in a separate section?",
+"o": [
+"His education.",
+"His part-time job.",
+"His robotics project.",
+"His hobbies."
+],
+"a": 2,
+"e": "Detalle: 'a separate section called Projects'."
+},
+{
+"t": "mcq",
+"q": "What is the best response to the woman's last question?",
+"o": [
+"I won second place at the competition.",
+"I work at a bookstore.",
+"I want an internship in winter.",
+"Sure, I'll email it to you by Thursday night."
+],
+"a": 3,
+"e": "Responde a una petición con un compromiso de fecha razonable (antes del viernes)."
+}
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 3,
+"passage": "Describe a skill you learned outside school. Write for 5 minutes.",
+"qs": [],
+"model": "One skill I learned outside school is cooking. When I was fifteen, my mother started teaching me simple dishes on weekends, and I quickly became interested. At first I made many mistakes, such as burning rice or adding too much salt, but she encouraged me to keep trying. I also watched short videos and wrote down recipes in a small notebook. Over time, I learned how to plan a meal, manage my time, and clean up afterwards. Today I can prepare dinner for my family without help. This skill has made me more independent and patient, and it has also given me a relaxing hobby. I believe everyone should learn to cook, because it is useful for life and brings people together around the table.",
+"tips": [
+"Empieza con una frase que responda directamente a la consigna.",
+"Escribe sin parar los 5 minutos y deja 30 segundos para revisar ortografía.",
+"Varía las estructuras: mezcla frases cortas y largas con conectores (however, because, although)."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 2,
+"passage": "Describe a place in your city that you like to visit. Write for 5 minutes.",
+"qs": [],
+"model": "My favorite place in my city is the old botanical garden near the river. I usually go there on Saturday mornings, when the air is fresh and the paths are quiet. The garden has hundreds of plants from different countries, a small pond with ducks, and a wooden bridge where I like to sit and read. What I enjoy most is the sense of calm; after a busy week of study, walking among the trees helps me relax and organize my thoughts. Sometimes I bring a notebook and write down ideas for my projects. The entrance is cheap, so students can visit often. I would recommend it to any visitor who wants to escape the noise of the city for a few hours.",
+"tips": [
+"Describe con detalles sensoriales (qué ves, qué oyes) para sonar natural.",
+"Varía las estructuras: mezcla frases cortas y largas con conectores (however, because, although).",
+"Apunta a 100 palabras o más; más texto bien escrito suma puntos."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 1,
+"passage": "Write about a person who taught you something important. Write for 5 minutes.",
+"qs": [],
+"model": "The person who taught me the most important lesson is my grandfather. He worked as a carpenter for forty years, and he always said that quality needs patience. When I was twelve, he asked me to help him build a small table. I wanted to finish quickly, so I cut the wood carelessly, and the legs did not fit. Instead of getting angry, he calmly showed me how to measure twice before cutting once. We started again, and the second table was beautiful. That day I understood that rushing usually costs more time than working carefully. I still remember his advice when I study for exams or begin a new project. Thanks to him, I try to do every task with attention and respect for the details.",
+"tips": [
+"Cuenta una pequeña anécdota: una historia corta hace tu texto más convincente.",
+"Apunta a 100 palabras o más; más texto bien escrito suma puntos.",
+"Escribe sin parar los 5 minutos y deja 30 segundos para revisar ortografía."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 2,
+"passage": "Describe a trip you would like to take and explain why. Write for 5 minutes.",
+"qs": [],
+"model": "I would love to travel to Turkey and visit Istanbul and Cappadocia. I am fascinated by the history of Istanbul, a city where Europe and Asia meet and where ancient mosques, markets, and palaces stand beside modern streets. I would also like to see the unusual rock formations of Cappadocia and watch the sunrise from a balloon ride. Another reason is the food: I have heard that the fresh bread, grilled vegetables, and sweet desserts are delicious. I would travel in spring, when the weather is mild, and I would stay in small family hotels to meet local people. Before going, I plan to learn a few Turkish phrases. For me, a good trip is not only about sightseeing but also about learning from other cultures.",
+"tips": [
+"Usa conectores (Another reason is..., Before going...) para ordenar las ideas.",
+"Escribe sin parar los 5 minutos y deja 30 segundos para revisar ortografía.",
+"Varía las estructuras: mezcla frases cortas y largas con conectores (however, because, although)."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 2,
+"passage": "Describe your daily routine and one thing you would like to change. Write for 5 minutes.",
+"qs": [],
+"model": "My day usually begins at six, when I wake up for the morning prayer and prepare a simple breakfast. After that, I commute to the university, where I attend classes until three. In the afternoon, I study in the library or do some exercise, and in the evening I have dinner with my family and review my notes. I generally go to bed around eleven. If I could change one thing, I would spend less time on my phone. Many evenings I check messages and videos for an hour without noticing, and that time could be used for reading or sleeping earlier. Recently I started leaving the phone in another room after nine o'clock, and I already feel more rested and focused.",
+"tips": [
+"Usa presente simple y adverbios de frecuencia (usually, generally) para rutinas.",
+"Varía las estructuras: mezcla frases cortas y largas con conectores (however, because, although).",
+"Apunta a 100 palabras o más; más texto bien escrito suma puntos."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 3,
+"passage": "Describe a useful piece of technology that you use every day. Write for 5 minutes.",
+"qs": [],
+"model": "The technology I use most every day is my smartphone. I rely on it for many tasks: setting alarms, checking the weather, translating words, and keeping a calendar of my classes. It also lets me contact my family quickly when I am far away. One feature I find especially useful is the offline map, because it helps me find my way in new cities without an internet connection. However, I am aware of the risks. If I use it without control, it distracts me from my studies. For this reason, I turned off most notifications and set a daily time limit for entertainment apps. Used wisely, a smartphone is like a small library, office, and guide that fits in my pocket.",
+"tips": [
+"Muestra equilibrio: ventaja + límite o riesgo. Eso demuestra nivel alto.",
+"Apunta a 100 palabras o más; más texto bien escrito suma puntos.",
+"Escribe sin parar los 5 minutos y deja 30 segundos para revisar ortografía."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 1,
+"passage": "Write about a meal or tradition your family enjoys together. Write for 5 minutes.",
+"qs": [],
+"model": "Every Friday evening, my family gathers for a large dinner at my grandparents' house. My grandmother prepares rice with vegetables, grilled chicken, and a fresh salad, while the children help set the table. Before eating, we share what we are grateful for that week, and my grandfather tells a short story from his childhood. I love this tradition because it makes us talk to each other without phones or television. Cousins who live in different cities often travel to join us, and the house becomes warm and noisy. After dinner we drink tea and play simple board games. This weekly meeting reminds me that family is a source of support, and I hope to continue the tradition with my own children someday.",
+"tips": [
+"Escribe en presente para tradiciones y añade una emoción (I love this because...).",
+"Escribe sin parar los 5 minutos y deja 30 segundos para revisar ortografía.",
+"Varía las estructuras: mezcla frases cortas y largas con conectores (however, because, although)."
+]
+},
+{
+"sec": "writing",
+"task": "Read, Then Write",
+"lvl": 2,
+"passage": "Describe a goal you want to achieve this year. Write for 5 minutes.",
+"qs": [],
+"model": "My main goal this year is to improve my English enough to study abroad. At the moment I can understand most conversations, but I still hesitate when I speak and make mistakes in grammar. To reach my goal, I have made a clear plan. Every morning I read one article and write ten new words in a notebook. Three times a week I practice speaking with a language partner online, and on weekends I watch a documentary without subtitles. I also take a practice test once a month to measure my progress. Achieving this goal will not be easy, but I am determined. Learning English will open doors to universities, scholarships, and friendships around the world.",
+"tips": [
+"Un objetivo + plan concreto con pasos y frecuencia suena más convincente.",
+"Varía las estructuras: mezcla frases cortas y largas con conectores (however, because, although).",
+"Apunta a 100 palabras o más; más texto bien escrito suma puntos."
+]
+},
+{
+"sec": "writing",
+"task": "Writing Sample",
+"lvl": 2,
+"passage": "Some people think students should wear school uniforms. Do you agree or disagree? Explain your opinion. Write for 5 minutes.",
+"qs": [],
+"model": "I agree that students should wear school uniforms, mainly because they promote equality and reduce distractions. When everyone dresses the same way, nobody feels pressure to own expensive clothes, so students can focus on learning instead of fashion. Uniforms also save time in the morning and money for families, who do not need to buy a large wardrobe. Furthermore, wearing a uniform creates a sense of belonging, which can improve discipline and school spirit. Of course, some people argue that uniforms limit self-expression. That is a fair concern, but I believe students can express their personality through their ideas, projects, and hobbies rather than clothing. Schools could also allow casual days once a month so that students enjoy some variety. All things considered, the benefits of uniforms outweigh the disadvantages, and I would support them in any school. In my own experience, students in uniform seem more serious about class, and teachers spend less time correcting small problems. Simple rules like this can make school a calmer and fairer place for everyone.",
+"tips": [
+"Define tu postura en la primera frase (I agree/I disagree) y repítela al final.",
+"Estructura: opinión, dos razones con ejemplos, una objeción y conclusión.",
+"Revisa concordancia verbal y artículos; los errores pequeños restan menos si el texto es largo y claro."
+]
+},
+{
+"sec": "writing",
+"task": "Writing Sample",
+"lvl": 1,
+"passage": "Is it better to live in a big city or in a small town? Give reasons for your answer. Write for 5 minutes.",
+"qs": [],
+"model": "In my opinion, a small town is better for most people, although big cities have clear advantages. In a small town, life is calmer and more affordable. Housing costs less, traffic is light, and neighbors usually know each other, which creates a strong sense of community. Children can play outside safely, and the air is cleaner. On the other hand, big cities offer more jobs, universities, hospitals, and cultural events, and public transportation makes it easy to move around. Young people who want to build a career often find more opportunities there. Nevertheless, modern technology allows many professionals to work remotely, so living far from a city is becoming more realistic. For this reason, I would choose a small town with a good internet connection. It offers peace and space while still allowing me to access the opportunities of the wider world. My own experience agrees with this: when I visit relatives in the countryside, I sleep better and feel less stressed. Of course, every person is different, but peace of mind is worth more to me than a busy social life.",
+"tips": [
+"Concede un punto al otro lado (On the other hand) y luego refuérzalo con tu opinión.",
+"Estructura: opinión, dos razones con ejemplos, una objeción y conclusión.",
+"Revisa concordancia verbal y artículos; los errores pequeños restan menos si el texto es largo y claro."
+]
+},
+{
+"sec": "writing",
+"task": "Writing Sample",
+"lvl": 2,
+"passage": "Should children have a daily limit on screen time? Explain your opinion. Write for 5 minutes.",
+"qs": [],
+"model": "Yes, I believe children should have a daily limit on screen time. First, too much time in front of screens can harm their health. Children who sit for hours often sleep badly, exercise less, and have trouble paying attention at school. Second, real-life activities, such as playing outside, reading books, and talking with family, help them develop social skills and creativity. Some parents argue that screens are educational, and this is partly true, since there are excellent apps for learning languages and science. However, the key is balance. I think one or two hours of quality content a day is reasonable, and parents should watch together with their children whenever possible. It is also important to set a good example: if adults constantly check their phones, children will copy them. With clear rules and open conversations, families can enjoy technology without letting it control their lives. Finally, parents should talk with children about why limits exist, so that rules feel fair instead of strict. When children understand the reasons, they usually follow them more willingly and develop self-control for the future.",
+"tips": [
+"Usa ordinales (First, Second) para estructurar y una frase de contraste (However).",
+"Estructura: opinión, dos razones con ejemplos, una objeción y conclusión.",
+"Revisa concordancia verbal y artículos; los errores pequeños restan menos si el texto es largo y claro."
+]
+},
+{
+"sec": "writing",
+"task": "Writing Sample",
+"lvl": 2,
+"passage": "Is working from home better than working in an office? Explain your opinion. Write for 5 minutes.",
+"qs": [],
+"model": "I think working from home is better for most people, but a mixture of both is ideal. At home, employees save the time and money they would spend commuting, and they can organize their schedule more flexibly. Many people also feel more productive in a quiet environment, away from constant interruptions. In addition, companies can hire talented workers from any city or country. However, working from home has disadvantages. Some people feel lonely, and it can be hard to separate work from family life. Teamwork may also suffer if colleagues never meet in person. For these reasons, I would prefer two or three days at home and the rest in the office. This arrangement keeps the freedom of remote work while maintaining personal contact and collaboration. Companies that offer this flexibility will probably keep happier and more loyal employees. Personally, I work better when I can start my day without a long trip, and I still enjoy meeting my team face to face. A flexible schedule gives me the best of both worlds and makes me more motivated.",
+"tips": [
+"Una opinión matizada (mixture of both) puede ser tan válida como una extrema si la justificas.",
+"Estructura: opinión, dos razones con ejemplos, una objeción y conclusión.",
+"Revisa concordancia verbal y artículos; los errores pequeños restan menos si el texto es largo y claro."
+]
+},
+{
+"sec": "writing",
+"task": "Writing Sample",
+"lvl": 3,
+"passage": "Should public transportation be free for everyone? Give your opinion with reasons. Write for 5 minutes.",
+"qs": [],
+"model": "I partly agree that public transportation should be free, at least for certain groups. Free buses and trains would help low-income families, students, and elderly people, who often struggle with the cost of tickets. It would also encourage more people to leave their cars at home, which would reduce traffic, noise, and air pollution. Cities such as Tallinn have already tested this idea with positive results. Nevertheless, there are serious drawbacks. Public transport is expensive to build and maintain, and without ticket income, the government would need to raise taxes or reduce other services. Moreover, if the system becomes overcrowded, quality could decline. Therefore, I believe the best solution is a low fixed fee, with free travel for children, students, and seniors. This policy keeps the system financially stable while making transportation accessible to the people who need it most. In the end, a good transport system is a public service, like roads or schools, and society benefits when more people can use it. A fair price is a small investment for cleaner and more connected cities.",
+"tips": [
+"Propón una solución intermedia al final; demuestra pensamiento crítico.",
+"Estructura: opinión, dos razones con ejemplos, una objeción y conclusión.",
+"Revisa concordancia verbal y artículos; los errores pequeños restan menos si el texto es largo y claro."
+]
+},
+{
+"sec": "writing",
+"task": "Writing Sample",
+"lvl": 1,
+"passage": "Is it more important to study what you love or what will earn the most money? Give your opinion. Write for 5 minutes.",
+"qs": [],
+"model": "In my view, it is more important to study what you love, as long as you have a realistic plan. When you enjoy a subject, you study harder, learn faster, and keep going when things become difficult. That passion often leads to excellence, and excellent professionals are usually rewarded with good opportunities. By contrast, people who choose a career only for money may feel bored or exhausted after a few years, which affects their health and happiness. That said, we cannot ignore practical needs. Everyone must be able to support a family and contribute to society. Therefore, students should research the job market and combine their interests with useful skills. For example, someone who loves art can learn digital design, and a person who enjoys languages can become a translator or teacher. In this way, it is possible to follow your passion and still build a stable future. Many successful people say that they were willing to work hard because they believed in their field. If students choose carefully and stay disciplined, passion and income do not have to be opposites.",
+"tips": [
+"Incluye un ejemplo concreto (For example, ...) para reforzar tu argumento.",
+"Estructura: opinión, dos razones con ejemplos, una objeción y conclusión.",
+"Revisa concordancia verbal y artículos; los errores pequeños restan menos si el texto es largo y claro."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 1,
+"passage": "Talk about a time when you helped someone. Speak for at least 30 seconds.",
+"audio": "Talk about a time when you helped someone. Speak for at least 30 seconds.",
+"qs": [],
+"model": "I would like to talk about a time when I helped a classmate who was struggling with math. Last year, my friend Omar failed the first exam of the semester, and he felt discouraged. I noticed that he understood the ideas when I explained them in simple words, so I offered to study with him. We met in the library twice a week for about an hour. I prepared easy examples, and we solved problems step by step. At first he made many mistakes, but he never gave up, and little by little he gained confidence. By the end of the semester, he passed the final exam with a very good grade. I felt extremely happy, because helping him also made me understand the subject better. That experience taught me that sharing knowledge benefits both people, and I now try to help others whenever I can.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 2,
+"passage": "Describe your favorite season and explain why you like it. Speak for at least 30 seconds.",
+"audio": "Describe your favorite season and explain why you like it. Speak for at least 30 seconds.",
+"qs": [],
+"model": "My favorite season is spring, and there are three main reasons. First, the weather is mild, neither too hot nor too cold, so I can spend more time outdoors. I enjoy walking in the park and riding my bike in the afternoon. Second, nature wakes up: trees become green, flowers open, and birds sing in the morning. I find this very peaceful, and it improves my mood. Third, spring is a season of new beginnings, because many people start new projects and set fresh goals. For example, I usually begin a new study plan in March. I also like the long days, which give me more time to finish my tasks. Summer can be too hot for me, and winter is often dark and cold. That is why spring is clearly my favorite time of the year.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 2,
+"passage": "Describe a book or a movie that taught you something. Speak for at least 30 seconds.",
+"audio": "Describe a book or a movie that taught you something. Speak for at least 30 seconds.",
+"qs": [],
+"model": "I would like to describe a documentary about the life of honeybees that I watched last year. The film follows a beekeeper who looks after several hives in the countryside, and it shows in detail how bees work together. Each bee has a role: some collect nectar, others protect the hive, and others care for the young. I learned that they communicate by moving in a special pattern, which tells other bees where to find flowers. The most important lesson for me was about cooperation. A hive survives only because every member does its part. The documentary also explained that bees are essential for growing fruits and vegetables, so protecting them is protecting our food. After watching it, I planted flowers on my balcony to help local bees. It was a simple film, but it changed the way I see small creatures.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 3,
+"passage": "Talk about a difficult decision you had to make. Speak for at least 30 seconds.",
+"audio": "Talk about a difficult decision you had to make. Speak for at least 30 seconds.",
+"qs": [],
+"model": "A difficult decision I had to make was choosing my university major. I was interested in both engineering and teaching, and I felt confused because my family had different opinions. First, I wrote a list of advantages and disadvantages for each option. Then I talked to a professional engineer and a high school teacher to understand their daily work. I also spent a weekend volunteering at a school, which helped me realize that I enjoy explaining ideas to others. However, I also like solving technical problems. Finally, I decided to study engineering with an extra course in education, so I could combine both interests. I was nervous at first, but I feel confident now. This experience taught me to collect information, listen to advice, and then trust my own judgment. A good decision does not have to be perfect; it just needs to be well thought out.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 1,
+"passage": "Describe a hobby you enjoy and say why it is important to you. Speak for at least 30 seconds.",
+"audio": "Describe a hobby you enjoy and say why it is important to you. Speak for at least 30 seconds.",
+"qs": [],
+"model": "One hobby I really enjoy is photography. I started two years ago with a basic phone camera, and since then I have taken thousands of pictures of buildings, markets, and landscapes. I like it because it teaches me to observe details that I would normally ignore, such as the shape of a shadow or the color of a door. On weekends I walk through different neighborhoods and look for interesting scenes. Afterwards, I edit the best photos and share a few with my friends. Photography is important to me for two reasons. First, it relaxes me after a stressful week. Second, it has helped me become more patient, because a good picture often requires waiting for the right light or moment. I hope to buy a better camera someday and perhaps exhibit my work in a small local gallery.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 2,
+"passage": "Talk about a teacher who had a strong influence on you. Speak for at least 30 seconds.",
+"audio": "Talk about a teacher who had a strong influence on you. Speak for at least 30 seconds.",
+"qs": [],
+"model": "A teacher who had a strong influence on me was my English teacher in high school, Mr. Collins. He was strict but very kind, and he believed that every student could improve with effort. In his class, we did not simply memorize rules; we read short stories, discussed them, and wrote our own opinions. At the beginning, I was shy and rarely spoke. One day he asked me to present a short talk about my hometown. I was very nervous, but he gave me advice and let me practice after class. When I finally spoke in front of the group, everyone listened, and I felt proud. He taught me that mistakes are part of learning and that confidence grows with practice. Today, whenever I have to speak in public, I remember his encouragement. I am grateful to him for changing the way I see myself.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 1,
+"passage": "Describe an event that you are looking forward to. Speak for at least 30 seconds.",
+"audio": "Describe an event that you are looking forward to. Speak for at least 30 seconds.",
+"qs": [],
+"model": "I am looking forward to my cousin's graduation ceremony next summer. He has studied medicine for six years, and he worked extremely hard, often staying up late to prepare for difficult exams. Our whole family plans to travel to his city to attend the ceremony. I am excited for several reasons. First, I admire his determination, and I want to celebrate his success with him. Second, it will be a wonderful chance to see relatives I have not met for a long time. We are planning a big family lunch with traditional dishes, and I have promised to help my aunt with the cooking. Finally, I hope the day will inspire me to work harder toward my own goals. I am sure it will be an unforgettable occasion full of joy and gratitude.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Listen, Then Speak",
+"lvl": 2,
+"passage": "Talk about a place where you feel relaxed and explain why. Speak for at least 30 seconds.",
+"audio": "Talk about a place where you feel relaxed and explain why. Speak for at least 30 seconds.",
+"qs": [],
+"model": "The place where I feel most relaxed is the roof of my apartment building. It is a quiet space with a few plants, two old chairs, and a wide view of the city. I go there almost every evening after sunset, when the sky turns orange and the streets become quiet. I usually bring a cup of tea and sit for about twenty minutes without using my phone. During that time, I breathe slowly, watch the lights come on, and think about my day. This small routine helps me release stress and organize my thoughts. Sometimes I go up there with a book, and sometimes I simply listen to the sounds of the neighborhood. I believe everyone needs a personal place like this, because a calm mind makes it easier to study, work, and take care of other people.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Speaking Sample",
+"lvl": 2,
+"passage": "Do you think children should learn to code at school? Explain your opinion. Speak for at least 30 seconds.",
+"audio": "Do you think children should learn to code at school? Explain your opinion. Speak for at least 30 seconds.",
+"qs": [],
+"model": "Yes, I think children should learn to code at school, and I have three reasons. First, coding teaches logical thinking. To write a program, students must break a big problem into small steps, and this skill helps in math, science, and even everyday life. Second, technology is everywhere, so understanding how apps and websites work prepares students for future jobs. Many careers, not only engineering, now require basic digital skills. Third, coding develops creativity. Children can build games, animations, or small tools that solve real problems, and they feel proud when their project works. Some people worry that children already spend too much time on screens. That is a fair point, but coding is active and productive, unlike passive entertainment. Teachers can also use simple activities without computers at first. Overall, I believe learning to code is as useful as learning a second language, so schools should include it in the regular curriculum.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Speaking Sample",
+"lvl": 2,
+"passage": "Do you prefer studying alone or in a group? Give reasons. Speak for at least 30 seconds.",
+"audio": "Do you prefer studying alone or in a group? Give reasons. Speak for at least 30 seconds.",
+"qs": [],
+"model": "Personally, I prefer to study alone, although I find group study useful in some situations. When I study by myself, I can control my schedule and concentrate better, because there are fewer distractions. I can also repeat difficult topics as many times as I need without feeling embarrassed. On the other hand, studying in a group has clear advantages. Friends can explain concepts in different ways, and discussing questions helps me find mistakes in my understanding. Also, working together keeps me motivated when a subject is boring. For this reason, my usual method is a mix of both. I begin with individual study to learn the basics, and then I meet a small group once a week to compare notes and practice questions. I think the best choice depends on the person and the subject, but for deep concentration, I like quiet time alone.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Speaking Sample",
+"lvl": 3,
+"passage": "Is it a good idea for cities to ban cars from the city center? Give your opinion. Speak for at least 30 seconds.",
+"audio": "Is it a good idea for cities to ban cars from the city center? Give your opinion. Speak for at least 30 seconds.",
+"qs": [],
+"model": "I believe banning cars from city centers is a good idea if the city provides good alternatives. First, fewer cars mean cleaner air and less noise, which is better for health. Second, streets become safer for pedestrians and cyclists, and children can walk without danger. Third, the space previously used for parking can be turned into parks, markets, or cafes, which makes the center more attractive for visitors. However, there are challenges. Shop owners worry that customers will not arrive, and elderly or disabled people need easy transportation. To solve these problems, the city must offer frequent buses, tram lines, and special permits for people who really need a car. Several European cities have already done this successfully, and their centers are now busier and more pleasant than before. With careful planning, I think everyone can benefit from a car-free center.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Speaking Sample",
+"lvl": 1,
+"passage": "Do you think people read fewer books today than in the past? Explain your view. Speak for at least 30 seconds.",
+"audio": "Do you think people read fewer books today than in the past? Explain your view. Speak for at least 30 seconds.",
+"qs": [],
+"model": "I think people read different things today rather than fewer things. Smartphones give us constant access to articles, messages, and short posts, so we read many words every day. However, I agree that fewer people read long books. It takes concentration to follow a long story, and many readers find it difficult to put away their phones. That is unfortunate, because books develop vocabulary, imagination, and deep thinking in a way that short texts cannot. At the same time, technology has also created new opportunities. Electronic books are cheap, audiobooks allow people to learn while commuting, and online communities recommend great titles. In my own life, I try to read twenty pages every night before sleeping, and I notice that it improves my concentration. So, the habit is not disappearing, but it needs conscious effort and a quiet time during the day.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Speaking Sample",
+"lvl": 2,
+"passage": "Should university education be free for everyone? Give your opinion. Speak for at least 30 seconds.",
+"audio": "Should university education be free for everyone? Give your opinion. Speak for at least 30 seconds.",
+"qs": [],
+"model": "In my opinion, university education should be free or very low-cost, because education benefits the whole society. When talented students can study regardless of family income, countries gain more doctors, engineers, and teachers, and the economy grows. Free education also reduces inequality and gives hardworking young people a fair chance. On the other hand, someone has to pay for universities, and the money usually comes from taxes. Critics argue that it is unfair to ask workers to pay for students who may earn more later. A reasonable solution is to keep tuition free but to require high standards, so that students take their studies seriously. Governments can also offer grants for living costs and encourage companies to sponsor research. In summary, investing in education is investing in the future, and I believe the long-term benefits are larger than the cost.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Speaking Sample",
+"lvl": 1,
+"passage": "Is it better to travel with a group or alone? Explain your preference. Speak for at least 30 seconds.",
+"audio": "Is it better to travel with a group or alone? Explain your preference. Speak for at least 30 seconds.",
+"qs": [],
+"model": "I prefer to travel with a small group of friends or family, although solo travel can also be rewarding. When I travel with others, we share costs, such as taxis and accommodation, so the trip is cheaper. It is also safer, because we can help each other if there is a problem, and we create memories that we can talk about for years. The main disadvantage is that we must agree on a plan, and sometimes people want different activities. Traveling alone gives complete freedom and forces you to talk to local people, which can improve your confidence and language skills. However, it can feel lonely, especially in the evenings. For me, the ideal option is a group of three or four people who respect one another's interests. We can plan the main attractions together and still have a few free hours to explore independently.",
+"tips": [
+"Habla sin pausas largas: mejor una frase sencilla y fluida que una compleja con dudas.",
+"Estructura: idea principal, 2 razones con ejemplos, cierre en una frase.",
+"Si no recuerdas una palabra, explícala con otras y sigue hablando."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 2,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nThe ancient library contained thousands of scrolls collected from many different countries over several centuries.",
+"qs": [],
+"model": "The ancient library contained thousands of scrolls collected from many different countries over several centuries.",
+"tips": [
+"Pronuncia las terminaciones (-ed, -s): son lo primero que se pierde.",
+"Lee a ritmo natural, sin parar en cada palabra; haz pausas solo en las comas."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 3,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nRegular exercise and a balanced diet can help you stay healthy and full of energy.",
+"qs": [],
+"model": "Regular exercise and a balanced diet can help you stay healthy and full of energy.",
+"tips": [
+"Acentúa las palabras de contenido (exercise, diet, healthy, energy) y debilita las pequeñas (and, can, you).",
+"No te quedes callado si te equivocas: sigue leyendo con fluidez."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 1,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nPlease remember to bring your identification card and a pen to the examination room tomorrow.",
+"qs": [],
+"model": "Please remember to bring your identification card and a pen to the examination room tomorrow.",
+"tips": [
+"Une las palabras: 'bring your' se oye 'bringyour'. Suena natural.",
+"Vigila 'identification' (ai-den-ti-fi-KEI-shən): el acento va en -ca-."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 2,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nThe scientist explained that the new device could measure temperature changes with remarkable accuracy.",
+"qs": [],
+"model": "The scientist explained that the new device could measure temperature changes with remarkable accuracy.",
+"tips": [
+"Palabras largas: 're-MARK-a-ble' y 'AC-cu-ra-cy'; practica antes la sílaba tónica.",
+"Sube un poco el tono al llegar a la coma y bájalo al final."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 1,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nOur train was delayed because heavy snow had covered the tracks near the mountain village.",
+"qs": [],
+"model": "Our train was delayed because heavy snow had covered the tracks near the mountain village.",
+"tips": [
+"La 'd' de 'delayed' y 'covered' debe oírse suave pero presente.",
+"Respira antes de 'because' y mantén un ritmo constante hasta el final."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 2,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nLearning a new language requires patience, daily practice, and the courage to make mistakes.",
+"qs": [],
+"model": "Learning a new language requires patience, daily practice, and the courage to make mistakes.",
+"tips": [
+"Lee 'patience' como PEI-shəns y 'courage' como KUR-ij.",
+"Mantén una velocidad constante; ir demasiado rápido baja la nota."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 3,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nThe museum offers free guided tours for students every Wednesday afternoon during the spring semester.",
+"qs": [],
+"model": "The museum offers free guided tours for students every Wednesday afternoon during the spring semester.",
+"tips": [
+"Pronuncia 'Wednesday' como WENZ-dei (la primera 'd' no se dice).",
+"Acentúa 'guided' y 'tours', no las palabras gramaticales."
+]
+},
+{
+"sec": "speaking",
+"task": "Read Aloud",
+"lvl": 2,
+"passage": "Read this sentence aloud, clearly and at a natural pace:\n\nAlthough the journey was long and tiring, the travelers were delighted by the beautiful scenery.",
+"qs": [],
+"model": "Although the journey was long and tiring, the travelers were delighted by the beautiful scenery.",
+"tips": [
+"Entona la frase en dos bloques: antes y después de la coma.",
+"'Delighted' y 'scenery' llevan acentos claros: de-LAI-tid, SI-nə-ri."
+]
+}
+]

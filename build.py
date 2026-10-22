@@ -12,7 +12,9 @@ from collections import Counter
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SECS = {"reading", "listening", "vocab", "grammar", "writing", "speaking",
-        "secure", "resilient", "performance", "cost"}
+        "secure", "resilient", "performance", "cost",
+        "azcloud", "azarch", "azgov", "theory", "team", "events", "artifacts"}
+EXAMENES = ("aws", "toefl", "ielts", "n5", "det", "az900", "psm")
 
 
 def cargar(ruta):
@@ -60,7 +62,8 @@ def problema_q(q):
 def main():
     os.makedirs(os.path.join(RAIZ, "www"), exist_ok=True)
     error = False
-    for examen in ("aws", "toefl", "ielts", "n5"):
+    # python3 build.py det → valida solo ese examen
+    for examen in (sys.argv[1:] or EXAMENES):
         rutas = sorted(glob.glob(os.path.join(RAIZ, "datos", f"{examen}_*.json")))
         sets, descartes = [], 0
         for ruta in rutas:
