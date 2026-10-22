@@ -746,6 +746,54 @@ a.btn{text-decoration:none}
 .rl-tx{display:grid;gap:4px;justify-items:start}.rl-tx small{color:var(--muted);font-size:15px}.rl-n.luego .rl-tx{opacity:.55}
 @media(max-width:560px){.rl-n{grid-template-columns:76px 1fr;transform:translateX(calc(var(--dx)*.45))}.lc-opts{grid-template-columns:1fr}}
 
+/* Formato v2: página de idioma en dos columnas y lección con barra inferior */
+.k-tit{margin:6px 0 0;font-size:clamp(36px,5vw,60px)}
+.lvw{display:grid;grid-template-columns:290px minmax(0,1fr);gap:28px;align-items:start;margin:18px 0 60px}.lvw>.rv-main{grid-row:span 2}
+.rv-niv{position:sticky;top:84px;display:grid;gap:10px}
+.rv-niv ol{list-style:none;margin:0;padding:0;display:grid;gap:4px;position:relative}
+.rv-niv ol::before{content:"";position:absolute;left:21px;top:20px;bottom:20px;width:2px;background:var(--line)}
+.rv-l button{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;width:100%;padding:10px 12px 10px 0;border:0;border-radius:14px;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.rv-l button:hover{background:color-mix(in srgb,var(--line) 35%,transparent)}
+.rv-l.sel button{background:var(--sheet);box-shadow:var(--sh-1)}
+.rv-ld{position:relative;z-index:1;justify-self:center;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--paper);border:2px solid var(--line);font:700 14px var(--f-mono);color:var(--muted)}
+.rv-l.ok .rv-ld{background:var(--accent);border-color:var(--accent);color:#fff}
+.rv-l.ahora .rv-ld{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 15%,transparent)}
+.rv-l b{display:block;font-size:16px}.rv-l small{color:var(--muted);font:500 12.5px var(--f-mono)}.rv-l.luego:not(.sel) b{color:var(--muted)}
+.rv-extra{text-align:left;padding:12px 14px;border-radius:14px;border:1px dashed var(--line);background:none;color:inherit;font:inherit;cursor:pointer}.rv-extra.sel{border-style:solid;border-color:var(--accent)}
+.rv-ext{display:grid;gap:10px}.rv-ext .vozbar{flex-direction:column;align-items:stretch}
+.rv-main{display:grid;gap:18px}
+.rv-head{padding:26px 28px;border-radius:24px;background:var(--sheet);box-shadow:var(--sh-1);display:grid;gap:8px;position:relative;overflow:hidden}
+.rv-head{border-top:5px solid var(--accent)}
+.rv-head .eyebrow{color:var(--accent)}.rv-head h2{margin:0;font-size:clamp(28px,3.4vw,40px)}.rv-head p{margin:0;color:var(--muted);max-width:52ch}
+.rv-prog{display:flex;gap:12px;align-items:center;margin:8px 0 4px}.rv-bar{flex:1;max-width:360px;height:12px;border-radius:12px;background:color-mix(in srgb,var(--line) 70%,transparent);overflow:hidden}.rv-bar i{display:block;height:100%;background:var(--accent);border-radius:12px}
+.rv-big{justify-self:start;padding:15px 26px;font-size:17px;margin-top:6px;position:relative;z-index:1}
+.rv-hecho{font-weight:700}
+.rv-lecs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rv-r button{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;width:100%;padding:14px 18px 14px 14px;border-radius:18px;border:1.5px solid var(--line);background:var(--sheet);color:inherit;font:inherit;text-align:left;cursor:pointer;transition:transform .15s,border-color .2s}
+.rv-r button:hover{transform:translateX(4px);border-color:var(--accent)}
+.rv-dot{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:color-mix(in srgb,var(--line) 70%,transparent);font:800 17px var(--f-mono);color:var(--muted)}
+.rv-r.ok .rv-dot{background:var(--ok);color:#fff}.rv-r.ahora .rv-dot{background:var(--accent);color:#fff;box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 16%,transparent)}
+.rv-r.ahora button{border-color:var(--accent);box-shadow:var(--sh-1)}
+.rv-t b{display:block;font-size:16px;margin-bottom:6px}.rv-chips{display:flex;flex-wrap:wrap;gap:6px}
+.rv-chips i{font-style:normal;padding:3px 9px;border-radius:8px;background:color-mix(in srgb,var(--line) 45%,transparent);font-size:14.5px}
+.rv-chips[lang="ja"] i{font-family:var(--f-jp)}
+.rv-st{font-weight:700;font-size:14px;color:var(--muted);white-space:nowrap}.rv-r.ahora .rv-st{color:var(--accent)}.rv-r.luego button{opacity:.7}
+@media(max-width:860px){.lvw{grid-template-columns:1fr;gap:16px}.lvw>.rv-main{grid-row:auto}.rv-niv{position:static}
+  .rv-niv ol{grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.rv-niv ol::before{display:none}
+  .rv-l{scroll-snap-align:start}.rv-l button{grid-template-columns:38px 1fr;padding:10px;border:1.5px solid var(--line);background:var(--sheet)}.rv-l.sel button{border-color:var(--accent)}
+  .rv-head{padding:20px}.rv-big{justify-self:stretch;text-align:center}.rv-r button{grid-template-columns:44px 1fr;padding:12px}.rv-st{grid-column:2}}
+/* Lección */
+.lc-x{width:44px;height:44px;border-radius:50%;border:0;background:none;font-size:22px;color:var(--muted);cursor:pointer}.lc-x:hover{background:color-mix(in srgb,var(--line) 50%,transparent);color:var(--ink)}
+.lc-bar{height:16px}
+.lc-card{padding-bottom:120px}
+.lc-pie{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:18px 16px calc(18px + env(safe-area-inset-bottom));border-top:1.5px solid var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px)}
+.lc-pie-in{max-width:760px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;text-align:left}
+.lc-pie-in .btn{padding:15px 26px;font-size:17px}.lc-pie-in .btn.acc{margin-left:auto;min-width:180px}
+.lc-fb{border-radius:0;justify-content:initial;display:block}.lc-fb.ok{background:var(--ok-bg);border-top-color:var(--ok)}.lc-fb.mal{background:var(--bad-bg);border-top-color:var(--bad)}
+.lc-fb b{font-size:20px}.lc-fb.ok .btn.acc{background:var(--ok)}.lc-fb.mal .btn.acc{background:var(--bad)}
+body:has(.lc-card) .mnav{display:none}
+@media(max-width:560px){.lc-pie-in{flex-wrap:wrap}.lc-pie-in .btn.acc{flex:1}.lc-pie-in .btn.ghost{flex:0 0 auto}}
+
 </style>
 
 <div id="app"></div>
@@ -1452,9 +1500,9 @@ function viewLeccion(){
   if(!lc||lc.set!==route.set||lc.n!==route.n){const s=route.set,n=route.n;lc=null;setTimeout(()=>lecNueva(s,n));return ""}
   const set=lc.set,lang=kLang(set),total=lc.items.length+lc.total;
   const hecho=lc.fase==="aprende"?lc.i:lc.fase==="practica"?lc.items.length+lc.ok:total;
-  const top=`<div class="lc-top"><button class="btn ghost" data-lcfuera aria-label="Salir de la lección">✕</button>
+  const top=`<div class="lc-top"><button class="lc-x" data-lcfuera aria-label="Salir de la lección">✕</button>
     <div class="lc-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${hecho}"><i style="width:${Math.round(hecho/total*100)}%"></i></div>
-    <span class="lc-combo ${lc.combo>=3?"on":""}">🔥 ${lc.combo}</span></div>`;
+    <span class="lc-combo ${lc.combo>=3?"on":""}" title="Aciertos seguidos">🔥 ${lc.combo}</span></div>`;
   if(lc.fase==="aprende"){const it=lc.items[lc.i],le=lecLee(set,it);
     return top+`<div class="lc-card lc-in"><span class="eyebrow">Lección ${lc.n+1} · aprende ${lc.i+1} de ${lc.items.length}</span>
       <div class="lc-big ${it.c.length>4?"largo":""}" lang="${lang}">${h(it.c)}</div>
@@ -1462,7 +1510,7 @@ function viewLeccion(){
       <p class="lc-sig">${LEC_ALFA.has(set)?"Suena: ":""}<b>${h(it.m||it.r)}</b></p>
       ${it.f?`<p class="lc-ej"><span lang="${lang}">${h(it.f)}</span>${it.fe?`<small>${h(it.fe)}</small>`:""}</p>`:""}
       ${it.t?`<p class="lc-truco">💡 ${h(it.t)}</p>`:""}
-      <div class="row lc-acc"><button class="btn ghost" data-lcoir>▶ Oír otra vez</button><button class="btn acc" data-lcsig>${lc.i+1<lc.items.length?"Siguiente →":"¡A practicar! →"} <kbd>Espacio</kbd></button></div></div>`}
+      <div class="lc-pie"><div class="lc-pie-in"><button class="btn ghost" data-lcoir>🔊 Oír otra vez</button><button class="btn acc" data-lcsig>${lc.i+1<lc.items.length?"Siguiente →":"¡A practicar! →"}</button></div></div></div>`}
   if(lc.fase==="practica"){const Q=lc.cola[lc.q],it=Q.it,a=lc.ans,inv=Q.t==="inverso";
     const enun=Q.t==="oido"?`<button class="lc-oido" data-lcoir aria-label="Escuchar otra vez">🔊</button><p class="muted">¿Qué has oído?</p>`
       :inv?`<p class="muted">¿Cuál es…?</p><div class="lc-pre">${h(lecResp(set,it))}</div>`
@@ -1470,13 +1518,13 @@ function viewLeccion(){
     return top+`<div class="lc-card"><span class="eyebrow">${Q.repaso?"Repaso de la lección anterior":"Practica"}</span>${enun}
       <div class="lc-opts">${Q.opts.map((o,k)=>{const cls=a==null?"":o===it?"ok":k===a?"mal":"";const txt=inv||(Q.t==="oido"&&LEC_ALFA.has(set))?o.c:lecResp(set,o);
         return `<button class="lc-opt ${cls}" data-lcop="${k}" ${a!=null?"disabled":""} ${inv||(Q.t==="oido"&&LEC_ALFA.has(set))?`lang="${lang}"`:""}><kbd>${k+1}</kbd><span>${h(txt)}</span></button>`}).join("")}</div>
-      ${a!=null?`<div class="lc-fb ${Q.opts[a]===it?"ok":"mal"}"><b>${Q.opts[a]===it?["¡Bien!","¡Eso es!","¡Perfecto!","¡Muy bien!"][lc.q%4]:"Casi. La buena es:"}</b>${Q.opts[a]===it?"":` <span lang="${lang}">${h(it.c)}</span> = ${h(lecResp(set,it))}`}<button class="btn acc" data-lcnext>Seguir → <kbd>Espacio</kbd></button></div>`:""}</div>`}
+      ${a!=null?`<div class="lc-pie lc-fb ${Q.opts[a]===it?"ok":"mal"}"><div class="lc-pie-in"><span><b>${Q.opts[a]===it?["¡Bien!","¡Eso es!","¡Perfecto!","¡Muy bien!"][lc.q%4]:"Casi. La buena es:"}</b>${Q.opts[a]===it?"":` <span lang="${lang}">${h(it.c)}</span> = ${h(lecResp(set,it))}`}</span><button class="btn acc" data-lcnext>Seguir →</button></div></div>`:`<div class="lc-pie"><div class="lc-pie-in"><span class="muted">Elige una respuesta · teclas 1-4</span></div></div>`}</div>`}
   const pc=Math.round(lc.ok/Math.max(1,lc.ok+lc.mal)*100),hech=lecHechas(set),tot=lecTotal(set),fin=hech>=tot;
   const id=({ru:"ru",pt:"pt",kana:"ja"})[KEXT(set)||"kana"],est=camEstado(id),niv=est.ns.find(n=>n.ir.k===set);
   return top+`<div class="lc-card lc-fin"><div class="lc-medalla">${fin?"🏆":"⭐"}</div><h1>${fin?"¡Nivel superado!":"¡Lección "+(lc.n+1)+" completada!"}</h1>
     <div class="lc-stats"><div><b>+${lc.xp}</b><span>XP</span></div><div><b>${pc} %</b><span>aciertos</span></div><div><b>🔥 ${lc.max}</b><span>mejor racha</span></div></div>
     <p class="muted">${niv?`Nivel ${niv.i+1} · ${h(niv.t)}`:""}</p><div class="lc-nivel"><i data-w="${Math.round(hech/tot*100)}" style="width:${Math.round(Math.max(0,hech-1)/tot*100)}%"></i></div><p class="mono muted">${hech} de ${tot} lecciones</p>
-    <div class="row lc-acc">${fin?`<button class="btn acc" data-lcruta>Ver el siguiente nivel →</button>`:`<button class="btn acc" data-lcotra="${lc.n+1}">Lección ${lc.n+2} → <kbd>Espacio</kbd></button>`}<button class="btn ghost" data-lcruta>Volver al camino</button></div></div>`}
+    <div class="lc-pie"><div class="lc-pie-in"><button class="btn ghost" data-lcruta>Volver al camino</button>${fin?`<button class="btn acc" data-lcruta>Ver el siguiente nivel →</button>`:`<button class="btn acc" data-lcotra="${lc.n+1}">Lección ${lc.n+2} →</button>`}</div></div></div>`}
 function lcSigue(){if(!lc)return;
   if(lc.fase==="aprende"){if(lc.i+1<lc.items.length){lc.i++;render();lcSuena(lc.items[lc.i])}else{lc.fase="practica";lcOpciones();render();const Q=lc.cola[0];if(Q.t==="oido")lcSuena(Q.it)}return}
   if(lc.fase==="practica"&&lc.ans!=null){lc.q++;lc.ans=null;if(lc.q>=lc.cola.length)return lcTermina();lcOpciones();render();const Q=lc.cola[lc.q];if(Q.t==="oido")lcSuena(Q.it);return}
@@ -1497,11 +1545,30 @@ function bindLeccion(){if(!lc)return;
   document.querySelectorAll("[data-lcruta]").forEach(b=>b.onclick=()=>{const s=lc.set;lc=null;go({v:KEXT(s)||"kana",k:s})});
   const ot=$("[data-lcotra]");if(ot)ot.onclick=()=>lecNueva(lc.set,+ot.dataset.lcotra);
   if(lc.fase==="aprende"&&lc.i===0&&!lc.sono){lc.sono=1;lcSuena(lc.items[0])}
-  if(window.gsap&&!document.documentElement.classList.contains("no-fx")){const c=$(".lc-card");if(c&&lc.fase!=="fin")gsap.from(c,{y:16,opacity:0,duration:.35,ease:"power2.out"});const o=$(".lc-fb");if(o)gsap.from(o,{y:20,opacity:0,duration:.3})}}
+  if(window.gsap&&!document.documentElement.classList.contains("no-fx")){const c=$(".lc-card");if(c&&lc.fase!=="fin")gsap.from(c.children,{y:14,opacity:0,duration:.35,ease:"power2.out",stagger:.03,clearProps:"transform,opacity"});const o=$(".lc-fb");if(o)gsap.from(o,{yPercent:100,duration:.28,ease:"power2.out",clearProps:"transform"})}}
 addEventListener("keydown",e=>{if(route.v!=="leccion"||!lc||e.ctrlKey||e.metaKey||e.altKey)return;
   if(e.key===" "||e.key==="Enter"){e.preventDefault();e.stopImmediatePropagation();lcSigue()}
   else if(/^[1-4]$/.test(e.key)&&lc.fase==="practica"){e.preventDefault();e.stopImmediatePropagation();lcResponde(+e.key-1)}
   else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();$("[data-lcfuera]")?.click()}},true);
+
+
+/* Vista «Lecciones»: los 5 niveles a la izquierda y las lecciones del nivel elegido a la derecha */
+function rutaVista(camId,set){const {ns,cur}=camEstado(camId),sel=ns.find(n=>n.ir.k===set)||ns[Math.min(cur,ns.length-1)];
+  const unidad=n=>n.ir.k?"lecciones":n.ir.v==="leer"?"lecturas":"simulacros";
+  const niveles=`<aside class="rv-niv"><span class="eyebrow">Tu camino</span><ol>${ns.map(n=>{const est=n.ok?"ok":n.i===cur?"ahora":"luego";
+      return `<li class="rv-l ${est} ${n===sel?"sel":""}"><button data-cam='${h(JSON.stringify(n.ir))}'><span class="rv-ld">${n.ok?"✓":n.i+1}</span><span><b>${h(n.t)}</b><small>${n.v}/${n.need} ${unidad(n)}</small></span></button></li>`}).join("")}</ol>
+</aside>`;
+  const extras=route.v==="kana"?`<aside class="rv-ext"><button class="rv-extra ${set==="kansai"?"sel":""}" data-kset="kansai"><span lang="ja">関西弁</span> Extra: Kansai y calle</button>${vozPicker(true)}</aside>`:"";
+  const k=sel?.ir.k===set?set:null;
+  if(!k)return `<div class="lvw">${niveles}<section class="rv-main"><div class="rv-head"><span class="eyebrow">Nivel ${sel.i+1}</span><h2>${h(sel.t)}</h2><p>${h(sel.d)}</p><button class="btn acc rv-big" data-cam='${h(JSON.stringify(sel.ir))}'>Ir →</button></div></section>${extras}</div>`;
+  const tot=lecTotal(k),hech=lecHechas(k),pc=Math.round(hech/Math.max(1,tot)*100),est=sel.ok?"Superado":sel.i===cur?"Empieza aquí":sel.i<cur?"":"Más adelante";
+  return `<div class="lvw">${niveles}<section class="rv-main">
+    <div class="rv-head"><span class="eyebrow">Nivel ${sel.i+1}${est?" · "+est:""}</span><h2>${h(sel.t)}</h2><p>${h(sel.d)}</p>
+      <div class="rv-prog"><span class="rv-bar"><i style="width:${pc}%"></i></span><span class="mono">${hech}/${tot}</span></div>
+      ${hech<tot?`<button class="btn acc rv-big" data-lec="${hech}">${hech?"Seguir: lección "+(hech+1):"Empezar la lección 1"} →</button>`:`<p class="rv-hecho">🏆 Nivel superado. Repite cualquier lección cuando quieras.</p>`}</div>
+    <ol class="rv-lecs">${Array.from({length:tot},(_,n)=>{const e=n<hech?"ok":n===hech?"ahora":"luego",its=lecItems(k,n);
+      return `<li class="rv-r ${e}"><button data-lec="${n}"><span class="rv-dot">${e==="ok"?"✓":n+1}</span><span class="rv-t"><b>Lección ${n+1}</b><span class="rv-chips" lang="${kLang(k)}">${its.map(i=>`<i>${h(LEC_ALFA.has(k)?i.c.split(" ")[0]:i.c.split(" / ")[0])}</i>`).join("")}</span></span><span class="rv-st">${e==="ok"?"Repetir":e==="ahora"?"Empezar →":"🔒"}</span></button></li>`}).join("")}</ol>
+  </section>${extras}</div>`}
 
 /* El camino de lecciones de un conjunto: nodos en zigzag, el siguiente con «Empezar» */
 function rutaLecciones(set){const tot=lecTotal(set),hech=lecHechas(set);
@@ -2710,7 +2777,7 @@ function viewKana(){
   const kl=route.v==="ru"?"ru":route.v==="pt"?"pt-PT":"ja";
   const sw=grp.map(k=>[k,KSETS[k]]).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="${kl}">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
   let body="";
-  if(tab==="ruta"){body=rutaLecciones(set)}
+  if(tab==="ruta"){body=rutaVista(camId,set)}
   else if(tab==="tabla"){
     if(!kSel||!L.some(i=>i.c===kSel))kSel=L[0].c;
     const groups=kWord(set)?[...new Set(L.map(i=>i.g))].map(g=>[({kansai:"Kansai-ben: el japonés de Osaka",calle:"Matón de película (no lo uses con desconocidos)"})[g]||g,L.filter(i=>i.g===g),"kgrid kw"]):set==="kanji"?[["Los 104 kanji",L,"kgrid kj"]]:[["Básicos (gojūon)",kGojuon(L),"kgrid"],["Con ゛ y ゜",L.filter(i=>i.g==="dakuten"),"kgrid"],["Combinaciones",L.filter(i=>i.g==="combo"),"kgrid k3"]];
@@ -2728,8 +2795,8 @@ function viewKana(){
       <p class="muted" style="font-size:14px">Ahora: <b lang="ja" style="font-size:22px">${h(c)}</b> ${h(set==="kanji"?(L.find(i=>i.c===c)||{}).m:(L.find(i=>i.c===c)||{}).r)}</p></div></div>`;
   }
   const tabs=[["ruta","Lecciones"],...(set==="cirilico"?[["tabla","Todas las letras"],["test","Test"]]:kWord(set)?[["tabla","Todas las palabras"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]])];
-  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 style="margin-top:8px"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div></div>
-    ${camino(camId,true,set)}${route.v==="kana"?`<div class="row" style="margin:-6px 0 14px"><button class="btn ghost ${set==="kansai"?"acc":""}" data-kset="kansai">関西弁 · Extra: Kansai y calle</button></div>`:""}${route.v!=="kana"?"":vozPicker(true)}
+  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 class="k-tit"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 class="k-tit"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 class="k-tit"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div></div>
+    ${tab==="ruta"?"":camino(camId,true,set)}${route.v!=="kana"||tab==="ruta"?"":vozPicker(true)}
     <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }
 function kStartQuiz(set,kind){
