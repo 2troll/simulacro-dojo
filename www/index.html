@@ -699,6 +699,38 @@ a.btn{text-decoration:none}
 @media(max-width:760px){.camino.mini{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.camino.mini .cam-n{scroll-snap-align:start}
   .cam-n button{grid-template-columns:48px 1fr}.cam-go{grid-column:2;justify-self:start}.camino:not(.mini)::before{left:23px}}
 @media(prefers-reduced-motion:reduce){.cam-n.ahora .cam-dot{animation:none}}
+/* Lecciones guiadas */
+.lc-top{position:sticky;top:64px;z-index:5;display:flex;gap:14px;align-items:center;padding:14px 0}
+.lc-bar{flex:1;height:14px;border-radius:14px;background:color-mix(in srgb,var(--line) 75%,transparent);overflow:hidden}.lc-bar i{display:block;height:100%;border-radius:14px;background:var(--ok);transition:width .45s var(--ease)}
+.lc-combo{font:700 15px var(--f-mono);opacity:.35;transition:opacity .3s,transform .3s}.lc-combo.on{opacity:1;transform:scale(1.15)}
+.lc-card{max-width:640px;margin:18px auto 60px;display:grid;gap:14px;justify-items:center;text-align:center}
+.lc-big{font:700 clamp(64px,14vw,120px)/1.05 var(--f-body,inherit);letter-spacing:.02em;padding:18px 34px;border-radius:28px;background:var(--sheet);box-shadow:var(--sh-1);min-width:200px}
+.lc-big[lang="ja"]{font-family:var(--f-jp)}.lc-big.largo{font-size:clamp(30px,6vw,46px);padding:22px 26px}
+.lc-lee{font:600 18px var(--f-mono);color:var(--muted);margin:0}
+.lc-sig{font-size:22px;margin:0}.lc-sig b{color:var(--accent)}
+.lc-ej{display:grid;gap:4px;margin:0;padding:14px 18px;border-radius:16px;background:color-mix(in srgb,var(--line) 40%,transparent);font-size:18px}.lc-ej small{color:var(--muted);font-size:15px}
+.lc-truco{margin:0;color:var(--muted);max-width:52ch}
+.lc-acc{justify-content:center;margin-top:8px}.lc-acc .btn{padding:14px 22px;font-size:17px}
+.lc-pre{font-size:clamp(24px,4vw,34px);font-weight:700}
+.lc-oido{width:120px;height:120px;border-radius:50%;border:0;background:var(--accent);color:#fff;font-size:48px;cursor:pointer;box-shadow:var(--sh-2)}
+.lc-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
+.lc-opt{display:flex;gap:12px;align-items:center;text-align:left;padding:16px 18px;border-radius:18px;border:2px solid var(--line);border-bottom-width:4px;background:var(--sheet);color:inherit;font:600 18px var(--f-body,inherit);cursor:pointer;transition:transform .12s,border-color .2s}
+.lc-opt[lang="ja"]{font-family:var(--f-jp);font-size:24px}.lc-opt:hover:not(:disabled){border-color:var(--accent);transform:translateY(-2px)}
+.lc-opt kbd{opacity:.5}.lc-opt.ok{border-color:var(--ok);background:var(--ok-bg)}.lc-opt.mal{border-color:var(--bad);background:var(--bad-bg)}
+.lc-fb{width:100%;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;padding:16px 18px;border-radius:18px;text-align:left;font-size:17px}
+.lc-fb.ok{background:var(--ok-bg);color:var(--ok)}.lc-fb.mal{background:var(--bad-bg);color:var(--bad)}.lc-fb .btn{margin-left:auto}
+.lc-fin h1{font-size:clamp(34px,6vw,54px);margin:0}.lc-medalla{font-size:86px;line-height:1}
+.lc-stats{display:flex;gap:30px;justify-content:center}.lc-stats div{display:grid}.lc-stats b{font:800 32px var(--f-display)}.lc-stats span{color:var(--muted);font-size:14px}
+.lc-nivel{width:100%;max-width:420px;height:16px;border-radius:16px;background:color-mix(in srgb,var(--line) 75%,transparent);overflow:hidden}.lc-nivel i{display:block;height:100%;background:var(--accent);border-radius:16px}
+.ruta-lec{display:grid;gap:6px;justify-items:center;padding:20px 0 50px}
+.rl-n{display:grid;grid-template-columns:84px 220px;gap:16px;align-items:center;transform:translateX(var(--dx))}
+.rl-n>button{width:76px;height:70px;border-radius:50%;border:0;background:var(--line);box-shadow:0 7px 0 color-mix(in srgb,var(--ink) 18%,var(--line));font:800 24px var(--f-mono);color:var(--muted);cursor:pointer;transition:transform .15s}
+.rl-n>button:active{transform:translateY(5px);box-shadow:0 2px 0 color-mix(in srgb,var(--ink) 18%,var(--line))}
+.rl-n.ok>button{background:var(--ok);color:#fff;box-shadow:0 7px 0 color-mix(in srgb,var(--ok) 60%,#000)}
+.rl-n.ahora>button{background:var(--accent);color:#fff;box-shadow:0 7px 0 color-mix(in srgb,var(--accent) 60%,#000),0 0 0 10px color-mix(in srgb,var(--accent) 16%,transparent)}
+.rl-tx{display:grid;gap:4px;justify-items:start}.rl-tx small{color:var(--muted);font-size:15px}.rl-n.luego .rl-tx{opacity:.55}
+@media(max-width:560px){.rl-n{grid-template-columns:76px 1fr;transform:translateX(calc(var(--dx)*.45))}.lc-opts{grid-template-columns:1fr}}
+
 </style>
 
 <div id="app"></div>
@@ -1380,6 +1412,89 @@ addEventListener("keydown",e=>{if(route.v==="leer"&&!route.id&&/^[1-9]$/.test(e.
   else if(e.key.toLowerCase()==="t"){e.preventDefault();e.stopImmediatePropagation();lee.trad=!lee.trad;render()}
   else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();stopVoz();lee=null;go({v:"leer",lang:route.lang})}},true);
 
+/* ============ Lecciones guiadas: 5 cosas nuevas, se aprenden, se practican y a la siguiente ============ */
+const LEC_TAM=5, LEC_MAX={kanji:50,vocab:80,pt:35};
+const LEC_ALFA=new Set(["cirilico","hira","kata"]);
+function lecPool(set){const L=KANA?.[set]||[];const b=set==="hira"||set==="kata"?L.filter(i=>!i.g):L;return b.slice(0,LEC_MAX[set]||b.length)}
+const lecTotal=set=>Math.ceil(lecPool(set).length/LEC_TAM);
+const lecHechas=set=>Math.min(lecTotal(set),Math.max((S.lec||{})[set]||0,Math.floor(kNum(set)/LEC_TAM)));
+const lecItems=(set,n)=>lecPool(set).slice(n*LEC_TAM,(n+1)*LEC_TAM);
+// Lo que se pregunta: en los alfabetos, el sonido; en lo demás, el significado
+const lecResp=(set,it)=>LEC_ALFA.has(set)?it.r:it.m;
+const lecLee=(set,it)=>set==="kanji"?`${it.w} · ${it.wr}`:LEC_ALFA.has(set)?"":it.r||"";
+let lc=null;
+function lecNueva(set,n){const items=lecItems(set,n);if(!items.length)return;
+  const prev=lecPool(set).slice(0,n*LEC_TAM),r=rng(Date.now()),cola=[];
+  items.forEach((it,k)=>{cola.push({it,t:"ver"});cola.push({it,t:k%2?"inverso":"oido"})});
+  shuffle(prev,r).slice(0,2).forEach(it=>cola.push({it,t:"ver",repaso:1}));
+  lc={set,n,fase:"aprende",i:0,items,cola:shuffle(cola,r),q:0,ok:0,mal:0,combo:0,max:0,ans:null,total:cola.length};
+  lcOpciones();go({v:"leccion",set,n})}
+function lcOpciones(){const Q=lc.cola[lc.q];if(!Q||Q.opts)return;const pool=lecPool(lc.set).slice(0,(lc.n+1)*LEC_TAM),r=rng(Date.now()+lc.q);
+  const resp=lecResp(lc.set,Q.it);const otros=shuffle(pool.filter(o=>o!==Q.it&&lecResp(lc.set,o)!==resp),r).slice(0,3);Q.opts=shuffle([Q.it,...otros],r)}
+function lcSuena(it){kSpeak(lc.set,kVoice(lc.set,it))}
+function viewLeccion(){
+  if(!KANA){loadKana().then(render).catch(e=>toast(e.message));return `<p class="muted" style="padding:40px 0">Cargando…</p>`}
+  if(!lc||lc.set!==route.set||lc.n!==route.n){const s=route.set,n=route.n;lc=null;setTimeout(()=>lecNueva(s,n));return ""}
+  const set=lc.set,lang=kLang(set),total=lc.items.length+lc.total;
+  const hecho=lc.fase==="aprende"?lc.i:lc.fase==="practica"?lc.items.length+lc.ok:total;
+  const top=`<div class="lc-top"><button class="btn ghost" data-lcfuera aria-label="Salir de la lección">✕</button>
+    <div class="lc-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${hecho}"><i style="width:${Math.round(hecho/total*100)}%"></i></div>
+    <span class="lc-combo ${lc.combo>=3?"on":""}">🔥 ${lc.combo}</span></div>`;
+  if(lc.fase==="aprende"){const it=lc.items[lc.i],le=lecLee(set,it);
+    return top+`<div class="lc-card lc-in"><span class="eyebrow">Lección ${lc.n+1} · aprende ${lc.i+1} de ${lc.items.length}</span>
+      <div class="lc-big ${it.c.length>4?"largo":""}" lang="${lang}">${h(it.c)}</div>
+      ${le?`<p class="lc-lee">${h(le)}</p>`:""}
+      <p class="lc-sig">${LEC_ALFA.has(set)?"Suena: ":""}<b>${h(it.m||it.r)}</b></p>
+      ${it.f?`<p class="lc-ej"><span lang="${lang}">${h(it.f)}</span>${it.fe?`<small>${h(it.fe)}</small>`:""}</p>`:""}
+      ${it.t?`<p class="lc-truco">💡 ${h(it.t)}</p>`:""}
+      <div class="row lc-acc"><button class="btn ghost" data-lcoir>▶ Oír otra vez</button><button class="btn acc" data-lcsig>${lc.i+1<lc.items.length?"Siguiente →":"¡A practicar! →"} <kbd>Espacio</kbd></button></div></div>`}
+  if(lc.fase==="practica"){const Q=lc.cola[lc.q],it=Q.it,a=lc.ans,inv=Q.t==="inverso";
+    const enun=Q.t==="oido"?`<button class="lc-oido" data-lcoir aria-label="Escuchar otra vez">🔊</button><p class="muted">¿Qué has oído?</p>`
+      :inv?`<p class="muted">¿Cuál es…?</p><div class="lc-pre">${h(lecResp(set,it))}</div>`
+      :`<p class="muted">${LEC_ALFA.has(set)?"¿Cómo suena?":"¿Qué significa?"}</p><div class="lc-big ${it.c.length>4?"largo":""}" lang="${lang}">${h(it.c)}</div>`;
+    return top+`<div class="lc-card"><span class="eyebrow">${Q.repaso?"Repaso de la lección anterior":"Practica"}</span>${enun}
+      <div class="lc-opts">${Q.opts.map((o,k)=>{const cls=a==null?"":o===it?"ok":k===a?"mal":"";const txt=inv||(Q.t==="oido"&&LEC_ALFA.has(set))?o.c:lecResp(set,o);
+        return `<button class="lc-opt ${cls}" data-lcop="${k}" ${a!=null?"disabled":""} ${inv||(Q.t==="oido"&&LEC_ALFA.has(set))?`lang="${lang}"`:""}><kbd>${k+1}</kbd><span>${h(txt)}</span></button>`}).join("")}</div>
+      ${a!=null?`<div class="lc-fb ${Q.opts[a]===it?"ok":"mal"}"><b>${Q.opts[a]===it?["¡Bien!","¡Eso es!","¡Perfecto!","¡Muy bien!"][lc.q%4]:"Casi. La buena es:"}</b>${Q.opts[a]===it?"":` <span lang="${lang}">${h(it.c)}</span> = ${h(lecResp(set,it))}`}<button class="btn acc" data-lcnext>Seguir → <kbd>Espacio</kbd></button></div>`:""}</div>`}
+  const pc=Math.round(lc.ok/Math.max(1,lc.ok+lc.mal)*100),hech=lecHechas(set),tot=lecTotal(set),fin=hech>=tot;
+  const id=({ru:"ru",pt:"pt",kana:"ja"})[KEXT(set)||"kana"],est=camEstado(id),niv=est.ns.find(n=>n.ir.k===set);
+  return top+`<div class="lc-card lc-fin"><div class="lc-medalla">${fin?"🏆":"⭐"}</div><h1>${fin?"¡Nivel superado!":"¡Lección "+(lc.n+1)+" completada!"}</h1>
+    <div class="lc-stats"><div><b>+${lc.xp}</b><span>XP</span></div><div><b>${pc} %</b><span>aciertos</span></div><div><b>🔥 ${lc.max}</b><span>mejor racha</span></div></div>
+    <p class="muted">${niv?`Nivel ${niv.i+1} · ${h(niv.t)}`:""}</p><div class="lc-nivel"><i data-w="${Math.round(hech/tot*100)}" style="width:${Math.round(Math.max(0,hech-1)/tot*100)}%"></i></div><p class="mono muted">${hech} de ${tot} lecciones</p>
+    <div class="row lc-acc">${fin?`<button class="btn acc" data-lcruta>Ver el siguiente nivel →</button>`:`<button class="btn acc" data-lcotra="${lc.n+1}">Lección ${lc.n+2} → <kbd>Espacio</kbd></button>`}<button class="btn ghost" data-lcruta>Volver al camino</button></div></div>`}
+function lcSigue(){if(!lc)return;
+  if(lc.fase==="aprende"){if(lc.i+1<lc.items.length){lc.i++;render();lcSuena(lc.items[lc.i])}else{lc.fase="practica";lcOpciones();render();const Q=lc.cola[0];if(Q.t==="oido")lcSuena(Q.it)}return}
+  if(lc.fase==="practica"&&lc.ans!=null){lc.q++;lc.ans=null;if(lc.q>=lc.cola.length)return lcTermina();lcOpciones();render();const Q=lc.cola[lc.q];if(Q.t==="oido")lcSuena(Q.it);return}
+  if(lc.fase==="fin"){const b=$("[data-lcotra]")||$("[data-lcruta]");b&&b.click()}}
+function lcResponde(k){const Q=lc.cola[lc.q];if(!Q||lc.ans!=null)return;lc.ans=k;const ok=Q.opts[k]===Q.it;
+  const id=kid(lc.set,Q.it.c),st=S.kana[id]||[0,0];S.kana[id]=[st[0]+(ok?1:0),st[1]+1];
+  if(ok){lc.ok++;lc.combo++;lc.max=Math.max(lc.max,lc.combo)}else{lc.mal++;lc.combo=0;if(!Q.otra)lc.cola.push({it:Q.it,t:"ver",otra:1})}
+  sfx(ok);lcSuena(Q.it);touchDay(1);apunta(KEXT(lc.set)||"ja",1);save();render()}
+function lcTermina(){lc.fase="fin";lc.xp=10+lc.ok*2+(lc.mal===0?10:0);S.xp+=lc.xp;S.lec??={};S.lec[lc.set]=Math.max(S.lec[lc.set]||0,lc.n+1);save();render();
+  const fin=lecHechas(lc.set)>=lecTotal(lc.set);if(fin||lc.mal===0)confetti();
+  const b=$(".lc-nivel i");if(b)requestAnimationFrame(()=>{if(window.gsap)gsap.to(b,{width:b.dataset.w+"%",duration:1.1,ease:"power3.out",delay:.25});else b.style.width=b.dataset.w+"%"});
+  if(window.gsap&&!document.documentElement.classList.contains("no-fx"))gsap.from(".lc-medalla",{scale:0,rotate:-30,duration:.8,ease:"back.out(2)"})}
+function bindLeccion(){if(!lc)return;
+  const f=$("[data-lcfuera]");if(f)f.onclick=()=>{stopVoz();const s=lc.set;lc=null;go({v:KEXT(s)||"kana",k:s})};
+  document.querySelectorAll("[data-lcoir]").forEach(b=>b.onclick=()=>{const Q=lc.fase==="practica"?lc.cola[lc.q]:null;lcSuena(Q?Q.it:lc.items[lc.i])});
+  const sg=$("[data-lcsig]");if(sg)sg.onclick=lcSigue;const nx=$("[data-lcnext]");if(nx)nx.onclick=lcSigue;
+  document.querySelectorAll("[data-lcop]").forEach(b=>b.onclick=()=>lcResponde(+b.dataset.lcop));
+  document.querySelectorAll("[data-lcruta]").forEach(b=>b.onclick=()=>{const s=lc.set;lc=null;go({v:KEXT(s)||"kana",k:s})});
+  const ot=$("[data-lcotra]");if(ot)ot.onclick=()=>lecNueva(lc.set,+ot.dataset.lcotra);
+  if(lc.fase==="aprende"&&lc.i===0&&!lc.sono){lc.sono=1;lcSuena(lc.items[0])}
+  if(window.gsap&&!document.documentElement.classList.contains("no-fx")){const c=$(".lc-card");if(c&&lc.fase!=="fin")gsap.from(c,{y:16,opacity:0,duration:.35,ease:"power2.out"});const o=$(".lc-fb");if(o)gsap.from(o,{y:20,opacity:0,duration:.3})}}
+addEventListener("keydown",e=>{if(route.v!=="leccion"||!lc||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(e.key===" "||e.key==="Enter"){e.preventDefault();e.stopImmediatePropagation();lcSigue()}
+  else if(/^[1-4]$/.test(e.key)&&lc.fase==="practica"){e.preventDefault();e.stopImmediatePropagation();lcResponde(+e.key-1)}
+  else if(e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();$("[data-lcfuera]")?.click()}},true);
+
+/* El camino de lecciones de un conjunto: nodos en zigzag, el siguiente con «Empezar» */
+function rutaLecciones(set){const tot=lecTotal(set),hech=lecHechas(set);
+  return `<div class="ruta-lec">${Array.from({length:tot},(_,n)=>{const est=n<hech?"ok":n===hech?"ahora":"luego",its=lecItems(set,n);
+    return `<div class="rl-n ${est}" style="--dx:${[0,46,70,46,0,-46,-70,-46][n%8]}px"><button data-lec="${n}" aria-label="Lección ${n+1}${est==="ok"?", hecha":""}"><span>${est==="ok"?"✓":n+1}</span></button>
+      <div class="rl-tx"><b>Lección ${n+1}</b><small lang="${kLang(set)}">${its.map(i=>h(LEC_ALFA.has(set)?i.c.split(" ")[0]:i.c.split(" / ")[0])).join(" · ")}</small>${est==="ahora"?`<button class="btn acc" data-lec="${n}">${n?"Seguir":"Empezar"} →</button>`:""}</div></div>`}).join("")}</div>`}
+function bindRuta(){document.querySelectorAll("[data-lec]").forEach(b=>b.onclick=()=>lecNueva(kCur(),+b.dataset.lec))}
+
 /* ============ Camino por niveles: qué hacer primero y qué viene después ============ */
 // Cada nivel se da por superado al llegar a «need»; el primero sin superar es «el tuyo»
 const kNum=set=>KANA?.[set]?KANA[set].filter(i=>kKnown(set,i.c)).length:0;
@@ -1387,22 +1502,22 @@ const leidas=lang=>Object.keys(S.leido||{}).filter(k=>k.startsWith(lang+"-")).le
 const hechos=(x,pre)=>Object.keys(S.exams[x]||{}).filter(k=>!pre||k[0]===pre).length;
 const CAMINO={
   ru:{n:"Ruso",w:"Привет",l:"ru",c:"ru",niv:[
-    ["Las letras","Las 33 letras del cirílico: 5 iguales, 7 engañosas y 21 nuevas.",{v:"ru",k:"cirilico"},()=>kNum("cirilico"),25],
-    ["Primeras palabras","Saludar, presentarte, pedir y preguntar.",{v:"ru",k:"ruvocab"},()=>kNum("ruvocab"),30],
-    ["Frases y gramática","Pronombres, verbos en presente y los primeros casos.",{v:"ru",k:"rugram"},()=>kNum("rugram"),10],
+    ["Las letras","Las 33 letras del cirílico: 5 iguales, 7 engañosas y 21 nuevas.",{v:"ru",k:"cirilico"},()=>lecHechas("cirilico"),()=>lecTotal("cirilico")],
+    ["Primeras palabras","Saludar, presentarte, pedir y preguntar.",{v:"ru",k:"ruvocab"},()=>lecHechas("ruvocab"),()=>lecTotal("ruvocab")],
+    ["Frases y gramática","Pronombres, verbos en presente y los primeros casos.",{v:"ru",k:"rugram"},()=>lecHechas("rugram"),()=>lecTotal("rugram")],
     ["Leer y escuchar","Historias cortas con voz: café, metro, tienda, Kazán.",{v:"leer",lang:"ru"},()=>leidas("ru"),4],
-    ["La universidad","Подфак, ТРКИ, residencia: lo que vas a vivir allí.",{v:"ru",k:"ruuni"},()=>kNum("ruuni"),12]]},
+    ["La universidad","Подфак, ТРКИ, residencia: lo que vas a vivir allí.",{v:"ru",k:"ruuni"},()=>lecHechas("ruuni"),()=>lecTotal("ruuni")]]},
   pt:{n:"Portugués",w:"Olá!",l:"pt-PT",c:"pt",niv:[
-    ["Para sobrevivir","Lo de cada día en Portugal: saludar, comprar, moverte.",{v:"pt",k:"pt"},()=>kNum("pt"),35],
-    ["Los verbos","Ser, estar, ir, tener… y el «estou a fazer».",{v:"pt",k:"ptverbos"},()=>kNum("ptverbos"),12],
-    ["Falsos amigos","Las palabras que traicionan a los hispanohablantes.",{v:"pt",k:"falsos"},()=>kNum("falsos"),18],
+    ["Para sobrevivir","Lo de cada día en Portugal: saludar, comprar, moverte.",{v:"pt",k:"pt"},()=>lecHechas("pt"),()=>lecTotal("pt")],
+    ["Los verbos","Ser, estar, ir, tener… y el «estou a fazer».",{v:"pt",k:"ptverbos"},()=>lecHechas("ptverbos"),()=>lecTotal("ptverbos")],
+    ["Falsos amigos","Las palabras que traicionan a los hispanohablantes.",{v:"pt",k:"falsos"},()=>lecHechas("falsos"),()=>lecTotal("falsos")],
     ["Leer y escuchar","Historias con voz: café, casa, mercado, tren, entrevista.",{v:"leer",lang:"pt"},()=>leidas("pt"),4],
-    ["Trámites","NIF, contrato, banco: el papeleo para vivir allí.",{v:"pt",k:"tramites"},()=>kNum("tramites"),12]]},
+    ["Trámites","NIF, contrato, banco: el papeleo para vivir allí.",{v:"pt",k:"tramites"},()=>lecHechas("tramites"),()=>lecTotal("tramites")]]},
   ja:{n:"Japonés",w:"こんにちは",l:"ja",c:"n5",niv:[
-    ["Hiragana","La base: con ella se escribe todo.",{v:"kana",k:"hira"},()=>kNum("hira"),40],
-    ["Katakana","Las palabras extranjeras: コーヒー, テレビ.",{v:"kana",k:"kata"},()=>kNum("kata"),40],
-    ["Kanji N5","Los ~100 kanji del primer examen.",{v:"kana",k:"kanji"},()=>kNum("kanji"),50],
-    ["Palabras N5","El vocabulario del día a día.",{v:"kana",k:"vocab"},()=>kNum("vocab"),80],
+    ["Hiragana","La base: con ella se escribe todo.",{v:"kana",k:"hira"},()=>lecHechas("hira"),()=>lecTotal("hira")],
+    ["Katakana","Las palabras extranjeras: コーヒー, テレビ.",{v:"kana",k:"kata"},()=>lecHechas("kata"),()=>lecTotal("kata")],
+    ["Kanji N5","Los ~100 kanji del primer examen.",{v:"kana",k:"kanji"},()=>lecHechas("kanji"),()=>lecTotal("kanji")],
+    ["Palabras N5","El vocabulario del día a día.",{v:"kana",k:"vocab"},()=>lecHechas("vocab"),()=>lecTotal("vocab")],
     ["Examen N5","Calentamientos y simulacros con reloj.",{v:"exam",x:"n5",tab:"sims"},()=>hechos("n5"),3]]},
   en:{n:"Inglés",w:"Hello",l:"en",c:"det",niv:[
     ["Tu punto de partida","Tres calentamientos fáciles del Duolingo Test para ver tu nivel.",{v:"exam",x:"det",tab:"sims"},()=>hechos("det","c"),3],
@@ -1411,14 +1526,14 @@ const CAMINO={
     ["IELTS paso a paso","Calentamientos del IELTS: lectura, escucha y escritura.",{v:"exam",x:"ielts",tab:"sims"},()=>hechos("ielts","c"),3],
     ["Listo para el examen","Simulacros de IELTS o TOEFL hasta pasar tu objetivo.",{v:"exam",x:"ielts",tab:"sims"},()=>hechos("ielts","s")+hechos("toefl","s"),5]]},
 };
-function camEstado(id){const C=CAMINO[id];const ns=C.niv.map(([t,d,ir,f,need],i)=>{const v=Math.min(f(),need);return{i,t,d,ir,v,need,ok:v>=need}});
+function camEstado(id){const C=CAMINO[id];const ns=C.niv.map(([t,d,ir,f,nd],i)=>{const need=Math.max(1,typeof nd==="function"?nd():nd),v=Math.min(f(),need);return{i,t,d,ir,v,need,ok:v>=need}});
   const cur=ns.findIndex(n=>!n.ok);return{C,ns,cur:cur<0?ns.length:cur}}
 function camino(id,compacto,sel){const {C,ns,cur}=camEstado(id);
   return `<ol class="camino ${compacto?"mini":""}" style="--c:var(--${C.c})">${ns.map(n=>{const est=n.ok?"ok":n.i===cur?"ahora":"luego";
     return `<li class="cam-n ${est} ${sel&&n.ir.k===sel?"sel":""}"><button data-cam='${h(JSON.stringify(n.ir))}'><span class="cam-dot">${n.ok?"✓":n.i+1}</span>
       <span class="cam-tx"><span class="eyebrow">Nivel ${n.i+1}${est==="ahora"?" · empieza aquí":est==="ok"?" · superado":""}</span><b>${h(n.t)}</b>${compacto?"":`<small>${h(n.d)}</small>`}
       <span class="cam-bar"><i style="width:${Math.round(n.v/n.need*100)}%"></i></span><small class="mono">${n.v}/${n.need}</small></span>${est==="ahora"&&!compacto?`<span class="btn acc cam-go">${n.v?"Seguir":"Empezar"} →</span>`:""}</button></li>`}).join("")}</ol>`}
-function bindCamino(){document.querySelectorAll("[data-cam]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.cam);if(r.v==="leer"){lee=null}if(r.v==="exam"){go(r);loadBank(r.x).catch(e=>toast(e.message))}else go(r)});
+function bindCamino(){document.querySelectorAll("[data-cam]").forEach(b=>b.onclick=()=>{const r=JSON.parse(b.dataset.cam);if(route.v==="home"&&r.k&&KANA&&lecHechas(r.k)<lecTotal(r.k)){lecNueva(r.k,lecHechas(r.k));return}if(r.v==="leer"){lee=null}if(r.v==="exam"){go(r);loadBank(r.x).catch(e=>toast(e.message))}else go(r)});
   document.querySelectorAll("[data-camid]").forEach(b=>b.onclick=()=>{S.camino=b.dataset.camid;save();
     const box=$("#camBox");if(!box)return render();box.innerHTML=camino(S.camino);const ti=$("#camTit");if(ti)ti.innerHTML=`<span class="num">PASO 2</span>Tu camino de ${h(CAMINO[S.camino].n.toLowerCase())}`;document.querySelectorAll("[data-camid]").forEach(x=>x.setAttribute("aria-selected",x.dataset.camid===S.camino));bindCamino();
     if(window.gsap&&!document.documentElement.classList.contains("no-fx"))gsap.from("#camBox .cam-n",{x:-18,opacity:0,duration:.45,stagger:.06,ease:"power3.out"})})}
@@ -1447,9 +1562,9 @@ function go0(r){if(r.v!=="leer")lee=null;if(r.v!=="teclas"&&tk){clearInterval(tk
 function render(){
   const v=route.v, app=$("#app");
   if(v==="run"){app.innerHTML=viewRun();bindRun();return}
-  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="plan"?viewPlan():v==="teclas"?viewTeclas():v==="leer"?viewLeer():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():v==="perdido"?viewPerdido():"")+"</main>";
+  app.innerHTML=topBar()+'<main class="wrap">'+(v==="home"?viewHome():v==="exam"?viewExam():v==="result"?viewResult():v==="guide"?viewGuide():v==="certs"?viewCerts():v==="plan"?viewPlan():v==="teclas"?viewTeclas():v==="leer"?viewLeer():v==="cards"?viewCards():v==="rayo"?viewRayo():v==="kana"||v==="pt"||v==="ru"?viewKana():v==="libre"?viewLibre():v==="social"?viewSocial():v==="clase"?viewClase():v==="perdido"?viewPerdido():v==="leccion"?viewLeccion():"")+"</main>";
   bindCommon();
-  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="teclas")bindTeclas(); if(v==="leer")bindLeer(); document.querySelectorAll("[data-golee]").forEach(b=>b.onclick=()=>go({v:"leer",lang:b.dataset.golee})); if(v==="home"){bindPlanBtns();bindIdiomas();bindCamino();if(!KANA)loadKana().then(()=>{if(route.v==="home")render()}).catch(()=>{})} if(v==="kana"||v==="pt"||v==="ru")bindCamino(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); if(v==="perdido")bindPerdido(); bindVoz(); if(window.dojoFx)dojoFx(v);
+  if(v==="cards")bindCards(); if(v==="rayo")bindRayo(); if(v==="guide")bindGuide(); if(v==="certs")bindCerts(); if(v==="plan")bindPlan(); if(v==="teclas")bindTeclas(); if(v==="leer")bindLeer(); document.querySelectorAll("[data-golee]").forEach(b=>b.onclick=()=>go({v:"leer",lang:b.dataset.golee})); if(v==="home"){bindPlanBtns();bindIdiomas();bindCamino();if(!KANA)loadKana().then(()=>{if(route.v==="home")render()}).catch(()=>{})} if(v==="kana"||v==="pt"||v==="ru")bindCamino(); if(v==="exam")bindLearn(); if(v==="kana"||v==="pt"||v==="ru")bindKana(); if(v==="libre")bindLibre(); if(v==="social")bindSocial(); if(v==="clase")bindClase(); if(v==="perdido")bindPerdido(); if(v==="leccion")bindLeccion(); bindVoz(); if(window.dojoFx)dojoFx(v);
 }
 function topBar(){
   const L=level(), cur=route.v;
@@ -2214,7 +2329,7 @@ document.addEventListener("keydown",e=>{
     if(/^[a-e]$/.test(lk)){act(document.querySelectorAll("[data-mr]")["abcde".indexOf(lk)]);return}
     return}
   if((v==="kana"||v==="pt"||v==="ru")&&KANA){
-    const tab=route.kt||"tabla",d=/^Digit[123]$/.test(e.code)?+e.code.slice(5):0;
+    const tab=route.kt||"ruta",d=/^Digit[123]$/.test(e.code)?+e.code.slice(5):0;
     if(e.shiftKey&&d){act(document.querySelectorAll("[data-kt]")[d-1]);return}
     if(tab==="tabla"){
       if(/^Arrow/.test(k)){e.preventDefault();kMove(k);return}
@@ -2575,12 +2690,13 @@ function kDetail(set){
 function viewKana(){
   if(!KANA){loadKana().then(render).catch(e=>toast(e.message));return `<p class="muted" style="padding:40px 0">Cargando…</p>`}
   const camId=({ru:"ru",pt:"pt",kana:"ja"})[route.v],ce=camEstado(camId),camSet=ce.ns[ce.cur]?.ir?.k;
-  const grp=KGRUPO[kGv()], set=grp.includes(route.k)?route.k:grp.includes(camSet)?camSet:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"tabla"), L=KANA[set];
+  const grp=KGRUPO[kGv()], set=grp.includes(route.k)?route.k:grp.includes(camSet)?camSet:grp[0], tab=kWord(set)&&route.kt==="dibuja"?"tabla":(route.kt||"ruta"), L=KANA[set];
   const known=L.filter(i=>kKnown(set,i.c)).length;
   const kl=route.v==="ru"?"ru":route.v==="pt"?"pt-PT":"ja";
   const sw=grp.map(k=>[k,KSETS[k]]).map(([k,[n,j]])=>`<button class="kset ${k===set?"on":""}" data-kset="${k}"><span lang="${kl}">${j}</span><b>${n}</b><small class="mono">${KANA[k].filter(i=>kKnown(k,i.c)).length}/${KANA[k].length}</small></button>`).join("");
   let body="";
-  if(tab==="tabla"){
+  if(tab==="ruta"){body=rutaLecciones(set)}
+  else if(tab==="tabla"){
     if(!kSel||!L.some(i=>i.c===kSel))kSel=L[0].c;
     const groups=kWord(set)?[...new Set(L.map(i=>i.g))].map(g=>[({kansai:"Kansai-ben: el japonés de Osaka",calle:"Matón de película (no lo uses con desconocidos)"})[g]||g,L.filter(i=>i.g===g),"kgrid kw"]):set==="kanji"?[["Los 104 kanji",L,"kgrid kj"]]:[["Básicos (gojūon)",kGojuon(L),"kgrid"],["Con ゛ y ゜",L.filter(i=>i.g==="dakuten"),"kgrid"],["Combinaciones",L.filter(i=>i.g==="combo"),"kgrid k3"]];
     body=`<div class="kwrap"><div>${groups.map(([t,items,cls])=>`<h3 class="kh">${t}</h3><div class="${cls}">${items.map(i=>kCell(set,i)).join("")}</div>`).join("")}</div><div class="kside ${kSheet?"open":""}" data-lenis-prevent>${kDetail(set)}</div></div>`;
@@ -2596,8 +2712,8 @@ function viewKana(){
       <div class="card"><h3>Cómo practicar</h3><ol class="plan"><li>Dibuja 3 veces <b>con</b> la guía, diciendo el sonido en voz alta.</li><li>Oculta la guía y dibújalo de memoria.</li><li>Orden de trazos: de arriba abajo y de izquierda a derecha; las horizontales antes que las verticales que las cruzan.</li></ol>
       <p class="muted" style="font-size:14px">Ahora: <b lang="ja" style="font-size:22px">${h(c)}</b> ${h(set==="kanji"?(L.find(i=>i.c===c)||{}).m:(L.find(i=>i.c===c)||{}).r)}</p></div></div>`;
   }
-  const tabs=set==="cirilico"?[["tabla","Letras y trucos"],["test","Test"]]:kWord(set)?[["tabla","Palabras y frases"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]];
-  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 style="margin-top:8px"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div><span class="pill ok">${known}/${L.length} dominados</span></div>
+  const tabs=[["ruta","Lecciones"],...(set==="cirilico"?[["tabla","Todas las letras"],["test","Test"]]:kWord(set)?[["tabla","Todas las palabras"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]])];
+  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 style="margin-top:8px"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 style="margin-top:8px"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 style="margin-top:8px"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div></div>
     ${camino(camId,true,set)}${route.v==="kana"?`<div class="row" style="margin:-6px 0 14px"><button class="btn ghost ${set==="kansai"?"acc":""}" data-kset="kansai">関西弁 · Extra: Kansai y calle</button></div>`:""}${route.v!=="kana"?"":vozPicker(true)}
     <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"1-4 o A-D: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }
@@ -2642,6 +2758,7 @@ function bindKana(){
     const id=kid(kq.set,it.c),st=S.kana[id]||[0,0];S.kana[id]=[st[0]+(ok?1:0),st[1]+1];if(ok){kq.ok++;S.xp+=2}sfx(ok);touchDay(1);apunta(KEXT(kq.set)||"ja",1);save();kSpeak(kq.set,kVoice(kq.set,it));render()});
   const nx=$("[data-knext]");if(nx)nx.onclick=()=>{kq.i++;kq.ans=null;if(kq.i>=10){if(kq.ok===10)confetti();planJefe(kq.set,kq.ok)}render()};
   const can=$("#kcan");if(can)bindDraw(can);
+  bindRuta();
 }
 function bindDraw(can){
   const set=route.k||"hira",L=KANA[set],pool=L.filter(i=>!i.g),g=can.getContext("2d");let guide=true,drawing=false,strokes=[];
