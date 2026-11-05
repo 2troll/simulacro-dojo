@@ -1582,6 +1582,10 @@ function rutaLecciones(set){const tot=lecTotal(set),hech=lecHechas(set);
       <div class="rl-tx"><b>Lección ${n+1}</b><small lang="${kLang(set)}">${its.map(i=>h(LEC_ALFA.has(set)?i.c.split(" ")[0]:i.c.split(" / ")[0])).join(" · ")}</small>${est==="ahora"?`<button class="btn acc" data-lec="${n}">${n?"Seguir":"Empezar"} →</button>`:""}</div></div>`}).join("")}</div>`}
 function bindRuta(){document.querySelectorAll("[data-lec]").forEach(b=>b.onclick=()=>lecNueva(kCur(),+b.dataset.lec))}
 
+// Japonés práctico y por niveles (datos/ja_gen.py): mismas fichas que «vocab», con truco en «t»
+const JA_EXTRA=["jaempieza","jacompra","jacomer","jamover","jagram5","jagram4","javocab4","jagram3","javocab3","jagram2","jagram1"];
+const JAX=set=>JA_EXTRA.includes(set), JAGRAM=set=>set.startsWith("jagram");
+const JA_INFO={jaempieza:["Primeros pasos","はじめまして","Saludar, dar las gracias, pedir perdón y no perderte."],jacompra:["Comprar y pagar","おかいけい","Precios, tarjeta, efectivo, bolsa, tallas: pagar sin miedo."],jacomer:["Comer fuera","いただきます","Pedir mesa, la carta, alergias, halal y la cuenta."],jamover:["Moverse","えき","Tren, billetes, salidas, direcciones y taxis."],jagram5:["Gramática N5","ぶんぽう","Las estructuras del primer nivel: です, を, に, て…"],jagram4:["Gramática N4","ぶんぽう","Dar y recibir, condicionales, potencial, forma て avanzada."],jagram3:["Gramática N3","ぶんぽう","Matices: ようにする, ばかり, わけ…"],jagram2:["Gramática N2","ぶんぽう","El japonés de las noticias y el trabajo."],jagram1:["Gramática N1","ぶんぽう","El nivel más alto: escrito, formal y literario."],javocab4:["Palabras N4","ことば","Trabajo, salud, viajes, sentimientos."],javocab3:["Palabras N3","ことば","Para conversar de verdad y leer avisos."]};
 /* ============ Camino por niveles: qué hacer primero y qué viene después ============ */
 // Cada nivel se da por superado al llegar a «need»; el primero sin superar es «el tuyo»
 const kNum=set=>KANA?.[set]?KANA[set].filter(i=>kKnown(set,i.c)).length:0;
@@ -1601,11 +1605,22 @@ const CAMINO={
     ["Leer y escuchar","Historias con voz: café, casa, mercado, tren, entrevista.",{v:"leer",lang:"pt"},()=>leidas("pt"),4],
     ["Trámites","NIF, contrato, banco: el papeleo para vivir allí.",{v:"pt",k:"tramites"},()=>lecHechas("tramites"),()=>lecTotal("tramites")]]},
   ja:{n:"Japonés",w:"こんにちは",l:"ja",c:"n5",niv:[
+    ["Primeros pasos","Hola, gracias, perdón, no entiendo: sin leer nada aún.",{v:"kana",k:"jaempieza"},()=>lecHechas("jaempieza"),()=>lecTotal("jaempieza")],
     ["Hiragana","La base: con ella se escribe todo.",{v:"kana",k:"hira"},()=>lecHechas("hira"),()=>lecTotal("hira")],
     ["Katakana","Las palabras extranjeras: コーヒー, テレビ.",{v:"kana",k:"kata"},()=>lecHechas("kata"),()=>lecTotal("kata")],
+    ["Comprar y pagar","Precios, tarjeta o efectivo, bolsa, tallas, devolver.",{v:"kana",k:"jacompra"},()=>lecHechas("jacompra"),()=>lecTotal("jacompra")],
+    ["Comer fuera","Mesa, carta, alergias, halal y la cuenta.",{v:"kana",k:"jacomer"},()=>lecHechas("jacomer"),()=>lecTotal("jacomer")],
+    ["Moverse","Tren, billetes, salidas, direcciones, taxi.",{v:"kana",k:"jamover"},()=>lecHechas("jamover"),()=>lecTotal("jamover")],
     ["Kanji N5","Los ~100 kanji del primer examen.",{v:"kana",k:"kanji"},()=>lecHechas("kanji"),()=>lecTotal("kanji")],
     ["Palabras N5","El vocabulario del día a día.",{v:"kana",k:"vocab"},()=>lecHechas("vocab"),()=>lecTotal("vocab")],
-    ["Examen N5","Calentamientos y simulacros con reloj.",{v:"exam",x:"n5",tab:"sims"},()=>hechos("n5"),3]]},
+    ["Gramática N5","です, を, に, て: montar tus primeras frases.",{v:"kana",k:"jagram5"},()=>lecHechas("jagram5"),()=>lecTotal("jagram5")],
+    ["Examen N5","Calentamientos y simulacros con reloj.",{v:"exam",x:"n5",tab:"sims"},()=>hechos("n5"),3],
+    ["Gramática N4","Dar y recibir, si…, poder hacer.",{v:"kana",k:"jagram4"},()=>lecHechas("jagram4"),()=>lecTotal("jagram4")],
+    ["Palabras N4","Trabajo, salud, viajes, sentimientos.",{v:"kana",k:"javocab4"},()=>lecHechas("javocab4"),()=>lecTotal("javocab4")],
+    ["Nivel N3","Matices para conversar de verdad.",{v:"kana",k:"jagram3"},()=>lecHechas("jagram3"),()=>lecTotal("jagram3")],
+    ["Palabras N3","Avisos, noticias sencillas, el trabajo.",{v:"kana",k:"javocab3"},()=>lecHechas("javocab3"),()=>lecTotal("javocab3")],
+    ["Nivel N2","El japonés de las noticias y la oficina.",{v:"kana",k:"jagram2"},()=>lecHechas("jagram2"),()=>lecTotal("jagram2")],
+    ["Nivel N1","Lo más alto: escrito, formal y literario.",{v:"kana",k:"jagram1"},()=>lecHechas("jagram1"),()=>lecTotal("jagram1")]]},
   en:{n:"Inglés",w:"Hello",l:"en",c:"det",niv:[
     ["Tu punto de partida","Tres calentamientos fáciles del Duolingo Test para ver tu nivel.",{v:"exam",x:"det",tab:"sims"},()=>hechos("det","c"),3],
     ["Palabras y escucha","Empareja y Modo Rayo: vocabulario que cae siempre.",{v:"exam",x:"det",tab:"learn"},()=>Math.min(S.match?.det||0,5),5],
@@ -1629,7 +1644,7 @@ function bindCamino(){document.querySelectorAll("[data-cam]").forEach(b=>b.oncli
 const IDIOMAS=[
   {v:"ru",n:"Ruso",w:"Привет",l:"ru",c:"ru",sub:"Desde cero: cirílico, palabras, gramática y vida universitaria.",sets:["cirilico","ruvocab","rugram","ruuni"],a:[["Aprender",{v:"ru"}],["Tarjetas",{v:"cards"}],["Leer",{v:"leer",lang:"ru"}],["Teclado",{v:"teclas",lang:"ru"}]]},
   {v:"pt",n:"Portugués",w:"Olá!",l:"pt-PT",c:"pt",sub:"De Portugal: día a día, verbos, trabajo de guía y trámites.",sets:["pt","ptverbos","falsos","tramites"],a:[["Aprender",{v:"pt"}],["Tarjetas",{v:"cards"}],["Leer",{v:"leer",lang:"pt"}],["Teclado",{v:"teclas",lang:"pt"}]]},
-  {v:"kana",n:"Japonés",w:"こんにちは",l:"ja",c:"n5",sub:"Kana, 104 kanji, vocabulario N5 y el japonés de Osaka.",sets:["hira","kata","kanji","vocab","kansai"],a:[["Aprender",{v:"kana"}],["Tarjetas",{v:"cards"}],["Examen N5",{v:"exam",x:"n5",tab:"sims"}],["Teclado",{v:"teclas",lang:"ja"}]]},
+  {v:"kana",n:"Japonés",w:"こんにちは",l:"ja",c:"n5",sub:"Desde cero hasta el N1: comprar, comer, moverse, kana, kanji, gramática y el japonés de Osaka.",sets:["hira","kata","kanji","vocab","kansai",...JA_EXTRA],a:[["Aprender",{v:"kana"}],["Tarjetas",{v:"cards"}],["Examen N5",{v:"exam",x:"n5",tab:"sims"}],["Teclado",{v:"teclas",lang:"ja"}]]},
   {v:"ielts",n:"Inglés",w:"Hello",l:"en",c:"ielts",sub:"IELTS y TOEFL con su formato real, Rayo y Empareja.",sets:[],a:[["IELTS",{v:"exam",x:"ielts",tab:"sims"}],["TOEFL",{v:"exam",x:"toefl",tab:"sims"}],["Juegos",{v:"exam",x:"ielts",tab:"learn"}],["Teclado",{v:"teclas",lang:"en"}]]},
 ];
 function idiomaProg(I){if(!I.sets.length){const d=examDone(I.v);return [d,33]}if(!KANA)return null;let k=0,t=0;for(const s of I.sets){const L=KANA[s]||[];t+=L.length;k+=L.filter(i=>kKnown(s,i.c)).length}return [k,t]}
@@ -1906,7 +1921,7 @@ function collect(){const wr=$("#wr");if(wr)run.ans[run.i]=wr.value;const f=$("#f
 function rerun(keepScroll){const f=()=>{const y=scrollY;$("#app").innerHTML=viewRun();bindRun();if(keepScroll)scrollTo(0,y);else if(lenis)lenis.scrollTo(0,{immediate:true,force:true});else scrollTo(0,0)};
   if(keepScroll)f();else{document.documentElement.dataset.vt="paso";suaveVT(f)}}
 /* ============ Manos libres: te lo dice, te deja pensar, te da la respuesta y sigue solo ============ */
-const LIBRE_SETS=[["vocab","Vocabulario N5"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"],["cirilico","Ruso · alfabeto"],["ruvocab","Ruso · palabras y frases"],["rugram","Ruso · gramática"],["ptverbos","Portugués · verbos"],["ruuni","Ruso · estudiar en Rusia"]];
+const LIBRE_SETS=[["jaempieza","Japonés · primeros pasos"],["jacompra","Japonés · comprar y pagar"],["jacomer","Japonés · comer fuera"],["jamover","Japonés · moverse"],["vocab","Vocabulario N5"],["jagram5","Gramática N5"],["jagram4","Gramática N4"],["javocab4","Palabras N4"],["javocab3","Palabras N3"],["jagram3","Gramática N3"],["jagram2","Gramática N2"],["jagram1","Gramática N1"],["hira","Hiragana"],["kata","Katakana"],["kanji","Kanji N5"],["kansai","Kansai y calle"],["pt","Portugués · día a día"],["falsos","Falsos amigos"],["tramites","Trámites en Portugal"],["cirilico","Ruso · alfabeto"],["ruvocab","Ruso · palabras y frases"],["rugram","Ruso · gramática"],["ptverbos","Portugués · verbos"],["ruuni","Ruso · estudiar en Rusia"]];
 const lib={on:false,i:0,cola:[],tok:0,rev:false,mic:null,micOn:false,oido:"",wake:null,dicho:""};
 function libCfg(){if(!S.libre)S.libre={sets:["vocab"],pausa:3,es:true,frase:true,nuevas:true};return S.libre}
 function libCola(){const c=libCfg();let L=[];for(const s of c.sets)for(const it of KANA[s]||[])L.push([s,it]);
@@ -2499,7 +2514,7 @@ function dueCards(){const t=today();return Object.entries(S.srs).filter(([,c])=>
 let deck=null;
 // Mazos: fallos de exámenes + uno por idioma con las fichas de kana.json (id «k:set:carácter»)
 const MAZOS={ru:{n:"Ruso",f:"🇷🇺",w:"Привет",sets:["cirilico","ruvocab","rugram","ruuni"]},pt:{n:"Portugués",f:"🇵🇹",w:"Olá",sets:["pt","ptverbos","falsos","tramites"]},
-  ja:{n:"Japonés",f:"🇯🇵",w:"こんにちは",sets:["hira","kata","vocab","kanji","kansai"]},x:{n:"Fallos de exámenes",f:"📝",w:"✗→✓",sets:[]}};
+  ja:{n:"Japonés",f:"🇯🇵",w:"こんにちは",sets:["hira","kata","vocab","kanji","kansai",...JA_EXTRA]},x:{n:"Fallos de exámenes",f:"📝",w:"✗→✓",sets:[]}};
 const mazoDe=id=>{if(!id.startsWith("k:"))return "x";const set=id.split(":")[1];return Object.keys(MAZOS).find(m=>MAZOS[m].sets.includes(set))||"x"};
 const tarNuevasDia=()=>S.tarNuevas??10;
 function tarNuevasHoy(m){const t=S.tarHoy;return t&&t.d===today()?t[m]||0:0}
@@ -2703,8 +2718,8 @@ async function sendChat(text){
 
 /* ============ Kana y kanji: tabla, test y dibujo ============ */
 let KANA=null, kq=null, kSel=null, kSheet=false;
-const KSETS={hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."],pt:["Para vivir allí","Olá!","Lo de cada día en Portugal, con humor."],falsos:["Falsos amigos","≠","Las palabras que traicionan a los hispanohablantes."],tramites:["Trámites","NIF","El papeleo para vivir y estudiar en Portugal."],ptverbos:["Verbos","Sou/Estou","Ser, estar, ir, tener… y el «estou a fazer» de Portugal."],rugram:["Gramática","Я/Мы","Pronombres, verbos en presente y los primeros casos."],cirilico:["Alfabeto cirílico","Аа","Las 33 letras: 5 iguales, 7 engañosas y 21 nuevas."],ruvocab:["Palabras y frases","Привет","Lo básico para sobrevivir, con la pronunciación."],ruuni:["Estudiar en Rusia","ВУЗ","La universidad por dentro: подфак, ТРКИ, residencia…"]};
-const KGRUPO={kana:["hira","kata","kanji","vocab","kansai"],pt:["pt","ptverbos","falsos","tramites"],ru:["cirilico","ruvocab","rugram","ruuni"]};
+const KSETS={...Object.fromEntries(JA_EXTRA.map(k=>[k,JA_INFO[k]])),hira:["Hiragana","ひらがな","La base: se escribe con ella todo lo japonés."],kata:["Katakana","カタカナ","Palabras extranjeras: コーヒー, テレビ, スペイン."],kanji:["Kanji N5","漢字","Los ~100 kanji que entran en el N5."],vocab:["Vocabulario N5","ことば","Las palabras del día a día que caen en el N5."],kansai:["Kansai y calle","関西弁","No entra en el examen: es para dejar a los japoneses con la boca abierta."],pt:["Para vivir allí","Olá!","Lo de cada día en Portugal, con humor."],falsos:["Falsos amigos","≠","Las palabras que traicionan a los hispanohablantes."],tramites:["Trámites","NIF","El papeleo para vivir y estudiar en Portugal."],ptverbos:["Verbos","Sou/Estou","Ser, estar, ir, tener… y el «estou a fazer» de Portugal."],rugram:["Gramática","Я/Мы","Pronombres, verbos en presente y los primeros casos."],cirilico:["Alfabeto cirílico","Аа","Las 33 letras: 5 iguales, 7 engañosas y 21 nuevas."],ruvocab:["Palabras y frases","Привет","Lo básico para sobrevivir, con la pronunciación."],ruuni:["Estudiar en Rusia","ВУЗ","La universidad por dentro: подфак, ТРКИ, residencia…"]};
+const KGRUPO={kana:["hira","kata","kanji","vocab","kansai",...JA_EXTRA],pt:["pt","ptverbos","falsos","tramites"],ru:["cirilico","ruvocab","rugram","ruuni"]};
 // Idiomas «de fuera» (portugués y ruso): mismo formato de fichas, cada uno con su voz grabada
 const KEXT=set=>KGRUPO.pt.includes(set)?"pt":KGRUPO.ru.includes(set)?"ru":"";
 const KPT=set=>!!KEXT(set);
@@ -2730,10 +2745,10 @@ function pronProbar(set,it,btn){const out=$("#kpron");if(!SRec||!out)return;if(p
   r.onend=()=>{pronRec=null;btn.classList.remove("rec");btn.textContent="🎙 Dilo tú"};
   try{r.start()}catch(e){pronRec=null}}
 // Kanji, vocabulario y Kansai se preguntan por el significado; los kana, por el sonido
-const KMEAN=set=>set==="kanji"||set==="vocab"||set==="kansai"||(KPT(set)&&set!=="cirilico");
+const KMEAN=set=>JAX(set)||set==="kanji"||set==="vocab"||set==="kansai"||(KPT(set)&&set!=="cirilico");
 function kShow(set,it){return KMEAN(set)?it.m:it.r}
-function kVoice(set,it){return set==="kanji"?it.wr:KPT(set)?it.v||it.c.replace(/ \/ /g,", "):it.c.replace(/ \/ /g,"、").replace(/〜/g,"")}
-function kWord(set){return set==="vocab"||set==="kansai"||KPT(set)}
+function kVoice(set,it){return set==="kanji"?it.wr:JAGRAM(set)?it.f:KPT(set)?it.v||it.c.replace(/ \/ /g,", "):it.c.replace(/ \/ /g,"、").replace(/〜/g,"")}
+function kWord(set){return JAX(set)||set==="vocab"||set==="kansai"||KPT(set)}
 async function loadKana(){if(KANA)return KANA;const r=await fetch("kana.json");if(!r.ok)throw new Error("No se pudo cargar kana.json");KANA=await r.json();KMATON=new Set(KANA.kansai.filter(i=>i.g==="calle").map(i=>kVoice("kansai",i)));return KANA}
 function kid(set,c){return set+":"+c}
 function kStat(set,c){return S.kana[kid(set,c)]||[0,0]}
@@ -2767,15 +2782,15 @@ function kDetail(set){
   const st=kStat(set,it.c);
   const info=KPT(set)
     ?`${it.r&&set!=="cirilico"?`<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div>`:""}<div class="kv"><span>${set==="tramites"||set==="ruuni"?"Qué es":set==="cirilico"?"Suena":"Significa"}</span><b>${h(it.m)}</b></div>${it.f?`<p class="kfrase"><span lang="${kLang(set)}">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>`:""}${it.t?`<p class="ktrick"><span class="eyebrow">${set==="falsos"?"La trampa":set==="tramites"||set==="ruuni"?"Cómo va":set==="cirilico"?"Truco":"Pronunciación"}</span>${h(it.t)}</p>`:""}`
-    :set==="vocab"
-    ?`${it.k?`<div class="kv"><span>Se escribe</span><b lang="ja">${h(it.k)}</b></div>`:""}<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div><div class="kv"><span>Significa</span><b>${h(it.m)}</b></div>${it.ks?`<div class="kv"><span>En Kansai</span><b lang="ja">${h(it.ks)}</b></div>`:""}<p class="kfrase"><span lang="ja">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>`
+    :set==="vocab"||JAX(set)
+    ?`${it.k&&it.k!==it.c.replace(/ /g,"")?`<div class="kv"><span>Se escribe</span><b lang="ja">${h(it.k)}</b></div>`:""}<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div><div class="kv"><span>Significa</span><b>${h(it.m)}</b></div>${it.ks?`<div class="kv"><span>En Kansai</span><b lang="ja">${h(it.ks)}</b></div>`:""}<p class="kfrase"><span lang="ja">${h(it.f)}</span><span class="muted">${h(it.fe)}</span><button class="btn ghost" data-say="${h(it.f)}">▶ Frase</button></p>${JAX(set)&&it.t?`<p class="ktrick"><span class="eyebrow">${JAGRAM(set)?"Cómo se forma":"Truco"}</span>${h(it.t)}</p>`:""}`
     :set==="kansai"
     ?`${it.k?`<div class="kv"><span>Se escribe</span><b lang="ja">${h(it.k)}</b></div>`:""}<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div><div class="kv"><span>Significa</span><b>${h(it.m)}</b></div><p class="ktrick"><span class="eyebrow">${it.g==="calle"?"Matón de película · solo para reír":"Kansai-ben"}</span>${h(it.t)}</p><span class="pill warn">No entra en el examen</span>`
     :set==="kanji"
     ?`<div class="kv"><span>Significado</span><b>${h(it.m)}</b></div><div class="kv"><span>On (chino)</span><b lang="ja">${h(it.on)}</b></div><div class="kv"><span>Kun (japonés)</span><b lang="ja">${h(it.kun)}</b></div><div class="kv"><span>Ejemplo</span><b lang="ja">${h(it.w)} · ${h(it.wr)}</b></div><p class="muted" style="margin:6px 0 0">${h(it.wm)}</p>`
     :`<div class="kv"><span>Se lee</span><b>${h(it.r)}</b></div>${it.g?`<p class="muted" style="margin:6px 0 0">${it.g==="dakuten"?"Las comillas ゛ hacen la consonante sonora (k→g, s→z, t→d, h→b) y el círculo ゜ la convierte en p.":"Combinación: la ゃゅょ pequeña se pega a la anterior y forman una sola sílaba."}</p>`:""}`;
   return `<div class="kdet card" id="kdet"><button class="kclose" data-kclose aria-label="Cerrar ficha">✕</button><div class="kbig ${kWord(set)?"long":""}" lang="${kLang(set)}">${h(it.c)}</div>
-    ${it.t&&set!=="kansai"&&!KPT(set)?`<p class="ktrick"><span class="eyebrow">Truco</span>${h(it.t)}</p>`:""}${info}
+    ${it.t&&set!=="kansai"&&!KPT(set)&&!JAX(set)?`<p class="ktrick"><span class="eyebrow">Truco</span>${h(it.t)}</p>`:""}${info}
     <div class="row" style="margin-top:12px"><button class="btn acc" data-say="${h(kVoice(set,it))}">▶ Escuchar</button><button class="btn ghost" data-lento="${h(kVoice(set,it))}" title="Más despacio">🐢 Lento</button>${kWord(set)?(SRec?`<button class="btn ghost" data-pron="${h(it.c)}">🎙 Dilo tú</button>`:""):`<button class="btn ghost" data-kdraw="${h(it.c)}">Dibújalo</button>`}</div><p class="kpron" id="kpron" aria-live="polite"></p>
     <small class="muted mono">${st[1]?`${st[0]}/${st[1]} aciertos en el test`:"Aún no ha salido en el test"}</small></div>`;
 }
@@ -2805,7 +2820,7 @@ function viewKana(){
       <p class="muted" style="font-size:14px">Ahora: <b lang="ja" style="font-size:22px">${h(c)}</b> ${h(set==="kanji"?(L.find(i=>i.c===c)||{}).m:(L.find(i=>i.c===c)||{}).r)}</p></div></div>`;
   }
   const tabs=[["ruta","Lecciones"],...(set==="cirilico"?[["tabla","Todas las letras"],["test","Test"]]:kWord(set)?[["tabla","Todas las palabras"],["test","Test"]]:[["tabla","Tabla y trucos"],["test","Test"],["dibuja","Dibuja"]])];
-  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 class="k-tit"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 class="k-tit"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">JLPT N5 · empieza aquí</span><h1 class="k-tit"><span lang="ja">かな</span>, kanji y palabras</h1>`}</div></div>
+  return `<div class="ex-head"><div>${route.v==="ru"?`<span class="eyebrow">Desde cero · para la beca y la universidad</span><h1 class="k-tit"><span class="ptv">Русский</span> desde cero</h1>`:route.v==="pt"?`<span class="eyebrow">Portugal · para vivir y estudiar</span><h1 class="k-tit"><span class="ptv">Português</span> de Portugal</h1>`:`<span class="eyebrow">Desde cero hasta el N1 · empieza aquí</span><h1 class="k-tit"><span lang="ja">にほんご</span>, paso a paso</h1>`}</div></div>
     ${tab==="ruta"?"":camino(camId,true,set)}${route.v!=="kana"||tab==="ruta"?"":vozPicker(true)}
     <div class="tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-kt="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div><p class="kbd kb-line">${({tabla:"Flechas: moverte · Espacio: escuchar",test:"A S D F: responder · Espacio: siguiente",dibuja:"Retroceso: borrar · V: guía · Intro: otra"})[tab]} · Shift+←→: pestañas · Shift+↑↓: conjunto · / buscar · ? ayuda</p>${body}`;
 }

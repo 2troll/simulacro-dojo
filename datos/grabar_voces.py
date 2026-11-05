@@ -77,6 +77,9 @@ def fnv(texto):
     return format(x, "08x")
 
 
+JA_EXTRA = ["jaempieza", "jacompra", "jacomer", "jamover", "jagram5", "jagram4", "javocab4", "jagram3", "javocab3", "jagram2", "jagram1"]
+
+
 def voz_de(c):
     return c.replace(" / ", "、").replace("〜", "")
 
@@ -94,6 +97,11 @@ def textos_ja():
     for it in d["vocab"]:
         out[voz_de(it["c"])] = False
         out[it["f"]] = True
+    for k in JA_EXTRA:  # japonés práctico y por niveles (ja_gen.py); la gramática se oye por su frase
+        for it in d.get(k, []):
+            if not k.startswith("jagram"):
+                out[voz_de(it["c"])] = False
+            out[it["f"]] = False
     out["こんにちは！いっしょに がんばろうね。"] = False  # el botón «Probar» del selector de voz
     for it in d["kansai"]:
         if it["g"] == "calle":
