@@ -24,6 +24,7 @@ HEAD = """<!doctype html>
 <meta name="theme-color" content="#13110e" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Dojo">
+<link rel="canonical" href="https://dojo.tonykansaiguide.com/">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icon-180.png">
