@@ -3060,7 +3060,8 @@ function start(){loadLocal();
   if(socPendiente||irChat||q.get("amigos")||unirsePendiente)route={v:"social"};
   if(/^\d+$/.test(q.get("clase")||""))route={v:"clase",id:+q.get("clase")};
   // Cualquier ruta que no sea la portada llega aquí por el modo SPA del Worker: es un enlace roto
-  if(!/^\/(index\.html)?$/.test(location.pathname))route={v:"perdido"};
+  // En GitHub Pages la web vive en /simulacro-dojo/: esa carpeta también es la portada
+  if(!/^\/(simulacro-dojo\/)?(index\.html)?$/.test(location.pathname))route={v:"perdido"};
   if([...q.keys()].some(k=>["chat","amigos","reto","clase","unirse"].includes(k)))history.replaceState(null,"",location.pathname+(socPendiente?"?amigo="+encodeURIComponent(socPendiente):""));
   if(irChat)connectApi().then(()=>{if(cuenta)chatAbrir(irChat)});
   if(irReto&&EX[irReto])setTimeout(()=>startReto(irReto),300);render();connectStore();connectApi();connectExtras()}
