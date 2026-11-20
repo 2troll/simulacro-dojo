@@ -13,8 +13,10 @@ from collections import Counter
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SECS = {"reading", "listening", "vocab", "grammar", "writing", "speaking",
         "secure", "resilient", "performance", "cost",
-        "azcloud", "azarch", "azgov", "theory", "team", "events", "artifacts"}
-EXAMENES = ("aws", "toefl", "ielts", "n5", "det", "az900", "psm")
+        "azcloud", "azarch", "azgov", "theory", "team", "events", "artifacts",
+        # Olimpiadas de Rusia 2027: matemáticas en inglés y números del ruso A1
+        "algebra", "funcs", "logs", "seqs", "trig", "geom", "prob", "words", "numbers"}
+EXAMENES = ("aws", "toefl", "ielts", "n5", "det", "az900", "psm", "mat", "ingb2", "rusa1")
 
 
 def cargar(ruta):

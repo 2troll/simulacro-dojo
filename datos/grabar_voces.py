@@ -299,7 +299,7 @@ def trabajos(motor):
             tareas += [(pq, t, v_burla if burla else v_pal, EDGE_JA if m == "edge" else "ja") for t, burla in ja.items()]
     if MATON[0] == motor:
         tareas += [("maton", t, MATON[1], "ja") for t in maton]
-    for ex, (w, mm) in (("n5", ("n5w", "n5m")), ("toefl", ("usw", "usm")), ("ielts", ("gbw", "gbm"))):
+    for ex, (w, mm) in (("n5", ("n5w", "n5m")), ("toefl", ("usw", "usm")), ("ielts", ("gbw", "gbm")), ("ingb2", ("gbw", "gbm"))):
         for t, g in lineas(ex).items():
             pares = [(w, mm)] if ex == "n5" else [("usw", "usm"), ("gbw", "gbm")]  # inglés en los dos acentos
             for pw, pm in pares:

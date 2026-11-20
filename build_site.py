@@ -19,7 +19,7 @@ HEAD = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Dojo: simulacros gratis de AWS Solutions Architect, TOEFL, IELTS y JLPT N5, y hiragana, katakana y kanji explicados fácil.">
+<meta name="description" content="Dojo: simulacros gratis de AWS Solutions Architect, TOEFL, IELTS y JLPT N5, preparación de las olimpiadas de Rusia (matemáticas en inglés, inglés B2 y ruso A1), y hiragana, katakana y kanji explicados fácil.">
 <meta name="theme-color" content="#f2ede3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#13110e" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -46,7 +46,8 @@ const CACHE = "dojo-%s";
 // Voces y librerías externas no cambian: van en cachés propias que sobreviven a cada versión
 const VOZ = "dojo-voz-1", EXT = "dojo-ext-1";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png",
-  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "bank-det.json", "bank-az900.json", "bank-psm.json", "kana.json"];
+  "bank-aws.json", "bank-toefl.json", "bank-ielts.json", "bank-n5.json", "bank-det.json", "bank-az900.json", "bank-psm.json",
+  "bank-mat.json", "bank-ingb2.json", "bank-rusa1.json", "kana.json"];
 const EXT_HOSTS = /^(cdn\\.jsdelivr\\.net|unpkg\\.com|cdnjs\\.cloudflare\\.com|fonts\\.googleapis\\.com|fonts\\.gstatic\\.com)$/;
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== VOZ && k !== EXT).map(k => caches.delete(k)))).then(() => self.clients.claim())));
@@ -125,7 +126,7 @@ def main():
     with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as f:
         f.write(HEAD + pagina + "\n" + SW_REG + "</body>\n</html>\n")
     bancos = sorted(n for n in os.listdir(WWW) if n.startswith("bank-"))
-    if len(bancos) != 7:
+    if len(bancos) != 10:
         raise SystemExit(f"Faltan bancos en www/: {bancos}. Ejecuta antes build.py")
     for n in bancos + ["kana.json"]:
         shutil.copy(os.path.join(WWW, n), DOCS)

@@ -1,0 +1,1692 @@
+[
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Many people wonder whether the company ___ its prices next year.",
+    "o": [
+     "will raise",
+     "raised",
+     "has raised",
+     "raises"
+    ],
+    "e": "Tras «whether» en una pregunta indirecta sobre el futuro va futuro normal: will raise. La regla de «no will tras if/when» es para condiciones, no para preguntas indirectas.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Could you give me ___ about choosing a university?",
+    "o": [
+     "some advices",
+     "some advice",
+     "a advice",
+     "an advice"
+    ],
+    "e": "«Advice» es incontable: nunca lleva «an» ni plural. Se dice «some advice» o «a piece of advice».",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "It's no use ___ about the delay — the flight has already been cancelled.",
+    "o": [
+     "to complain",
+     "complain",
+     "complaining",
+     "complained"
+    ],
+    "e": "«It's no use» va siempre con -ing: it's no use complaining (no sirve de nada quejarse).",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You hardly ever check your email, ___?",
+    "o": [
+     "aren't you",
+     "don't you",
+     "have you",
+     "do you"
+    ],
+    "e": "«Hardly ever» ya es negativo, así que la coletilla va en afirmativo: do you?",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I wish I ___ work tomorrow, but unfortunately I do.",
+    "o": [
+     "didn't have to",
+     "hadn't to",
+     "don't have to",
+     "won't have to"
+    ],
+    "e": "Wish + pasado para desear que el presente o el futuro fueran distintos: I wish I didn't have to.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I ___ come to the meeting yesterday because my train was cancelled.",
+    "o": [
+     "needn't",
+     "couldn't",
+     "mustn't",
+     "shouldn't"
+    ],
+    "e": "Imposibilidad en el pasado: couldn't. Mustn't es prohibición y shouldn't es consejo.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I've known Sara ___ we were at school together.",
+    "o": [
+     "for",
+     "during",
+     "since",
+     "from"
+    ],
+    "e": "Since + momento de inicio (since we were at school); for + duración (for ten years).",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "If the data had been collected properly, the company ___ in a much better position now.",
+    "o": [
+     "was",
+     "would have been",
+     "will be",
+     "would be"
+    ],
+    "e": "Condicional mixto: condición en el pasado (had been collected) y resultado en el presente (now) → would be.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "'I'm meeting the director next week.' — 'That ___ be right. She's on a business trip in Brazil until June.'",
+    "o": [
+     "can't",
+     "mustn't",
+     "needn't",
+     "shouldn't"
+    ],
+    "e": "Deducción negativa segura: can't (no puede ser). Mustn't expresa prohibición, no deducción.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The new software ___ next week, so the system will be offline for a day.",
+    "o": [
+     "has installed",
+     "is being installed",
+     "will install",
+     "is been installed"
+    ],
+    "e": "Plan futuro en pasiva: present continuous pasivo, is being installed. El programa no se instala solo (will install es activa) y «is been» no existe.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "By the time we arrived at the station, the train ___.",
+    "o": [
+     "already left",
+     "was already leaving",
+     "had already left",
+     "has already left"
+    ],
+    "e": "Acción anterior a otra del pasado (arrived) → past perfect: had already left.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "This is the first time I ___ a presentation in English.",
+    "o": [
+     "gave",
+     "give",
+     "am giving",
+     "have given"
+    ],
+    "e": "«This is the first time» exige present perfect: have given.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Not only ___ the project on time, but she also reduced its cost.",
+    "o": [
+     "did she finish",
+     "finished she",
+     "she did finish",
+     "she finished"
+    ],
+    "e": "«Not only» al principio provoca inversión, como en una pregunta: Not only did she finish…",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The manager made us ___ the report again.",
+    "o": [
+     "rewritten",
+     "rewrite",
+     "to rewrite",
+     "rewriting"
+    ],
+    "e": "Make + persona + infinitivo SIN to: made us rewrite. (En pasiva sí lleva to: we were made to rewrite.)",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "She suggested ___ the train instead of flying.",
+    "o": [
+     "to take",
+     "take",
+     "taking",
+     "that we taking"
+    ],
+    "e": "Suggest + -ing (o «suggest that we take»). Nunca «suggest to take».",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "___ Amazon is the longest river in South America.",
+    "o": [
+     "— (no article)",
+     "A",
+     "An",
+     "The"
+    ],
+    "e": "Ríos, mares y océanos llevan «the»: the Amazon, the Nile, the Pacific.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "It took us ___ hour to get to the airport.",
+    "o": [
+     "an",
+     "a",
+     "— (no article)",
+     "the"
+    ],
+    "e": "La h de «hour» no suena, así que la palabra empieza por sonido vocal: an hour (igual que an honest man).",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The children had a great time: they really enjoyed ___ at the science museum.",
+    "o": [
+     "them",
+     "themselves",
+     "theirselves",
+     "their"
+    ],
+    "e": "Enjoy necesita objeto: enjoy yourself / enjoy themselves (reflexivo). «Theirselves» no existe.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The engineer ___ designed this bridge has won an international award.",
+    "o": [
+     "whom",
+     "which",
+     "who",
+     "whose"
+    ],
+    "e": "Para personas como sujeto: who (o that). Which es para cosas, whom es objeto y whose es posesivo.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "If I ___ you, I would accept the job offer.",
+    "o": [
+     "would be",
+     "will be",
+     "am",
+     "were"
+    ],
+    "e": "Segundo condicional: If + pasado + would. En estilo cuidado se usa «were» con todas las personas: If I were you.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "She told me that she ___ the report the day before.",
+    "o": [
+     "had finished",
+     "has finished",
+     "will finish",
+     "finishes"
+    ],
+    "e": "Estilo indirecto: el pasado retrocede a past perfect, y «yesterday» pasa a «the day before».",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You ___ bring your passport; an ID card is enough for this trip.",
+    "o": [
+     "shouldn't to",
+     "don't have to",
+     "mustn't",
+     "can't"
+    ],
+    "e": "No es necesario = don't have to. Mustn't significaría «está prohibido».",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I'm used to ___ up early for work.",
+    "o": [
+     "get",
+     "have got",
+     "getting",
+     "got"
+    ],
+    "e": "Be used to + -ing = estar acostumbrado a. (Used to + infinitivo es otra cosa: un hábito del pasado.)",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Hardly ___ the office when it started to rain.",
+    "o": [
+     "I left",
+     "I had left",
+     "did I leave",
+     "had I left"
+    ],
+    "e": "Hardly … when va con inversión y past perfect: Hardly had I left the office when…",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The report, ___ was published last week, has caused a lot of discussion.",
+    "o": [
+     "which",
+     "who",
+     "what",
+     "that"
+    ],
+    "e": "Oración explicativa entre comas: which. «That» no se usa después de una coma.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "By 2030, the city ___ a new metro line.",
+    "o": [
+     "builds",
+     "will have built",
+     "has built",
+     "is building"
+    ],
+    "e": "«By + fecha futura» = acción terminada antes de ese momento: future perfect, will have built.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I'd rather you ___ the meeting until Monday.",
+    "o": [
+     "to postpone",
+     "will postpone",
+     "postponed",
+     "postpone"
+    ],
+    "e": "I'd rather + otra persona + pasado: I'd rather you postponed. (Si es la misma persona: I'd rather postpone.)",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "grammar",
+  "task": "Grammar",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "He apologised ___ late for the interview.",
+    "o": [
+     "being",
+     "for be",
+     "to be",
+     "for being"
+    ],
+    "e": "Apologise for + -ing: he apologised for being late.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The meeting has been ___ until next Friday because the director is ill.",
+    "o": [
+     "put off",
+     "put up",
+     "put on",
+     "put out"
+    ],
+    "e": "Put off = aplazar. Put out = apagar (un fuego), put up = alojar o montar, put on = ponerse (ropa).",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The committee decided to ___ the offer because the price was too high.",
+    "o": [
+     "turn over",
+     "turn down",
+     "turn into",
+     "turn up"
+    ],
+    "e": "Turn down = rechazar (una oferta). Turn up = aparecer o subir el volumen.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Engineers are ___ tests to make sure the bridge is safe.",
+    "o": [
+     "carrying away",
+     "carrying on",
+     "carrying out",
+     "carrying off"
+    ],
+    "e": "Carry out = llevar a cabo (tests, research, a survey). Carry on = continuar.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "We have ___ paper, so I can't print the tickets.",
+    "o": [
+     "run over",
+     "run into",
+     "run up",
+     "run out of"
+    ],
+    "e": "Run out of = quedarse sin. Run into = encontrarse con alguien por casualidad.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "After years of working for a large firm, she decided to ___ her own business.",
+    "o": [
+     "set up",
+     "set back",
+     "set off",
+     "set out"
+    ],
+    "e": "Set up = montar, fundar (a business, a company). Set off = salir de viaje; set back = retrasar.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The authorities are ___ the cause of the fire.",
+    "o": [
+     "looking up to",
+     "looking into",
+     "looking after",
+     "looking forward to"
+    ],
+    "e": "Look into = investigar. Look after = cuidar, look up to = admirar, look forward to = esperar con ganas.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "It took him two weeks to ___ the flu.",
+    "o": [
+     "get by",
+     "get across",
+     "get over",
+     "get through to"
+    ],
+    "e": "Get over = recuperarse de, superar (una enfermedad o un mal momento).",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The match was ___ because of the heavy snow.",
+    "o": [
+     "called on",
+     "called up",
+     "called for",
+     "called off"
+    ],
+    "e": "Call off = suspender, cancelar. Call for = exigir; call on = visitar o pedir a alguien que intervenga.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Can you help me ___ how this new app works?",
+    "o": [
+     "figure out",
+     "give out",
+     "make up",
+     "figure in"
+    ],
+    "e": "Figure out = averiguar, entender cómo funciona algo. Make up = inventar; give out = repartir.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The car ___ on the motorway and we had to call for help.",
+    "o": [
+     "broke up",
+     "broke down",
+     "broke out",
+     "broke in"
+    ],
+    "e": "Break down = averiarse. Break up = romper o disolverse; break out = estallar (un incendio); break in = entrar a robar.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "She ___ a brilliant idea for reducing waste in the factory.",
+    "o": [
+     "came across",
+     "came down with",
+     "came up with",
+     "came round to"
+    ],
+    "e": "Come up with = idear, proponer. Come across = encontrarse por casualidad; come down with = caer enfermo de.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Our flight leaves at 6 a.m., so we need to ___ very early.",
+    "o": [
+     "put off",
+     "see off",
+     "show off",
+     "set off"
+    ],
+    "e": "Set off = salir (de viaje). See off = despedir a alguien (necesita objeto); show off = presumir.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The museum is closed ___ Mondays.",
+    "o": [
+     "on",
+     "in",
+     "at",
+     "by"
+    ],
+    "e": "Días de la semana y fechas: on (on Mondays, on 1 January). In para meses y años; at para horas.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "She is very good ___ solving problems under pressure.",
+    "o": [
+     "in",
+     "at",
+     "with",
+     "on"
+    ],
+    "e": "Good at + -ing o sustantivo: good at solving, good at maths.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The price of the tickets depends ___ the time of year.",
+    "o": [
+     "in",
+     "from",
+     "on",
+     "of"
+    ],
+    "e": "Depend on (nunca «depend of»).",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "He was accused ___ copying his classmate's work.",
+    "o": [
+     "about",
+     "for",
+     "with",
+     "of"
+    ],
+    "e": "Accuse someone OF something. (Ojo: blame someone FOR something.)",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Our department is ___ charge of organising the conference.",
+    "o": [
+     "in",
+     "on",
+     "under",
+     "at"
+    ],
+    "e": "Be in charge of = estar a cargo de.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Phrasal verbs and prepositions",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I'm not familiar ___ this software yet.",
+    "o": [
+     "of",
+     "with",
+     "about",
+     "to"
+    ],
+    "e": "Familiar WITH = conocer bien algo. (Algo es familiar TO alguien: this face is familiar to me.)",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Don't worry about the test — it'll be a piece of ___.",
+    "o": [
+     "bread",
+     "sugar",
+     "cake",
+     "pie"
+    ],
+    "e": "A piece of cake = pan comido, muy fácil.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "We only see our cousins once in a blue ___ because they live abroad.",
+    "o": [
+     "sun",
+     "sky",
+     "star",
+     "moon"
+    ],
+    "e": "Once in a blue moon = muy de vez en cuando.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "At the start of the workshop, the trainer told a funny story to break the ___.",
+    "o": [
+     "ice",
+     "door",
+     "rock",
+     "snow"
+    ],
+    "e": "Break the ice = romper el hielo, hacer que la gente se relaje al principio.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "You've hit the nail on the ___ — that's exactly the problem.",
+    "o": [
+     "point",
+     "head",
+     "top",
+     "end"
+    ],
+    "e": "Hit the nail on the head = dar en el clavo.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I'm feeling a bit under the ___ today, so I'll work from home.",
+    "o": [
+     "cloud",
+     "sky",
+     "weather",
+     "rain"
+    ],
+    "e": "Under the weather = algo pachucho, un poco enfermo.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "A new laptop like that must cost an arm and a ___.",
+    "o": [
+     "hand",
+     "finger",
+     "foot",
+     "leg"
+    ],
+    "e": "Cost an arm and a leg = costar un ojo de la cara.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Before the trip, we need to ___ a reservation at the hotel.",
+    "o": [
+     "make",
+     "give",
+     "do",
+     "take"
+    ],
+    "e": "Make a reservation / a decision / a mistake / progress. «Do» va con tareas: do homework, do research.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Scientists ___ a lot of research before the new vaccine was approved.",
+    "o": [
+     "made",
+     "did",
+     "took",
+     "gave"
+    ],
+    "e": "Do research (nunca «make research»).",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The government plans to ___ measures to reduce air pollution.",
+    "o": [
+     "put",
+     "make",
+     "take",
+     "do"
+    ],
+    "e": "Take measures / take steps / take action = tomar medidas.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "As soon as the doctor examined her, he was able to ___ the cause of her headaches.",
+    "o": [
+     "define",
+     "describe",
+     "decide",
+     "diagnose"
+    ],
+    "e": "Diagnose = diagnosticar (la causa de un problema de salud). Define = definir, describe = describir.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "There is a ___ chance of rain this afternoon, so take an umbrella.",
+    "o": [
+     "strong",
+     "heavy",
+     "wide",
+     "tall"
+    ],
+    "e": "Chance se combina con strong, good o high. Heavy va con rain o traffic, no con chance.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The traffic was so ___ that we missed the beginning of the conference.",
+    "o": [
+     "crowded",
+     "heavy",
+     "big",
+     "strong"
+    ],
+    "e": "Heavy traffic = tráfico denso. Crowded va con lugares: a crowded train, a crowded street.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Please ___ attention to the safety instructions.",
+    "o": [
+     "do",
+     "make",
+     "pay",
+     "take"
+    ],
+    "e": "Pay attention to = prestar atención a.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Learning a language takes time, so don't ___ heart if you make mistakes.",
+    "o": [
+     "miss",
+     "break",
+     "drop",
+     "lose"
+    ],
+    "e": "Lose heart = desanimarse.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The two companies decided to join ___ to develop the new product.",
+    "o": [
+     "forces",
+     "powers",
+     "arms",
+     "strengths"
+    ],
+    "e": "Join forces = unir fuerzas, colaborar.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Idioms and collocations",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "I can't make ___ or tail of these instructions.",
+    "o": [
+     "top",
+     "head",
+     "face",
+     "front"
+    ],
+    "e": "Can't make head or tail of something = no entender nada de algo.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The ___ to close the factory surprised everyone. (DECIDE)",
+    "o": [
+     "deciding",
+     "decidedly",
+     "decision",
+     "decisive"
+    ],
+    "e": "Tras «The» y delante de «to» hace falta un sustantivo: decide → decision.",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Thanks to the new system, the team has become much more ___. (EFFECT)",
+    "o": [
+     "effectively",
+     "effected",
+     "effectiveness",
+     "effective"
+    ],
+    "e": "Tras «become much more» hace falta un adjetivo: effective.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The museum is ___ closed on Mondays. (USUAL)",
+    "o": [
+     "usually",
+     "usualness",
+     "unusual",
+     "usual"
+    ],
+    "e": "Modifica al verbo (is closed): hace falta un adverbio, usually.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Her ___ to work long hours impressed the manager. (WILLING)",
+    "o": [
+     "unwilling",
+     "willingness",
+     "willing",
+     "willingly"
+    ],
+    "e": "Es el sujeto de la frase y va tras el posesivo «Her»: sustantivo, willingness.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "It is ___ to drive without a licence. (LEGAL)",
+    "o": [
+     "unlegal",
+     "inlegal",
+     "illegal",
+     "dislegal"
+    ],
+    "e": "El contrario de legal es illegal: delante de l se usa il- (illegal, illogical).",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 1,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The ___ of the new bridge took three years. (CONSTRUCT)",
+    "o": [
+     "constructor",
+     "constructively",
+     "constructive",
+     "construction"
+    ],
+    "e": "El proceso de construir = construction. Constructor es una persona o empresa; constructive es un adjetivo.",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The instructions were so ___ that nobody understood what to do. (CLEAR)",
+    "o": [
+     "unclear",
+     "uncleared",
+     "clearly",
+     "clarity"
+    ],
+    "e": "Si nadie entendió, hace falta el adjetivo negativo: unclear.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "We need to find a ___ solution to this problem. (PRACTICE)",
+    "o": [
+     "practically",
+     "practical",
+     "practitioner",
+     "practise"
+    ],
+    "e": "Delante del sustantivo «solution» va un adjetivo: practical.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "There has been a ___ increase in online sales this year. (SIGNIFY)",
+    "o": [
+     "significantly",
+     "signify",
+     "significant",
+     "significance"
+    ],
+    "e": "Adjetivo delante de «increase»: significant. (Significantly va con un verbo: sales increased significantly.)",
+    "a": 2
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 3,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The company is looking for ___ staff who can speak three languages. (EXPERIENCE)",
+    "o": [
+     "experiential",
+     "experiencing",
+     "inexperience",
+     "experienced"
+    ],
+    "e": "Personal con experiencia = experienced staff (adjetivo en -ed).",
+    "a": 3
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Online shopping offers great ___ for busy people. (CONVENIENT)",
+    "o": [
+     "convenience",
+     "convenient",
+     "inconvenient",
+     "conveniently"
+    ],
+    "e": "Tras «great» y como objeto de «offers» hace falta un sustantivo: convenience.",
+    "a": 0
+   }
+  ]
+ },
+ {
+  "sec": "vocab",
+  "task": "Word formation",
+  "lvl": 2,
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "The new manager is popular because she treats everyone ___. (EQUAL)",
+    "o": [
+     "equality",
+     "equally",
+     "unequal",
+     "equal"
+    ],
+    "e": "Modifica al verbo «treats»: adverbio, equally.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "reading",
+  "task": "Reading comprehension",
+  "lvl": 1,
+  "passage": "Farming on the rooftops\n\nIn many large cities, empty rooftops are being turned into small farms. Supporters say that growing vegetables close to the people who eat them reduces the cost of transport and cuts pollution, because the food does not have to travel hundreds of kilometres by lorry. Rooftop gardens also help to keep buildings cooler in summer, which lowers the amount of energy spent on air conditioning.\n\nHowever, urban farming is not without problems. Rooftops can only carry a limited weight, so soil must often be replaced with lighter materials, and water has to be pumped up from the ground. As a result, setting up a rooftop farm can be expensive. Critics also point out that these farms produce only a tiny share of the food a city needs.\n\nEven so, many city councils now offer grants to people who want to start one. They argue that the main value of urban farms is not the amount of food they produce but the way they teach city residents, especially children, where their food comes from.",
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "According to the text, rooftop farms reduce pollution because…",
+    "o": [
+     "they are cheaper to build than normal farms",
+     "they use no water at all",
+     "the food travels shorter distances",
+     "they replace lorries with trains"
+    ],
+    "e": "«the food does not have to travel hundreds of kilometres by lorry»: menos transporte, menos contaminación.",
+    "a": 2
+   },
+   {
+    "t": "mcq",
+    "q": "Why can setting up a rooftop farm be expensive?",
+    "o": [
+     "The seeds have to be imported",
+     "City councils charge high taxes",
+     "Farmers in cities earn higher salaries",
+     "Light materials and water pumps are needed"
+    ],
+    "e": "El tejado aguanta poco peso (hay que usar materiales ligeros) y hay que bombear el agua: «As a result, setting up a rooftop farm can be expensive».",
+    "a": 3
+   },
+   {
+    "t": "mcq",
+    "q": "What do critics say about urban farms?",
+    "o": [
+     "They produce very little of a city's food",
+     "They make buildings too hot",
+     "They use too much energy",
+     "They are dangerous for children"
+    ],
+    "e": "«these farms produce only a tiny share of the food a city needs».",
+    "a": 0
+   },
+   {
+    "t": "mcq",
+    "q": "According to city councils, the main value of urban farms is…",
+    "o": [
+     "the amount of food they produce",
+     "educational",
+     "the money they earn",
+     "the jobs they create"
+    ],
+    "e": "«not the amount of food… but the way they teach city residents… where their food comes from»: el valor principal es educativo.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "reading",
+  "task": "Reading comprehension",
+  "lvl": 2,
+  "passage": "The Trans-Siberian Railway\n\nThe Trans-Siberian Railway, which links Moscow with Vladivostok on the Pacific coast, is the longest railway line in the world. It is about 9,300 kilometres long and passes through eight time zones. A non-stop journey takes almost a week.\n\nConstruction began in 1891, and the final section was completed in 1916. The work was extremely difficult: builders had to cross wide rivers, lay tracks over frozen ground and cut through mountains near Lake Baikal. Thousands of workers took part, many of them using only simple hand tools.\n\nThe railway transformed Siberia. Before it existed, travelling from Moscow to the Pacific could take months by road and river. Once the line opened, new towns grew up along the route, and Siberian timber, grain and coal could be sent to distant markets. Today the railway still carries a large share of Russia's freight, and it is also popular with tourists who want to see the country slowly, from the window of a train.",
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "How long does a non-stop journey along the whole line take?",
+    "o": [
+     "Several months",
+     "About nine hours",
+     "Almost a week",
+     "Eight days"
+    ],
+    "e": "«A non-stop journey takes almost a week». Los «meses» eran lo que se tardaba ANTES del tren.",
+    "a": 2
+   },
+   {
+    "t": "mcq",
+    "q": "Which difficulty of the construction is NOT mentioned in the text?",
+    "o": [
+     "Wide rivers",
+     "Frozen ground",
+     "Mountains near Lake Baikal",
+     "A shortage of money"
+    ],
+    "e": "El texto nombra ríos anchos, suelo helado y montañas junto al Baikal. Del dinero no dice nada.",
+    "a": 3
+   },
+   {
+    "t": "mcq",
+    "q": "What was one effect of the railway on Siberia?",
+    "o": [
+     "New towns appeared along the route",
+     "The time zones were changed",
+     "Fewer goods were sent to other regions",
+     "People stopped using rivers completely"
+    ],
+    "e": "«new towns grew up along the route», y además la madera, el grano y el carbón llegaban a mercados lejanos.",
+    "a": 0
+   },
+   {
+    "t": "mcq",
+    "q": "The word 'freight' in the last paragraph is closest in meaning to…",
+    "o": [
+     "tickets",
+     "goods that are transported",
+     "fuel",
+     "passengers"
+    ],
+    "e": "Freight = mercancías transportadas (carga). Se contrapone a los turistas de la misma frase.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "reading",
+  "task": "Reading comprehension",
+  "lvl": 2,
+  "passage": "Working from home\n\nSince 2020, millions of office workers around the world have started working from home for at least part of the week. For many of them, the biggest benefit is time: instead of spending an hour or more travelling to and from the office, they can start work as soon as they have had breakfast. Some companies have also found that employees who work from home take fewer days off.\n\nYet remote work also has disadvantages. Some people find it hard to separate their job from their private life, and they end up checking emails late in the evening. Others miss the informal conversations with colleagues that often lead to new ideas. Young employees, in particular, say that it is harder to learn from experienced staff when they cannot simply walk over to their desks and ask a question.\n\nFor these reasons, many firms have chosen a hybrid model, in which staff spend two or three days in the office and the rest at home. Whether this compromise will last is still unclear, but few experts expect a complete return to the old five-day office week.",
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "According to the text, the biggest benefit of working from home for many people is…",
+    "o": [
+     "earning a higher salary",
+     "receiving fewer emails",
+     "saving travel time",
+     "working fewer hours"
+    ],
+    "e": "«the biggest benefit is time: instead of spending an hour or more travelling…».",
+    "a": 2
+   },
+   {
+    "t": "mcq",
+    "q": "Why do young employees find remote work difficult?",
+    "o": [
+     "They are not allowed to work from home",
+     "They cannot afford good computers",
+     "They have to travel more",
+     "It is harder to learn from experienced colleagues"
+    ],
+    "e": "«it is harder to learn from experienced staff when they cannot simply walk over to their desks».",
+    "a": 3
+   },
+   {
+    "t": "mcq",
+    "q": "What is a 'hybrid model', as described in the text?",
+    "o": [
+     "Spending part of the week in the office and part at home",
+     "Working for two different companies",
+     "Changing offices every week",
+     "Working only from home"
+    ],
+    "e": "«staff spend two or three days in the office and the rest at home».",
+    "a": 0
+   },
+   {
+    "t": "mcq",
+    "q": "What do most experts expect, according to the last paragraph?",
+    "o": [
+     "The hybrid model will end next year",
+     "The five-day office week will not fully return",
+     "Everyone will soon work from home full-time",
+     "Companies will close all their offices"
+    ],
+    "e": "«few experts expect a complete return to the old five-day office week»: no creen que vuelva del todo.",
+    "a": 1
+   }
+  ]
+ },
+ {
+  "sec": "listening",
+  "task": "Listening: true or false",
+  "lvl": 1,
+  "audio": "M: Today I'm talking to Anna, who moved from the city to a small village two years ago. Anna, did your friends think you would regret it?\nW: Oh yes. Most of them were sure I would miss my job in the city. In fact, I still do the same job; I just work online now.\nM: And do you see your friends less?\nW: Actually, I see them more than before. When I lived in the city we were all too busy, but now they come and stay with me for whole weekends.\nM: How do you get on with the people in the village?\nW: Very well. My neighbours helped me to repair the roof when I arrived, and now I teach their children English twice a week.\nM: Is there anything you don't like?\nW: The transport. There's only one bus a day to the nearest town, so I really need my car.",
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Anna's friends thought she would miss her job.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "«Most of them were sure I would miss my job in the city»: verdadero."
+   },
+   {
+    "t": "mcq",
+    "q": "Anna changed her profession when she moved.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "«I still do the same job; I just work online now»: sigue con el mismo trabajo. Falso."
+   },
+   {
+    "t": "mcq",
+    "q": "She sees her friends less often than before.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "«I see them more than before»: los ve más. Falso."
+   },
+   {
+    "t": "mcq",
+    "q": "Her neighbours helped her when she arrived.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "«My neighbours helped me to repair the roof when I arrived»: verdadero."
+   },
+   {
+    "t": "mcq",
+    "q": "There is a good bus service to the nearest town.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "«There's only one bus a day»: el autobús es malo, por eso necesita el coche. Falso."
+   }
+  ]
+ },
+ {
+  "sec": "listening",
+  "task": "Listening: true or false",
+  "lvl": 2,
+  "audio": "W: Hello, and welcome to the travel advice line. My name is Lucy, and this week we are answering questions about travelling by train in Europe.\nM: Hi Lucy. I'm going from Madrid to Paris next month. Is it cheaper to book early?\nW: Usually, yes. Tickets often go on sale three months before the journey, and the cheapest seats disappear first. If you wait until the last week, you can pay twice as much.\nM: Do I need to print my ticket?\nW: Not any more on most routes. A ticket on your phone is enough, but make sure the battery is charged, and keep a screenshot of the ticket just in case.\nM: And what about luggage? Is there a limit?\nW: On most high-speed trains you can take two large suitcases and one small bag. Just remember that you will have to lift them onto the rack yourself.",
+  "qs": [
+   {
+    "t": "mcq",
+    "q": "Lucy says that booking early is usually cheaper.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "«Is it cheaper to book early? — Usually, yes»: verdadero."
+   },
+   {
+    "t": "mcq",
+    "q": "Tickets usually go on sale one month before the journey.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "Dice «three months before the journey», no uno. Falso: fíjate siempre en los números."
+   },
+   {
+    "t": "mcq",
+    "q": "Tickets bought in the last week can cost twice as much.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 0,
+    "e": "«If you wait until the last week, you can pay twice as much»: verdadero."
+   },
+   {
+    "t": "mcq",
+    "q": "Passengers must always print their tickets.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "«Not any more on most routes. A ticket on your phone is enough»: falso."
+   },
+   {
+    "t": "mcq",
+    "q": "On most high-speed trains, staff lift your suitcases for you.",
+    "o": [
+     "True",
+     "False"
+    ],
+    "a": 1,
+    "e": "«you will have to lift them onto the rack yourself»: lo haces tú. Falso."
+   }
+  ]
+ }
+]

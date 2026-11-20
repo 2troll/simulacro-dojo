@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Dojo: simulacros gratis de AWS Solutions Architect, TOEFL, IELTS y JLPT N5, y hiragana, katakana y kanji explicados fácil.">
+<meta name="description" content="Dojo: simulacros gratis de AWS Solutions Architect, TOEFL, IELTS y JLPT N5, preparación de las olimpiadas de Rusia (matemáticas en inglés, inglés B2 y ruso A1), y hiragana, katakana y kanji explicados fácil.">
 <meta name="theme-color" content="#f2ede3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#13110e" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -24,7 +24,7 @@
 /* Identidad «dojo»: papel washi, tinta sumi y el sello rojo (hanko). Cada examen conserva su color para orientarse. */
 :root{
   --paper:#f2ede3; --sheet:#fbf8f2; --ink:#191612; --ink-2:#5a5248; --line:#ddd4c4; --bubble:#e9e2d4; --sumi:#191612; --on-sumi:#f2ede3;
-  --hanko:#c8361d; --pt:#0b7a4b; --ru:#2a52be; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --det:#3c8a18; --az900:#0f6cbd; --psm:#0b6e74; --accent:var(--hanko);
+  --hanko:#c8361d; --pt:#0b7a4b; --ru:#2a52be; --aws:#b4560a; --toefl:#1f5f99; --ielts:#b02a38; --n5:#5a3e9e; --det:#3c8a18; --az900:#0f6cbd; --psm:#0b6e74; --mat:#8a5a00; --ingb2:#a3366e; --rusa1:#4a3fb5; --accent:var(--hanko);
   --ok:#1f7a4c; --ok-bg:#dff0e3; --bad:#b8321f; --bad-bg:#f7e1db; --warn:#a96d12; --warn-bg:#f6ead0;
   --shadow:0 1px 0 rgba(25,22,18,.05),0 18px 40px -24px rgba(25,22,18,.45);
   --f-display:"Fraunces","Lora","Iowan Old Style",Georgia,serif;
@@ -35,19 +35,19 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#13110e; --sheet:#1c1915; --ink:#efe8db; --ink-2:#b0a594; --line:#342e26; --bubble:#29241e; --sumi:#0b0a08; --on-sumi:#efe8db;
-  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee; --det:#8fd36a; --az900:#6cb4f2; --psm:#5fc9c7;
+  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee; --det:#8fd36a; --az900:#6cb4f2; --psm:#5fc9c7; --mat:#e6b54f; --ingb2:#f08bbd; --rusa1:#a49cf5;
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#13110e; --sheet:#1c1915; --ink:#efe8db; --ink-2:#b0a594; --line:#342e26; --bubble:#29241e; --sumi:#0b0a08; --on-sumi:#efe8db;
-  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee; --det:#8fd36a; --az900:#6cb4f2; --psm:#5fc9c7;
+  --hanko:#ef6a4c; --pt:#3fc58a; --ru:#7d9cf0; --aws:#f2a052; --toefl:#69a9e6; --ielts:#ee7a85; --n5:#ab94ee; --det:#8fd36a; --az900:#6cb4f2; --psm:#5fc9c7; --mat:#e6b54f; --ingb2:#f08bbd; --rusa1:#a49cf5;
   --ok:#5cc88f; --ok-bg:#15301f; --bad:#f08470; --bad-bg:#3a1c16; --warn:#e5b45a; --warn-bg:#382b12;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.8); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:16.5px/1.6 var(--f-body);margin:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-optical-sizing:auto}
 [lang="ru"],[lang="ru-RU"]{font-family:var(--f-body)}h1[lang^="ru"],h2[lang^="ru"],.kbig[lang^="ru"]{font-family:var(--f-body);font-weight:700;letter-spacing:-.01em}
 h1{letter-spacing:-.02em}h2,h3{letter-spacing:-.01em}p{text-wrap:pretty}
-body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="ru"]{--accent:var(--ru)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)} body[data-x="det"]{--accent:var(--det)} body[data-x="az900"]{--accent:var(--az900)} body[data-x="psm"]{--accent:var(--psm)}
+body[data-x="kana"]{--accent:var(--n5)} body[data-x="pt"]{--accent:var(--pt)} body[data-x="ru"]{--accent:var(--ru)} body[data-x="aws"]{--accent:var(--aws)} body[data-x="toefl"]{--accent:var(--toefl)} body[data-x="ielts"]{--accent:var(--ielts)} body[data-x="n5"]{--accent:var(--n5)} body[data-x="det"]{--accent:var(--det)} body[data-x="az900"]{--accent:var(--az900)} body[data-x="psm"]{--accent:var(--psm)} body[data-x="mat"]{--accent:var(--mat)} body[data-x="ingb2"]{--accent:var(--ingb2)} body[data-x="rusa1"]{--accent:var(--rusa1)}
 .jp,[lang="ja"]{font-family:var(--f-jp)}
 h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
 button{font:inherit;color:inherit;cursor:pointer}
@@ -170,6 +170,7 @@ table.fmt th{font:700 12px var(--f-mono);letter-spacing:.06em;text-transform:upp
 .feedback{border-radius:14px;padding:14px 16px;display:grid;gap:6px}
 .feedback.ok{background:var(--ok-bg)} .feedback.bad{background:var(--bad-bg)}
 .feedback b{font-family:var(--f-display);font-size:17px}
+.feedback span{white-space:pre-line}
 .audio-box{display:grid;gap:12px;justify-items:start}
 .play{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--sheet);border:0;border-radius:999px;padding:12px 20px;font-weight:800}
 .play:disabled{opacity:.45;cursor:not-allowed}
@@ -798,6 +799,12 @@ body:has(.lc-card) .mnav{display:none}
 @media(hover:none){.lc-kb,.lc-pie kbd,.lc-opt kbd{display:none}}
 @media(max-width:560px){.lc-pie-in{flex-wrap:wrap}.lc-pie-in .btn.acc{flex:1}.lc-pie-in .btn.ghost{flex:0 0 auto}}
 
+/* Rusia 2027: los tres bancos de las olimpiadas en la portada */
+.ru27 .sec-title{margin-top:40px}
+.ru27 .exams{margin-bottom:8px}
+.ru27 .prio{position:static;justify-self:start;transform:none;margin:0}
+.ru27-f{font:600 13.5px/1.45 var(--f-body);color:var(--ink-2)}
+.ru27-nota{font-size:14px;margin:0 0 24px}
 </style>
 
 <div id="app"></div>
@@ -954,9 +961,86 @@ const EX = {
       ["Done es Done","Si un elemento no cumple la Definition of Done, no forma parte del Incremento y vuelve al Product Backlog."],
       ["Ojo con «must» y «always»","Las respuestas con «siempre», «debe» o «el gestor» suelen ser falsas. Scrum es un marco mínimo: pocas reglas, mucho «depende»."],
       ["Reloj","45 segundos por pregunta. Marca las dudosas y sigue: te sobrarán unos 10 minutos para revisarlas."]
+    ]},
+  mat:{name:"Matemáticas en inglés",short:"Maths",lang:"en-US",scale:"Test 1 · 0–100",casa:true,per:{mcq:180},simMin:"~36 min",simTxt:"12 preguntas, unos 36 min",
+    pct:"Nota orientativa (% de aciertos). Ve a por 60 o más antes del examen.",kw:"matematicas maths rusia olimpiada hse financiera economics",
+    ru27:"HSE + Financiera · matemáticas en inglés",
+    blurb:"Álgebra, funciones, logaritmos, sucesiones, trigonometría, geometría, combinatoria y problemas, al estilo de HSE y de la Financiera. Cada pregunta trae la solución paso a paso en español.",
+    secs:["algebra","funcs","logs","seqs","trig","geom","prob","words"],
+    blueprint:[["Algebra: equations and inequalities",2],["Functions and graphs",1],["Exponents and logarithms",2],["Sequences",1],["Trigonometry",2],["Plane geometry",2],["Combinatorics and probability",1],["Word problems",1]],
+    full:[["Algebra: equations and inequalities",5],["Functions and graphs",3],["Exponents and logarithms",4],["Sequences",3],["Trigonometry",4],["Plane geometry",4],["Combinatorics and probability",4],["Word problems",3]],fullTxt:"30 preguntas · 90 min",
+    easy:[["Algebra: equations and inequalities",2],["Exponents and logarithms",1],["Sequences",1],["Trigonometry",1],["Plane geometry",1],["Combinatorics and probability",1],["Word problems",1]],
+    fmtHead:["Prueba","Qué entra","Tiempo","Puntos"],
+    format:[["HSE · test 1 (Mathematics)","10 problemas: del 1 al 6 solo la respuesta, 7 y 8 respuesta con el esquema de la solución, 9 y 10 demostración completa","180 min","100 (6×7 + 2×13 + 2×16)"],["Financiera · Economics (matemáticas)","8 problemas con la solución escrita: porcentajes, ecuaciones, combinatoria, sucesiones, trigonometría, funciones, geometría y probabilidad","90 min","100 (3×9 + 3×13 + 2×17)"],["Aquí, en el Dojo","Test de 4 opciones con la solución explicada. El examen real no tiene opciones: cuando aciertes, tápalas y resuélvelo en papel","12 preguntas ≈ 36 min","% de aciertos"]],
+    scoreNote:"Comprobado el 21-11-2026 con la prueba de matemáticas de la HSE International Olympiad 2024 (11.º curso) y con las recomendaciones oficiales de la Financiera. HSE: el test 1 de matemáticas empieza el 25-01-2027. Financiera: la etapa dura hasta el 1-03-2027. Los dos son online con cámara. El formato puede cambiar de un año a otro: mira la demo de tu cuenta antes del examen.",
+    learn:[
+      ["Logaritmos y potencias",[["log₂ 64","6"],["log₃ 81","4"],["log₁₀ 1000","3"],["log₅ 1","0"],["2⁻³","1/8"],["16^(3/4)","8"],["logₐ(xy)","logₐ x + logₐ y"],["logₐ(xᵏ)","k·logₐ x"],["logₐ b con cambio de base","ln b / ln a"]]],
+      ["Trigonometría",[["sin 30°","1/2"],["cos 30°","√3/2"],["tan 45°","1"],["cos 180°","−1"],["sin 2x","2 sin x cos x"],["cos 2x","cos²x − sin²x"],["Periodo de sin(kx)","2π/k"],["π radianes","180°"]]],
+      ["Fórmulas que caen siempre",[["Discriminante de ax² + bx + c","b² − 4ac"],["x del vértice de ax² + bx + c","−b/(2a)"],["Suma de raíces (Vieta)","−b/a"],["Producto de raíces (Vieta)","c/a"],["Término n, progresión aritmética","a₁ + (n − 1)d"],["Suma de n términos, aritmética","n(a₁ + aₙ)/2"],["Término n, progresión geométrica","b₁·qⁿ⁻¹"],["Suma infinita geométrica (|q| < 1)","b₁/(1 − q)"],["Combinaciones C(n, k)","n!/(k!(n − k)!)"],["Área con dos lados y su ángulo","½·a·b·sin C"],["Teorema del coseno","c² = a² + b² − 2ab·cos C"],["Fórmula de Herón","√(p(p − a)(p − b)(p − c))"],["P(no A)","1 − P(A)"]]],
+      ["El inglés del examen",[["integer","número entero"],["inequality","inecuación"],["leg (of a right triangle)","cateto"],["chord","cuerda"],["altitude","altura de un triángulo"],["at random","al azar"],["without replacement","sin devolver"],["common difference","diferencia de una progresión aritmética"],["remainder","resto de una división"],["even / odd","par / impar"],["least / greatest","el menor / el mayor"]]]],
+    tricks:[
+      ["Prueba las opciones","En un test, sustituir las opciones en la ecuación a veces es más rápido que resolverla. Pero el examen real no tiene opciones: cuando aciertes, repite el problema tapándolas."],
+      ["El dominio primero","Antes de resolver con raíces, logaritmos o fracciones, apunta el dominio: dentro de √ algo ≥ 0, dentro del log algo > 0, denominador ≠ 0. La mitad de las trampas son soluciones que se salen del dominio."],
+      ["Vieta ahorra tiempo","Si te piden la suma, el producto o x₁² + x₂² de las raíces, no las calcules: x₁ + x₂ = −b/a y x₁x₂ = c/a."],
+      ["Cambio de variable","4ˣ, 9ˣ, (log x)², x⁴, |x|: llama t a lo que se repite y te queda una ecuación de segundo grado. Al final deshaz el cambio y descarta los t imposibles (2ˣ > 0, |x| ≥ 0)."],
+      ["Porcentajes: multiplica","Subir un 25 % y bajar un 20 % es multiplicar por 1,25 · 0,8 = 1. Nunca sumes porcentajes seguidos: multiplica los factores."],
+      ["El inglés del enunciado","Palabras que salen siempre: integer (entero), real root (raíz real), find the least/greatest (el menor/el mayor), leg (cateto), chord (cuerda), at random (al azar), without replacement (sin devolver). Están en el juego de Empareja."],
+      ["Escribe la solución entera","La Financiera puntúa la solución, no solo el resultado (9, 13 o 17 puntos por problema). Escribe cada paso, di qué fórmula usas y comprueba el resultado al final. En HSE, los problemas 7 a 10 también piden la demostración."],
+      ["Reparte el tiempo","Financiera: 8 problemas en 90 min; los tres primeros deberían llevarte unos 25 min para dejar tiempo a los de 17 puntos. HSE: 180 min para 10; intenta acabar los 6 de solo respuesta en menos de una hora."],
+      ["Online con cámara","Mesa vacía: folios en blanco, bolígrafo y nada más. Prueba antes la cámara y la conexión, y lee en las normas qué está permitido. Entrena sin calculadora."]
+    ]},
+  ingb2:{name:"Inglés B2 · olimpiada",short:"English B2",lang:"en-GB",scale:"B2 · 0–100",casa:true,per:{mcq:100},simMin:"~37 min",simTxt:"22 preguntas, unos 37 min",
+    pct:"Nota orientativa: en el test real cada fallo resta 2 puntos. Objetivo: 70 o más.",kw:"ingles english b2 b1 rusia olimpiada financiera spbu",
+    ru27:"Financiera · inglés B2 (y el B1 de SPbU)",
+    blurb:"Gramática, phrasal verbs, preposiciones, expresiones, formación de palabras, lectura y escucha de verdadero o falso, como en el test de la Financiera.",
+    secs:["grammar","vocab","reading","listening"],
+    blueprint:[["Grammar",6],["Phrasal verbs and prepositions",3],["Idioms and collocations",2],["Word formation",2],["Reading comprehension",1],["Listening: true or false",1]],
+    full:[["Grammar",15],["Phrasal verbs and prepositions",8],["Idioms and collocations",7],["Reading comprehension",2],["Listening: true or false",2]],fullTxt:"48 preguntas · 80 min",
+    easy:[["Grammar",4],["Phrasal verbs and prepositions",2],["Idioms and collocations",2],["Word formation",2],["Listening: true or false",1]],
+    fmtHead:["Sección","Qué entra","Preguntas","Truco"],
+    format:[["Listening","5 de verdadero o falso y 5 de relacionar cada frase con quien la dice","10","Apunta números y nombres"],["Reading","Un texto de tema general con preguntas de opción múltiple","10","Lee primero las preguntas"],["Vocabulary","Phrasal verbs, preposiciones y expresiones (idioms)","15","Aprende las partículas"],["Grammar","Artículos, pronombres, tiempos verbales y formas no personales, modales y condicionales","15","Busca la palabra clave"]],
+    scoreNote:"Test de nivel B2 en 90 minutos y sobre 100 puntos: cada fallo resta 2 (recomendaciones oficiales de la Financiera). La etapa de la olimpiada dura hasta el 1-03-2027. Para el inglés B1 de SPbU (del 27-01 al 15-03-2027) este banco te sobra: si aquí aciertas el 70 %, vas bien.",
+    learn:[
+      ["Phrasal verbs",[["put off","aplazar"],["turn down","rechazar"],["carry out","llevar a cabo"],["run out of","quedarse sin"],["set up","montar, fundar"],["look into","investigar"],["get over","recuperarse de"],["call off","suspender, cancelar"],["figure out","averiguar, entender"],["break down","averiarse"],["come up with","idear, proponer"],["set off","salir de viaje"],["look forward to","esperar con ganas"],["take over","hacerse cargo de"]]],
+      ["Preposiciones fijas",[["depend ___","on"],["good ___ (maths)","at"],["accuse someone ___","of"],["apologise ___","for"],["familiar ___","with"],["___ charge of","in"],["interested ___","in"]]],
+      ["Idioms",[["a piece of cake","pan comido"],["once in a blue moon","muy de vez en cuando"],["break the ice","romper el hielo"],["hit the nail on the head","dar en el clavo"],["under the weather","algo pachucho"],["cost an arm and a leg","costar un ojo de la cara"],["lose heart","desanimarse"],["join forces","unir fuerzas"]]]],
+    tricks:[
+      ["Contesta todas","En el test de la Financiera cada fallo resta 2 puntos sobre 100. Una pregunta en blanco no suma nada: si dudas, descarta y elige."],
+      ["Phrasal verbs por partícula","up = completar o aumentar (set up), off = cancelar o salir (call off, set off), out = hasta el final o descubrir (carry out, figure out), down = rechazar o romperse (turn down, break down)."],
+      ["Preposiciones en bloque","depend on, good at, interested in, accuse of, apologise for, familiar with, in charge of: apréndelas como una sola palabra. Las tienes en Empareja."],
+      ["Condicionales","0: if + presente, presente. 1: if + presente, will. 2: if + pasado, would. 3: if + had + participio, would have + participio. Mixto: if + had + participio, would + infinitivo (+ now)."],
+      ["Inversión","Never, Hardly, Not only, Only then… al principio de la frase → orden de pregunta: Hardly had I left…, Not only did she finish…"],
+      ["Formación de palabras","Mira el hueco: tras artículo o posesivo va un sustantivo; delante de un sustantivo, un adjetivo; con un verbo, un adverbio (-ly). Y piensa si la frase pide sentido negativo (un-, in-, il-, dis-)."],
+      ["Lectura: primero las preguntas","Lee las preguntas antes que el texto y busca la frase que dice lo mismo con otras palabras. Si una opción dice algo que el texto no menciona, es falsa."],
+      ["True / False","Las frases falsas cambian un detalle: un número (three months → one month), more/less, always/never. Apunta números y nombres mientras escuchas."]
+    ]},
+  rusa1:{name:"Ruso A1 · olimpiada",short:"Ruso A1",lang:"ru-RU",scale:"A1 · aprobado 66 %",casa:true,per:{mcq:60},simMin:"~18 min",simTxt:"18 preguntas, unos 18 min",
+    pct:"Como en el ТРКИ: se aprueba con el 66 %.",kw:"ruso russian a1 trki rusia olimpiada spbu",
+    ru27:"SPbU · ruso como lengua extranjera (A1)",
+    blurb:"Vocabulario, los casos, verbos, números y horas, y lecturas cortas: la parte escrita del ruso A1, con el truco de cada pregunta en español.",
+    secs:["vocab","grammar","numbers","reading"],
+    blueprint:[["Лексика (vocabulario)",4],["Грамматика: падежи (casos)",5],["Грамматика: глаголы (verbos)",3],["Числа и время (números y horas)",2],["Чтение (lectura)",1]],
+    full:[["Лексика (vocabulario)",10],["Грамматика: падежи (casos)",12],["Грамматика: глаголы (verbos)",8],["Числа и время (números y horas)",5],["Чтение (lectura)",3]],fullTxt:"47 preguntas · 47 min",
+    easy:[["Лексика (vocabulario)",4],["Грамматика: падежи (casos)",3],["Грамматика: глаголы (verbos)",3],["Числа и время (números y horas)",2],["Чтение (lectura)",1]],
+    fmtHead:["Parte","Qué entra","Aquí","Truco"],
+    format:[["Лексика","Palabras del día a día: tienda, ciudad, familia, comida, estudios, tiempo","19 preguntas","Piensa en el sentido de la frase"],["Грамматика","Los seis casos del A1, verbos en presente, pasado y futuro, ir a pie o en transporte","40 preguntas","La preposición decide el caso"],["Числа и время","Números, horas, edad, precios y fechas","11 preguntas","2-4 y 5-20 cambian la palabra"],["Чтение","Textos cortos: un día normal, un anuncio, una carta, un diálogo en el mercado","4 textos · 16 preguntas","Busca nombres y números"]],
+    scoreNote:"Estilo ТРКИ elemental (A1), que se aprueba con el 66 % en cada parte. La prueba de ruso de la olimpiada de SPbU (Management) va del 27-01 al 15-03-2027 y es online con cámara. El formato exacto puede variar: mira la demo de tu cuenta de SPbU antes de la fecha.",
+    learn:[
+      ["¿Qué caso? Mira la pregunta",[["Кто? Что?","Nominativo (именительный)"],["Кого? Чего? · нет, у, из, для","Genitivo (родительный)"],["Кому? Чему? · к, по","Dativo (дательный)"],["Кого? Что? · вижу, люблю, куда?","Acusativo (винительный)"],["Кем? Чем? · с, рядом с","Instrumental (творительный)"],["О ком? О чём? Где?","Preposicional (предложный)"]]],
+      ["Palabras del A1",[["магазин","tienda"],["вокзал","estación de tren"],["касса","taquilla, caja"],["врач","médico"],["сегодня","hoy"],["завтра","mañana"],["вчера","ayer"],["медленно","despacio"],["дорого","caro"],["скидка","descuento"],["общежитие","residencia de estudiantes"],["выходной день","día de cierre o de descanso"]]],
+      ["Horas y números",[["половина четвёртого","15:30"],["четверть восьмого","7:15"],["без четверти девять","8:45"],["двадцать один год","21 años"],["пять лет","5 años"],["триста","300"],["пятнадцать","15"]]]],
+    tricks:[
+      ["¿Dónde o adónde?","где? → в/на + preposicional (в Москве). куда? → в/на + acusativo (в Москву). откуда? → из/с + genitivo (из Москвы)."],
+      ["La preposición manda","у, из, для, без, после y нет → genitivo; к y по → dativo; с (con), рядом с, перед, над → instrumental; о y в/на (lugar) → preposicional."],
+      ["Número + sustantivo","1 → nominativo (один стол); 2, 3, 4 → genitivo singular (два стола); 5-20 → genitivo plural (пять столов). Igual con год / года / лет y рубль / рубля / рублей."],
+      ["A pie o en transporte","идти / ходить = a pie; ехать / ездить = en transporte. Иду, еду = ahora, un trayecto; хожу, езжу = costumbre."],
+      ["El pasado tiene género","El pasado no cambia por persona, sino por género: он читал, она читала, они читали."],
+      ["Edad y gustos con dativo","Мне двадцать четыре года, ему двадцать лет. Мне нравится музыка: la persona va en dativo y lo que gusta en nominativo."],
+      ["Las horas a la rusa","15:30 = половина четвёртого; 7:15 = четверть восьмого; 8:45 = без четверти девять. Si dudas, di los números: пятнадцать тридцать."],
+      ["Lectura A1","Lee primero las preguntas y busca en el texto nombres, números y días de la semana: en el A1 casi todo está escrito tal cual."]
     ]}
 };
-const SEC_LABEL={azcloud:"Conceptos de nube",azarch:"Arquitectura y servicios",azgov:"Gestión y gobierno",theory:"Teoría y valores",team:"Equipo Scrum",events:"Eventos",artifacts:"Artefactos",secure:"Seguridad",resilient:"Resiliencia",performance:"Rendimiento",cost:"Costes",reading:"Lectura",listening:"Escucha",vocab:"Vocabulario",grammar:"Gramática",writing:"Escritura",speaking:"Expresión oral"};
+const SEC_LABEL={algebra:"Álgebra",funcs:"Funciones",logs:"Exponentes y logaritmos",seqs:"Sucesiones",trig:"Trigonometría",geom:"Geometría",prob:"Combinatoria y probabilidad",words:"Problemas de texto",numbers:"Números y horas",azcloud:"Conceptos de nube",azarch:"Arquitectura y servicios",azgov:"Gestión y gobierno",theory:"Teoría y valores",team:"Equipo Scrum",events:"Eventos",artifacts:"Artefactos",secure:"Seguridad",resilient:"Resiliencia",performance:"Rendimiento",cost:"Costes",reading:"Lectura",listening:"Escucha",vocab:"Vocabulario",grammar:"Gramática",writing:"Escritura",speaking:"Expresión oral"};
 const N5_LISTEN=new Set(["listening"]);
 const PLAN=[
   ["AWS · la palabra clave manda","Antes de cada simulacro, juega dos rondas de Empareja en «Aprende». Cuando veas «menos trabajo», «más barato» o «más seguro» en el enunciado, ya sabrás qué servicio buscar."],
@@ -987,7 +1071,7 @@ function toast(msg){const t=document.createElement("div");t.className="toast";t.
 const norm=s=>String(s).toLowerCase().replace(/[.,!?;:"'’`]/g,"").replace(/\s+/g," ").trim();
 
 /* ============ Estado y guardado ============ */
-const BLANK={v:1,xp:0,streak:0,last:null,daily:{d:null,n:0},goal:20,exams:{},hist:[],sec:{},srs:{},cards:0,rayo:{},badges:[],remind:{time:"20:00"},target:{aws:"720",toefl:"4.5",ielts:"6.5",n5:"aprobar",det:"120",az900:"700",psm:"85"},match:{},kana:{}};
+const BLANK={v:1,xp:0,streak:0,last:null,daily:{d:null,n:0},goal:20,exams:{},hist:[],sec:{},srs:{},cards:0,rayo:{},badges:[],remind:{time:"20:00"},target:{aws:"720",toefl:"4.5",ielts:"6.5",n5:"aprobar",det:"120",az900:"700",psm:"85",mat:"60",ingb2:"70",rusa1:"66"},match:{},kana:{}};
 /* Rellena lo que falte (exámenes nuevos, estados guardados con versiones anteriores) */
 function normalize(){if(!S.vozMig){if(!S.voz||S.voz==="mao")S.voz="nanami";S.vozMig=1}S.kana??={};for(const x of Object.keys(EX)){S.exams[x]??={};S.sec[x]??={};S.rayo[x]??=0;S.match??={};S.match[x]??=0;S.target[x]??=BLANK.target[x]}}
 let S=structuredClone(BLANK);
@@ -1196,7 +1280,7 @@ const RUTA=[
   {t:"La universidad",ru:"ruuni",pt:"pt",obj:[{s:"ruuni",n:17},{ex:"ielts",n:5}],jefe:"ruuni"},
   {t:"Examen final",ru:"ruvocab",pt:"pt",obj:[{s:"cirilico",n:33},{s:"ruvocab",n:64},{s:"pt",n:85}],jefe:"ruvocab"},
 ];
-const AREA_DE_EX={ielts:"en",toefl:"en",det:"en",n5:"ja",aws:"aws",az900:"aws",psm:"aws"};
+const AREA_DE_EX={ielts:"en",toefl:"en",det:"en",n5:"ja",aws:"aws",az900:"aws",psm:"aws",mat:"mat",ingb2:"en",rusa1:"ru"};
 const addD=(d,n)=>{const x=new Date(d+"T12:00:00");x.setDate(x.getDate()+n);return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0")};
 const fechaCorta=(d,o={weekday:"short",day:"numeric",month:"short"})=>new Date(d+"T12:00:00").toLocaleDateString("es-ES",o);
 // Actividad del día por área: ru, pt, en, ja, aws, libre (la registran los tests, simulacros, Rayo y Manos libres)
@@ -1598,7 +1682,8 @@ const CAMINO={
     ["Primeras palabras","Saludar, presentarte, pedir y preguntar.",{v:"ru",k:"ruvocab"},()=>lecHechas("ruvocab"),()=>lecTotal("ruvocab")],
     ["Frases y gramática","Pronombres, verbos en presente y los primeros casos.",{v:"ru",k:"rugram"},()=>lecHechas("rugram"),()=>lecTotal("rugram")],
     ["Leer y escuchar","Historias cortas con voz: café, metro, tienda, Kazán.",{v:"leer",lang:"ru"},()=>leidas("ru"),4],
-    ["La universidad","Подфак, ТРКИ, residencia: lo que vas a vivir allí.",{v:"ru",k:"ruuni"},()=>lecHechas("ruuni"),()=>lecTotal("ruuni")]]},
+    ["La universidad","Подфак, ТРКИ, residencia: lo que vas a vivir allí.",{v:"ru",k:"ruuni"},()=>lecHechas("ruuni"),()=>lecTotal("ruuni")],
+    ["Olimpiada SPbU · A1","Simulacros de la prueba escrita de ruso: casos, verbos, números y lectura.",{v:"exam",x:"rusa1",tab:"sims"},()=>hechos("rusa1"),3]]},
   pt:{n:"Portugués",w:"Olá!",l:"pt-PT",c:"pt",niv:[
     ["Para sobrevivir","Lo de cada día en Portugal: saludar, comprar, moverte.",{v:"pt",k:"pt"},()=>lecHechas("pt"),()=>lecTotal("pt")],
     ["Los verbos","Ser, estar, ir, tener… y el «estou a fazer».",{v:"pt",k:"ptverbos"},()=>lecHechas("ptverbos"),()=>lecTotal("ptverbos")],
@@ -1688,6 +1773,20 @@ function topBar(){
 /* ============ Portada ============ */
 function ringSvg(p,size=84,stroke=9){const r=(size-stroke)/2,c=2*Math.PI*r;return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--bubble)" stroke-width="${stroke}"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--accent)" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-Math.min(1,p))}" transform="rotate(-90 ${size/2} ${size/2})"/></svg>`}
 function examDone(x){return Object.keys(S.exams[x]).length}
+const EX_GLYPH={aws:"雲",toefl:"英",ielts:"語",n5:"日",det:"話",az900:"蒼",psm:"回",mat:"数",ingb2:"英",rusa1:"露"};
+// Olimpiadas de Rusia 2027: qué prueba prepara cada banco y cuándo es (las teclas 1-3 abren cada uno)
+const RU27=[["mat","2027-01-25","Faltan {d} días para HSE","HSE · test 1 Mathematics: desde el 25-01-2027 · Financiera · Economics: hasta el 1-03-2027"],
+  ["ingb2","2027-03-01","La etapa cierra en {d} días","Financiera · Economics: test de inglés B2, hasta el 1-03-2027 · vale también para el inglés B1 de SPbU (27-01 a 15-03-2027)"],
+  ["rusa1","2027-01-27","Faltan {d} días para SPbU","SPbU · Management: ruso A1 escrito (léxico, gramática y lectura), del 27-01 al 15-03-2027"]];
+function ru27Home(){
+  return `<section class="ru27" aria-labelledby="ru27t"><div class="sec-title reveal"><h2 id="ru27t"><span class="num">RUSIA 2027 · OLIMPIADAS</span>Tus exámenes de las olimpiadas</h2><span class="muted">Online con cámara · cada pregunta con la solución explicada</span></div>
+    <div class="exams">${RU27.map(([x,f,para,cuando],i)=>{const E=EX[x],d=dayDiff(today(),f),best=lastScore(x);
+      return `<button class="exam-card reveal" style="--c:var(--${x})" data-exam="${x}" data-key="${i+1}"><span class="glyph" aria-hidden="true">${EX_GLYPH[x]}</span><span class="prio casa">${d>0?para.replace("{d}",d):"Ya en fechas"}</span>
+        <span class="eyebrow">${h(E.ru27)}</span><span class="tag">${h(E.short)}</span>
+        <span class="muted" style="font-size:14.5px">${h(E.blurb)}</span>
+        <span class="ru27-f">📅 ${h(cuando).replace(/(\d)-(\d)/g,"$1&#8209;$2")}</span>
+        <span class="meta"><span>${examDone(x)}/33 hechos</span><span>${best?"Última: "+h(best):"Sin empezar"}</span></span></button>`}).join("")}</div>
+    <p class="muted ru27-nota reveal">Empieza por un calentamiento en modo Estudio: ves la solución de cada pregunta al momento. Los fallos pasan solos a tus tarjetas.</p></section>`}
 function viewHome(){
   const L=level(), dn=S.daily.d===today()?S.daily.n:0, p=dn/S.goal;
   const due=dueCards().length;
@@ -1696,7 +1795,7 @@ function viewHome(){
     const e=S.exams[x];const dots=[];
     for(let k=1;k<=33;k++){const key=k<=3?"c"+k:"s"+(k-3);const r=e[key];dots.push(`<i class="${r?(r.pass?"pass":"done"):""}"></i>`)}
     const best=lastScore(x);
-    return `<button class="exam-card reveal ${EX[x].prio?"big-card":""}" style="--c:var(--${x})" data-exam="${x}" data-key="${ix+1}"><span class="glyph" aria-hidden="true">${({aws:"雲",toefl:"英",ielts:"語",n5:"日",det:"話",az900:"蒼",psm:"回"})[x]}</span>${EX[x].prio?'<span class="prio">Prioridad</span>':EX[x].casa?'<span class="prio casa">🏠 Desde casa</span>':""}
+    return `<button class="exam-card reveal ${EX[x].prio?"big-card":""}" style="--c:var(--${x})" data-exam="${x}" data-key="${ix+1}"><span class="glyph" aria-hidden="true">${EX_GLYPH[x]}</span>${EX[x].prio?'<span class="prio">Prioridad</span>':EX[x].casa?'<span class="prio casa">🏠 Desde casa</span>':""}
       <span class="eyebrow">${h(EX[x].scale)}</span><span class="tag">${h(EX[x].name)}</span>
       <span class="muted" style="font-size:14.5px">${h(EX[x].blurb)}</span>
       <span class="dots" aria-label="${examDone(x)} de 33 hechos">${dots.join("")}</span>
@@ -1718,6 +1817,7 @@ function viewHome(){
       <div class="goal-row"><span class="pill">${h(L.name)} · ${S.xp} XP</span><span class="pill">🔥 ${S.streak||0} ${S.streak===1?"día":"días"}</span></div></div>
   </section>
   ${!practicedToday&&S.last?`<div class="banner"><span><b>Aún no has practicado hoy.</b> Tu racha de ${S.streak} días se pierde a medianoche.</span><button class="btn acc" data-quick="1">5 minutos ahora</button></div>`:""}
+  ${ru27Home()}
   <section id="elige" class="elige"><div class="sec-title reveal"><h2><span class="num">PASO 1</span>¿Qué quieres aprender?</h2></div>
     <div class="cam-tabs" role="tablist">${Object.entries(CAMINO).map(([k,C])=>{const e=camEstado(k);return `<button role="tab" class="cam-tab reveal" style="--c:var(--${C.c})" data-camid="${k}" aria-selected="${k===cid}"><span class="idioma-w" lang="${C.l}">${h(C.w)}</span><b>${C.n}</b><small class="mono">${e.cur>=e.ns.length?"Camino completo":"Nivel "+(e.cur+1)+" de "+e.ns.length}</small></button>`}).join("")}
       <button class="cam-tab reveal" style="--c:var(--az900)" data-go="certs"><span class="idioma-w">🏠</span><b>Certificados</b><small class="mono">desde casa</small></button></div></section>
@@ -1750,7 +1850,7 @@ function viewExam(){
       <h3 style="margin-bottom:10px">Calentamiento <span class="muted" style="font-size:15px;font-weight:400">· fáciles, para empezar sin agobios</span></h3>
       <div class="board" style="margin-bottom:24px">${[1,2,3].map(k=>tile("c"+k,"C"+k,"fácil",1)).join("")}</div>
       <h3 style="margin-bottom:10px">Simulacros</h3>
-      <div class="board">${Array.from({length:30},(_,i)=>tile("s"+(i+1),String(i+1),"~25 min")).join("")}</div>`;
+      <div class="board">${Array.from({length:30},(_,i)=>tile("s"+(i+1),String(i+1),E.simMin||"~25 min")).join("")}</div>`;
   }else if(tab==="drill"){
     body=`<p class="muted">Doce preguntas de una sola sección, al azar. Ideal para atacar tu punto débil.</p><div class="drills">${E.secs.map(sec=>{const st=S.sec[x][sec]||[0,0];const pc=st[1]?st[0]/st[1]:0;return `<button class="drill" data-drill="${sec}"><b>${SEC_LABEL[sec]}</b><span class="bar"><i style="width:${pc*100}%"></i></span><small class="muted mono">${st[1]?Math.round(pc*100)+" % de acierto · "+st[1]+" resp.":"sin datos"}</small></button>`}).join("")}
       <button class="drill" data-rayo="1"><b>Modo Rayo</b><span class="muted" style="font-size:14px">60 segundos, combos y récord</span><small class="mono muted">Récord: ${S.rayo[x]||0}</small></button></div>`;
@@ -1762,7 +1862,7 @@ function viewExam(){
     body=`<div class="card">${E.tricks.map((t,i)=>`<div class="trick"><span class="k">${String(i+1).padStart(2,"0")}</span><h4>${h(t[0])}</h4><p>${h(t[1])}</p></div>`).join("")}</div>`;
   }else if(tab==="format"){
     body=`<div class="card"><div class="scroll-x"><table class="fmt"><thead><tr>${(E.fmtHead||["Sección","Tareas","Tiempo","Detalle"]).map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${E.format.map(f=>`<tr><td><b>${h(f[0])}</b></td><td>${h(f[1])}</td><td class="mono">${h(f[2])}</td><td class="muted">${h(f[3])}</td></tr>`).join("")}</tbody></table></div><p style="margin-bottom:0">${h(E.scoreNote)}</p></div>
-      <p class="muted" style="font-size:14px">Los simulacros de aquí son versiones cortas (${x==="aws"?"20 preguntas, 40 min; el examen real tiene 65":"≈25 min"}) con la misma mezcla de tareas. Los tiempos oficiales son orientativos: consulta siempre la web del organizador antes de inscribirte.</p>`;
+      <p class="muted" style="font-size:14px">Los simulacros de aquí son versiones cortas (${x==="aws"?"20 preguntas, 40 min; el examen real tiene 65":E.simTxt||"≈25 min"}) con la misma mezcla de tareas. Los tiempos oficiales son orientativos: consulta siempre la web del organizador antes de inscribirte.</p>`;
   }else if(tab==="progress"){
     const hs=S.hist.filter(r=>r.x===x).slice(-24);
     body=`<div class="grid2"><div class="card chart"><h3>Tus últimas notas</h3>${hs.length>1?lineChart(hs):'<p class="muted">Haz dos simulacros y aquí verás tu curva.</p>'}</div>
@@ -1798,14 +1898,14 @@ function viewRun(){
   const it=run.items[run.i],s=it.set,q=it.q,x=run.x,n=run.items.length;
   const hasCtx=(s.passage&&q.t!=="open"&&s.sec!=="speaking")||s.audio;
   const showCtx=hasCtx&&!(q.t==="open");
-  const ctx=showCtx?`<aside class="ctx" ${x==="n5"?'lang="ja"':""}>${s.audio?audioBox(it):""}${s.passage&&s.sec!=="listening"?`<div class="passage">${h(s.passage)}</div>`:""}</aside>`:"";
+  const ctx=showCtx?`<aside class="ctx" ${x==="n5"?'lang="ja"':x==="rusa1"?'lang="ru"':""}>${s.audio?audioBox(it):""}${s.passage&&s.sec!=="listening"?`<div class="passage">${h(s.passage)}</div>`:""}</aside>`:"";
   return `<div class="run"><div class="run-top"><div class="run-top-in">
       <button class="x-btn" id="quit" data-key="Esc">Salir</button>
       <div class="progress" aria-label="Pregunta ${run.i+1} de ${n}"><i style="width:${(run.i)/n*100}%"></i></div>
       <span class="mono" style="font-weight:700">${run.i+1}/${n}</span>
       ${run.limit?`<span class="timer" id="timer">${fmtTime(run.limit)}</span>`:`<span class="pill">Estudio</span>`}
     </div></div>
-    <div class="stage ${showCtx?"":"solo"}">${ctx}<section class="qbox" ${x==="n5"?'lang="ja"':""}>
+    <div class="stage ${showCtx?"":"solo"}">${ctx}<section class="qbox" ${x==="n5"?'lang="ja"':x==="rusa1"?'lang="ru"':""}>
       <div class="qtask"><span class="pill">${h(SEC_LABEL[s.sec]||s.sec)}</span><span class="eyebrow">${h(s.task)}</span></div>
       ${q.t==="open"?openTask(it):q.t==="order"&&s.passage?`<div class="passage" style="font-style:italic" lang="en">“${h(s.passage)}”</div>`:""}
       ${q.t!=="open"?`<div class="qtext">${run.mode==="study"?hl(q.q,x):h(q.q)}</div>`:""}
@@ -2338,7 +2438,7 @@ function cmdItems(){
   [["home","Portada · exámenes","H"],["kana","Kana y kanji","K"],["pt","Portugués de Portugal","P"],["plan","Plan de 12 semanas · misiones de hoy","O"],["ru","Ruso desde cero","R"],["certs","Certificados que abren puertas",""],["teclas","Mecanografía · escribir sin mirar (5 idiomas)","E"],["leer","Lecturas con audio · portugués y ruso",""],["libre","Manos libres · estudiar sin tocar nada","L"],["social","Amigos, cuenta, liga y chat","F"],["cards","Tarjetas de repaso","T"],["guide","Guía, plan y tutor","G"]].forEach(([v,l,k])=>add("Ir a",l,()=>go({v}),k));
   Object.keys(EX).forEach(x=>add("Reto",`⚡ Reto del día · ${EX[x].short}`,()=>startReto(x),"","reto diario hoy"));
   Object.keys(EX).forEach((x,i)=>{const E=EX[x],done=S.exams[x]||{},nx=SIMS.find(k=>!done[k]);
-    add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(x==="n5"?" japones jlpt":x==="az900"?" azure microsoft nube casa":x==="psm"?" scrum agile casa":x==="det"?" duolingo ingles casa":" ingles"));
+    add("Examen",`${E.short} · ${E.name}`,()=>{go({v:"exam",x,tab:"sims"});loadBank(x).catch(e=>toast(e.message))},String(i+1),x+(E.kw?" "+E.kw:x==="n5"?" japones jlpt":x==="az900"?" azure microsoft nube casa":x==="psm"?" scrum agile casa":x==="det"?" duolingo ingles casa":" ingles"));
     if(nx)add("Empezar",`${E.short} · ${simName(nx)} (el siguiente que te falta)`,()=>startRun(x,nx,"exam",null,E.short+" · "+simName(nx)));
     add("Estudiar",`${E.short} · ${simName(nx||"s1")} en modo estudio`,()=>startRun(x,nx||"s1","study",null,E.short+" · "+simName(nx||"s1")));
     if(E.full)add("Empezar",`${E.short} · examen real completo`,()=>startRun(x,"full","exam",null,E.short+" · Examen real"))});
@@ -2466,6 +2566,7 @@ function bandFor(x,p,secP){
   if(x==="toefl"){const b=Math.max(1,Math.min(6,Math.round((1+5*p)*2)/2));const cefr=b>=6?"C2":b>=5?"C1":b>=4?"B2":b>=3?"B1":b>=2?"A2":"A1";return{s:"Banda "+b.toFixed(1),sub:"≈ "+cefr+" del MCER",pass:b>=+S.target.toefl}}
   if(x==="det"){const sc=Math.max(10,Math.min(160,Math.round((10+150*p)/5)*5));return{s:sc+" / 160",sub:sc>=120?"≈ IELTS 7":sc>=105?"≈ IELTS 6.5":sc>=95?"≈ IELTS 6":"Por debajo de lo que piden casi todas las universidades (≥ 105)",pass:sc>=+(S.target.det||120)}}
   if(x==="az900"){const sc=Math.round(1+999*p);return{s:sc+" / 1000",sub:"Aprobado con 700 · estimación lineal",pass:sc>=+(S.target.az900||700)}}
+  if(EX[x].pct){const pc=Math.round(p*100);return{s:pc+" / 100",sub:EX[x].pct,pass:pc>=+(S.target[x]||60)}}
   if(x==="psm"){const pc=Math.round(p*100);return{s:pc+" %",sub:"Aprobado con el 85 % (68 de 80)",pass:pc>=+(S.target.psm||85)}}
   if(x==="ielts"){const raw=Math.round(p*40);const t=[[39,9],[37,8.5],[35,8],[32,7.5],[30,7],[26,6.5],[23,6],[18,5.5],[16,5],[13,4.5],[10,4],[8,3.5],[6,3],[4,2.5],[0,2]];const b=t.find(r=>raw>=r[0])[1];return{s:"Banda "+b.toFixed(1),sub:"≈ "+raw+"/40 aciertos equivalentes",pass:b>=+S.target.ielts}}
   const lk=Math.round((secP.lk??p)*120),li=Math.round((secP.li??p)*60),tot=lk+li;const pass=tot>=80&&lk>=38&&li>=19;
@@ -2503,7 +2604,7 @@ function viewResult(){
     <div class="row" style="margin-top:16px"><span class="pill ok">+${r.gained} XP</span><span class="pill">${wrong.length} fallos guardados en tus tarjetas</span></div></div></section>
     <div class="row" style="margin-bottom:24px">${r.reto?`<button class="btn acc" data-go="social">⚡ ${cuenta?"Ver cómo van tus amigos":"Crea tu cuenta y compite con amigos"}</button>`:""}<button class="btn ${r.reto?"ghost":"acc"}" data-exam="${x}">Volver a ${EX[x].short}</button>${wrong.length?`<button class="btn ghost" data-go="cards">Repasar los fallos ahora</button>`:""}</div>
     <div class="sec-title"><h2>Repaso de fallos</h2><span class="muted">Lee el truco de cada uno: aquí se aprende</span></div>
-    <div class="review" ${x==="n5"?'lang="ja"':""}>${wrong.length?wrong.map(({it,i})=>{const q=it.q;const sol=solText(q);const mine=mineText(q,r.ans[i]);
+    <div class="review" ${x==="n5"?'lang="ja"':x==="rusa1"?'lang="ru"':""}>${wrong.length?wrong.map(({it,i})=>{const q=it.q;const sol=solText(q);const mine=mineText(q,r.ans[i]);
       return `<div class="rv"><span class="eyebrow">${h(it.set.task)}</span><div class="q">${hl(q.q,x)}</div><div><span class="pill bad">Tú: ${h(mine)}</span> <span class="pill ok">Bien: ${h(sol)}</span></div><div class="muted" lang="es">${h(q.e||"")}</div>${aiOn?`<button class="btn ghost" style="justify-self:start;padding:8px 14px" data-explain="${i}">Explícamelo mejor</button><div id="ex${i}"></div>`:""}</div>`}).join(""):'<p class="muted">Ni un fallo. Prueba el siguiente simulacro o sube a modo examen.</p>'}</div>`;
 }
 function isRightAns(it,a){const q=it.q;if(q.t==="mcq")return a===q.a;if(q.t==="multi")return Array.isArray(a)&&a.length===q.a.length&&q.a.every(i=>a.includes(i));if(q.t==="fill")return a!=null&&q.a.some(v=>norm(v)===norm(a));if(q.t==="order")return Array.isArray(a)&&a.map(i=>q.w[i]).join(" ")===q.a;return true}
@@ -2533,7 +2634,7 @@ async function prepDeck(m){
   deck={m:m||"todo",cards:shuffle(cards,Math.random),i:0,flipped:false,ok:0,mal:0}}
 function tarFrente(c){if(c.tipo==="k"){const it=c.it;return `<span class="fc-set">${h(KSETS[c.set][0])}${c.nueva?' · <b>nueva</b>':""}</span><div class="fc-big ${it.c.length>8?"largo":""}" lang="${kLang(c.set)}">${h(it.c)}</div>${c.set==="kanji"?`<div class="muted" lang="ja">${h(it.w||"")}</div>`:""}<button class="fc-oir" data-fcoir aria-label="Escuchar">🔊</button>`}
   const q=c.q,t=(c.s.passage&&c.s.sec!=="reading"&&q.t==="order"?"“"+c.s.passage+"”\n":"")+(q.t==="order"?"Ordena: "+q.w.join(" / "):q.q)+(q.t==="mcq"||q.t==="multi"?"\n\n"+q.o.map(o=>"• "+o).join("\n"):"");
-  return `<span class="fc-set">${EX[c.x].short} · ${h(c.s.task)}</span><div class="fc-q" ${c.x==="n5"?'lang="ja"':""}>${h(t)}</div>`}
+  return `<span class="fc-set">${EX[c.x].short} · ${h(c.s.task)}</span><div class="fc-q" ${c.x==="n5"?'lang="ja"':x==="rusa1"?'lang="ru"':""}>${h(t)}</div>`}
 function tarDorso(c){if(c.tipo==="k"){const it=c.it;
     return `<div class="fc-mini" lang="${kLang(c.set)}">${h(it.c)}</div><div class="fc-m">${h(c.set==="hira"||c.set==="kata"?"Se lee «"+it.r+"»":it.m)}</div>${it.r&&c.set!=="hira"&&c.set!=="kata"?`<div class="fc-r">${h(it.r)}</div>`:""}
       ${it.f?`<div class="fc-f"><span lang="${kLang(c.set)}">${h(it.f)}</span><small>${h(it.fe||"")}</small></div>`:""}${it.t?`<p class="fc-t">💡 ${h(it.t)}</p>`:""}`}
@@ -2624,7 +2725,7 @@ function viewRayo(){
     <button class="btn acc" id="rgo">${rayo?.done?"Otra vez":"¡Empezar!"}</button></div>`}
   const q=rayo.q,ord=shuffle(q.o.map((_,i)=>i),rng(rayo.n*7+1));
   return `<div class="ex-head"><div><span class="eyebrow">Modo Rayo · ${EX[x].short}</span><div class="row" style="margin-top:6px"><span class="rayo-num" style="font-size:54px">${rayo.score}</span>${rayo.combo>=3?`<span class="combo">COMBO ×2</span>`:""}</div></div><span class="timer mono" id="rt" style="font-size:28px">${Math.ceil(rayo.left)}</span></div>
-    <div class="qbox" style="max-width:720px" ${x==="n5"?'lang="ja"':""}><div class="qtext">${h(q.q)}</div><div class="opts">${ord.map((oi,k)=>`<button class="opt" data-ro="${oi}"><span class="bub">${kbL(k)}</span><span>${h(q.o[oi])}</span></button>`).join("")}</div></div>`;
+    <div class="qbox" style="max-width:720px" ${x==="n5"?'lang="ja"':x==="rusa1"?'lang="ru"':""}><div class="qtext">${h(q.q)}</div><div class="opts">${ord.map((oi,k)=>`<button class="opt" data-ro="${oi}"><span class="bub">${kbL(k)}</span><span>${h(q.o[oi])}</span></button>`).join("")}</div></div>`;
 }
 function bindRayo(){
   const x=route.x;
